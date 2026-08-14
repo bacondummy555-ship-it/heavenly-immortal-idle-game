@@ -1,15 +1,17 @@
 "use strict";
 
 
-/* ============================================================ */
-/* CONFIG                                                       */
-/* ============================================================ */
+/* ========================================================= */
+/* CONFIG                                                    */
+/* ========================================================= */
 
 const SAVE_KEY =
-    "idleCultivationSaveV2";
+    "idleCultivationSaveV3";
 
-const OLD_SAVE_KEY =
-    "idleCultivationSaveV1";
+const OLD_SAVE_KEYS = [
+    "idleCultivationSaveV2",
+    "idleCultivationSaveV1"
+];
 
 const TICK_RATE =
     1000;
@@ -21,9 +23,9 @@ const MAX_OFFLINE_SECONDS =
     60 * 60 * 12;
 
 
-/* ============================================================ */
-/* REALMS                                                       */
-/* ============================================================ */
+/* ========================================================= */
+/* REALMS                                                    */
+/* ========================================================= */
 
 const REALMS = [
 
@@ -122,9 +124,9 @@ const STAGES = [
 ];
 
 
-/* ============================================================ */
-/* SPIRITUAL ROOTS                                              */
-/* ============================================================ */
+/* ========================================================= */
+/* SPIRITUAL ROOTS                                           */
+/* ========================================================= */
 
 const SPIRITUAL_ROOTS = [
 
@@ -173,9 +175,9 @@ const SPIRITUAL_ROOTS = [
 ];
 
 
-/* ============================================================ */
-/* TECHNIQUES                                                   */
-/* ============================================================ */
+/* ========================================================= */
+/* TECHNIQUES                                                */
+/* ========================================================= */
 
 const TECHNIQUES = [
 
@@ -187,7 +189,7 @@ const TECHNIQUES = [
         soulBonus: 0,
         unlockRealm: 0,
         description:
-            "A basic breathing method used by those beginning the path."
+            "A basic breathing method for beginning cultivators."
     },
 
     {
@@ -198,7 +200,7 @@ const TECHNIQUES = [
         soulBonus: 0.05,
         unlockRealm: 1,
         description:
-            "Circulates spiritual Qi through the meridians like drifting clouds."
+            "Guides spiritual energy gently through the meridians."
     },
 
     {
@@ -209,7 +211,7 @@ const TECHNIQUES = [
         soulBonus: 0.10,
         unlockRealm: 2,
         description:
-            "Draws spiritual energy from heaven and refines it into pure Qi."
+            "Draws pure spiritual energy from heaven."
     },
 
     {
@@ -220,7 +222,7 @@ const TECHNIQUES = [
         soulBonus: 0.15,
         unlockRealm: 4,
         description:
-            "A domineering scripture said to contain fragments of solar Dao."
+            "Refines blazing solar essence."
     },
 
     {
@@ -231,7 +233,7 @@ const TECHNIQUES = [
         soulBonus: 0.25,
         unlockRealm: 6,
         description:
-            "Devours the spiritual essence of heaven and earth."
+            "Devours and refines the essence of heaven and earth."
     },
 
     {
@@ -242,56 +244,15 @@ const TECHNIQUES = [
         soulBonus: 0.50,
         unlockRealm: 9,
         description:
-            "A forbidden scripture tracing its origin to the beginning of creation."
+            "A scripture said to originate before heaven and earth."
     }
 
 ];
 
 
-/* ============================================================ */
-/* WEAPONS                                                      */
-/* ============================================================ */
-
-const WEAPON_NAMES = {
-
-    Common: [
-        "Iron Sword",
-        "Wooden Spirit Blade",
-        "Refined Steel Saber"
-    ],
-
-    Uncommon: [
-        "Spirit Iron Sword",
-        "Emerald Wind Saber",
-        "Moonlight Blade"
-    ],
-
-    Rare: [
-        "Azure Cloud Sword",
-        "Blood Moon Saber",
-        "Thunder Spirit Blade"
-    ],
-
-    Epic: [
-        "Heaven Piercing Sword",
-        "Nine Star Saber",
-        "Dragon Vein Blade"
-    ],
-
-    Legendary: [
-        "Celestial Emperor Sword",
-        "Heaven Devouring Saber",
-        "Primordial Dragon Blade"
-    ],
-
-    Mythic: [
-        "Sword of Dao Origin",
-        "World Severing Immortal Blade",
-        "Chaos Annihilation Sword"
-    ]
-
-};
-
+/* ========================================================= */
+/* WEAPON RARITIES                                           */
+/* ========================================================= */
 
 const RARITIES = [
 
@@ -334,67 +295,405 @@ const RARITIES = [
 ];
 
 
-/* ============================================================ */
-/* DAILY REWARDS                                                */
-/* ============================================================ */
+const WEAPON_NAMES = {
+
+    Common: [
+        "Iron Sword",
+        "Steel Saber",
+        "Spiritwood Blade"
+    ],
+
+    Uncommon: [
+        "Moonlight Blade",
+        "Emerald Saber",
+        "Spirit Iron Sword"
+    ],
+
+    Rare: [
+        "Azure Cloud Sword",
+        "Thunder Spirit Blade",
+        "Blood Moon Saber"
+    ],
+
+    Epic: [
+        "Heaven Piercing Sword",
+        "Dragon Vein Blade",
+        "Nine Star Saber"
+    ],
+
+    Legendary: [
+        "Celestial Emperor Sword",
+        "Heaven Devouring Saber",
+        "Primordial Dragon Blade"
+    ],
+
+    Mythic: [
+        "Sword of Dao Origin",
+        "World Severing Immortal Blade",
+        "Chaos Annihilation Sword"
+    ]
+
+};
+
+
+/* ========================================================= */
+/* ADVENTURE ZONES                                           */
+/* ========================================================= */
+
+const ZONES = [
+
+    {
+        id: "misty-forest",
+
+        name:
+            "Misty Forest",
+
+        description:
+            "A forest near the mortal lands inhabited by weak spirit beasts.",
+
+        requiredRealm:
+            0,
+
+        powerMultiplier:
+            0.65,
+
+        stoneMultiplier:
+            1,
+
+        enemies: [
+            "Fang Wolf",
+            "Horned Rabbit",
+            "Poison Fang Snake",
+            "Wild Spirit Boar",
+            "Black Claw Lynx"
+        ],
+
+        boss:
+            "Ancient Fang Wolf King"
+    },
+
+
+    {
+        id: "spirit-mountain",
+
+        name:
+            "Spirit Mountain",
+
+        description:
+            "A mountain overflowing with spiritual energy and dangerous beasts.",
+
+        requiredRealm:
+            1,
+
+        powerMultiplier:
+            1.25,
+
+        stoneMultiplier:
+            2,
+
+        enemies: [
+            "Rockback Ape",
+            "Storm Eagle",
+            "Ironhide Bear",
+            "Spirit Horn Deer",
+            "Mountain Python"
+        ],
+
+        boss:
+            "Golden-Eyed Mountain Ape"
+    },
+
+
+    {
+        id: "blood-valley",
+
+        name:
+            "Blood Moon Valley",
+
+        description:
+            "An ancient battlefield saturated with killing intent.",
+
+        requiredRealm:
+            2,
+
+        powerMultiplier:
+            2,
+
+        stoneMultiplier:
+            4,
+
+        enemies: [
+            "Blood Demon",
+            "Corpse Puppet",
+            "Crimson Serpent",
+            "Ghost Cultivator",
+            "Bloodwing Bat"
+        ],
+
+        boss:
+            "Blood Moon Demon General"
+    },
+
+
+    {
+        id: "ancient-ruins",
+
+        name:
+            "Ancient Sect Ruins",
+
+        description:
+            "The shattered remains of a sect destroyed thousands of years ago.",
+
+        requiredRealm:
+            3,
+
+        powerMultiplier:
+            3.6,
+
+        stoneMultiplier:
+            7,
+
+        enemies: [
+            "Ancient Guardian",
+            "Sword Puppet",
+            "Ruins Phantom",
+            "Stone Golem",
+            "Corrupted Disciple"
+        ],
+
+        boss:
+            "Ancient Sect Guardian"
+    },
+
+
+    {
+        id: "dragon-abyss",
+
+        name:
+            "Dragon Abyss",
+
+        description:
+            "An abyss carrying traces of an ancient true dragon bloodline.",
+
+        requiredRealm:
+            4,
+
+        powerMultiplier:
+            6,
+
+        stoneMultiplier:
+            12,
+
+        enemies: [
+            "Abyss Drake",
+            "Dragonblood Serpent",
+            "Blackscale Beast",
+            "Abyssal Crocodile",
+            "Dragonbone Wraith"
+        ],
+
+        boss:
+            "Ancient Abyss Dragon"
+    },
+
+
+    {
+        id: "void-rift",
+
+        name:
+            "Void Rift",
+
+        description:
+            "A dimensional tear where terrifying creatures roam.",
+
+        requiredRealm:
+            6,
+
+        powerMultiplier:
+            15,
+
+        stoneMultiplier:
+            30,
+
+        enemies: [
+            "Void Devourer",
+            "Spatial Fiend",
+            "Rift Demon",
+            "Voidwalker",
+            "Star Beast"
+        ],
+
+        boss:
+            "Void Sovereign"
+    }
+
+];
+
+
+/* ========================================================= */
+/* MISSIONS                                                  */
+/* ========================================================= */
+
+const MISSIONS = [
+
+    {
+        id: "first-blood",
+
+        name:
+            "Outer Sect Trial",
+
+        description:
+            "Defeat 5 enemies.",
+
+        type:
+            "kills",
+
+        target:
+            5,
+
+        reward: {
+            stones: 250,
+            statPoints: 2,
+            pills: 1
+        }
+    },
+
+
+    {
+        id: "beast-hunter",
+
+        name:
+            "Spirit Beast Hunter",
+
+        description:
+            "Defeat 15 enemies.",
+
+        type:
+            "kills",
+
+        target:
+            15,
+
+        reward: {
+            stones: 700,
+            statPoints: 3,
+            healingPills: 2
+        }
+    },
+
+
+    {
+        id: "boss-slayer",
+
+        name:
+            "Slay a Region Lord",
+
+        description:
+            "Defeat 1 boss.",
+
+        type:
+            "bosses",
+
+        target:
+            1,
+
+        reward: {
+            stones: 1200,
+            statPoints: 5,
+            weapon: true
+        }
+    },
+
+
+    {
+        id: "seasoned-warrior",
+
+        name:
+            "Seasoned Disciple",
+
+        description:
+            "Win 30 battles.",
+
+        type:
+            "victories",
+
+        target:
+            30,
+
+        reward: {
+            stones: 2500,
+            statPoints: 8,
+            pills: 3
+        }
+    },
+
+
+    {
+        id: "great-hunter",
+
+        name:
+            "Inner Sect Hunter",
+
+        description:
+            "Defeat 5 bosses.",
+
+        type:
+            "bosses",
+
+        target:
+            5,
+
+        reward: {
+            stones: 6000,
+            statPoints: 12,
+            weapon: true
+        }
+    }
+
+];
+
+
+/* ========================================================= */
+/* DAILY REWARDS                                             */
+/* ========================================================= */
 
 const DAILY_REWARDS = [
 
     {
-        stones: 100,
-        pills: 0,
-        manuals: 0,
-        weapon: false
+        stones: 100
     },
 
     {
-        stones: 0,
-        pills: 1,
-        manuals: 0,
-        weapon: false
+        pills: 1
     },
 
     {
-        stones: 250,
-        pills: 0,
-        manuals: 0,
-        weapon: false
+        healingPills: 2
     },
 
     {
-        stones: 0,
-        pills: 2,
-        manuals: 0,
-        weapon: false
+        pills: 2
     },
 
     {
-        stones: 0,
-        pills: 0,
-        manuals: 1,
-        weapon: false
+        stones: 500
     },
 
     {
-        stones: 500,
-        pills: 0,
-        manuals: 0,
-        weapon: false
+        statPoints: 3
     },
 
     {
         stones: 1000,
-        pills: 2,
-        manuals: 0,
         weapon: true
     }
 
 ];
 
 
-/* ============================================================ */
-/* DEFAULT STATE                                                */
-/* ============================================================ */
+/* ========================================================= */
+/* DEFAULT SAVE                                              */
+/* ========================================================= */
 
 function createDefaultGameState() {
 
@@ -421,6 +720,9 @@ function createDefaultGameState() {
         pills:
             0,
 
+        healingPills:
+            3,
+
         manuals:
             0,
 
@@ -442,6 +744,9 @@ function createDefaultGameState() {
                 10
 
         },
+
+        health:
+            100,
 
         spiritualRoot:
             generateSpiritualRoot(),
@@ -468,11 +773,35 @@ function createDefaultGameState() {
         lastSignIn:
             null,
 
-        lastPlayed:
-            Date.now(),
+        selectedZone:
+            "misty-forest",
 
-        createdAt:
-            Date.now(),
+        currentEnemy:
+            null,
+
+        victories:
+            0,
+
+        defeats:
+            0,
+
+        enemiesSlain:
+            0,
+
+        bossesSlain:
+            0,
+
+        expeditions:
+            0,
+
+        missionClaims:
+            {},
+
+        zoneBossProgress:
+            {},
+
+        battleLog:
+            [],
 
         log: [
 
@@ -487,16 +816,44 @@ function createDefaultGameState() {
                     true
             }
 
-        ]
+        ],
+
+        lastPlayed:
+            Date.now(),
+
+        createdAt:
+            Date.now()
 
     };
 
 }
 
 
-/* ============================================================ */
-/* SPIRITUAL ROOT GENERATION                                    */
-/* ============================================================ */
+/* ========================================================= */
+/* GAME STATE                                                */
+/* ========================================================= */
+
+let game =
+    createDefaultGameState();
+
+let pendingOfflineQi =
+    0;
+
+
+/* ========================================================= */
+/* DOM HELPERS                                               */
+/* ========================================================= */
+
+function byId(id) {
+
+    return document.getElementById(id);
+
+}
+
+
+/* ========================================================= */
+/* RANDOM ROOT                                               */
+/* ========================================================= */
 
 function generateSpiritualRoot() {
 
@@ -528,168 +885,84 @@ function generateSpiritualRoot() {
 }
 
 
-/* ============================================================ */
-/* STATE                                                        */
-/* ============================================================ */
+/* ========================================================= */
+/* DATA HELPERS                                              */
+/* ========================================================= */
 
-let game =
-    createDefaultGameState();
+function getCurrentRealm() {
 
-let pendingOfflineQi =
-    0;
-
-
-/* ============================================================ */
-/* DOM                                                          */
-/* ============================================================ */
-
-function byId(id) {
-
-    return document.getElementById(id);
+    return REALMS[
+        game.realmIndex
+    ];
 
 }
 
 
-const playerNameDisplay =
-    byId("playerNameDisplay");
+function getCurrentRoot() {
 
-const realmDisplay =
-    byId("realmDisplay");
+    return (
+        SPIRITUAL_ROOTS.find(
+            root =>
+                root.name ===
+                game.spiritualRoot
+        ) ||
+        SPIRITUAL_ROOTS[0]
+    );
 
-const stageDisplay =
-    byId("stageDisplay");
-
-const spiritualRootDisplay =
-    byId("spiritualRootDisplay");
-
-const rootBonusDisplay =
-    byId("rootBonusDisplay");
-
-const mainRealmDisplay =
-    byId("mainRealmDisplay");
-
-const combatPowerDisplay =
-    byId("combatPowerDisplay");
-
-const qiPerSecondDisplay =
-    byId("qiPerSecondDisplay");
-
-const spiritStoneDisplay =
-    byId("spiritStoneDisplay");
-
-const statPointDisplay =
-    byId("statPointDisplay");
-
-const breakthroughCountDisplay =
-    byId("breakthroughCountDisplay");
-
-const totalQiDisplay =
-    byId("totalQiDisplay");
-
-const strengthDisplay =
-    byId("strengthDisplay");
-
-const constitutionDisplay =
-    byId("constitutionDisplay");
-
-const soulDisplay =
-    byId("soulDisplay");
-
-const qiProgressText =
-    byId("qiProgressText");
-
-const qiProgressBar =
-    byId("qiProgressBar");
-
-const breakthroughChanceDisplay =
-    byId("breakthroughChanceDisplay");
-
-const activeTechniqueDisplay =
-    byId("activeTechniqueDisplay");
-
-const techniqueBonusDisplay =
-    byId("techniqueBonusDisplay");
-
-const techniqueMasteryBar =
-    byId("techniqueMasteryBar");
-
-const techniqueMasteryText =
-    byId("techniqueMasteryText");
-
-const cultivateButton =
-    byId("cultivateButton");
-
-const breakthroughButton =
-    byId("breakthroughButton");
-
-const signInButton =
-    byId("signInButton");
-
-const usePillButton =
-    byId("usePillButton");
-
-const systemMessage =
-    byId("systemMessage");
-
-const pillCountDisplay =
-    byId("pillCountDisplay");
-
-const inventoryStoneDisplay =
-    byId("inventoryStoneDisplay");
-
-const manualCountDisplay =
-    byId("manualCountDisplay");
-
-const weaponCountDisplay =
-    byId("weaponCountDisplay");
-
-const equippedWeaponName =
-    byId("equippedWeaponName");
-
-const equippedWeaponStats =
-    byId("equippedWeaponStats");
-
-const streakDisplay =
-    byId("streakDisplay");
-
-const dailyStatus =
-    byId("dailyStatus");
-
-const techniqueList =
-    byId("techniqueList");
-
-const cultivationLog =
-    byId("cultivationLog");
-
-const realmPath =
-    byId("realmPath");
-
-const notificationContainer =
-    byId("notificationContainer");
-
-const statusModal =
-    byId("statusModal");
-
-const equipmentModal =
-    byId("equipmentModal");
-
-const offlineModal =
-    byId("offlineModal");
-
-const offlineTimeDisplay =
-    byId("offlineTimeDisplay");
-
-const offlineQiDisplay =
-    byId("offlineQiDisplay");
+}
 
 
-/* ============================================================ */
-/* HELPERS                                                      */
-/* ============================================================ */
+function getCurrentTechnique() {
+
+    return (
+        TECHNIQUES.find(
+            technique =>
+                technique.id ===
+                game.activeTechnique
+        ) ||
+        TECHNIQUES[0]
+    );
+
+}
+
+
+function getEquippedWeapon() {
+
+    return (
+        game.weapons.find(
+            weapon =>
+                weapon.id ===
+                game.equippedWeaponId
+        ) ||
+        null
+    );
+
+}
+
+
+function getSelectedZone() {
+
+    return (
+        ZONES.find(
+            zone =>
+                zone.id ===
+                game.selectedZone
+        ) ||
+        ZONES[0]
+    );
+
+}
+
+
+/* ========================================================= */
+/* FORMATTING                                                */
+/* ========================================================= */
 
 function formatNumber(number) {
 
-    if (!Number.isFinite(number)) {
+    if (
+        !Number.isFinite(number)
+    ) {
         return "0";
     }
 
@@ -701,11 +974,6 @@ function formatNumber(number) {
     }
 
     const units = [
-
-        {
-            value: 1e18,
-            symbol: "Qi"
-        },
 
         {
             value: 1e15,
@@ -734,19 +1002,25 @@ function formatNumber(number) {
 
     ];
 
-    for (const unit of units) {
+    for (
+        const unit
+        of units
+    ) {
 
-        if (number >= unit.value) {
+        if (
+            number >=
+            unit.value
+        ) {
 
-            const result =
+            const value =
                 number /
                 unit.value;
 
             return (
-                result.toFixed(
-                    result >= 100
+                value.toFixed(
+                    value >= 100
                         ? 0
-                        : result >= 10
+                        : value >= 10
                             ? 1
                             : 2
                 ) +
@@ -770,8 +1044,11 @@ function getCurrentTime() {
         .toLocaleTimeString(
             [],
             {
-                hour: "2-digit",
-                minute: "2-digit"
+                hour:
+                    "2-digit",
+
+                minute:
+                    "2-digit"
             }
         );
 
@@ -804,89 +1081,53 @@ function getDateString(date) {
 }
 
 
-/* ============================================================ */
-/* CURRENT OBJECTS                                              */
-/* ============================================================ */
+/* ========================================================= */
+/* CHARACTER CALCULATIONS                                    */
+/* ========================================================= */
 
-function getCurrentRealm() {
+function getMaxHealth() {
 
-    return REALMS[
-        game.realmIndex
-    ];
+    const base =
+        100;
 
-}
+    const constitution =
+        game.attributes.constitution;
 
+    const realmBonus =
+        game.realmIndex *
+        80;
 
-function getCurrentTechnique() {
+    const stageBonus =
+        game.stageIndex *
+        25;
 
-    return (
-        TECHNIQUES.find(
-            technique =>
-                technique.id ===
-                game.activeTechnique
-        ) ||
-        TECHNIQUES[0]
+    return Math.floor(
+        base +
+        constitution *
+        10 +
+        realmBonus +
+        stageBonus
     );
 
 }
 
-
-function getCurrentRoot() {
-
-    return (
-        SPIRITUAL_ROOTS.find(
-            root =>
-                root.name ===
-                game.spiritualRoot
-        ) ||
-        SPIRITUAL_ROOTS[0]
-    );
-
-}
-
-
-function getEquippedWeapon() {
-
-    if (!game.equippedWeaponId) {
-        return null;
-    }
-
-    return (
-        game.weapons.find(
-            weapon =>
-                weapon.id ===
-                game.equippedWeaponId
-        ) ||
-        null
-    );
-
-}
-
-
-/* ============================================================ */
-/* REQUIREMENTS                                                 */
-/* ============================================================ */
 
 function getQiRequirement() {
 
     const realm =
         getCurrentRealm();
 
-    const stageMultiplier =
-        1 +
-        game.stageIndex * 0.65;
-
     return Math.floor(
         realm.baseRequirement *
-        stageMultiplier
+        (
+            1 +
+            game.stageIndex *
+            0.65
+        )
     );
 
 }
 
-
-/* ============================================================ */
-/* TECHNIQUE MASTERY                                            */
-/* ============================================================ */
 
 function getTechniqueMastery(
     techniqueId =
@@ -903,9 +1144,211 @@ function getTechniqueMastery(
 }
 
 
-function increaseTechniqueMastery(
-    amount
-) {
+function getQiPerSecond() {
+
+    const realm =
+        getCurrentRealm();
+
+    const technique =
+        getCurrentTechnique();
+
+    const root =
+        getCurrentRoot();
+
+    const mastery =
+        getTechniqueMastery();
+
+    const stageBonus =
+        1 +
+        game.stageIndex *
+        0.25;
+
+    const soulBonus =
+        1 +
+        Math.max(
+            0,
+            game.attributes.soul -
+            10
+        ) *
+        0.012;
+
+    const manualBonus =
+        1 +
+        game.manuals *
+        0.12;
+
+    const breakthroughBonus =
+        1 +
+        game.breakthroughCount *
+        0.02;
+
+    return (
+        realm.qiMultiplier *
+        stageBonus *
+        soulBonus *
+        manualBonus *
+        breakthroughBonus *
+        (
+            1 +
+            technique.qiBonus
+        ) *
+        (
+            1 +
+            root.qiBonus
+        ) *
+        (
+            1 +
+            mastery *
+            0.002
+        )
+    );
+
+}
+
+
+function getCombatPower() {
+
+    const realm =
+        getCurrentRealm();
+
+    const technique =
+        getCurrentTechnique();
+
+    const weapon =
+        getEquippedWeapon();
+
+    const strength =
+        1 +
+        game.attributes.strength *
+        0.04;
+
+    const constitution =
+        1 +
+        game.attributes.constitution *
+        0.02;
+
+    const soul =
+        1 +
+        game.attributes.soul *
+        0.025;
+
+    const stage =
+        1 +
+        game.stageIndex *
+        0.5;
+
+    const weaponPower =
+        weapon
+            ? weapon.power
+            : 0;
+
+    return Math.floor(
+        (
+            10 *
+            realm.combatMultiplier *
+            strength *
+            constitution *
+            soul *
+            stage *
+            (
+                1 +
+                technique.soulBonus
+            )
+        ) +
+        weaponPower
+    );
+
+}
+
+
+function getBreakthroughChance() {
+
+    const root =
+        getCurrentRoot();
+
+    const constitutionBonus =
+        Math.max(
+            0,
+            game.attributes.constitution -
+            10
+        ) *
+        0.3;
+
+    let chance =
+        100 -
+        game.realmIndex *
+        4 -
+        game.stageIndex *
+        6;
+
+    chance +=
+        constitutionBonus;
+
+    chance +=
+        root.breakthroughBonus;
+
+    return Math.max(
+        35,
+        Math.min(
+            100,
+            chance
+        )
+    );
+
+}
+
+
+/* ========================================================= */
+/* CULTIVATION                                               */
+/* ========================================================= */
+
+function addQi(amount) {
+
+    if (
+        amount <= 0 ||
+        !Number.isFinite(amount)
+    ) {
+        return;
+    }
+
+    game.qi +=
+        amount;
+
+    game.totalQi +=
+        amount;
+
+}
+
+
+function manuallyCultivate(event) {
+
+    const amount =
+        getQiPerSecond() *
+        2.5;
+
+    addQi(
+        amount
+    );
+
+    increaseTechniqueMastery(
+        0.12
+    );
+
+    createFloatingQi(
+        event,
+        amount
+    );
+
+    setSystemMessage(
+        `You circulated ${getCurrentTechnique().name} and absorbed ${formatNumber(amount)} Qi.`
+    );
+
+    render();
+
+}
+
+
+function increaseTechniqueMastery(amount) {
 
     if (
         !game.techniqueMastery[
@@ -933,325 +1376,44 @@ function increaseTechniqueMastery(
 }
 
 
-/* ============================================================ */
-/* QI RATE                                                      */
-/* ============================================================ */
+/* ========================================================= */
+/* BREAKTHROUGH                                              */
+/* ========================================================= */
 
-function getQiPerSecond() {
+function attemptBreakthrough() {
 
-    const realm =
-        getCurrentRealm();
-
-    const technique =
-        getCurrentTechnique();
-
-    const root =
-        getCurrentRoot();
-
-    const mastery =
-        getTechniqueMastery();
-
-    const stageBonus =
-        1 +
-        game.stageIndex *
-        0.25;
-
-    const manualBonus =
-        1 +
-        game.manuals *
-        0.12;
-
-    const breakthroughBonus =
-        1 +
-        game.breakthroughCount *
-        0.02;
-
-    const soulBonus =
-        1 +
-        Math.max(
-            0,
-            game.attributes.soul - 10
-        ) *
-        0.012;
-
-    const techniqueBonus =
-        1 +
-        technique.qiBonus;
-
-    const masteryBonus =
-        1 +
-        mastery *
-        0.002;
-
-    const rootBonus =
-        1 +
-        root.qiBonus;
-
-    return (
-        realm.qiMultiplier *
-        stageBonus *
-        manualBonus *
-        breakthroughBonus *
-        soulBonus *
-        techniqueBonus *
-        masteryBonus *
-        rootBonus
-    );
-
-}
-
-
-/* ============================================================ */
-/* CLICK QI                                                     */
-/* ============================================================ */
-
-function getClickQi() {
-
-    return Math.max(
-        1,
-        getQiPerSecond() *
-        2.5
-    );
-
-}
-
-
-/* ============================================================ */
-/* COMBAT POWER                                                 */
-/* ============================================================ */
-
-function getCombatPower() {
-
-    const realm =
-        getCurrentRealm();
-
-    const weapon =
-        getEquippedWeapon();
-
-    const technique =
-        getCurrentTechnique();
-
-    const base =
-        10 *
-        realm.combatMultiplier;
-
-    const stageBonus =
-        1 +
-        game.stageIndex *
-        0.5;
-
-    const strengthBonus =
-        1 +
-        game.attributes.strength *
-        0.04;
-
-    const constitutionBonus =
-        1 +
-        game.attributes.constitution *
-        0.02;
-
-    const soulBonus =
-        1 +
-        game.attributes.soul *
-        0.025;
-
-    const techniqueBonus =
-        1 +
-        technique.soulBonus;
-
-    const weaponPower =
-        weapon
-            ? weapon.power
-            : 0;
-
-    return Math.floor(
-        base *
-        stageBonus *
-        strengthBonus *
-        constitutionBonus *
-        soulBonus *
-        techniqueBonus +
-        weaponPower
-    );
-
-}
-
-
-/* ============================================================ */
-/* BREAKTHROUGH CHANCE                                          */
-/* ============================================================ */
-
-function getBreakthroughChance() {
-
-    const root =
-        getCurrentRoot();
-
-    let chance =
-        100 -
-        game.realmIndex *
-        4 -
-        game.stageIndex *
-        6;
-
-    const constitutionBonus =
-        Math.max(
-            0,
-            game.attributes.constitution -
-            10
-        ) *
-        0.3;
-
-    chance +=
-        constitutionBonus;
-
-    chance +=
-        root.breakthroughBonus;
-
-    return Math.min(
-        100,
-        Math.max(
-            35,
-            chance
-        )
-    );
-
-}
-
-
-/* ============================================================ */
-/* ADD QI                                                       */
-/* ============================================================ */
-
-function addQi(amount) {
-
-    if (
-        !Number.isFinite(amount) ||
-        amount <= 0
-    ) {
-        return;
-    }
-
-    game.qi += amount;
-
-    game.totalQi += amount;
-
-}
-
-
-/* ============================================================ */
-/* MANUAL CULTIVATION                                           */
-/* ============================================================ */
-
-function manuallyCultivate(event) {
-
-    const amount =
-        getClickQi();
-
-    addQi(amount);
-
-    increaseTechniqueMastery(
-        0.12
-    );
-
-    createFloatingQi(
-        event,
-        amount
-    );
-
-    setSystemMessage(
-        `You circulated ${getCurrentTechnique().name} and absorbed ${formatNumber(amount)} Qi.`
-    );
-
-    render();
-
-}
-
-
-/* ============================================================ */
-/* ATTRIBUTES                                                   */
-/* ============================================================ */
-
-function upgradeAttribute(stat) {
-
-    if (game.statPoints <= 0) {
+    if (game.currentEnemy) {
 
         notify(
-            "You have no unused Attribute Points.",
+            "You cannot attempt a breakthrough while fighting.",
             "error"
         );
 
         return;
     }
-
-    if (
-        !Object.prototype.hasOwnProperty.call(
-            game.attributes,
-            stat
-        )
-    ) {
-        return;
-    }
-
-    game.attributes[
-        stat
-    ] += 1;
-
-    game.statPoints -= 1;
-
-    notify(
-        `${capitalize(stat)} increased to ${game.attributes[stat]}.`,
-        "success"
-    );
-
-    setSystemMessage(
-        `Your ${capitalize(stat)} has strengthened.`
-    );
-
-    saveGame();
-
-    render();
-
-}
-
-
-function capitalize(text) {
-
-    return (
-        text.charAt(0)
-            .toUpperCase() +
-        text.slice(1)
-    );
-
-}
-
-
-/* ============================================================ */
-/* BREAKTHROUGH                                                 */
-/* ============================================================ */
-
-function attemptBreakthrough() {
 
     const requirement =
         getQiRequirement();
 
-    if (game.qi < requirement) {
+    if (
+        game.qi <
+        requirement
+    ) {
 
         notify(
-            `You require ${formatNumber(requirement - game.qi)} more Qi.`,
+            `You need ${formatNumber(requirement - game.qi)} more Qi.`,
             "error"
         );
 
         return;
     }
 
-    const chance =
+    const success =
+        Math.random() *
+        100 <=
         getBreakthroughChance();
 
-    const roll =
-        Math.random() *
-        100;
-
-    if (roll <= chance) {
+    if (success) {
 
         game.qi -=
             requirement;
@@ -1271,44 +1433,30 @@ function attemptBreakthrough() {
         game.attributes.soul +=
             1;
 
-        const oldRealm =
-            getCurrentRealm().name;
-
-        const oldStage =
-            STAGES[
-                game.stageIndex
-            ];
 
         if (
             game.stageIndex <
-            STAGES.length - 1
+            STAGES.length -
+            1
         ) {
 
             game.stageIndex +=
                 1;
 
-            const newStage =
-                STAGES[
-                    game.stageIndex
-                ];
-
-            addLog(
-                `Breakthrough successful: ${oldRealm} ${oldStage} → ${oldRealm} ${newStage}.`,
-                true
-            );
-
             notify(
-                `突破成功 — ${oldRealm} ${newStage}`,
+                `Breakthrough successful — ${getCurrentRealm().name} ${STAGES[game.stageIndex]}!`,
                 "success"
             );
 
-            setSystemMessage(
-                "Your meridians expanded and your physical body grew stronger."
+            addLog(
+                `You reached ${getCurrentRealm().name} ${STAGES[game.stageIndex]}.`,
+                true
             );
 
         } else if (
             game.realmIndex <
-            REALMS.length - 1
+            REALMS.length -
+            1
         ) {
 
             game.realmIndex +=
@@ -1316,9 +1464,6 @@ function attemptBreakthrough() {
 
             game.stageIndex =
                 0;
-
-            const newRealm =
-                getCurrentRealm().name;
 
             game.statPoints +=
                 7;
@@ -1332,52 +1477,47 @@ function attemptBreakthrough() {
             game.attributes.soul +=
                 3;
 
-            addLog(
-                `Heaven and earth trembled as you entered the ${newRealm} Realm.`,
-                true
-            );
+            grantRealmReward();
 
             notify(
-                `境界突破 — ${newRealm}!`,
+                `境界突破 — ${getCurrentRealm().name}!`,
                 "success"
             );
 
-            setSystemMessage(
-                `Congratulations, Host. Your cultivation has reached ${newRealm}.`
+            addLog(
+                `Heaven and earth trembled as Jiang Chue entered the ${getCurrentRealm().name} Realm.`,
+                true
             );
-
-            grantRealmReward();
-
-            checkTechniqueUnlocks();
 
         }
 
+        game.health =
+            getMaxHealth();
+
     } else {
 
-        const qiLost =
-            Math.floor(
-                requirement *
-                0.12
-            );
+        const lost =
+            getQiRequirement() *
+            0.12;
 
         game.qi =
             Math.max(
                 0,
                 game.qi -
-                qiLost
+                lost
             );
 
-        addLog(
-            `Breakthrough failed. ${formatNumber(qiLost)} Qi was lost.`
-        );
+        game.health =
+            Math.max(
+                1,
+                game.health -
+                getMaxHealth() *
+                0.1
+            );
 
         notify(
-            "Breakthrough failed. Your foundation was shaken.",
+            "Breakthrough failed. Your meridians were injured.",
             "error"
-        );
-
-        setSystemMessage(
-            "Your meridians tremble. Stabilize your foundation before attempting another breakthrough."
         );
 
     }
@@ -1388,10 +1528,6 @@ function attemptBreakthrough() {
 
 }
 
-
-/* ============================================================ */
-/* REALM REWARD                                                 */
-/* ============================================================ */
 
 function grantRealmReward() {
 
@@ -1421,67 +1557,8 @@ function grantRealmReward() {
         0.45
     ) {
 
-        const weapon =
-            generateWeapon();
-
         game.weapons.push(
-            weapon
-        );
-
-        addLog(
-            `Realm reward: ${weapon.rarity} ${weapon.name}.`,
-            true
-        );
-
-    }
-
-    addLog(
-        `Realm reward: ${formatNumber(stones)} Spirit Stones.`,
-        true
-    );
-
-}
-
-
-/* ============================================================ */
-/* TECHNIQUE UNLOCK                                             */
-/* ============================================================ */
-
-function checkTechniqueUnlocks() {
-
-    const unlocked =
-        TECHNIQUES.filter(
-            technique =>
-                technique.unlockRealm ===
-                game.realmIndex
-        );
-
-    for (
-        const technique
-        of unlocked
-    ) {
-
-        if (
-            !Object.prototype.hasOwnProperty.call(
-                game.techniqueMastery,
-                technique.id
-            )
-        ) {
-
-            game.techniqueMastery[
-                technique.id
-            ] = 0;
-
-        }
-
-        notify(
-            `New Technique Unlocked: ${technique.name}`,
-            "success"
-        );
-
-        addLog(
-            `The System unlocked ${technique.name}.`,
-            true
+            generateWeapon()
         );
 
     }
@@ -1489,62 +1566,55 @@ function checkTechniqueUnlocks() {
 }
 
 
-/* ============================================================ */
-/* TECHNIQUE EQUIP                                              */
-/* ============================================================ */
+/* ========================================================= */
+/* ATTRIBUTE UPGRADES                                       */
+/* ========================================================= */
 
-function equipTechnique(
-    techniqueId
-) {
-
-    const technique =
-        TECHNIQUES.find(
-            item =>
-                item.id ===
-                techniqueId
-        );
-
-    if (!technique) {
-        return;
-    }
+function upgradeAttribute(stat) {
 
     if (
-        game.realmIndex <
-        technique.unlockRealm
+        game.statPoints <=
+        0
     ) {
 
         notify(
-            `Reach ${REALMS[technique.unlockRealm].name} to learn this technique.`,
+            "You have no Attribute Points.",
             "error"
         );
 
         return;
     }
 
-    game.activeTechnique =
-        technique.id;
-
     if (
         !Object.prototype.hasOwnProperty.call(
-            game.techniqueMastery,
-            technique.id
+            game.attributes,
+            stat
         )
     ) {
-
-        game.techniqueMastery[
-            technique.id
-        ] = 0;
-
+        return;
     }
 
-    notify(
-        `${technique.name} is now your active cultivation technique.`,
-        "success"
-    );
+    game.attributes[
+        stat
+    ] +=
+        1;
 
-    addLog(
-        `You began cultivating the ${technique.name}.`
-    );
+    game.statPoints -=
+        1;
+
+    if (
+        stat ===
+        "constitution"
+    ) {
+
+        game.health =
+            Math.min(
+                getMaxHealth(),
+                game.health +
+                10
+            );
+
+    }
 
     saveGame();
 
@@ -1553,16 +1623,19 @@ function equipTechnique(
 }
 
 
-/* ============================================================ */
-/* PILLS                                                        */
-/* ============================================================ */
+/* ========================================================= */
+/* PILLS                                                     */
+/* ========================================================= */
 
 function useCultivationPill() {
 
-    if (game.pills <= 0) {
+    if (
+        game.pills <=
+        0
+    ) {
 
         notify(
-            "You possess no Cultivation Pills.",
+            "You have no Cultivation Pills.",
             "error"
         );
 
@@ -1587,12 +1660,8 @@ function useCultivationPill() {
         0.5
     );
 
-    addLog(
-        `You consumed a Cultivation Pill and refined ${formatNumber(reward)} Qi.`
-    );
-
     notify(
-        `+${formatNumber(reward)} Qi`,
+        `Cultivation Pill refined: +${formatNumber(reward)} Qi.`,
         "success"
     );
 
@@ -1603,20 +1672,166 @@ function useCultivationPill() {
 }
 
 
-/* ============================================================ */
-/* WEAPON GENERATION                                            */
-/* ============================================================ */
+function useHealingPill() {
 
-function chooseRarity() {
+    if (
+        game.healingPills <=
+        0
+    ) {
+
+        notify(
+            "You have no Healing Pills.",
+            "error"
+        );
+
+        return false;
+    }
+
+    if (
+        game.health >=
+        getMaxHealth()
+    ) {
+
+        notify(
+            "Your health is already full.",
+            "error"
+        );
+
+        return false;
+    }
+
+    game.healingPills -=
+        1;
+
+    const healing =
+        getMaxHealth() *
+        0.45;
+
+    game.health =
+        Math.min(
+            getMaxHealth(),
+            game.health +
+            healing
+        );
+
+    notify(
+        `Healing Pill restored ${formatNumber(healing)} health.`,
+        "success"
+    );
+
+    addBattleLog(
+        `Jiang Chue consumed a Healing Pill and recovered ${formatNumber(healing)} health.`
+    );
+
+    saveGame();
+
+    render();
+
+    return true;
+
+}
+
+
+/* ========================================================= */
+/* TECHNIQUES                                                */
+/* ========================================================= */
+
+function equipTechnique(id) {
+
+    const technique =
+        TECHNIQUES.find(
+            item =>
+                item.id ===
+                id
+        );
+
+    if (!technique) {
+        return;
+    }
+
+    if (
+        game.realmIndex <
+        technique.unlockRealm
+    ) {
+
+        notify(
+            `Reach ${REALMS[technique.unlockRealm].name} first.`,
+            "error"
+        );
+
+        return;
+    }
+
+    game.activeTechnique =
+        technique.id;
+
+    if (
+        !game.techniqueMastery[
+            technique.id
+        ]
+    ) {
+
+        game.techniqueMastery[
+            technique.id
+        ] = 0;
+
+    }
+
+    notify(
+        `${technique.name} equipped.`,
+        "success"
+    );
+
+    saveGame();
+
+    render();
+
+}
+
+
+/* ========================================================= */
+/* WEAPON GENERATION                                        */
+/* ========================================================= */
+
+function chooseRarity(
+    minimumRarity =
+        null
+) {
+
+    let available =
+        [...RARITIES];
+
+    if (minimumRarity) {
+
+        const minimumIndex =
+            RARITIES.findIndex(
+                item =>
+                    item.name ===
+                    minimumRarity
+            );
+
+        if (
+            minimumIndex >=
+            0
+        ) {
+
+            available =
+                RARITIES.slice(
+                    minimumIndex
+                );
+
+        }
+
+    }
 
     const total =
-        RARITIES.reduce(
+        available.reduce(
             (
                 sum,
-                rarity
+                item
             ) =>
                 sum +
-                rarity.weight,
+                item.weight,
             0
         );
 
@@ -1625,32 +1840,48 @@ function chooseRarity() {
         total;
 
     for (
-        const rarity
-        of RARITIES
+        const item
+        of available
     ) {
 
         roll -=
-            rarity.weight;
+            item.weight;
 
-        if (roll <= 0) {
-            return rarity;
+        if (
+            roll <=
+            0
+        ) {
+            return item;
         }
 
     }
 
-    return RARITIES[0];
+    return available[0];
 
 }
 
 
-function generateWeapon() {
+function generateWeapon(
+    guaranteedRarity =
+        null
+) {
 
     const rarity =
-        chooseRarity();
+        guaranteedRarity
+            ? RARITIES.find(
+                item =>
+                    item.name ===
+                    guaranteedRarity
+            )
+            : chooseRarity();
+
+    const safeRarity =
+        rarity ||
+        RARITIES[0];
 
     const names =
         WEAPON_NAMES[
-            rarity.name
+            safeRarity.name
         ];
 
     const name =
@@ -1671,18 +1902,6 @@ function generateWeapon() {
             )
         );
 
-    const power =
-        Math.floor(
-            25 *
-            rarity.multiplier *
-            realmScaling *
-            (
-                0.85 +
-                Math.random() *
-                0.3
-            )
-        );
-
     return {
 
         id:
@@ -1691,31 +1910,32 @@ function generateWeapon() {
         name,
 
         rarity:
-            rarity.name,
+            safeRarity.name,
 
-        power,
-
-        obtainedAt:
-            Date.now()
+        power:
+            Math.floor(
+                25 *
+                safeRarity.multiplier *
+                realmScaling *
+                (
+                    0.85 +
+                    Math.random() *
+                    0.3
+                )
+            )
 
     };
 
 }
 
 
-/* ============================================================ */
-/* EQUIP WEAPON                                                 */
-/* ============================================================ */
-
-function equipWeapon(
-    weaponId
-) {
+function equipWeapon(id) {
 
     const weapon =
         game.weapons.find(
             item =>
                 item.id ===
-                weaponId
+                id
         );
 
     if (!weapon) {
@@ -1730,10 +1950,6 @@ function equipWeapon(
         "success"
     );
 
-    addLog(
-        `You equipped the ${weapon.name}.`
-    );
-
     saveGame();
 
     render();
@@ -1743,66 +1959,161 @@ function equipWeapon(
 }
 
 
-/* ============================================================ */
-/* RANDOM EVENTS                                                */
-/* ============================================================ */
+/* ========================================================= */
+/* EXPLORATION                                               */
+/* ========================================================= */
 
-function rollRandomEvent() {
+function selectZone(id) {
 
     if (
-        Math.random() >
-        0.035
+        game.currentEnemy
     ) {
         return;
     }
 
+    const zone =
+        ZONES.find(
+            item =>
+                item.id ===
+                id
+        );
+
+    if (!zone) {
+        return;
+    }
+
+    if (
+        game.realmIndex <
+        zone.requiredRealm
+    ) {
+
+        notify(
+            `You must reach ${REALMS[zone.requiredRealm].name} to enter this region.`,
+            "error"
+        );
+
+        return;
+    }
+
+    game.selectedZone =
+        zone.id;
+
+    renderAdventure();
+
+}
+
+
+function exploreZone() {
+
+    if (
+        game.currentEnemy
+    ) {
+        return;
+    }
+
+    const zone =
+        getSelectedZone();
+
+    game.expeditions +=
+        1;
+
     const roll =
         Math.random();
 
-    if (roll < 0.35) {
 
-        const qi =
-            getQiPerSecond() *
-            25;
+    /*
+        68% enemy
+        12% treasure
+        8% stones
+        5% pill
+        4% healing pill
+        3% rare treasure
+    */
 
-        addQi(qi);
-
-        notify(
-            `Enlightenment! +${formatNumber(qi)} Qi.`,
-            "success"
-        );
-
-        addLog(
-            `You entered enlightenment and absorbed ${formatNumber(qi)} Qi.`
-        );
-
-    } else if (
-        roll < 0.6
+    if (
+        roll <
+        0.68
     ) {
 
-        const stones =
-            20 +
-            game.realmIndex *
-            30;
+        startRandomBattle(
+            zone
+        );
+
+        return;
+    }
+
+
+    if (
+        roll <
+        0.80
+    ) {
+
+        const amount =
+            Math.floor(
+                (
+                    40 +
+                    Math.random() *
+                    80
+                ) *
+                zone.stoneMultiplier
+            );
 
         game.spiritStones +=
-            stones;
+            amount;
+
+        setAdventureMessage(
+            `You discovered an abandoned cultivator pouch containing ${formatNumber(amount)} Spirit Stones.`
+        );
 
         notify(
-            `You discovered ${formatNumber(stones)} Spirit Stones.`,
+            `Treasure found: ${formatNumber(amount)} Spirit Stones.`,
             "success"
         );
 
     } else if (
-        roll < 0.82
+        roll <
+        0.88
+    ) {
+
+        const amount =
+            Math.floor(
+                (
+                    20 +
+                    Math.random() *
+                    60
+                ) *
+                zone.stoneMultiplier
+            );
+
+        game.spiritStones +=
+            amount;
+
+        setAdventureMessage(
+            `You discovered ${formatNumber(amount)} Spirit Stones.`
+        );
+
+    } else if (
+        roll <
+        0.93
     ) {
 
         game.pills +=
             1;
 
-        notify(
-            "You discovered a Cultivation Pill.",
-            "success"
+        setAdventureMessage(
+            "You discovered a Cultivation Pill growing beside a spiritual herb."
+        );
+
+    } else if (
+        roll <
+        0.97
+    ) {
+
+        game.healingPills +=
+            1;
+
+        setAdventureMessage(
+            "You discovered a Healing Pill inside an abandoned storage pouch."
         );
 
     } else {
@@ -1814,32 +2125,859 @@ function rollRandomEvent() {
             weapon
         );
 
+        setAdventureMessage(
+            `Fortuitous encounter! You found a ${weapon.rarity} ${weapon.name}.`
+        );
+
         notify(
-            `${weapon.rarity} Weapon obtained: ${weapon.name}!`,
+            `${weapon.rarity} ${weapon.name} obtained!`,
             "success"
         );
 
-        addLog(
-            `Treasure encounter: ${weapon.rarity} ${weapon.name}.`,
-            true
+    }
+
+    saveGame();
+
+    render();
+
+}
+
+
+/* ========================================================= */
+/* START BATTLE                                              */
+/* ========================================================= */
+
+function startRandomBattle(zone) {
+
+    const bossProgress =
+        game.zoneBossProgress[
+            zone.id
+        ] ||
+        0;
+
+    const bossChance =
+        bossProgress >=
+        5
+            ? 0.28
+            : 0.04;
+
+    const boss =
+        Math.random() <
+        bossChance;
+
+
+    const playerPower =
+        getCombatPower();
+
+    const powerVariance =
+        0.72 +
+        Math.random() *
+        0.55;
+
+    let enemyPower =
+        playerPower *
+        zone.powerMultiplier *
+        powerVariance;
+
+
+    if (boss) {
+
+        enemyPower *=
+            1.7;
+
+    }
+
+
+    enemyPower =
+        Math.max(
+            8,
+            Math.floor(
+                enemyPower
+            )
         );
+
+
+    const maxHealth =
+        Math.floor(
+            120 +
+            enemyPower *
+            (
+                boss
+                    ? 8
+                    : 4.5
+            )
+        );
+
+
+    game.currentEnemy = {
+
+        name:
+            boss
+                ? zone.boss
+                : zone.enemies[
+                    Math.floor(
+                        Math.random() *
+                        zone.enemies.length
+                    )
+                ],
+
+        type:
+            boss
+                ? "Region Boss"
+                : "Spirit Beast",
+
+        boss,
+
+        power:
+            enemyPower,
+
+        maxHealth,
+
+        health:
+            maxHealth,
+
+        zoneId:
+            zone.id
+
+    };
+
+
+    addBattleLog(
+        `${game.currentEnemy.name} appeared!`
+    );
+
+
+    setAdventureMessage(
+        boss
+            ? `A terrifying aura descends. ${game.currentEnemy.name}, ruler of this region, has appeared!`
+            : `${game.currentEnemy.name} blocks your path.`
+    );
+
+
+    renderAdventure();
+
+}
+
+
+/* ========================================================= */
+/* PLAYER ATTACK                                             */
+/* ========================================================= */
+
+function playerAttack(
+    spiritual =
+        false
+) {
+
+    if (
+        !game.currentEnemy
+    ) {
+        return;
+    }
+
+
+    const enemy =
+        game.currentEnemy;
+
+
+    let baseDamage =
+        getCombatPower() *
+        (
+            0.65 +
+            Math.random() *
+            0.30
+        );
+
+
+    if (spiritual) {
+
+        const soulMultiplier =
+            1 +
+            game.attributes.soul *
+            0.015;
+
+        baseDamage *=
+            1.18 *
+            soulMultiplier;
+
+    } else {
+
+        const strengthMultiplier =
+            1 +
+            game.attributes.strength *
+            0.01;
+
+        baseDamage *=
+            strengthMultiplier;
+
+    }
+
+
+    const critical =
+        Math.random() <
+        0.10;
+
+
+    if (critical) {
+
+        baseDamage *=
+            1.75;
+
+    }
+
+
+    const damage =
+        Math.max(
+            1,
+            Math.floor(
+                baseDamage
+            )
+        );
+
+
+    enemy.health =
+        Math.max(
+            0,
+            enemy.health -
+            damage
+        );
+
+
+    addBattleLog(
+        spiritual
+            ? `Jiang Chue unleashed a Spiritual Strike for ${formatNumber(damage)} damage${critical ? " — CRITICAL!" : "."}`
+            : `Jiang Chue attacked for ${formatNumber(damage)} damage${critical ? " — CRITICAL!" : "."}`
+    );
+
+
+    if (
+        enemy.health <=
+        0
+    ) {
+
+        winBattle();
+
+        return;
+
+    }
+
+
+    enemyTurn();
+
+    renderAdventure();
+
+}
+
+
+/* ========================================================= */
+/* ENEMY TURN                                                */
+/* ========================================================= */
+
+function enemyTurn() {
+
+    if (
+        !game.currentEnemy
+    ) {
+        return;
+    }
+
+    const enemy =
+        game.currentEnemy;
+
+
+    let damage =
+        enemy.power *
+        (
+            0.42 +
+            Math.random() *
+            0.30
+        );
+
+
+    const defenseReduction =
+        1 +
+        game.attributes.constitution *
+        0.018;
+
+
+    damage /=
+        defenseReduction;
+
+
+    if (
+        enemy.boss
+    ) {
+
+        damage *=
+            1.12;
+
+    }
+
+
+    damage =
+        Math.max(
+            1,
+            Math.floor(
+                damage
+            )
+        );
+
+
+    game.health =
+        Math.max(
+            0,
+            game.health -
+            damage
+        );
+
+
+    addBattleLog(
+        `${enemy.name} struck Jiang Chue for ${formatNumber(damage)} damage.`
+    );
+
+
+    if (
+        game.health <=
+        0
+    ) {
+
+        loseBattle();
 
     }
 
 }
 
 
-/* ============================================================ */
-/* DAILY                                                        */
-/* ============================================================ */
+/* ========================================================= */
+/* WIN BATTLE                                                */
+/* ========================================================= */
+
+function winBattle() {
+
+    const enemy =
+        game.currentEnemy;
+
+    if (!enemy) {
+        return;
+    }
+
+    const zone =
+        ZONES.find(
+            item =>
+                item.id ===
+                enemy.zoneId
+        );
+
+
+    game.victories +=
+        1;
+
+    game.enemiesSlain +=
+        1;
+
+
+    if (enemy.boss) {
+
+        game.bossesSlain +=
+            1;
+
+        game.zoneBossProgress[
+            zone.id
+        ] = 0;
+
+    } else {
+
+        game.zoneBossProgress[
+            zone.id
+        ] =
+            (
+                game.zoneBossProgress[
+                    zone.id
+                ] ||
+                0
+            ) +
+            1;
+
+    }
+
+
+    const stones =
+        Math.floor(
+            (
+                25 +
+                enemy.power *
+                0.45
+            ) *
+            zone.stoneMultiplier
+        );
+
+
+    game.spiritStones +=
+        stones;
+
+
+    let rewardText =
+        `${formatNumber(stones)} Spirit Stones`;
+
+
+    const pillChance =
+        enemy.boss
+            ? 0.70
+            : 0.13;
+
+
+    if (
+        Math.random() <
+        pillChance
+    ) {
+
+        game.pills +=
+            1;
+
+        rewardText +=
+            ", Cultivation Pill";
+
+    }
+
+
+    if (
+        Math.random() <
+        (
+            enemy.boss
+                ? 0.65
+                : 0.10
+        )
+    ) {
+
+        game.healingPills +=
+            1;
+
+        rewardText +=
+            ", Healing Pill";
+
+    }
+
+
+    const weaponChance =
+        enemy.boss
+            ? 0.80
+            : 0.06;
+
+
+    if (
+        Math.random() <
+        weaponChance
+    ) {
+
+        const weapon =
+            enemy.boss
+                ? generateWeapon(
+                    game.realmIndex >=
+                    4
+                        ? "Epic"
+                        : "Rare"
+                )
+                : generateWeapon();
+
+        game.weapons.push(
+            weapon
+        );
+
+        rewardText +=
+            `, ${weapon.rarity} ${weapon.name}`;
+
+    }
+
+
+    if (enemy.boss) {
+
+        game.statPoints +=
+            3 +
+            game.realmIndex;
+
+        rewardText +=
+            `, ${3 + game.realmIndex} Attribute Points`;
+
+    }
+
+
+    addBattleLog(
+        `${enemy.name} was defeated.`
+    );
+
+    addBattleLog(
+        `Rewards: ${rewardText}.`
+    );
+
+
+    notify(
+        `Victory! ${rewardText}`,
+        "success"
+    );
+
+
+    setAdventureMessage(
+        `You defeated ${enemy.name}.`
+    );
+
+
+    game.currentEnemy =
+        null;
+
+
+    saveGame();
+
+    render();
+
+}
+
+
+/* ========================================================= */
+/* DEFEAT                                                    */
+/* ========================================================= */
+
+function loseBattle() {
+
+    const enemy =
+        game.currentEnemy;
+
+    game.defeats +=
+        1;
+
+
+    const maxHealth =
+        getMaxHealth();
+
+
+    game.health =
+        Math.max(
+            1,
+            Math.floor(
+                maxHealth *
+                0.20
+            )
+        );
+
+
+    const stoneLoss =
+        Math.floor(
+            game.spiritStones *
+            0.08
+        );
+
+
+    game.spiritStones =
+        Math.max(
+            0,
+            game.spiritStones -
+            stoneLoss
+        );
+
+
+    addBattleLog(
+        `Jiang Chue was defeated by ${enemy.name}.`
+    );
+
+    addBattleLog(
+        `${formatNumber(stoneLoss)} Spirit Stones were lost while escaping.`
+    );
+
+
+    setAdventureMessage(
+        "You barely escaped with your life. Your injuries are severe."
+    );
+
+
+    notify(
+        "Defeated. Recover before returning to battle.",
+        "error"
+    );
+
+
+    game.currentEnemy =
+        null;
+
+
+    saveGame();
+
+    render();
+
+}
+
+
+/* ========================================================= */
+/* FLEE                                                      */
+/* ========================================================= */
+
+function fleeBattle() {
+
+    if (
+        !game.currentEnemy
+    ) {
+        return;
+    }
+
+
+    const successChance =
+        0.65 +
+        Math.min(
+            0.20,
+            game.attributes.soul *
+            0.002
+        );
+
+
+    if (
+        Math.random() <
+        successChance
+    ) {
+
+        addBattleLog(
+            `Jiang Chue escaped from ${game.currentEnemy.name}.`
+        );
+
+        setAdventureMessage(
+            "You successfully fled from battle."
+        );
+
+        game.currentEnemy =
+            null;
+
+    } else {
+
+        addBattleLog(
+            "Your escape failed!"
+        );
+
+        enemyTurn();
+
+    }
+
+
+    saveGame();
+
+    render();
+
+}
+
+
+/* ========================================================= */
+/* RANDOM CULTIVATION EVENTS                                 */
+/* ========================================================= */
+
+function rollRandomCultivationEvent() {
+
+    if (
+        Math.random() >
+        0.025
+    ) {
+        return;
+    }
+
+
+    const roll =
+        Math.random();
+
+
+    if (
+        roll <
+        0.45
+    ) {
+
+        const qi =
+            getQiPerSecond() *
+            20;
+
+        addQi(
+            qi
+        );
+
+        notify(
+            `Minor enlightenment: +${formatNumber(qi)} Qi.`,
+            "success"
+        );
+
+    } else if (
+        roll <
+        0.7
+    ) {
+
+        game.spiritStones +=
+            20 +
+            game.realmIndex *
+            20;
+
+    } else if (
+        roll <
+        0.9
+    ) {
+
+        game.pills +=
+            1;
+
+    } else {
+
+        game.healingPills +=
+            1;
+
+    }
+
+}
+
+
+/* ========================================================= */
+/* MISSIONS                                                  */
+/* ========================================================= */
+
+function getMissionProgress(
+    mission
+) {
+
+    if (
+        mission.type ===
+        "kills"
+    ) {
+
+        return game.enemiesSlain;
+
+    }
+
+
+    if (
+        mission.type ===
+        "bosses"
+    ) {
+
+        return game.bossesSlain;
+
+    }
+
+
+    if (
+        mission.type ===
+        "victories"
+    ) {
+
+        return game.victories;
+
+    }
+
+
+    return 0;
+
+}
+
+
+function claimMission(
+    id
+) {
+
+    const mission =
+        MISSIONS.find(
+            item =>
+                item.id ===
+                id
+        );
+
+    if (!mission) {
+        return;
+    }
+
+
+    if (
+        game.missionClaims[
+            id
+        ]
+    ) {
+        return;
+    }
+
+
+    if (
+        getMissionProgress(
+            mission
+        ) <
+        mission.target
+    ) {
+
+        notify(
+            "Mission requirements are not complete.",
+            "error"
+        );
+
+        return;
+    }
+
+
+    const reward =
+        mission.reward;
+
+
+    game.spiritStones +=
+        reward.stones ||
+        0;
+
+    game.statPoints +=
+        reward.statPoints ||
+        0;
+
+    game.pills +=
+        reward.pills ||
+        0;
+
+    game.healingPills +=
+        reward.healingPills ||
+        0;
+
+
+    if (
+        reward.weapon
+    ) {
+
+        game.weapons.push(
+            generateWeapon(
+                game.realmIndex >=
+                3
+                    ? "Rare"
+                    : "Uncommon"
+            )
+        );
+
+    }
+
+
+    game.missionClaims[
+        id
+    ] =
+        true;
+
+
+    notify(
+        `Mission completed: ${mission.name}`,
+        "success"
+    );
+
+
+    addLog(
+        `Sect Mission completed: ${mission.name}.`,
+        true
+    );
+
+
+    saveGame();
+
+    render();
+
+}
+
+
+/* ========================================================= */
+/* DAILY SIGN-IN                                             */
+/* ========================================================= */
 
 function canSignInToday() {
 
-    if (!game.lastSignIn) {
-        return true;
-    }
-
     return (
+        !game.lastSignIn ||
         game.lastSignIn !==
         getDateString(
             new Date()
@@ -1851,25 +2989,26 @@ function canSignInToday() {
 
 function claimDailyReward() {
 
-    if (!canSignInToday()) {
+    if (
+        !canSignInToday()
+    ) {
 
         notify(
-            "You already signed in today.",
+            "Today's sign-in reward has already been claimed.",
             "error"
         );
 
         return;
     }
 
-    const today =
-        getDateString(
-            new Date()
-        );
 
-    let streak =
+    let newStreak =
         1;
 
-    if (game.lastSignIn) {
+
+    if (
+        game.lastSignIn
+    ) {
 
         const yesterday =
             new Date();
@@ -1879,6 +3018,7 @@ function claimDailyReward() {
             1
         );
 
+
         if (
             game.lastSignIn ===
             getDateString(
@@ -1886,7 +3026,7 @@ function claimDailyReward() {
             )
         ) {
 
-            streak =
+            newStreak =
                 game.dailyStreak +
                 1;
 
@@ -1894,81 +3034,60 @@ function claimDailyReward() {
 
     }
 
+
     game.dailyStreak =
-        streak;
+        newStreak;
+
 
     game.lastSignIn =
-        today;
+        getDateString(
+            new Date()
+        );
 
-    const index =
-        (
-            game.dailyStreak -
-            1
-        ) %
-        DAILY_REWARDS.length;
 
     const reward =
         DAILY_REWARDS[
-            index
+            (
+                game.dailyStreak -
+                1
+            ) %
+            DAILY_REWARDS.length
         ];
 
+
     game.spiritStones +=
-        reward.stones;
+        reward.stones ||
+        0;
 
     game.pills +=
-        reward.pills;
+        reward.pills ||
+        0;
 
-    game.manuals +=
-        reward.manuals;
+    game.healingPills +=
+        reward.healingPills ||
+        0;
 
-    const messages =
-        [];
+    game.statPoints +=
+        reward.statPoints ||
+        0;
 
-    if (reward.stones) {
-        messages.push(
-            `${reward.stones} Spirit Stones`
-        );
-    }
 
-    if (reward.pills) {
-        messages.push(
-            `${reward.pills} Cultivation Pill(s)`
-        );
-    }
-
-    if (reward.manuals) {
-        messages.push(
-            `${reward.manuals} Ancient Manual`
-        );
-    }
-
-    if (reward.weapon) {
-
-        const weapon =
-            generateWeapon();
+    if (
+        reward.weapon
+    ) {
 
         game.weapons.push(
-            weapon
-        );
-
-        messages.push(
-            `${weapon.rarity} ${weapon.name}`
+            generateWeapon()
         );
 
     }
 
-    const message =
-        messages.join(", ");
 
     notify(
-        `Daily Sign-In: ${message}`,
+        `Daily Sign-In Day ${game.dailyStreak} claimed.`,
         "success"
     );
 
-    addLog(
-        `Day ${game.dailyStreak} sign-in reward: ${message}.`,
-        true
-    );
 
     saveGame();
 
@@ -1977,13 +3096,59 @@ function claimDailyReward() {
 }
 
 
-/* ============================================================ */
-/* LOG                                                          */
-/* ============================================================ */
+/* ========================================================= */
+/* GAME TICK                                                 */
+/* ========================================================= */
+
+function gameTick() {
+
+    addQi(
+        getQiPerSecond()
+    );
+
+
+    increaseTechniqueMastery(
+        0.003
+    );
+
+
+    rollRandomCultivationEvent();
+
+
+    /*
+        Tiny passive recovery while not in combat.
+    */
+
+    if (
+        !game.currentEnemy &&
+        game.health <
+        getMaxHealth()
+    ) {
+
+        game.health =
+            Math.min(
+                getMaxHealth(),
+                game.health +
+                getMaxHealth() *
+                0.001
+            );
+
+    }
+
+
+    render();
+
+}
+
+
+/* ========================================================= */
+/* LOGGING                                                   */
+/* ========================================================= */
 
 function addLog(
     message,
-    important = false
+    important =
+        false
 ) {
 
     game.log.unshift({
@@ -1997,183 +3162,393 @@ function addLog(
 
     });
 
-    if (
-        game.log.length >
-        60
-    ) {
 
-        game.log =
-            game.log.slice(
-                0,
-                60
-            );
-
-    }
+    game.log =
+        game.log.slice(
+            0,
+            60
+        );
 
 }
 
 
-/* ============================================================ */
-/* SYSTEM MESSAGE                                               */
-/* ============================================================ */
+function addBattleLog(
+    message
+) {
+
+    game.battleLog.unshift({
+
+        time:
+            getCurrentTime(),
+
+        message
+
+    });
+
+
+    game.battleLog =
+        game.battleLog.slice(
+            0,
+            70
+        );
+
+}
+
+
+/* ========================================================= */
+/* MESSAGES                                                  */
+/* ========================================================= */
 
 function setSystemMessage(
     message
 ) {
 
-    systemMessage.textContent =
+    byId(
+        "systemMessage"
+    ).textContent =
         message;
 
 }
 
 
-/* ============================================================ */
-/* FLOATING QI                                                  */
-/* ============================================================ */
-
-function createFloatingQi(
-    event,
-    amount
+function setAdventureMessage(
+    message
 ) {
 
-    const element =
-        document.createElement(
-            "div"
+    byId(
+        "adventureMessage"
+    ).textContent =
+        message;
+
+}
+
+
+/* ========================================================= */
+/* RENDER CULTIVATION                                       */
+/* ========================================================= */
+
+function renderCultivation() {
+
+    const realm =
+        getCurrentRealm();
+
+    const root =
+        getCurrentRoot();
+
+    const technique =
+        getCurrentTechnique();
+
+    const weapon =
+        getEquippedWeapon();
+
+    const requirement =
+        getQiRequirement();
+
+    const mastery =
+        getTechniqueMastery();
+
+
+    byId(
+        "playerNameDisplay"
+    ).textContent =
+        game.playerName;
+
+
+    byId(
+        "realmDisplay"
+    ).textContent =
+        realm.name;
+
+
+    byId(
+        "stageDisplay"
+    ).textContent =
+        STAGES[
+            game.stageIndex
+        ];
+
+
+    byId(
+        "spiritualRootDisplay"
+    ).textContent =
+        game.spiritualRoot;
+
+
+    byId(
+        "rootBonusDisplay"
+    ).textContent =
+        `Qi Efficiency +${Math.round(root.qiBonus * 100)}%`;
+
+
+    byId(
+        "mainRealmDisplay"
+    ).textContent =
+        `${realm.name} · ${STAGES[game.stageIndex]}`;
+
+
+    byId(
+        "combatPowerDisplay"
+    ).textContent =
+        formatNumber(
+            getCombatPower()
         );
 
-    element.className =
-        "floating-qi";
 
-    element.textContent =
-        `+${formatNumber(amount)} Qi`;
+    byId(
+        "healthDisplay"
+    ).textContent =
+        `${formatNumber(game.health)} / ${formatNumber(getMaxHealth())}`;
 
-    const rect =
-        cultivateButton
-            .getBoundingClientRect();
 
-    let x =
-        rect.left +
-        rect.width /
-        2;
+    byId(
+        "qiPerSecondDisplay"
+    ).textContent =
+        formatNumber(
+            getQiPerSecond()
+        );
 
-    let y =
-        rect.top +
-        rect.height /
-        2;
 
-    if (
-        event &&
-        typeof event.clientX ===
-        "number"
-    ) {
+    byId(
+        "spiritStoneDisplay"
+    ).textContent =
+        formatNumber(
+            game.spiritStones
+        );
 
-        x =
-            event.clientX;
 
-        y =
-            event.clientY;
+    byId(
+        "statPointDisplay"
+    ).textContent =
+        game.statPoints;
+
+
+    byId(
+        "victoryDisplay"
+    ).textContent =
+        game.victories;
+
+
+    byId(
+        "strengthDisplay"
+    ).textContent =
+        game.attributes.strength;
+
+
+    byId(
+        "constitutionDisplay"
+    ).textContent =
+        game.attributes.constitution;
+
+
+    byId(
+        "soulDisplay"
+    ).textContent =
+        game.attributes.soul;
+
+
+    byId(
+        "qiProgressText"
+    ).textContent =
+        `${formatNumber(game.qi)} / ${formatNumber(requirement)} Qi`;
+
+
+    byId(
+        "qiProgressBar"
+    ).style.width =
+        `${Math.min(
+            100,
+            game.qi /
+            requirement *
+            100
+        )}%`;
+
+
+    byId(
+        "breakthroughChanceDisplay"
+    ).textContent =
+        `Breakthrough: ${getBreakthroughChance().toFixed(1)}%`;
+
+
+    byId(
+        "activeTechniqueDisplay"
+    ).textContent =
+        technique.name;
+
+
+    byId(
+        "techniqueBonusDisplay"
+    ).textContent =
+        `Qi Production +${Math.round(technique.qiBonus * 100)}%`;
+
+
+    byId(
+        "techniqueMasteryBar"
+    ).style.width =
+        `${mastery}%`;
+
+
+    byId(
+        "techniqueMasteryText"
+    ).textContent =
+        `Mastery ${mastery.toFixed(1)}%`;
+
+
+    byId(
+        "pillCountDisplay"
+    ).textContent =
+        game.pills;
+
+
+    byId(
+        "healingPillDisplay"
+    ).textContent =
+        game.healingPills;
+
+
+    byId(
+        "inventoryStoneDisplay"
+    ).textContent =
+        formatNumber(
+            game.spiritStones
+        );
+
+
+    byId(
+        "weaponCountDisplay"
+    ).textContent =
+        game.weapons.length;
+
+
+    if (weapon) {
+
+        byId(
+            "equippedWeaponName"
+        ).textContent =
+            `${weapon.rarity} ${weapon.name}`;
+
+
+        byId(
+            "equippedWeaponName"
+        ).className =
+            `rarity-${weapon.rarity.toLowerCase()}`;
+
+
+        byId(
+            "equippedWeaponStats"
+        ).textContent =
+            `Combat Power +${formatNumber(weapon.power)}`;
+
+    } else {
+
+        byId(
+            "equippedWeaponName"
+        ).textContent =
+            "None";
+
+
+        byId(
+            "equippedWeaponName"
+        ).className =
+            "";
+
+
+        byId(
+            "equippedWeaponStats"
+        ).textContent =
+            "No weapon equipped.";
 
     }
 
-    element.style.left =
-        `${x}px`;
 
-    element.style.top =
-        `${y}px`;
-
-    document.body.appendChild(
-        element
-    );
-
-    setTimeout(
-        () =>
-            element.remove(),
-        1100
-    );
-
-}
+    byId(
+        "streakDisplay"
+    ).textContent =
+        game.dailyStreak;
 
 
-/* ============================================================ */
-/* NOTIFICATION                                                 */
-/* ============================================================ */
+    if (
+        canSignInToday()
+    ) {
 
-function notify(
-    message,
-    type =
-        "success"
-) {
-
-    const element =
-        document.createElement(
-            "div"
-        );
-
-    element.className =
-        `notification ${type}`;
-
-    element.textContent =
-        message;
-
-    notificationContainer
-        .appendChild(
-            element
-        );
-
-    setTimeout(
-        () => {
-
-            element.style.opacity =
-                "0";
-
-            element.style.transform =
-                "translateX(30px)";
-
-        },
-        3500
-    );
-
-    setTimeout(
-        () =>
-            element.remove(),
-        4000
-    );
-
-}
+        byId(
+            "signInButton"
+        ).disabled =
+            false;
 
 
-/* ============================================================ */
-/* GAME TICK                                                    */
-/* ============================================================ */
+        byId(
+            "signInButton"
+        ).textContent =
+            "Daily Sign-In";
 
-function gameTick() {
 
-    const qiGain =
-        getQiPerSecond();
+        byId(
+            "dailyStatus"
+        ).textContent =
+            "Sign-in reward available.";
 
-    addQi(
-        qiGain
-    );
+    } else {
 
-    increaseTechniqueMastery(
-        0.003
-    );
+        byId(
+            "signInButton"
+        ).disabled =
+            true;
 
-    rollRandomEvent();
 
-    render();
+        byId(
+            "signInButton"
+        ).textContent =
+            "Already Signed In";
+
+
+        byId(
+            "dailyStatus"
+        ).textContent =
+            "Today's reward has been claimed.";
+
+    }
+
+
+    byId(
+        "usePillButton"
+    ).disabled =
+        game.pills <=
+        0;
+
+
+    byId(
+        "breakthroughButton"
+    ).textContent =
+        game.qi >=
+        requirement
+            ? "Attempt Breakthrough"
+            : `Need ${formatNumber(requirement)} Qi`;
+
+
+    renderTechniques();
+
+    renderCultivationLog();
+
+    renderRealmPath();
 
 }
 
 
-/* ============================================================ */
-/* TECHNIQUE LIST                                               */
-/* ============================================================ */
+/* ========================================================= */
+/* RENDER TECHNIQUES                                        */
+/* ========================================================= */
 
 function renderTechniques() {
 
-    techniqueList.innerHTML =
+    const container =
+        byId(
+            "techniqueList"
+        );
+
+
+    container.innerHTML =
         "";
+
 
     for (
         const technique
@@ -2188,37 +3563,34 @@ function renderTechniques() {
             game.activeTechnique ===
             technique.id;
 
-        const mastery =
-            getTechniqueMastery(
-                technique.id
-            );
 
         const card =
             document.createElement(
                 "div"
             );
 
+
         card.className =
             "technique-card";
 
+
         if (active) {
+
             card.classList.add(
                 "active"
             );
+
         }
 
+
         if (!unlocked) {
+
             card.classList.add(
                 "locked"
             );
+
         }
 
-        const buttonText =
-            active
-                ? "Currently Cultivating"
-                : unlocked
-                    ? "Cultivate Technique"
-                    : `Unlock at ${REALMS[technique.unlockRealm].name}`;
 
         card.innerHTML =
             `
@@ -2233,24 +3605,32 @@ function renderTechniques() {
                 <div class="technique-description">
                     ${technique.description}
                     <br>
-                    Qi Production +${Math.round(technique.qiBonus * 100)}%
+                    Qi +${Math.round(technique.qiBonus * 100)}%
                     <br>
-                    Mastery ${mastery.toFixed(1)}%
+                    Mastery ${getTechniqueMastery(technique.id).toFixed(1)}%
                 </div>
 
                 <button
-                    ${active || !unlocked ? "disabled" : ""}
                     data-technique="${technique.id}"
+                    ${active || !unlocked ? "disabled" : ""}
                 >
-                    ${buttonText}
+                    ${
+                        active
+                            ? "Currently Cultivating"
+                            : unlocked
+                                ? "Cultivate Technique"
+                                : `Unlock at ${REALMS[technique.unlockRealm].name}`
+                    }
                 </button>
             `;
 
-        techniqueList.appendChild(
+
+        container.appendChild(
             card
         );
 
     }
+
 
     document
         .querySelectorAll(
@@ -2276,41 +3656,826 @@ function renderTechniques() {
 }
 
 
-/* ============================================================ */
-/* WEAPON INVENTORY                                             */
-/* ============================================================ */
+/* ========================================================= */
+/* ADVENTURE RENDER                                         */
+/* ========================================================= */
 
-function renderWeaponInventory() {
+function renderAdventure() {
 
-    const list =
-        byId(
-            "weaponInventoryList"
+    const zone =
+        getSelectedZone();
+
+    const weapon =
+        getEquippedWeapon();
+
+
+    byId(
+        "battlePlayerRealm"
+    ).textContent =
+        `${getCurrentRealm().name} · ${STAGES[game.stageIndex]}`;
+
+
+    byId(
+        "battlePlayerHealthText"
+    ).textContent =
+        `${formatNumber(game.health)} / ${formatNumber(getMaxHealth())}`;
+
+
+    byId(
+        "battlePlayerHealthBar"
+    ).style.width =
+        `${Math.max(
+            0,
+            game.health /
+            getMaxHealth() *
+            100
+        )}%`;
+
+
+    byId(
+        "battlePlayerPower"
+    ).textContent =
+        formatNumber(
+            getCombatPower()
         );
 
-    list.innerHTML =
+
+    byId(
+        "battleWeaponDisplay"
+    ).textContent =
+        weapon
+            ? `${weapon.rarity} ${weapon.name}`
+            : "None";
+
+
+    byId(
+        "injuryWarning"
+    ).classList.toggle(
+        "hidden",
+        game.health >
+        getMaxHealth() *
+        0.35
+    );
+
+
+    byId(
+        "selectedZoneName"
+    ).textContent =
+        zone.name;
+
+
+    byId(
+        "selectedZoneDescription"
+    ).textContent =
+        zone.description;
+
+
+    renderZones();
+
+    renderMissions();
+
+    renderBattleLog();
+
+    renderZoneProgress();
+
+
+    byId(
+        "adventureVictoryDisplay"
+    ).textContent =
+        game.victories;
+
+
+    byId(
+        "defeatDisplay"
+    ).textContent =
+        game.defeats;
+
+
+    byId(
+        "enemiesSlainDisplay"
+    ).textContent =
+        game.enemiesSlain;
+
+
+    byId(
+        "bossesSlainDisplay"
+    ).textContent =
+        game.bossesSlain;
+
+
+    byId(
+        "expeditionsDisplay"
+    ).textContent =
+        game.expeditions;
+
+
+    const fighting =
+        Boolean(
+            game.currentEnemy
+        );
+
+
+    byId(
+        "explorationView"
+    ).classList.toggle(
+        "hidden",
+        fighting
+    );
+
+
+    byId(
+        "battleView"
+    ).classList.toggle(
+        "hidden",
+        !fighting
+    );
+
+
+    if (fighting) {
+
+        const enemy =
+            game.currentEnemy;
+
+
+        byId(
+            "enemyNameDisplay"
+        ).textContent =
+            enemy.name;
+
+
+        byId(
+            "enemyTypeDisplay"
+        ).textContent =
+            enemy.type;
+
+
+        byId(
+            "enemyRealmDisplay"
+        ).textContent =
+            enemy.boss
+                ? "Region Lord"
+                : zone.name;
+
+
+        byId(
+            "enemyPowerDisplay"
+        ).textContent =
+            formatNumber(
+                enemy.power
+            );
+
+
+        byId(
+            "enemyHealthText"
+        ).textContent =
+            `${formatNumber(enemy.health)} / ${formatNumber(enemy.maxHealth)}`;
+
+
+        byId(
+            "enemyHealthBar"
+        ).style.width =
+            `${Math.max(
+                0,
+                enemy.health /
+                enemy.maxHealth *
+                100
+            )}%`;
+
+
+        byId(
+            "enemyRewardPreview"
+        ).textContent =
+            enemy.boss
+                ? "High"
+                : "Normal";
+
+
+        byId(
+            "enemySymbol"
+        ).textContent =
+            enemy.boss
+                ? "王"
+                : "妖";
+
+    }
+
+}
+
+
+/* ========================================================= */
+/* ZONE CARDS                                               */
+/* ========================================================= */
+
+function renderZones() {
+
+    const container =
+        byId(
+            "zoneList"
+        );
+
+
+    container.innerHTML =
         "";
 
+
+    for (
+        const zone
+        of ZONES
+    ) {
+
+        const unlocked =
+            game.realmIndex >=
+            zone.requiredRealm;
+
+
+        const card =
+            document.createElement(
+                "div"
+            );
+
+
+        card.className =
+            "zone-card";
+
+
+        if (
+            zone.id ===
+            game.selectedZone
+        ) {
+
+            card.classList.add(
+                "selected"
+            );
+
+        }
+
+
+        if (!unlocked) {
+
+            card.classList.add(
+                "locked"
+            );
+
+        }
+
+
+        card.innerHTML =
+            `
+                <h3>
+                    ${zone.name}
+                </h3>
+
+                <p>
+                    ${zone.description}
+                </p>
+
+                <small>
+                    ${
+                        unlocked
+                            ? "Available"
+                            : `Requires ${REALMS[zone.requiredRealm].name}`
+                    }
+                </small>
+            `;
+
+
+        if (unlocked) {
+
+            card.addEventListener(
+                "click",
+                () => {
+
+                    selectZone(
+                        zone.id
+                    );
+
+                }
+            );
+
+        }
+
+
+        container.appendChild(
+            card
+        );
+
+    }
+
+}
+
+
+/* ========================================================= */
+/* MISSIONS RENDER                                          */
+/* ========================================================= */
+
+function renderMissions() {
+
+    const container =
+        byId(
+            "missionList"
+        );
+
+
+    container.innerHTML =
+        "";
+
+
+    for (
+        const mission
+        of MISSIONS
+    ) {
+
+        const progress =
+            getMissionProgress(
+                mission
+            );
+
+        const complete =
+            progress >=
+            mission.target;
+
+        const claimed =
+            Boolean(
+                game.missionClaims[
+                    mission.id
+                ]
+            );
+
+
+        const card =
+            document.createElement(
+                "div"
+            );
+
+
+        card.className =
+            "mission-card";
+
+
+        if (claimed) {
+
+            card.classList.add(
+                "completed"
+            );
+
+        }
+
+
+        card.innerHTML =
+            `
+                <h3>
+                    ${mission.name}
+                </h3>
+
+                <p>
+                    ${mission.description}
+                </p>
+
+                <div class="mission-progress">
+                    ${Math.min(progress, mission.target)} / ${mission.target}
+                </div>
+
+                <button
+                    data-mission="${mission.id}"
+                    ${!complete || claimed ? "disabled" : ""}
+                >
+                    ${
+                        claimed
+                            ? "Claimed"
+                            : complete
+                                ? "Claim Reward"
+                                : "Incomplete"
+                    }
+                </button>
+            `;
+
+
+        container.appendChild(
+            card
+        );
+
+    }
+
+
+    document
+        .querySelectorAll(
+            "[data-mission]"
+        )
+        .forEach(
+            button => {
+
+                button.addEventListener(
+                    "click",
+                    () => {
+
+                        claimMission(
+                            button.dataset.mission
+                        );
+
+                    }
+                );
+
+            }
+        );
+
+}
+
+
+/* ========================================================= */
+/* LOG RENDERS                                              */
+/* ========================================================= */
+
+function renderCultivationLog() {
+
+    const container =
+        byId(
+            "cultivationLog"
+        );
+
+
+    container.innerHTML =
+        "";
+
+
+    for (
+        const entry
+        of game.log
+    ) {
+
+        const element =
+            document.createElement(
+                "div"
+            );
+
+
+        element.className =
+            "log-entry";
+
+
+        element.innerHTML =
+            `
+                <span class="log-time">
+                    ${entry.time}
+                </span>
+
+                <span class="${entry.important ? "log-important" : ""}">
+                    ${entry.message}
+                </span>
+            `;
+
+
+        container.appendChild(
+            element
+        );
+
+    }
+
+}
+
+
+function renderBattleLog() {
+
+    const container =
+        byId(
+            "battleLog"
+        );
+
+
+    container.innerHTML =
+        "";
+
+
     if (
-        game.weapons.length ===
+        game.battleLog.length ===
         0
     ) {
 
-        list.innerHTML =
+        container.innerHTML =
             `
-                <div class="weapon-card">
-                    <div>
-                        <h3>No Spirit Weapons</h3>
-                        <p>
-                            Weapons can drop from random encounters,
-                            daily rewards, and realm breakthroughs.
-                        </p>
-                    </div>
+                <div class="log-entry">
+                    No battles have been fought yet.
                 </div>
             `;
 
         return;
 
     }
+
+
+    for (
+        const entry
+        of game.battleLog
+    ) {
+
+        const element =
+            document.createElement(
+                "div"
+            );
+
+
+        element.className =
+            "log-entry";
+
+
+        element.innerHTML =
+            `
+                <span class="log-time">
+                    ${entry.time}
+                </span>
+
+                <span>
+                    ${entry.message}
+                </span>
+            `;
+
+
+        container.appendChild(
+            element
+        );
+
+    }
+
+}
+
+
+/* ========================================================= */
+/* REALM PATH                                               */
+/* ========================================================= */
+
+function renderRealmPath() {
+
+    const container =
+        byId(
+            "realmPath"
+        );
+
+
+    container.innerHTML =
+        "";
+
+
+    REALMS.forEach(
+        (
+            realm,
+            index
+        ) => {
+
+            const element =
+                document.createElement(
+                    "div"
+                );
+
+
+            element.className =
+                "realm-path-item";
+
+
+            element.textContent =
+                realm.name;
+
+
+            if (
+                index <
+                game.realmIndex
+            ) {
+
+                element.classList.add(
+                    "completed"
+                );
+
+            }
+
+
+            if (
+                index ===
+                game.realmIndex
+            ) {
+
+                element.classList.add(
+                    "current"
+                );
+
+            }
+
+
+            container.appendChild(
+                element
+            );
+
+        }
+    );
+
+}
+
+
+/* ========================================================= */
+/* ZONE PROGRESS                                            */
+/* ========================================================= */
+
+function renderZoneProgress() {
+
+    const container =
+        byId(
+            "zoneProgressList"
+        );
+
+
+    container.innerHTML =
+        "";
+
+
+    for (
+        const zone
+        of ZONES
+    ) {
+
+        const unlocked =
+            game.realmIndex >=
+            zone.requiredRealm;
+
+
+        const progress =
+            game.zoneBossProgress[
+                zone.id
+            ] ||
+            0;
+
+
+        const element =
+            document.createElement(
+                "div"
+            );
+
+
+        element.className =
+            "realm-path-item";
+
+
+        if (
+            zone.id ===
+            game.selectedZone
+        ) {
+
+            element.classList.add(
+                "current"
+            );
+
+        }
+
+
+        element.textContent =
+            unlocked
+                ? `${zone.name} — Boss Threat ${Math.min(progress, 5)}/5`
+                : `${zone.name} — Locked`;
+
+
+        container.appendChild(
+            element
+        );
+
+    }
+
+}
+
+
+/* ========================================================= */
+/* STATUS WINDOW                                            */
+/* ========================================================= */
+
+function renderStatusWindow() {
+
+    const weapon =
+        getEquippedWeapon();
+
+
+    byId(
+        "statusNameDisplay"
+    ).textContent =
+        game.playerName;
+
+
+    byId(
+        "statusRealmDisplay"
+    ).textContent =
+        `${getCurrentRealm().name} · ${STAGES[game.stageIndex]}`;
+
+
+    byId(
+        "statusRootDisplay"
+    ).textContent =
+        game.spiritualRoot;
+
+
+    byId(
+        "statusStrengthDisplay"
+    ).textContent =
+        game.attributes.strength;
+
+
+    byId(
+        "statusConstitutionDisplay"
+    ).textContent =
+        game.attributes.constitution;
+
+
+    byId(
+        "statusSoulDisplay"
+    ).textContent =
+        game.attributes.soul;
+
+
+    byId(
+        "statusHealthDisplay"
+    ).textContent =
+        `${formatNumber(game.health)} / ${formatNumber(getMaxHealth())}`;
+
+
+    byId(
+        "statusCombatDisplay"
+    ).textContent =
+        formatNumber(
+            getCombatPower()
+        );
+
+
+    byId(
+        "statusQiGenerationDisplay"
+    ).textContent =
+        `${formatNumber(getQiPerSecond())} Qi/sec`;
+
+
+    byId(
+        "statusTechniqueDisplay"
+    ).textContent =
+        getCurrentTechnique().name;
+
+
+    byId(
+        "statusWeaponDisplay"
+    ).textContent =
+        weapon
+            ? `${weapon.rarity} ${weapon.name}`
+            : "None";
+
+
+    byId(
+        "statusVictoriesDisplay"
+    ).textContent =
+        game.victories;
+
+
+    byId(
+        "statusBossesDisplay"
+    ).textContent =
+        game.bossesSlain;
+
+}
+
+
+/* ========================================================= */
+/* WEAPON INVENTORY                                         */
+/* ========================================================= */
+
+function renderWeaponInventory() {
+
+    const container =
+        byId(
+            "weaponInventoryList"
+        );
+
+
+    container.innerHTML =
+        "";
+
+
+    if (
+        game.weapons.length ===
+        0
+    ) {
+
+        container.innerHTML =
+            `
+                <div class="weapon-card">
+
+                    <div>
+
+                        <h3>
+                            No Spirit Weapons
+                        </h3>
+
+                        <p>
+                            Explore regions and defeat enemies to discover weapons.
+                        </p>
+
+                    </div>
+
+                </div>
+            `;
+
+        return;
+
+    }
+
 
     const sorted =
         [...game.weapons]
@@ -2323,23 +4488,28 @@ function renderWeaponInventory() {
                     a.power
             );
 
+
     for (
         const weapon
         of sorted
     ) {
+
+        const equipped =
+            weapon.id ===
+            game.equippedWeaponId;
+
 
         const card =
             document.createElement(
                 "div"
             );
 
+
         card.className =
             "weapon-card";
 
-        if (
-            weapon.id ===
-            game.equippedWeaponId
-        ) {
+
+        if (equipped) {
 
             card.classList.add(
                 "equipped"
@@ -2347,14 +4517,12 @@ function renderWeaponInventory() {
 
         }
 
-        const rarityClass =
-            `rarity-${weapon.rarity.toLowerCase()}`;
 
         card.innerHTML =
             `
                 <div>
 
-                    <h3 class="${rarityClass}">
+                    <h3 class="rarity-${weapon.rarity.toLowerCase()}">
                         ${weapon.rarity} ${weapon.name}
                     </h3>
 
@@ -2366,17 +4534,19 @@ function renderWeaponInventory() {
 
                 <button
                     data-weapon="${weapon.id}"
-                    ${weapon.id === game.equippedWeaponId ? "disabled" : ""}
+                    ${equipped ? "disabled" : ""}
                 >
-                    ${weapon.id === game.equippedWeaponId ? "Equipped" : "Equip"}
+                    ${equipped ? "Equipped" : "Equip"}
                 </button>
             `;
 
-        list.appendChild(
+
+        container.appendChild(
             card
         );
 
     }
+
 
     document
         .querySelectorAll(
@@ -2402,415 +4572,24 @@ function renderWeaponInventory() {
 }
 
 
-/* ============================================================ */
-/* LOG RENDER                                                   */
-/* ============================================================ */
-
-function renderLog() {
-
-    cultivationLog.innerHTML =
-        "";
-
-    for (
-        const entry
-        of game.log
-    ) {
-
-        const element =
-            document.createElement(
-                "div"
-            );
-
-        element.className =
-            "log-entry";
-
-        const time =
-            document.createElement(
-                "span"
-            );
-
-        time.className =
-            "log-time";
-
-        time.textContent =
-            entry.time;
-
-        const message =
-            document.createElement(
-                "span"
-            );
-
-        message.textContent =
-            entry.message;
-
-        if (
-            entry.important
-        ) {
-
-            message.className =
-                "log-important";
-
-        }
-
-        element.append(
-            time,
-            message
-        );
-
-        cultivationLog.appendChild(
-            element
-        );
-
-    }
-
-}
-
-
-/* ============================================================ */
-/* REALM PATH                                                   */
-/* ============================================================ */
-
-function renderRealmPath() {
-
-    realmPath.innerHTML =
-        "";
-
-    REALMS.forEach(
-        (
-            realm,
-            index
-        ) => {
-
-            const element =
-                document.createElement(
-                    "div"
-                );
-
-            element.className =
-                "realm-path-item";
-
-            element.textContent =
-                realm.name;
-
-            if (
-                index <
-                game.realmIndex
-            ) {
-
-                element.classList.add(
-                    "completed"
-                );
-
-            }
-
-            if (
-                index ===
-                game.realmIndex
-            ) {
-
-                element.classList.add(
-                    "current"
-                );
-
-            }
-
-            realmPath.appendChild(
-                element
-            );
-
-        }
-    );
-
-}
-
-
-/* ============================================================ */
-/* STATUS WINDOW                                                */
-/* ============================================================ */
-
-function renderStatusWindow() {
-
-    const technique =
-        getCurrentTechnique();
-
-    const weapon =
-        getEquippedWeapon();
-
-    byId(
-        "statusNameDisplay"
-    ).textContent =
-        game.playerName;
-
-    byId(
-        "statusRealmDisplay"
-    ).textContent =
-        `${getCurrentRealm().name} · ${STAGES[game.stageIndex]}`;
-
-    byId(
-        "statusRootDisplay"
-    ).textContent =
-        game.spiritualRoot;
-
-    byId(
-        "statusStrengthDisplay"
-    ).textContent =
-        game.attributes.strength;
-
-    byId(
-        "statusConstitutionDisplay"
-    ).textContent =
-        game.attributes.constitution;
-
-    byId(
-        "statusSoulDisplay"
-    ).textContent =
-        game.attributes.soul;
-
-    byId(
-        "statusCombatDisplay"
-    ).textContent =
-        formatNumber(
-            getCombatPower()
-        );
-
-    byId(
-        "statusQiGenerationDisplay"
-    ).textContent =
-        `${formatNumber(getQiPerSecond())} Qi/sec`;
-
-    byId(
-        "statusTechniqueDisplay"
-    ).textContent =
-        technique.name;
-
-    byId(
-        "statusWeaponDisplay"
-    ).textContent =
-        weapon
-            ? `${weapon.rarity} ${weapon.name}`
-            : "None";
-
-    byId(
-        "statusTotalQiDisplay"
-    ).textContent =
-        formatNumber(
-            game.totalQi
-        );
-
-}
-
-
-/* ============================================================ */
-/* MAIN RENDER                                                  */
-/* ============================================================ */
+/* ========================================================= */
+/* GLOBAL RENDER                                            */
+/* ========================================================= */
 
 function render() {
 
-    const realm =
-        getCurrentRealm();
-
-    const stage =
-        STAGES[
-            game.stageIndex
-        ];
-
-    const root =
-        getCurrentRoot();
-
-    const technique =
-        getCurrentTechnique();
-
-    const weapon =
-        getEquippedWeapon();
-
-    const requirement =
-        getQiRequirement();
-
-    const progress =
+    game.health =
         Math.min(
-            100,
-            game.qi /
-            requirement *
-            100
+            game.health,
+            getMaxHealth()
         );
 
-    const mastery =
-        getTechniqueMastery();
 
-    playerNameDisplay.textContent =
-        game.playerName;
+    renderCultivation();
 
-    realmDisplay.textContent =
-        realm.name;
+    renderAdventure();
 
-    stageDisplay.textContent =
-        stage;
-
-    spiritualRootDisplay.textContent =
-        game.spiritualRoot;
-
-    rootBonusDisplay.textContent =
-        `Qi Efficiency +${Math.round(root.qiBonus * 100)}%`;
-
-    mainRealmDisplay.textContent =
-        `${realm.name} · ${stage}`;
-
-    combatPowerDisplay.textContent =
-        formatNumber(
-            getCombatPower()
-        );
-
-    qiPerSecondDisplay.textContent =
-        formatNumber(
-            getQiPerSecond()
-        );
-
-    spiritStoneDisplay.textContent =
-        formatNumber(
-            game.spiritStones
-        );
-
-    statPointDisplay.textContent =
-        game.statPoints;
-
-    breakthroughCountDisplay.textContent =
-        game.breakthroughCount;
-
-    totalQiDisplay.textContent =
-        formatNumber(
-            game.totalQi
-        );
-
-    strengthDisplay.textContent =
-        game.attributes.strength;
-
-    constitutionDisplay.textContent =
-        game.attributes.constitution;
-
-    soulDisplay.textContent =
-        game.attributes.soul;
-
-    qiProgressText.textContent =
-        `${formatNumber(game.qi)} / ${formatNumber(requirement)} Qi`;
-
-    qiProgressBar.style.width =
-        `${progress}%`;
-
-    breakthroughChanceDisplay.textContent =
-        `Breakthrough: ${getBreakthroughChance().toFixed(1)}%`;
-
-    activeTechniqueDisplay.textContent =
-        technique.name;
-
-    techniqueBonusDisplay.textContent =
-        `Qi Production +${Math.round(technique.qiBonus * 100)}%`;
-
-    techniqueMasteryBar.style.width =
-        `${mastery}%`;
-
-    techniqueMasteryText.textContent =
-        `Mastery ${mastery.toFixed(1)}%`;
-
-    pillCountDisplay.textContent =
-        game.pills;
-
-    inventoryStoneDisplay.textContent =
-        formatNumber(
-            game.spiritStones
-        );
-
-    manualCountDisplay.textContent =
-        game.manuals;
-
-    weaponCountDisplay.textContent =
-        game.weapons.length;
-
-    streakDisplay.textContent =
-        game.dailyStreak;
-
-
-    if (weapon) {
-
-        equippedWeaponName.textContent =
-            `${weapon.rarity} ${weapon.name}`;
-
-        equippedWeaponName.className =
-            `rarity-${weapon.rarity.toLowerCase()}`;
-
-        equippedWeaponStats.textContent =
-            `Combat Power +${formatNumber(weapon.power)}`;
-
-    } else {
-
-        equippedWeaponName.textContent =
-            "None";
-
-        equippedWeaponName.className =
-            "";
-
-        equippedWeaponStats.textContent =
-            "No weapon equipped.";
-
-    }
-
-
-    if (
-        canSignInToday()
-    ) {
-
-        dailyStatus.textContent =
-            "Sign-in reward available.";
-
-        signInButton.disabled =
-            false;
-
-        signInButton.textContent =
-            "Daily Sign-In";
-
-    } else {
-
-        dailyStatus.textContent =
-            "Today's reward has already been claimed.";
-
-        signInButton.disabled =
-            true;
-
-        signInButton.textContent =
-            "Already Signed In";
-
-    }
-
-
-    usePillButton.disabled =
-        game.pills <=
-        0;
-
-
-    if (
-        game.realmIndex ===
-            REALMS.length - 1 &&
-        game.stageIndex ===
-            STAGES.length - 1
-    ) {
-
-        breakthroughButton.disabled =
-            true;
-
-        breakthroughButton.textContent =
-            "Pinnacle Reached";
-
-    } else {
-
-        breakthroughButton.disabled =
-            false;
-
-        breakthroughButton.textContent =
-            game.qi >=
-            requirement
-                ? "Attempt Breakthrough"
-                : `Need ${formatNumber(requirement)} Qi`;
-
-    }
+    renderStatusWindow();
 
 
     document
@@ -2827,27 +4606,207 @@ function render() {
             }
         );
 
+}
 
-    renderTechniques();
 
-    renderLog();
+/* ========================================================= */
+/* TAB SYSTEM                                               */
+/* ========================================================= */
 
-    renderRealmPath();
+function openCultivationTab() {
 
-    renderStatusWindow();
+    byId(
+        "cultivationPage"
+    ).classList.remove(
+        "hidden-page"
+    );
+
+
+    byId(
+        "adventurePage"
+    ).classList.add(
+        "hidden-page"
+    );
+
+
+    byId(
+        "cultivationTabButton"
+    ).classList.add(
+        "active-tab"
+    );
+
+
+    byId(
+        "adventureTabButton"
+    ).classList.remove(
+        "active-tab"
+    );
 
 }
 
 
-/* ============================================================ */
-/* OFFLINE                                                      */
-/* ============================================================ */
+function openAdventureTab() {
+
+    byId(
+        "cultivationPage"
+    ).classList.add(
+        "hidden-page"
+    );
+
+
+    byId(
+        "adventurePage"
+    ).classList.remove(
+        "hidden-page"
+    );
+
+
+    byId(
+        "cultivationTabButton"
+    ).classList.remove(
+        "active-tab"
+    );
+
+
+    byId(
+        "adventureTabButton"
+    ).classList.add(
+        "active-tab"
+    );
+
+
+    renderAdventure();
+
+}
+
+
+/* ========================================================= */
+/* FLOATING QI                                              */
+/* ========================================================= */
+
+function createFloatingQi(
+    event,
+    amount
+) {
+
+    const element =
+        document.createElement(
+            "div"
+        );
+
+
+    element.className =
+        "floating-qi";
+
+
+    element.textContent =
+        `+${formatNumber(amount)} Qi`;
+
+
+    const rect =
+        byId(
+            "cultivateButton"
+        ).getBoundingClientRect();
+
+
+    const x =
+        event?.clientX ||
+        (
+            rect.left +
+            rect.width /
+            2
+        );
+
+
+    const y =
+        event?.clientY ||
+        (
+            rect.top +
+            rect.height /
+            2
+        );
+
+
+    element.style.left =
+        `${x}px`;
+
+
+    element.style.top =
+        `${y}px`;
+
+
+    document.body.appendChild(
+        element
+    );
+
+
+    setTimeout(
+        () => {
+
+            element.remove();
+
+        },
+        1000
+    );
+
+}
+
+
+/* ========================================================= */
+/* NOTIFICATION                                             */
+/* ========================================================= */
+
+function notify(
+    message,
+    type =
+        "success"
+) {
+
+    const element =
+        document.createElement(
+            "div"
+        );
+
+
+    element.className =
+        `notification ${type}`;
+
+
+    element.textContent =
+        message;
+
+
+    byId(
+        "notificationContainer"
+    ).appendChild(
+        element
+    );
+
+
+    setTimeout(
+        () => {
+
+            element.remove();
+
+        },
+        3800
+    );
+
+}
+
+
+/* ========================================================= */
+/* OFFLINE PROGRESS                                         */
+/* ========================================================= */
 
 function calculateOfflineProgress() {
 
-    if (!game.lastPlayed) {
+    if (
+        !game.lastPlayed
+    ) {
         return;
     }
+
 
     const seconds =
         Math.min(
@@ -2861,6 +4820,7 @@ function calculateOfflineProgress() {
             MAX_OFFLINE_SECONDS
         );
 
+
     if (
         seconds <
         10
@@ -2868,20 +4828,30 @@ function calculateOfflineProgress() {
         return;
     }
 
+
     pendingOfflineQi =
         getQiPerSecond() *
         seconds *
         0.75;
 
-    offlineTimeDisplay.textContent =
+
+    byId(
+        "offlineTimeDisplay"
+    ).textContent =
         formatDuration(
             seconds
         );
 
-    offlineQiDisplay.textContent =
+
+    byId(
+        "offlineQiDisplay"
+    ).textContent =
         `+${formatNumber(pendingOfflineQi)} Qi`;
 
-    offlineModal.classList.remove(
+
+    byId(
+        "offlineModal"
+    ).classList.remove(
         "hidden"
     );
 
@@ -2897,26 +4867,34 @@ function claimOfflineProgress() {
         return;
     }
 
+
     addQi(
         pendingOfflineQi
     );
+
 
     addLog(
         `Secluded cultivation generated ${formatNumber(pendingOfflineQi)} Qi while you were away.`,
         true
     );
 
+
     notify(
-        `Offline Cultivation: +${formatNumber(pendingOfflineQi)} Qi`,
+        `Offline cultivation: +${formatNumber(pendingOfflineQi)} Qi.`,
         "success"
     );
+
 
     pendingOfflineQi =
         0;
 
-    offlineModal.classList.add(
+
+    byId(
+        "offlineModal"
+    ).classList.add(
         "hidden"
     );
+
 
     saveGame();
 
@@ -2929,9 +4907,15 @@ function formatDuration(
     seconds
 ) {
 
-    if (seconds < 60) {
+    if (
+        seconds <
+        60
+    ) {
+
         return `${seconds} seconds`;
+
     }
+
 
     const minutes =
         Math.floor(
@@ -2939,9 +4923,16 @@ function formatDuration(
             60
         );
 
-    if (minutes < 60) {
+
+    if (
+        minutes <
+        60
+    ) {
+
         return `${minutes} minutes`;
+
     }
+
 
     const hours =
         Math.floor(
@@ -2949,18 +4940,15 @@ function formatDuration(
             60
         );
 
-    const remaining =
-        minutes %
-        60;
 
-    return `${hours}h ${remaining}m`;
+    return `${hours}h ${minutes % 60}m`;
 
 }
 
 
-/* ============================================================ */
-/* SAVE                                                         */
-/* ============================================================ */
+/* ========================================================= */
+/* SAVE                                                      */
+/* ========================================================= */
 
 function saveGame(
     showMessage =
@@ -2972,12 +4960,14 @@ function saveGame(
         game.lastPlayed =
             Date.now();
 
+
         localStorage.setItem(
             SAVE_KEY,
             JSON.stringify(
                 game
             )
         );
+
 
         if (showMessage) {
 
@@ -2991,6 +4981,7 @@ function saveGame(
     } catch (error) {
 
         console.error(
+            "Save error:",
             error
         );
 
@@ -2999,9 +4990,9 @@ function saveGame(
 }
 
 
-/* ============================================================ */
-/* LOAD + MIGRATION                                             */
-/* ============================================================ */
+/* ========================================================= */
+/* LOAD + MIGRATION                                         */
+/* ========================================================= */
 
 function loadGame() {
 
@@ -3012,45 +5003,102 @@ function loadGame() {
                 SAVE_KEY
             );
 
+
         if (!saved) {
 
-            saved =
-                localStorage.getItem(
-                    OLD_SAVE_KEY
-                );
+            for (
+                const oldKey
+                of OLD_SAVE_KEYS
+            ) {
+
+                saved =
+                    localStorage.getItem(
+                        oldKey
+                    );
+
+
+                if (saved) {
+                    break;
+                }
+
+            }
 
         }
+
 
         if (!saved) {
 
             game =
                 createDefaultGameState();
 
+            game.health =
+                getMaxHealth();
+
             return;
 
         }
+
 
         const parsed =
             JSON.parse(
                 saved
             );
 
+
         const defaults =
             createDefaultGameState();
 
+
         game = {
+
             ...defaults,
+
             ...parsed,
 
             attributes: {
+
                 ...defaults.attributes,
-                ...(parsed.attributes || {})
+
+                ...(
+                    parsed.attributes ||
+                    {}
+                )
+
             },
 
             techniqueMastery: {
+
                 ...defaults.techniqueMastery,
-                ...(parsed.techniqueMastery || {})
+
+                ...(
+                    parsed.techniqueMastery ||
+                    {}
+                )
+
+            },
+
+            missionClaims: {
+
+                ...defaults.missionClaims,
+
+                ...(
+                    parsed.missionClaims ||
+                    {}
+                )
+
+            },
+
+            zoneBossProgress: {
+
+                ...defaults.zoneBossProgress,
+
+                ...(
+                    parsed.zoneBossProgress ||
+                    {}
+                )
+
             }
+
         };
 
 
@@ -3067,39 +5115,6 @@ function loadGame() {
 
 
         if (
-            !game.spiritualRoot
-        ) {
-
-            game.spiritualRoot =
-                generateSpiritualRoot();
-
-        }
-
-
-        if (
-            typeof parsed.weapons ===
-            "number"
-        ) {
-
-            game.weapons =
-                [];
-
-            for (
-                let i = 0;
-                i < parsed.weapons;
-                i++
-            ) {
-
-                game.weapons.push(
-                    generateWeapon()
-                );
-
-            }
-
-        }
-
-
-        if (
             !Array.isArray(
                 game.log
             )
@@ -3110,24 +5125,72 @@ function loadGame() {
 
         }
 
+
+        if (
+            !Array.isArray(
+                game.battleLog
+            )
+        ) {
+
+            game.battleLog =
+                [];
+
+        }
+
+
+        /*
+            Don't resume an old combat encounter
+            after reloading.
+        */
+
+        game.currentEnemy =
+            null;
+
+
+        if (
+            !Number.isFinite(
+                game.health
+            )
+        ) {
+
+            game.health =
+                getMaxHealth();
+
+        }
+
+
+        game.health =
+            Math.min(
+                getMaxHealth(),
+                Math.max(
+                    1,
+                    game.health
+                )
+            );
+
     } catch (error) {
 
         console.error(
-            "Save load failed:",
+            "Load error:",
             error
         );
 
+
         game =
             createDefaultGameState();
+
+
+        game.health =
+            getMaxHealth();
 
     }
 
 }
 
 
-/* ============================================================ */
-/* RESET                                                        */
-/* ============================================================ */
+/* ========================================================= */
+/* RESET                                                     */
+/* ========================================================= */
 
 function resetGame() {
 
@@ -3136,36 +5199,57 @@ function resetGame() {
             "Erase all cultivation progress and reincarnate?"
         );
 
+
     if (!confirmed) {
         return;
     }
+
 
     localStorage.removeItem(
         SAVE_KEY
     );
 
-    localStorage.removeItem(
-        OLD_SAVE_KEY
-    );
+
+    for (
+        const key
+        of OLD_SAVE_KEYS
+    ) {
+
+        localStorage.removeItem(
+            key
+        );
+
+    }
+
 
     game =
         createDefaultGameState();
 
+
+    game.health =
+        getMaxHealth();
+
+
     saveGame();
+
+
+    openCultivationTab();
+
 
     notify(
         "A new cultivation life has begun.",
         "success"
     );
 
+
     render();
 
 }
 
 
-/* ============================================================ */
-/* PARTICLES                                                    */
-/* ============================================================ */
+/* ========================================================= */
+/* PARTICLES                                                 */
+/* ========================================================= */
 
 function createParticles() {
 
@@ -3173,6 +5257,7 @@ function createParticles() {
         byId(
             "particles"
         );
+
 
     for (
         let i = 0;
@@ -3185,28 +5270,36 @@ function createParticles() {
                 "div"
             );
 
+
         particle.className =
             "particle";
+
 
         particle.style.left =
             `${Math.random() * 100}%`;
 
+
         particle.style.animationDuration =
             `${10 + Math.random() * 18}s`;
 
+
         particle.style.animationDelay =
             `${Math.random() * 20}s`;
+
 
         const size =
             1 +
             Math.random() *
             3;
 
+
         particle.style.width =
             `${size}px`;
 
+
         particle.style.height =
             `${size}px`;
+
 
         container.appendChild(
             particle
@@ -3217,31 +5310,127 @@ function createParticles() {
 }
 
 
-/* ============================================================ */
-/* EVENTS                                                       */
-/* ============================================================ */
+/* ========================================================= */
+/* EVENTS                                                    */
+/* ========================================================= */
 
-cultivateButton.addEventListener(
+byId(
+    "cultivateButton"
+).addEventListener(
     "click",
     manuallyCultivate
 );
 
 
-breakthroughButton.addEventListener(
+byId(
+    "breakthroughButton"
+).addEventListener(
     "click",
     attemptBreakthrough
 );
 
 
-signInButton.addEventListener(
+byId(
+    "signInButton"
+).addEventListener(
     "click",
     claimDailyReward
 );
 
 
-usePillButton.addEventListener(
+byId(
+    "usePillButton"
+).addEventListener(
     "click",
     useCultivationPill
+);
+
+
+byId(
+    "healButton"
+).addEventListener(
+    "click",
+    useHealingPill
+);
+
+
+byId(
+    "battleHealButton"
+).addEventListener(
+    "click",
+    () => {
+
+        if (
+            useHealingPill()
+        ) {
+
+            enemyTurn();
+
+            render();
+
+        }
+
+    }
+);
+
+
+byId(
+    "exploreButton"
+).addEventListener(
+    "click",
+    exploreZone
+);
+
+
+byId(
+    "attackButton"
+).addEventListener(
+    "click",
+    () => {
+
+        playerAttack(
+            false
+        );
+
+    }
+);
+
+
+byId(
+    "spiritualAttackButton"
+).addEventListener(
+    "click",
+    () => {
+
+        playerAttack(
+            true
+        );
+
+    }
+);
+
+
+byId(
+    "fleeButton"
+).addEventListener(
+    "click",
+    fleeBattle
+);
+
+
+byId(
+    "cultivationTabButton"
+).addEventListener(
+    "click",
+    openCultivationTab
+);
+
+
+byId(
+    "adventureTabButton"
+).addEventListener(
+    "click",
+    openAdventureTab
 );
 
 
@@ -3267,74 +5456,6 @@ byId(
 );
 
 
-byId(
-    "statusButton"
-).addEventListener(
-    "click",
-    () => {
-
-        renderStatusWindow();
-
-        statusModal.classList.remove(
-            "hidden"
-        );
-
-    }
-);
-
-
-byId(
-    "closeStatusButton"
-).addEventListener(
-    "click",
-    () => {
-
-        statusModal.classList.add(
-            "hidden"
-        );
-
-    }
-);
-
-
-byId(
-    "openInventoryButton"
-).addEventListener(
-    "click",
-    () => {
-
-        renderWeaponInventory();
-
-        equipmentModal.classList.remove(
-            "hidden"
-        );
-
-    }
-);
-
-
-byId(
-    "closeEquipmentButton"
-).addEventListener(
-    "click",
-    () => {
-
-        equipmentModal.classList.add(
-            "hidden"
-        );
-
-    }
-);
-
-
-byId(
-    "claimOfflineButton"
-).addEventListener(
-    "click",
-    claimOfflineProgress
-);
-
-
 document
     .querySelectorAll(
         ".attribute-upgrade"
@@ -3357,16 +5478,108 @@ document
     );
 
 
-statusModal.addEventListener(
+/* STATUS MODAL */
+
+byId(
+    "statusButton"
+).addEventListener(
+    "click",
+    () => {
+
+        renderStatusWindow();
+
+
+        byId(
+            "statusModal"
+        ).classList.remove(
+            "hidden"
+        );
+
+    }
+);
+
+
+byId(
+    "closeStatusButton"
+).addEventListener(
+    "click",
+    () => {
+
+        byId(
+            "statusModal"
+        ).classList.add(
+            "hidden"
+        );
+
+    }
+);
+
+
+/* EQUIPMENT */
+
+byId(
+    "openInventoryButton"
+).addEventListener(
+    "click",
+    () => {
+
+        renderWeaponInventory();
+
+
+        byId(
+            "equipmentModal"
+        ).classList.remove(
+            "hidden"
+        );
+
+    }
+);
+
+
+byId(
+    "closeEquipmentButton"
+).addEventListener(
+    "click",
+    () => {
+
+        byId(
+            "equipmentModal"
+        ).classList.add(
+            "hidden"
+        );
+
+    }
+);
+
+
+/* OFFLINE */
+
+byId(
+    "claimOfflineButton"
+).addEventListener(
+    "click",
+    claimOfflineProgress
+);
+
+
+/* CLICK OUTSIDE MODALS */
+
+byId(
+    "statusModal"
+).addEventListener(
     "click",
     event => {
 
         if (
             event.target ===
-            statusModal
+            byId(
+                "statusModal"
+            )
         ) {
 
-            statusModal.classList.add(
+            byId(
+                "statusModal"
+            ).classList.add(
                 "hidden"
             );
 
@@ -3376,16 +5589,22 @@ statusModal.addEventListener(
 );
 
 
-equipmentModal.addEventListener(
+byId(
+    "equipmentModal"
+).addEventListener(
     "click",
     event => {
 
         if (
             event.target ===
-            equipmentModal
+            byId(
+                "equipmentModal"
+            )
         ) {
 
-            equipmentModal.classList.add(
+            byId(
+                "equipmentModal"
+            ).classList.add(
                 "hidden"
             );
 
@@ -3394,6 +5613,8 @@ equipmentModal.addEventListener(
     }
 );
 
+
+/* SAVE WHEN LEAVING */
 
 window.addEventListener(
     "beforeunload",
@@ -3422,24 +5643,39 @@ document.addEventListener(
 );
 
 
-/* ============================================================ */
-/* INITIALIZE                                                   */
-/* ============================================================ */
+/* ========================================================= */
+/* INITIALIZATION                                           */
+/* ========================================================= */
 
 function initializeGame() {
 
     loadGame();
 
+
+    if (
+        !game.health
+    ) {
+
+        game.health =
+            getMaxHealth();
+
+    }
+
+
     calculateOfflineProgress();
+
 
     createParticles();
 
+
     render();
+
 
     setInterval(
         gameTick,
         TICK_RATE
     );
+
 
     setInterval(
         () => {
@@ -3452,5 +5688,9 @@ function initializeGame() {
 
 }
 
+
+/* ========================================================= */
+/* START                                                     */
+/* ========================================================= */
 
 initializeGame();
