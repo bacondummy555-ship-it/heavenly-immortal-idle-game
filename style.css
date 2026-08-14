@@ -6,7 +6,6 @@
 
 :root {
     --background: #080706;
-    --panel: rgba(20, 17, 13, 0.95);
 
     --gold: #d6a94e;
     --gold-bright: #ffd77a;
@@ -17,10 +16,14 @@
 
     --green: #5dc476;
 
+    --purple: #9e67e6;
+    --blue: #67a5e6;
+
     --text: #eee4d1;
     --text-soft: #a99b85;
 
-    --border: rgba(214, 169, 78, 0.25);
+    --border:
+        rgba(214, 169, 78, 0.25);
 
     --shadow:
         0 15px 45px rgba(0, 0, 0, 0.55);
@@ -78,7 +81,9 @@ body {
             transparent 1px
         );
 
-    background-size: 50px 50px;
+    background-size:
+        50px
+        50px;
 }
 
 .particles {
@@ -86,6 +91,7 @@ body {
     inset: 0;
 
     overflow: hidden;
+
     pointer-events: none;
 
     z-index: 0;
@@ -139,6 +145,7 @@ body {
 
 .game-container {
     position: relative;
+
     z-index: 2;
 
     max-width: 1550px;
@@ -165,6 +172,7 @@ body {
     gap: 25px;
 
     margin-bottom: 25px;
+
     padding-bottom: 23px;
 
     border-bottom:
@@ -175,6 +183,7 @@ body {
     color: var(--gold);
 
     font-size: 11px;
+
     letter-spacing: 10px;
 }
 
@@ -209,6 +218,7 @@ body {
 
 .header-actions {
     display: flex;
+
     flex-wrap: wrap;
 
     gap: 7px;
@@ -216,7 +226,7 @@ body {
 
 
 /* ========================================================= */
-/* BUTTONS                                                   */
+/* BASIC BUTTONS                                             */
 /* ========================================================= */
 
 .small-button {
@@ -238,13 +248,14 @@ body {
 
     font-family: inherit;
 
-    font-size: 10px;
+    font-size: 9px;
 
     transition: 0.22s;
 }
 
 .small-button:hover {
     border-color: var(--gold);
+
     color: var(--gold-bright);
 }
 
@@ -263,6 +274,7 @@ body {
 
 .danger-button:hover {
     border-color: var(--red-bright);
+
     color: #ff8585;
 }
 
@@ -277,8 +289,8 @@ body {
         0.3s ease;
 }
 
-.hidden-page,
-.hidden {
+.hidden,
+.hidden-page {
     display: none !important;
 }
 
@@ -286,18 +298,22 @@ body {
 
     from {
         opacity: 0;
-        transform: translateY(5px);
+
+        transform:
+            translateY(5px);
     }
 
     to {
         opacity: 1;
-        transform: translateY(0);
+
+        transform:
+            translateY(0);
     }
 }
 
 
 /* ========================================================= */
-/* PANEL                                                     */
+/* PANELS                                                    */
 /* ========================================================= */
 
 .panel {
@@ -357,7 +373,7 @@ body {
         "Cinzel",
         serif;
 
-    font-size: 13px;
+    font-size: 12px;
 
     letter-spacing: 2px;
 
@@ -366,6 +382,7 @@ body {
 
 .panel-title > span {
     display: grid;
+
     place-items: center;
 
     width: 27px;
@@ -379,13 +396,13 @@ body {
 
 
 /* ========================================================= */
-/* GENERIC TEXT                                              */
+/* TEXT                                                      */
 /* ========================================================= */
 
 .small-label {
     color: var(--text-soft);
 
-    font-size: 9px;
+    font-size: 8px;
 
     letter-spacing: 1px;
 
@@ -395,7 +412,7 @@ body {
 .soft-text {
     color: var(--text-soft);
 
-    font-size: 10px;
+    font-size: 9px;
 
     line-height: 1.7;
 }
@@ -405,14 +422,15 @@ body {
 
     color: var(--text-soft);
 
-    font-size: 9px;
+    font-size: 8px;
 
     line-height: 1.7;
 
     text-align: center;
 }
 
-.section-heading {
+.section-heading,
+.center-heading {
     margin-top: 5px;
 
     color: var(--gold-bright);
@@ -420,6 +438,13 @@ body {
     font-family:
         "Cinzel",
         serif;
+
+    font-size: 18px;
+}
+
+.center-heading,
+.centered-text {
+    text-align: center;
 }
 
 .section-description {
@@ -444,6 +469,7 @@ body {
 
 .right-column {
     display: flex;
+
     flex-direction: column;
 
     gap: 20px;
@@ -462,6 +488,7 @@ body {
     position: relative;
 
     display: grid;
+
     place-items: center;
 
     width: 150px;
@@ -474,9 +501,11 @@ body {
 
 .avatar-core {
     position: relative;
+
     z-index: 3;
 
     display: grid;
+
     place-items: center;
 
     width: 82px;
@@ -529,13 +558,15 @@ body {
     height: 150px;
 
     animation-direction: reverse;
+
     animation-duration: 20s;
 }
 
 @keyframes rotateCircle {
 
     to {
-        transform: rotate(360deg);
+        transform:
+            rotate(360deg);
     }
 }
 
@@ -591,7 +622,7 @@ body {
 
     color: var(--gold-bright);
 
-    font-size: 12px;
+    font-size: 11px;
 }
 
 
@@ -620,7 +651,7 @@ body {
     border-bottom:
         1px solid rgba(214, 169, 78, 0.09);
 
-    font-size: 10px;
+    font-size: 9px;
 }
 
 .stat-row span {
@@ -633,7 +664,7 @@ body {
 
 
 /* ========================================================= */
-/* REALM                                                    */
+/* CULTIVATION                                               */
 /* ========================================================= */
 
 .realm-heading {
@@ -671,11 +702,6 @@ body {
     font-size: 9px;
 }
 
-
-/* ========================================================= */
-/* PROGRESS                                                  */
-/* ========================================================= */
-
 .qi-section {
     margin-top: 22px;
 }
@@ -691,6 +717,11 @@ body {
 
     font-size: 9px;
 }
+
+
+/* ========================================================= */
+/* PROGRESS BARS                                             */
+/* ========================================================= */
 
 .progress-bar,
 .health-bar {
@@ -726,12 +757,55 @@ body {
             #ffe093
         );
 
-    transition: width 0.25s;
+    transition:
+        width
+        0.25s;
+}
+
+.health-fill {
+    height: 100%;
+
+    border-radius: 50px;
+
+    transition:
+        width
+        0.3s ease;
+}
+
+.player-health {
+    background:
+        linear-gradient(
+            90deg,
+            #337c47,
+            #63cc79
+        );
+}
+
+.enemy-health {
+    background:
+        linear-gradient(
+            90deg,
+            #791f1f,
+            #dd4949
+        );
+}
+
+.tribulation-health {
+    background:
+        linear-gradient(
+            90deg,
+            #5f2a92,
+            #ae6cff,
+            #efdcff
+        );
+
+    box-shadow:
+        0 0 10px rgba(177, 106, 255, 0.55);
 }
 
 
 /* ========================================================= */
-/* TECHNIQUE ACTIVE                                          */
+/* TECHNIQUE                                                 */
 /* ========================================================= */
 
 .technique-active {
@@ -753,7 +827,7 @@ body {
 
     color: var(--gold-bright);
 
-    font-size: 12px;
+    font-size: 11px;
 }
 
 .technique-active small {
@@ -775,8 +849,6 @@ body {
 
 .mini-progress-fill {
     height: 100%;
-
-    width: 0%;
 
     background:
         linear-gradient(
@@ -824,7 +896,8 @@ body {
 }
 
 .cultivation-orb:hover {
-    transform: scale(1.04);
+    transform:
+        scale(1.04);
 }
 
 .orb-ring {
@@ -960,14 +1033,14 @@ body {
 
     color: var(--text-soft);
 
-    font-size: 9px;
+    font-size: 8px;
 
     line-height: 1.7;
 }
 
 
 /* ========================================================= */
-/* ACTIONS                                                   */
+/* ACTION BUTTONS                                            */
 /* ========================================================= */
 
 .main-actions,
@@ -984,7 +1057,7 @@ body {
     grid-template-columns:
         repeat(2, 1fr);
 
-    margin-top: 20px;
+    margin-top: 17px;
 }
 
 .action-button {
@@ -1022,7 +1095,8 @@ body {
 
     color: var(--gold-bright);
 
-    transform: translateY(-1px);
+    transform:
+        translateY(-1px);
 }
 
 .action-button:disabled {
@@ -1087,7 +1161,7 @@ body {
 .system-label {
     color: var(--gold);
 
-    font-size: 8px;
+    font-size: 7px;
 
     letter-spacing: 3px;
 }
@@ -1097,7 +1171,7 @@ body {
 
     color: var(--text-soft);
 
-    font-size: 9px;
+    font-size: 8px;
 
     line-height: 1.6;
 }
@@ -1136,13 +1210,13 @@ body {
 .attribute-card strong {
     display: block;
 
-    font-size: 10px;
+    font-size: 9px;
 }
 
 .attribute-card small {
     color: var(--text-soft);
 
-    font-size: 8px;
+    font-size: 7px;
 }
 
 .attribute-card > span {
@@ -1166,7 +1240,7 @@ body {
 
 
 /* ========================================================= */
-/* INVENTORY                                                 */
+/* EQUIPMENT / INVENTORY                                     */
 /* ========================================================= */
 
 .equipped-card {
@@ -1188,13 +1262,13 @@ body {
 
     color: var(--gold-bright);
 
-    font-size: 11px;
+    font-size: 10px;
 }
 
 .equipped-card small {
     color: var(--text-soft);
 
-    font-size: 8px;
+    font-size: 7px;
 }
 
 .inventory-grid {
@@ -1242,7 +1316,7 @@ body {
 }
 
 .item-info span {
-    font-size: 9px;
+    font-size: 8px;
 }
 
 .item-info small {
@@ -1253,11 +1327,13 @@ body {
 
 .inventory-item strong {
     color: var(--gold-bright);
+
+    font-size: 9px;
 }
 
 
 /* ========================================================= */
-/* LOWER GRID                                                */
+/* LOWER GRIDS                                               */
 /* ========================================================= */
 
 .bottom-grid {
@@ -1274,7 +1350,7 @@ body {
 
 
 /* ========================================================= */
-/* TECHNIQUES                                                */
+/* CULTIVATION TECHNIQUES                                    */
 /* ========================================================= */
 
 .technique-list {
@@ -1307,7 +1383,7 @@ body {
 .technique-name {
     color: var(--gold-bright);
 
-    font-size: 10px;
+    font-size: 9px;
 }
 
 .technique-rank {
@@ -1323,7 +1399,7 @@ body {
 
     color: var(--text-soft);
 
-    font-size: 8px;
+    font-size: 7px;
 
     line-height: 1.6;
 }
@@ -1347,7 +1423,7 @@ body {
 
     font-family: inherit;
 
-    font-size: 8px;
+    font-size: 7px;
 }
 
 
@@ -1461,7 +1537,7 @@ body {
 
 
 /* ========================================================= */
-/* REALM PATH                                                */
+/* PATH                                                      */
 /* ========================================================= */
 
 .realm-path {
@@ -1482,7 +1558,7 @@ body {
 
     color: #736a5c;
 
-    font-size: 8px;
+    font-size: 7px;
 }
 
 .realm-path-item.current {
@@ -1591,41 +1667,15 @@ body {
 
     color: var(--text-soft);
 
-    font-size: 9px;
+    font-size: 8px;
 }
 
 .battle-stat strong {
     color: var(--gold-bright);
 }
 
-.health-fill {
-    height: 100%;
-
-    border-radius: 50px;
-
-    transition: width 0.3s;
-}
-
-.player-health {
-    background:
-        linear-gradient(
-            90deg,
-            #337c47,
-            #63cc79
-        );
-}
-
-.enemy-health {
-    background:
-        linear-gradient(
-            90deg,
-            #791f1f,
-            #dd4949
-        );
-}
-
 .adventure-main-panel {
-    min-height: 620px;
+    min-height: 660px;
 }
 
 .zone-list {
@@ -1672,7 +1722,7 @@ body {
 .zone-card h3 {
     color: var(--gold-bright);
 
-    font-size: 10px;
+    font-size: 9px;
 }
 
 .zone-card p {
@@ -1697,9 +1747,9 @@ body {
 
 .enemy-display {
     margin:
-        20px
+        15px
         0
-        25px;
+        22px;
 
     text-align: center;
 }
@@ -1710,6 +1760,8 @@ body {
     font-family:
         "Cinzel",
         serif;
+
+    font-size: 18px;
 }
 
 .enemy-display p {
@@ -1721,7 +1773,7 @@ body {
 .enemy-type {
     color: #df7575;
 
-    font-size: 8px;
+    font-size: 7px;
 
     letter-spacing: 2px;
 }
@@ -1761,12 +1813,151 @@ body {
 
     color: var(--gold-bright);
 
-    font-size: 10px;
+    font-size: 9px;
 }
 
 
 /* ========================================================= */
-/* MISSIONS                                                  */
+/* AUTO BATTLE                                               */
+/* ========================================================= */
+
+.auto-battle-box {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 10px;
+
+    margin-top: 15px;
+
+    padding: 10px;
+
+    border:
+        1px solid rgba(214, 169, 78, 0.16);
+
+    background:
+        rgba(214, 169, 78, 0.03);
+
+    text-align: left;
+}
+
+.auto-battle-box strong,
+.auto-battle-box small {
+    display: block;
+}
+
+.auto-battle-box strong {
+    color: var(--gold-bright);
+
+    font-size: 9px;
+}
+
+.auto-battle-box small {
+    margin-top: 3px;
+
+    color: var(--text-soft);
+
+    font-size: 7px;
+}
+
+.auto-battle-box .action-button {
+    min-height: 34px;
+
+    padding:
+        6px
+        10px;
+}
+
+
+/* ========================================================= */
+/* COMBAT SKILLS                                             */
+/* ========================================================= */
+
+.combat-skill-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 7px;
+
+    margin-top: 18px;
+}
+
+.combat-skill-button {
+    position: relative;
+
+    min-height: 52px;
+
+    padding: 8px;
+
+    border:
+        1px solid rgba(155, 104, 225, 0.35);
+
+    border-radius: 4px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(64, 43, 84, 0.34),
+            rgba(21, 16, 26, 0.8)
+        );
+
+    color: #e4d2ff;
+
+    cursor: pointer;
+
+    font-family: inherit;
+
+    font-size: 8px;
+
+    text-align: left;
+}
+
+.combat-skill-button:hover:not(:disabled) {
+    border-color: #ba83ff;
+}
+
+.combat-skill-button:disabled {
+    opacity: 0.4;
+
+    cursor: not-allowed;
+}
+
+.combat-skill-name {
+    display: block;
+
+    color: #e8d4ff;
+
+    font-weight: 600;
+}
+
+.combat-skill-meta {
+    display: block;
+
+    margin-top: 4px;
+
+    color: #9f89b8;
+
+    font-size: 7px;
+}
+
+.skill-cooldown {
+    position: absolute;
+
+    top: 5px;
+    right: 6px;
+
+    color: #ffcc7f;
+
+    font-size: 7px;
+}
+
+
+/* ========================================================= */
+/* MISSIONS / CARDS                                         */
 /* ========================================================= */
 
 .mission-list,
@@ -1808,7 +1999,7 @@ body {
 .rank-card h3 {
     color: var(--gold-bright);
 
-    font-size: 10px;
+    font-size: 9px;
 }
 
 .mission-card p,
@@ -1820,7 +2011,7 @@ body {
 
     color: var(--text-soft);
 
-    font-size: 8px;
+    font-size: 7px;
 
     line-height: 1.5;
 }
@@ -1831,7 +2022,7 @@ body {
 
     color: var(--gold);
 
-    font-size: 8px;
+    font-size: 7px;
 }
 
 .mission-card button,
@@ -1856,7 +2047,162 @@ body {
 
     font-family: inherit;
 
+    font-size: 7px;
+}
+
+
+/* ========================================================= */
+/* MARTIAL ARTS PAGE                                         */
+/* ========================================================= */
+
+.skills-layout {
+    display: grid;
+
+    grid-template-columns:
+        0.75fr
+        1.5fr
+        0.85fr;
+
+    gap: 20px;
+}
+
+.skill-library-panel {
+    min-height: 650px;
+}
+
+.martial-skill-list {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 9px;
+}
+
+.martial-skill-card {
+    padding: 13px;
+
+    border:
+        1px solid rgba(157, 104, 224, 0.2);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(48, 34, 61, 0.22),
+            rgba(15, 13, 16, 0.35)
+        );
+}
+
+.martial-skill-card.locked {
+    opacity: 0.35;
+}
+
+.martial-skill-card h3 {
+    color: #dabaff;
+
+    font-size: 10px;
+}
+
+.martial-skill-type {
+    margin-top: 3px;
+
+    color: #9f75d4;
+
+    font-size: 7px;
+
+    text-transform: uppercase;
+}
+
+.martial-skill-card p {
+    margin-top: 7px;
+
+    color: var(--text-soft);
+
+    font-size: 7px;
+
+    line-height: 1.6;
+}
+
+.skill-data-grid {
+    display: grid;
+
+    grid-template-columns:
+        1fr
+        1fr;
+
+    gap: 5px;
+
+    margin-top: 9px;
+}
+
+.skill-data-grid > div {
+    padding: 6px;
+
+    border:
+        1px solid rgba(157, 104, 224, 0.14);
+}
+
+.skill-data-grid span,
+.skill-data-grid strong {
+    display: block;
+}
+
+.skill-data-grid span {
+    color: #8f8199;
+
+    font-size: 6px;
+}
+
+.skill-data-grid strong {
+    margin-top: 2px;
+
+    color: #dfc8f4;
+
     font-size: 8px;
+}
+
+.skill-mastery-bar {
+    height: 5px;
+
+    margin-top: 10px;
+
+    background: #08060a;
+}
+
+.skill-mastery-fill {
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            #6e3da5,
+            #ba82ff
+        );
+}
+
+.info-card {
+    margin-bottom: 9px;
+
+    padding: 12px;
+
+    border:
+        1px solid rgba(214, 169, 78, 0.12);
+}
+
+.info-card h3 {
+    color: var(--gold-bright);
+
+    font-size: 9px;
+}
+
+.info-card p {
+    margin-top: 5px;
+
+    color: var(--text-soft);
+
+    font-size: 7px;
+
+    line-height: 1.6;
 }
 
 
@@ -1913,7 +2259,7 @@ body {
 .rank-banner span {
     color: var(--text-soft);
 
-    font-size: 8px;
+    font-size: 7px;
 }
 
 .rank-banner strong {
@@ -1921,7 +2267,7 @@ body {
 
     color: var(--gold-bright);
 
-    font-size: 13px;
+    font-size: 12px;
 }
 
 .rank-card.current {
@@ -1933,10 +2279,6 @@ body {
 
 .rank-card.locked {
     opacity: 0.45;
-}
-
-.treasury-description {
-    margin-bottom: 14px;
 }
 
 .benefit-card {
@@ -1952,7 +2294,7 @@ body {
 .benefit-card h3 {
     color: var(--gold-bright);
 
-    font-size: 12px;
+    font-size: 11px;
 }
 
 .benefit-card p {
@@ -1960,7 +2302,7 @@ body {
 
     color: var(--text-soft);
 
-    font-size: 9px;
+    font-size: 8px;
 
     line-height: 1.7;
 }
@@ -2010,7 +2352,7 @@ body {
 
     color: var(--gold-bright);
 
-    font-size: 10px;
+    font-size: 9px;
 }
 
 .herb-card span {
@@ -2020,7 +2362,7 @@ body {
 
     color: var(--text-soft);
 
-    font-size: 8px;
+    font-size: 7px;
 }
 
 .alchemy-center-panel {
@@ -2068,12 +2410,16 @@ body {
 
     0%,
     100% {
-        transform: scale(0.9);
+        transform:
+            scale(0.9);
+
         opacity: 0.5;
     }
 
     50% {
-        transform: scale(1.1);
+        transform:
+            scale(1.1);
+
         opacity: 1;
     }
 }
@@ -2084,6 +2430,7 @@ body {
     z-index: 2;
 
     display: grid;
+
     place-items: center;
 
     width: 105px;
@@ -2133,7 +2480,7 @@ body {
 .alchemy-stats span {
     color: var(--text-soft);
 
-    font-size: 7px;
+    font-size: 6px;
 }
 
 .alchemy-stats strong {
@@ -2180,7 +2527,7 @@ body {
 
     color: var(--gold);
 
-    font-size: 8px;
+    font-size: 7px;
 }
 
 
@@ -2204,7 +2551,8 @@ body {
     background:
         rgba(0, 0, 0, 0.84);
 
-    backdrop-filter: blur(7px);
+    backdrop-filter:
+        blur(7px);
 }
 
 .modal-card {
@@ -2280,7 +2628,7 @@ body {
 .system-window-title {
     color: var(--gold);
 
-    font-size: 8px;
+    font-size: 7px;
 
     letter-spacing: 4px;
 }
@@ -2305,7 +2653,7 @@ body {
 
     color: var(--text-soft);
 
-    font-size: 9px;
+    font-size: 8px;
 
     line-height: 1.7;
 }
@@ -2346,12 +2694,12 @@ body {
 
     color: var(--gold-bright);
 
-    font-size: 10px;
+    font-size: 9px;
 }
 
 
 /* ========================================================= */
-/* WEAPON MODAL                                              */
+/* EQUIPMENT MODAL                                           */
 /* ========================================================= */
 
 .weapon-inventory-list {
@@ -2387,7 +2735,7 @@ body {
 }
 
 .weapon-card h3 {
-    font-size: 10px;
+    font-size: 9px;
 }
 
 .weapon-card p {
@@ -2395,7 +2743,7 @@ body {
 
     color: var(--text-soft);
 
-    font-size: 8px;
+    font-size: 7px;
 }
 
 .weapon-card button {
@@ -2414,11 +2762,218 @@ body {
     font-family: inherit;
 
     cursor: pointer;
+
+    font-size: 7px;
 }
 
 
 /* ========================================================= */
-/* RARITY COLORS                                             */
+/* PILL MODAL                                                */
+/* ========================================================= */
+
+.pill-list {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 9px;
+
+    text-align: left;
+}
+
+.pill-card {
+    display: grid;
+
+    grid-template-columns:
+        1fr
+        auto;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 12px;
+
+    border:
+        1px solid rgba(214, 169, 78, 0.15);
+}
+
+.pill-card h3 {
+    color: var(--gold-bright);
+
+    font-size: 9px;
+}
+
+.pill-card p {
+    margin-top: 4px;
+
+    color: var(--text-soft);
+
+    font-size: 7px;
+
+    line-height: 1.5;
+}
+
+.pill-card span {
+    display: block;
+
+    margin-top: 5px;
+
+    color: var(--gold);
+
+    font-size: 8px;
+}
+
+.pill-card button {
+    padding:
+        7px
+        12px;
+
+    border:
+        1px solid rgba(214, 169, 78, 0.3);
+
+    background:
+        rgba(214, 169, 78, 0.08);
+
+    color: var(--gold-bright);
+
+    cursor: pointer;
+
+    font-family: inherit;
+}
+
+.breakthrough-pill-card {
+    border-color:
+        rgba(156, 103, 230, 0.35);
+
+    background:
+        rgba(111, 69, 160, 0.05);
+}
+
+
+/* ========================================================= */
+/* TRIBULATION                                               */
+/* ========================================================= */
+
+.tribulation-modal {
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(84, 39, 126, 0.36),
+            rgba(0, 0, 0, 0.92)
+        );
+}
+
+.tribulation-card {
+    width:
+        min(
+            600px,
+            100%
+        );
+
+    border-color:
+        rgba(180, 123, 255, 0.6);
+
+    background:
+        linear-gradient(
+            145deg,
+            #24172e,
+            #0d0911
+        );
+
+    box-shadow:
+        0 0 80px rgba(140, 79, 220, 0.24);
+}
+
+.tribulation-lightning {
+    font-size: 58px;
+
+    filter:
+        drop-shadow(
+            0 0 15px rgba(213, 176, 255, 0.9)
+        );
+
+    animation:
+        lightningPulse
+        0.8s
+        infinite;
+}
+
+@keyframes lightningPulse {
+
+    0%,
+    100% {
+        transform:
+            scale(0.95);
+
+        opacity: 0.7;
+    }
+
+    50% {
+        transform:
+            scale(1.08);
+
+        opacity: 1;
+    }
+}
+
+.tribulation-realm {
+    margin:
+        18px
+        0;
+
+    padding: 12px;
+
+    border:
+        1px solid rgba(177, 112, 255, 0.26);
+
+    background:
+        rgba(132, 77, 187, 0.06);
+}
+
+.tribulation-realm span,
+.tribulation-realm strong {
+    display: block;
+}
+
+.tribulation-realm span {
+    color: #a38aae;
+
+    font-size: 7px;
+}
+
+.tribulation-realm strong {
+    margin-top: 4px;
+
+    color: #dec4ff;
+
+    font-size: 12px;
+}
+
+.tribulation-wave-box {
+    display: flex;
+
+    justify-content: space-between;
+
+    margin-top: 14px;
+
+    padding: 10px;
+
+    border:
+        1px solid rgba(177, 112, 255, 0.18);
+
+    color: #a796af;
+
+    font-size: 8px;
+}
+
+.tribulation-wave-box strong {
+    color: #e4cfff;
+}
+
+
+/* ========================================================= */
+/* RARITY                                                   */
 /* ========================================================= */
 
 .rarity-common {
@@ -2464,7 +3019,7 @@ body {
 
     color: var(--text-soft);
 
-    font-size: 9px;
+    font-size: 8px;
 }
 
 .offline-reward-box strong {
@@ -2522,7 +3077,7 @@ body {
 
     color: var(--text);
 
-    font-size: 9px;
+    font-size: 8px;
 }
 
 .notification.error {
@@ -2555,12 +3110,16 @@ body {
 
     from {
         opacity: 1;
-        transform: translateY(0);
+
+        transform:
+            translateY(0);
     }
 
     to {
         opacity: 0;
-        transform: translateY(-70px);
+
+        transform:
+            translateY(-70px);
     }
 }
 
@@ -2585,7 +3144,7 @@ body {
 
     color: #655d50;
 
-    font-size: 8px;
+    font-size: 7px;
 }
 
 
@@ -2599,7 +3158,8 @@ body {
     .adventure-layout,
     .three-column-grid,
     .alchemy-grid,
-    .market-grid {
+    .market-grid,
+    .skills-layout {
         grid-template-columns:
             1fr
             1fr;
@@ -2636,6 +3196,7 @@ body {
     .three-column-grid,
     .alchemy-grid,
     .market-grid,
+    .skills-layout,
     .bottom-grid {
         grid-template-columns:
             1fr;
@@ -2655,7 +3216,9 @@ body {
     }
 
     .technique-list,
-    .zone-list {
+    .zone-list,
+    .martial-skill-list,
+    .combat-skill-grid {
         grid-template-columns:
             1fr;
     }
@@ -2689,12 +3252,14 @@ body {
             repeat(2, 1fr);
     }
 
-    .shop-item {
+    .shop-item,
+    .pill-card {
         grid-template-columns:
             1fr;
     }
 
-    .shop-item button {
+    .shop-item button,
+    .pill-card button {
         width: 100%;
     }
 }
