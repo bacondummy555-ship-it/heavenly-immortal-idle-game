@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
 
     <meta
@@ -8,7 +10,9 @@
         content="width=device-width, initial-scale=1.0"
     >
 
-    <title>Heavenly Immortal - Idle Cultivation</title>
+    <title>
+        Heavenly Immortal - Idle Cultivation
+    </title>
 
     <link
         rel="preconnect"
@@ -30,11 +34,24 @@
         rel="stylesheet"
         href="style.css"
     >
+
 </head>
+
 
 <body>
 
-<div class="background-overlay"></div>
+
+<div
+    id="screenFlash"
+    class="screen-flash"
+></div>
+
+
+<div
+    id="backgroundOverlay"
+    class="background-overlay"
+></div>
+
 
 <div
     id="particles"
@@ -42,7 +59,19 @@
 ></div>
 
 
+<div
+    id="damageLayer"
+    class="damage-layer"
+></div>
+
+
+
+<!-- ========================================================= -->
+<!-- GAME                                                      -->
+<!-- ========================================================= -->
+
 <main class="game-container">
+
 
     <!-- ===================================================== -->
     <!-- HEADER                                                -->
@@ -50,7 +79,8 @@
 
     <header class="game-header">
 
-        <div>
+
+        <div class="brand-area">
 
             <p class="game-eyebrow">
                 天 道 修 仙
@@ -61,13 +91,14 @@
             </h1>
 
             <p class="game-subtitle">
-                Cultivate • Explore • Ascend • Defy Heaven
+                Cultivate • Explore • Refine • Ascend • Defy Heaven
             </p>
 
         </div>
 
 
         <div class="header-actions">
+
 
             <button
                 class="small-button nav-button active-tab"
@@ -77,6 +108,7 @@
                 Cultivation
             </button>
 
+
             <button
                 class="small-button nav-button"
                 data-page="adventurePage"
@@ -84,6 +116,7 @@
             >
                 Adventure
             </button>
+
 
             <button
                 class="small-button nav-button"
@@ -93,6 +126,7 @@
                 World
             </button>
 
+
             <button
                 class="small-button nav-button"
                 data-page="secretRealmPage"
@@ -100,6 +134,7 @@
             >
                 Secret Realms
             </button>
+
 
             <button
                 class="small-button nav-button"
@@ -109,6 +144,7 @@
                 Martial Arts
             </button>
 
+
             <button
                 class="small-button nav-button"
                 data-page="petsPage"
@@ -116,6 +152,7 @@
             >
                 Spirit Pets
             </button>
+
 
             <button
                 class="small-button nav-button"
@@ -125,6 +162,7 @@
                 Cave Abode
             </button>
 
+
             <button
                 class="small-button nav-button"
                 data-page="sectPage"
@@ -133,6 +171,7 @@
                 Sect
             </button>
 
+
             <button
                 class="small-button nav-button"
                 data-page="tournamentPage"
@@ -140,6 +179,7 @@
             >
                 Tournament
             </button>
+
 
             <button
                 class="small-button nav-button"
@@ -154,7 +194,9 @@
                 >
                     0
                 </span>
+
             </button>
+
 
             <button
                 class="small-button nav-button"
@@ -164,6 +206,7 @@
                 Auction
             </button>
 
+
             <button
                 class="small-button nav-button"
                 data-page="worldBossPage"
@@ -171,6 +214,24 @@
             >
                 World Boss
             </button>
+
+
+            <button
+                class="small-button nav-button"
+                data-page="achievementsPage"
+                type="button"
+            >
+                Achievements
+
+                <span
+                    id="achievementBadge"
+                    class="nav-badge hidden"
+                >
+                    0
+                </span>
+
+            </button>
+
 
             <button
                 class="small-button nav-button"
@@ -180,6 +241,7 @@
                 Ascension
             </button>
 
+
             <button
                 id="statusButton"
                 class="small-button gold-button"
@@ -187,6 +249,16 @@
             >
                 Status
             </button>
+
+
+            <button
+                id="settingsButton"
+                class="small-button"
+                type="button"
+            >
+                Settings
+            </button>
+
 
             <button
                 id="saveButton"
@@ -196,6 +268,7 @@
                 Save
             </button>
 
+
             <button
                 id="resetButton"
                 class="small-button danger-button"
@@ -204,9 +277,75 @@
                 Reset
             </button>
 
+
         </div>
 
+
     </header>
+
+
+
+    <!-- ===================================================== -->
+    <!-- TOP STATUS                                            -->
+    <!-- ===================================================== -->
+
+    <section class="top-status-bar">
+
+
+        <div class="title-chip">
+
+            <span>
+                Current Title
+            </span>
+
+            <strong id="topTitleDisplay">
+                Wandering Mortal
+            </strong>
+
+        </div>
+
+
+        <div class="title-chip">
+
+            <span>
+                Realm
+            </span>
+
+            <strong id="topRealmDisplay">
+                Mortal
+            </strong>
+
+        </div>
+
+
+        <div class="title-chip">
+
+            <span>
+                Combat Power
+            </span>
+
+            <strong id="topCombatDisplay">
+                0
+            </strong>
+
+        </div>
+
+
+        <div class="title-chip">
+
+            <span>
+                Qi / Second
+            </span>
+
+            <strong id="topQiDisplay">
+                0
+            </strong>
+
+        </div>
+
+
+    </section>
+
 
 
     <!-- ===================================================== -->
@@ -215,7 +354,11 @@
 
     <section class="resource-bar">
 
-        <div class="resource-chip">
+
+        <div
+            class="resource-chip"
+            data-tooltip="Primary currency used for upgrades, pets, market purchases, gifts, and auctions."
+        >
 
             <span>
                 💎 Spirit Stones
@@ -228,7 +371,10 @@
         </div>
 
 
-        <div class="resource-chip">
+        <div
+            class="resource-chip"
+            data-tooltip="Medicinal ingredients gathered during adventures and offline production."
+        >
 
             <span>
                 🌿 Herbs
@@ -241,7 +387,10 @@
         </div>
 
 
-        <div class="resource-chip">
+        <div
+            class="resource-chip"
+            data-tooltip="Includes Cultivation, Healing and Breakthrough pills."
+        >
 
             <span>
                 💊 Pills
@@ -254,7 +403,10 @@
         </div>
 
 
-        <div class="resource-chip">
+        <div
+            class="resource-chip"
+            data-tooltip="Earned from Sect Duties, Tournaments and NPC rewards."
+        >
 
             <span>
                 宗 Contribution
@@ -267,7 +419,10 @@
         </div>
 
 
-        <div class="resource-chip">
+        <div
+            class="resource-chip"
+            data-tooltip="Hatch Spirit Pets that provide passive bonuses."
+        >
 
             <span>
                 🥚 Spirit Eggs
@@ -280,7 +435,10 @@
         </div>
 
 
-        <div class="resource-chip">
+        <div
+            class="resource-chip"
+            data-tooltip="Required to enter ancient Secret Realms."
+        >
 
             <span>
                 🗝 Secret Tokens
@@ -293,7 +451,10 @@
         </div>
 
 
-        <div class="resource-chip dao-chip">
+        <div
+            class="resource-chip dao-chip"
+            data-tooltip="Permanent prestige currency earned through reincarnation."
+        >
 
             <span>
                 ☯ Dao Points
@@ -305,11 +466,13 @@
 
         </div>
 
+
     </section>
 
 
+
     <!-- ===================================================== -->
-    <!-- CULTIVATION                                           -->
+    <!-- CULTIVATION PAGE                                      -->
     <!-- ===================================================== -->
 
     <section
@@ -317,24 +480,40 @@
         class="page-section"
     >
 
+
         <section class="main-grid">
+
+
+            <!-- CHARACTER -->
 
             <aside class="panel character-panel">
 
+
                 <div class="panel-title">
-                    <span>道</span>
+
+                    <span>
+                        道
+                    </span>
+
                     Cultivator
+
                 </div>
 
 
                 <div class="character-avatar">
 
+
                     <div class="cultivation-circle circle-one"></div>
+
                     <div class="cultivation-circle circle-two"></div>
+
+                    <div class="cultivation-circle circle-three"></div>
+
 
                     <div class="avatar-core">
                         修
                     </div>
+
 
                 </div>
 
@@ -344,6 +523,14 @@
                     class="character-name"
                 >
                     Jiang Chue
+                </div>
+
+
+                <div
+                    id="playerTitleDisplay"
+                    class="player-title"
+                >
+                    Wandering Mortal
                 </div>
 
 
@@ -382,6 +569,7 @@
 
                 <div class="stat-list">
 
+
                     <div class="stat-row">
 
                         <span>
@@ -415,7 +603,7 @@
                         </span>
 
                         <strong id="healthRegenDisplay">
-                            1/sec
+                            0/sec
                         </strong>
 
                     </div>
@@ -446,20 +634,45 @@
 
                     </div>
 
+
+                    <div class="stat-row">
+
+                        <span>
+                            Critical Chance
+                        </span>
+
+                        <strong id="critChanceDisplay">
+                            5%
+                        </strong>
+
+                    </div>
+
+
                 </div>
+
 
             </aside>
 
 
+
+            <!-- CULTIVATION -->
+
             <section class="panel cultivation-panel">
 
+
                 <div class="panel-title">
-                    <span>氣</span>
+
+                    <span>
+                        氣
+                    </span>
+
                     Cultivation Chamber
+
                 </div>
 
 
                 <div class="realm-heading">
+
 
                     <div>
 
@@ -481,18 +694,22 @@
                         Breakthrough: 100%
                     </div>
 
+
                 </div>
 
 
                 <div
-                    id="nextRealmWarning"
-                    class="realm-warning hidden"
+                    id="tribulationWarning"
+                    class="realm-warning tribulation-warning hidden"
                 >
-                    ⚡ Heavenly Tribulation awaits your next realm breakthrough.
+
+                    ⚡ Heavenly Tribulation detected. Your next major breakthrough will summon a celestial trial.
+
                 </div>
 
 
                 <div class="qi-section">
+
 
                     <div class="qi-info">
 
@@ -501,7 +718,7 @@
                         </span>
 
                         <span id="qiProgressText">
-                            0 / 100
+                            0 / 100 Qi
                         </span>
 
                     </div>
@@ -516,18 +733,22 @@
 
                     </div>
 
+
                 </div>
 
 
                 <div class="technique-active">
 
+
                     <span class="small-label">
-                        Active Technique
+                        Active Cultivation Technique
                     </span>
+
 
                     <strong id="activeTechniqueDisplay">
                         Mortal Breathing Art
                     </strong>
+
 
                     <small id="techniqueBonusDisplay">
                         Qi Production +0%
@@ -543,23 +764,30 @@
 
                     </div>
 
+
                     <small id="techniqueMasteryText">
                         Mastery 0%
                     </small>
+
 
                 </div>
 
 
                 <div class="cultivation-orb-area">
 
+
                     <button
                         id="cultivateButton"
                         class="cultivation-orb"
                         type="button"
+                        data-tooltip="Meditate manually for a burst of Qi and technique mastery."
                     >
 
+
                         <div class="orb-ring orb-ring-one"></div>
+
                         <div class="orb-ring orb-ring-two"></div>
+
                         <div class="orb-ring orb-ring-three"></div>
 
 
@@ -575,18 +803,20 @@
 
                         </div>
 
+
                     </button>
 
 
                     <p>
-                        Your cultivation continues naturally even without
-                        manual meditation.
+                        Your cultivation continues automatically. Manual meditation grants additional Qi and mastery.
                     </p>
+
 
                 </div>
 
 
                 <div class="main-actions">
+
 
                     <button
                         id="breakthroughButton"
@@ -596,6 +826,7 @@
                         Attempt Breakthrough
                     </button>
 
+
                     <button
                         id="signInButton"
                         class="action-button"
@@ -603,6 +834,7 @@
                     >
                         Daily Sign-In
                     </button>
+
 
                     <button
                         id="openPillsButton"
@@ -612,46 +844,75 @@
                         Pill Inventory
                     </button>
 
+
                 </div>
 
 
                 <div class="system-message">
 
+
                     <span class="system-label">
                         HEAVENLY DAO SYSTEM
                     </span>
 
+
                     <p id="systemMessage">
-                        The Great Dao has no end.
+                        Your fate remains unwritten.
                     </p>
 
+
                 </div>
+
 
             </section>
 
 
+
+            <!-- RIGHT -->
+
             <aside class="right-column">
+
 
                 <section class="panel">
 
+
                     <div class="panel-title">
-                        <span>體</span>
+
+                        <span>
+                            體
+                        </span>
+
                         Attributes
+
                     </div>
 
 
                     <div class="attribute-list">
 
-                        <div class="attribute-card">
+
+                        <div
+                            class="attribute-card"
+                            data-tooltip="Strength increases physical and sword damage."
+                        >
+
 
                             <div>
-                                <strong>Strength</strong>
-                                <small>Physical damage</small>
+
+                                <strong>
+                                    Strength
+                                </strong>
+
+                                <small>
+                                    Physical damage
+                                </small>
+
                             </div>
+
 
                             <span id="strengthDisplay">
                                 10
                             </span>
+
 
                             <button
                                 class="attribute-upgrade"
@@ -661,19 +922,33 @@
                                 +
                             </button>
 
+
                         </div>
 
 
-                        <div class="attribute-card">
+                        <div
+                            class="attribute-card"
+                            data-tooltip="Constitution increases maximum health and reduces incoming damage."
+                        >
+
 
                             <div>
-                                <strong>Constitution</strong>
-                                <small>Health and defense</small>
+
+                                <strong>
+                                    Constitution
+                                </strong>
+
+                                <small>
+                                    HP and defense
+                                </small>
+
                             </div>
+
 
                             <span id="constitutionDisplay">
                                 10
                             </span>
+
 
                             <button
                                 class="attribute-upgrade"
@@ -683,19 +958,33 @@
                                 +
                             </button>
 
+
                         </div>
 
 
-                        <div class="attribute-card">
+                        <div
+                            class="attribute-card"
+                            data-tooltip="Soul increases Qi efficiency, spiritual techniques and alchemy."
+                        >
+
 
                             <div>
-                                <strong>Soul</strong>
-                                <small>Qi and spiritual damage</small>
+
+                                <strong>
+                                    Soul
+                                </strong>
+
+                                <small>
+                                    Qi and spiritual power
+                                </small>
+
                             </div>
+
 
                             <span id="soulDisplay">
                                 10
                             </span>
+
 
                             <button
                                 class="attribute-upgrade"
@@ -705,51 +994,69 @@
                                 +
                             </button>
 
+
                         </div>
 
+
                     </div>
+
 
                 </section>
 
 
+
                 <section class="panel">
 
+
                     <div class="panel-title">
-                        <span>寶</span>
+
+                        <span>
+                            寶
+                        </span>
+
                         Equipment
+
                     </div>
 
 
                     <div class="equipped-card">
 
+
                         <small>
                             Weapon
                         </small>
+
 
                         <strong id="equippedWeaponName">
                             None
                         </strong>
 
+
                         <span id="equippedWeaponStats">
                             No weapon equipped.
                         </span>
+
 
                     </div>
 
 
                     <div class="equipped-card artifact-equipped">
 
+
                         <small>
                             Artifact
                         </small>
+
 
                         <strong id="equippedArtifactName">
                             None
                         </strong>
 
+
                         <span id="equippedArtifactStats">
                             No artifact equipped.
                         </span>
+
 
                     </div>
 
@@ -762,99 +1069,188 @@
                         Open Equipment
                     </button>
 
+
                 </section>
+
 
 
                 <section class="panel">
 
+
                     <div class="panel-title">
-                        <span>獸</span>
+
+                        <span>
+                            獸
+                        </span>
+
                         Active Spirit Pet
+
                     </div>
+
 
                     <div id="activePetCard"></div>
 
+
                 </section>
 
+
             </aside>
+
 
         </section>
 
 
+
         <section class="bottom-grid">
+
 
             <section class="panel">
 
+
                 <div class="panel-title">
-                    <span>法</span>
+
+                    <span>
+                        法
+                    </span>
+
                     Cultivation Techniques
+
                 </div>
+
 
                 <div
                     id="techniqueList"
                     class="technique-list"
                 ></div>
 
+
             </section>
+
 
 
             <section class="panel">
 
+
                 <div class="panel-title">
-                    <span>日</span>
+
+                    <span>
+                        日
+                    </span>
+
                     Daily Sign-In
+
                 </div>
 
 
                 <div class="daily-streak">
 
+
                     <span>
                         Consecutive Days
                     </span>
 
+
                     <strong id="streakDisplay">
                         0
                     </strong>
+
 
                 </div>
 
 
                 <div class="daily-rewards">
 
-                    <div class="reward-slot">
-                        <small>Day 1</small>
-                        <span>💎 100</span>
-                    </div>
 
                     <div class="reward-slot">
-                        <small>Day 2</small>
-                        <span>💊 Pill</span>
+
+                        <small>
+                            Day 1
+                        </small>
+
+                        <span>
+                            💎 100
+                        </span>
+
                     </div>
 
-                    <div class="reward-slot">
-                        <small>Day 3</small>
-                        <span>🌿 Herbs</span>
-                    </div>
 
                     <div class="reward-slot">
-                        <small>Day 4</small>
-                        <span>❤️ Healing</span>
+
+                        <small>
+                            Day 2
+                        </small>
+
+                        <span>
+                            💊 Pill
+                        </span>
+
                     </div>
 
-                    <div class="reward-slot">
-                        <small>Day 5</small>
-                        <span>🥚 Egg</span>
-                    </div>
 
                     <div class="reward-slot">
-                        <small>Day 6</small>
-                        <span>🗝 Token</span>
+
+                        <small>
+                            Day 3
+                        </small>
+
+                        <span>
+                            🌿 Herbs
+                        </span>
+
                     </div>
+
+
+                    <div class="reward-slot">
+
+                        <small>
+                            Day 4
+                        </small>
+
+                        <span>
+                            ❤️ Healing
+                        </span>
+
+                    </div>
+
+
+                    <div class="reward-slot">
+
+                        <small>
+                            Day 5
+                        </small>
+
+                        <span>
+                            🥚 Egg
+                        </span>
+
+                    </div>
+
+
+                    <div class="reward-slot">
+
+                        <small>
+                            Day 6
+                        </small>
+
+                        <span>
+                            🗝 Token
+                        </span>
+
+                    </div>
+
 
                     <div class="reward-slot legendary-reward">
-                        <small>Day 7</small>
-                        <span>🏺 Artifact</span>
+
+                        <small>
+                            Day 7
+                        </small>
+
+                        <span>
+                            🏺 Artifact
+                        </span>
+
                     </div>
+
 
                 </div>
 
@@ -866,49 +1262,73 @@
                     Reward available.
                 </p>
 
+
             </section>
+
 
         </section>
 
 
+
         <section class="bottom-grid">
+
 
             <section class="panel">
 
+
                 <div class="panel-title">
-                    <span>錄</span>
+
+                    <span>
+                        錄
+                    </span>
+
                     Cultivation Log
+
                 </div>
+
 
                 <div
                     id="cultivationLog"
                     class="scroll-log"
                 ></div>
 
+
             </section>
+
 
 
             <section class="panel">
 
+
                 <div class="panel-title">
-                    <span>境</span>
+
+                    <span>
+                        境
+                    </span>
+
                     Path of Ascension
+
                 </div>
+
 
                 <div
                     id="realmPath"
                     class="realm-path"
                 ></div>
 
+
             </section>
 
+
         </section>
+
 
     </section>
 
 
+
     <!-- ===================================================== -->
-    <!-- ADVENTURE                                             -->
+    <!-- ADVENTURE PAGE                                        -->
     <!-- ===================================================== -->
 
     <section
@@ -916,17 +1336,28 @@
         class="page-section hidden-page"
     >
 
+
         <section class="adventure-layout">
+
 
             <section class="panel battle-player-panel">
 
+
                 <div class="panel-title">
-                    <span>我</span>
+
+                    <span>
+                        我
+                    </span>
+
                     Jiang Chue
+
                 </div>
 
 
-                <div class="battle-symbol player-symbol">
+                <div
+                    id="battlePlayerSymbol"
+                    class="battle-symbol player-symbol"
+                >
                     修
                 </div>
 
@@ -978,7 +1409,21 @@
                 </div>
 
 
+                <div class="battle-stat">
+
+                    <span>
+                        Critical Chance
+                    </span>
+
+                    <strong id="battleCritChance">
+                        5%
+                    </strong>
+
+                </div>
+
+
                 <div class="auto-battle-box">
+
 
                     <div>
 
@@ -992,6 +1437,7 @@
 
                     </div>
 
+
                     <button
                         id="autoBattleButton"
                         class="action-button"
@@ -1000,24 +1446,35 @@
                         Enable
                     </button>
 
+
                 </div>
+
 
             </section>
 
 
+
             <section class="panel adventure-main-panel">
 
+
                 <div class="panel-title">
-                    <span>戰</span>
+
+                    <span>
+                        戰
+                    </span>
+
                     Exploration
+
                 </div>
 
 
                 <div id="explorationView">
 
+
                     <span class="small-label">
                         Current Region
                     </span>
+
 
                     <h2
                         id="selectedZoneName"
@@ -1025,6 +1482,7 @@
                     >
                         Misty Forest
                     </h2>
+
 
                     <p
                         id="selectedZoneDescription"
@@ -1046,6 +1504,7 @@
                         Explore Region
                     </button>
 
+
                 </div>
 
 
@@ -1054,7 +1513,9 @@
                     class="hidden"
                 >
 
+
                     <div class="enemy-display">
+
 
                         <div
                             id="enemySymbol"
@@ -1063,6 +1524,7 @@
                             妖
                         </div>
 
+
                         <span
                             id="enemyTypeDisplay"
                             class="enemy-type"
@@ -1070,11 +1532,14 @@
                             Spirit Beast
                         </span>
 
+
                         <h2 id="enemyNameDisplay">
-                            Beast
+                            Enemy
                         </h2>
 
+
                         <p id="enemyRealmDisplay"></p>
+
 
                     </div>
 
@@ -1104,6 +1569,7 @@
 
                     <div class="enemy-stats-grid">
 
+
                         <div>
 
                             <small>
@@ -1115,6 +1581,7 @@
                             </strong>
 
                         </div>
+
 
                         <div>
 
@@ -1128,6 +1595,7 @@
 
                         </div>
 
+
                     </div>
 
 
@@ -1139,6 +1607,7 @@
 
                     <div class="battle-actions">
 
+
                         <button
                             id="attackButton"
                             class="action-button primary-action"
@@ -1146,6 +1615,7 @@
                         >
                             Basic Attack
                         </button>
+
 
                         <button
                             id="spiritualAttackButton"
@@ -1155,6 +1625,7 @@
                             Spiritual Strike
                         </button>
 
+
                         <button
                             id="battleHealButton"
                             class="action-button"
@@ -1162,6 +1633,7 @@
                         >
                             Healing Pill
                         </button>
+
 
                         <button
                             id="fleeButton"
@@ -1171,7 +1643,9 @@
                             Flee
                         </button>
 
+
                     </div>
+
 
                 </div>
 
@@ -1183,81 +1657,164 @@
                     </span>
 
                     <p id="adventureMessage">
-                        Explore the cultivation world.
+                        The world beyond the sect is filled with danger and opportunity.
                     </p>
 
                 </div>
 
+
             </section>
+
 
 
             <aside class="right-column">
 
+
                 <section class="panel">
 
+
                     <div class="panel-title">
-                        <span>任</span>
+
+                        <span>
+                            任
+                        </span>
+
                         Missions
+
                     </div>
+
 
                     <div
                         id="missionList"
                         class="mission-list"
                     ></div>
 
+
                 </section>
+
 
 
                 <section class="panel">
 
+
                     <div class="panel-title">
-                        <span>績</span>
+
+                        <span>
+                            績
+                        </span>
+
                         Battle Record
+
                     </div>
+
 
                     <div class="stat-list">
 
-                        <div class="stat-row">
-                            <span>Victories</span>
-                            <strong id="adventureVictoryDisplay">0</strong>
-                        </div>
 
                         <div class="stat-row">
-                            <span>Defeats</span>
-                            <strong id="defeatDisplay">0</strong>
+
+                            <span>
+                                Victories
+                            </span>
+
+                            <strong id="adventureVictoryDisplay">
+                                0
+                            </strong>
+
                         </div>
 
-                        <div class="stat-row">
-                            <span>Enemies Slain</span>
-                            <strong id="enemiesSlainDisplay">0</strong>
-                        </div>
 
                         <div class="stat-row">
-                            <span>Bosses Slain</span>
-                            <strong id="bossesSlainDisplay">0</strong>
+
+                            <span>
+                                Defeats
+                            </span>
+
+                            <strong id="defeatDisplay">
+                                0
+                            </strong>
+
                         </div>
 
+
                         <div class="stat-row">
-                            <span>Expeditions</span>
-                            <strong id="expeditionsDisplay">0</strong>
+
+                            <span>
+                                Enemies Slain
+                            </span>
+
+                            <strong id="enemiesSlainDisplay">
+                                0
+                            </strong>
+
                         </div>
+
+
+                        <div class="stat-row">
+
+                            <span>
+                                Bosses Slain
+                            </span>
+
+                            <strong id="bossesSlainDisplay">
+                                0
+                            </strong>
+
+                        </div>
+
+
+                        <div class="stat-row">
+
+                            <span>
+                                Expeditions
+                            </span>
+
+                            <strong id="expeditionsDisplay">
+                                0
+                            </strong>
+
+                        </div>
+
+
+                        <div class="stat-row">
+
+                            <span>
+                                Critical Hits
+                            </span>
+
+                            <strong id="criticalHitsDisplay">
+                                0
+                            </strong>
+
+                        </div>
+
 
                     </div>
 
+
                 </section>
 
+
             </aside>
+
 
         </section>
 
 
+
         <section class="bottom-grid">
+
 
             <section class="panel">
 
                 <div class="panel-title">
-                    <span>戰</span>
+
+                    <span>
+                        戰
+                    </span>
+
                     Battle Log
+
                 </div>
 
                 <div
@@ -1271,8 +1828,13 @@
             <section class="panel">
 
                 <div class="panel-title">
-                    <span>域</span>
+
+                    <span>
+                        域
+                    </span>
+
                     Region Progress
+
                 </div>
 
                 <div
@@ -1282,13 +1844,16 @@
 
             </section>
 
+
         </section>
+
 
     </section>
 
 
+
     <!-- ===================================================== -->
-    <!-- WORLD / STORY / NPCS                                  -->
+    <!-- WORLD PAGE                                            -->
     <!-- ===================================================== -->
 
     <section
@@ -1296,13 +1861,21 @@
         class="page-section hidden-page"
     >
 
+
         <section class="world-layout">
+
 
             <section class="panel story-panel">
 
+
                 <div class="panel-title">
-                    <span>書</span>
+
+                    <span>
+                        書
+                    </span>
+
                     Heavenly Chronicle
+
                 </div>
 
 
@@ -1317,7 +1890,7 @@
 
 
                 <h2 id="storyChapterTitle">
-                    Chapter 1
+                    Chapter I
                 </h2>
 
 
@@ -1341,79 +1914,121 @@
                     Continue Story
                 </button>
 
+
             </section>
+
 
 
             <section class="panel">
 
+
                 <div class="panel-title">
-                    <span>人</span>
+
+                    <span>
+                        人
+                    </span>
+
                     Important Figures
+
                 </div>
+
 
                 <div
                     id="npcList"
                     class="npc-grid"
                 ></div>
 
+
             </section>
+
 
 
             <section class="panel">
 
+
                 <div class="panel-title">
-                    <span>緣</span>
+
+                    <span>
+                        緣
+                    </span>
+
                     Relationships
+
                 </div>
+
 
                 <div
                     id="relationshipList"
                     class="relationship-list"
                 ></div>
 
+
             </section>
+
 
         </section>
 
 
+
         <section class="bottom-grid">
+
 
             <section class="panel">
 
+
                 <div class="panel-title">
-                    <span>聞</span>
+
+                    <span>
+                        聞
+                    </span>
+
                     World Rumors
+
                 </div>
+
 
                 <div
                     id="worldRumorList"
                     class="scroll-log"
                 ></div>
 
+
             </section>
+
 
 
             <section class="panel">
 
+
                 <div class="panel-title">
-                    <span>命</span>
+
+                    <span>
+                        命
+                    </span>
+
                     Destiny
+
                 </div>
+
 
                 <div
                     id="destinyDisplay"
                     class="benefit-card"
                 ></div>
 
+
             </section>
 
+
         </section>
+
 
     </section>
 
 
+
     <!-- ===================================================== -->
-    <!-- SECRET REALMS                                        -->
+    <!-- SECRET REALMS                                         -->
     <!-- ===================================================== -->
 
     <section
@@ -1421,13 +2036,21 @@
         class="page-section hidden-page"
     >
 
+
         <section class="secret-layout">
+
 
             <section class="panel">
 
+
                 <div class="panel-title">
-                    <span>秘</span>
+
+                    <span>
+                        秘
+                    </span>
+
                     Secret Realm Gate
+
                 </div>
 
 
@@ -1442,25 +2065,28 @@
 
 
                 <p class="soft-text centered-text">
-                    Hidden dimensions containing ancient inheritances,
-                    treasures and terrifying guardians.
+                    Hidden dimensions filled with ancient inheritances and deadly guardians.
                 </p>
 
 
                 <div class="rank-banner">
 
+
                     <span>
                         Secret Realm Tokens
                     </span>
+
 
                     <strong id="secretTokenDisplay">
                         0
                     </strong>
 
+
                 </div>
 
 
                 <div class="stat-list">
+
 
                     <div class="stat-row">
 
@@ -1487,47 +2113,70 @@
 
                     </div>
 
+
                 </div>
+
 
             </section>
 
 
+
             <section class="panel">
 
+
                 <div class="panel-title">
-                    <span>門</span>
+
+                    <span>
+                        門
+                    </span>
+
                     Available Realms
+
                 </div>
+
 
                 <div
                     id="secretRealmList"
                     class="secret-realm-list"
                 ></div>
 
+
             </section>
+
 
 
             <section class="panel">
 
+
                 <div class="panel-title">
-                    <span>傳</span>
+
+                    <span>
+                        傳
+                    </span>
+
                     Ancient Inheritances
+
                 </div>
+
 
                 <div
                     id="inheritanceList"
                     class="inheritance-list"
                 ></div>
 
+
             </section>
 
+
         </section>
+
 
     </section>
 
 
+
     <!-- ===================================================== -->
-    <!-- MARTIAL ARTS                                         -->
+    <!-- MARTIAL ARTS                                          -->
     <!-- ===================================================== -->
 
     <section
@@ -1535,13 +2184,21 @@
         class="page-section hidden-page"
     >
 
+
         <section class="skills-layout">
+
 
             <section class="panel">
 
+
                 <div class="panel-title">
-                    <span>武</span>
+
+                    <span>
+                        武
+                    </span>
+
                     Martial Path
+
                 </div>
 
 
@@ -1556,6 +2213,7 @@
 
 
                 <div class="stat-list">
+
 
                     <div class="stat-row">
 
@@ -1595,56 +2253,90 @@
 
                     </div>
 
+
                 </div>
+
 
             </section>
 
 
+
             <section class="panel">
 
+
                 <div class="panel-title">
-                    <span>技</span>
+
+                    <span>
+                        技
+                    </span>
+
                     Skill Library
+
                 </div>
+
 
                 <div
                     id="martialSkillList"
                     class="martial-skill-list"
                 ></div>
 
+
             </section>
+
 
 
             <section class="panel">
 
+
                 <div class="panel-title">
-                    <span>意</span>
+
+                    <span>
+                        意
+                    </span>
+
                     Battle Dao
+
                 </div>
 
 
                 <div class="benefit-card">
 
+
                     <h3>
                         Martial Mastery
                     </h3>
 
+
                     <p>
-                        Repeatedly using martial techniques gradually
-                        increases their damage.
+                        Skills gain mastery whenever used.
                     </p>
+
+
+                    <p>
+                        Critical attacks deal increased damage and have special visual effects.
+                    </p>
+
+
+                    <p>
+                        Sword techniques receive bonus damage while wielding a weapon.
+                    </p>
+
 
                 </div>
 
+
             </section>
 
+
         </section>
+
 
     </section>
 
 
+
     <!-- ===================================================== -->
-    <!-- PETS                                                  -->
+    <!-- SPIRIT PETS                                           -->
     <!-- ===================================================== -->
 
     <section
@@ -1652,13 +2344,21 @@
         class="page-section hidden-page"
     >
 
+
         <section class="pet-layout">
+
 
             <section class="panel">
 
+
                 <div class="panel-title">
-                    <span>獸</span>
+
+                    <span>
+                        獸
+                    </span>
+
                     Spirit Beast Pavilion
+
                 </div>
 
 
@@ -1693,41 +2393,63 @@
                     Hatch Spirit Egg
                 </button>
 
+
             </section>
+
 
 
             <section class="panel">
 
+
                 <div class="panel-title">
-                    <span>契</span>
+
+                    <span>
+                        契
+                    </span>
+
                     Contracted Beasts
+
                 </div>
+
 
                 <div
                     id="petInventoryList"
                     class="pet-grid"
                 ></div>
 
+
             </section>
+
 
 
             <section class="panel">
 
+
                 <div class="panel-title">
-                    <span>靈</span>
-                    Active Bonuses
+
+                    <span>
+                        靈
+                    </span>
+
+                    Active Pet Bonuses
+
                 </div>
+
 
                 <div
                     id="petBonusDisplay"
                     class="benefit-card"
                 ></div>
 
+
             </section>
+
 
         </section>
 
+
     </section>
+
 
 
     <!-- ===================================================== -->
@@ -1739,13 +2461,21 @@
         class="page-section hidden-page"
     >
 
+
         <section class="cave-layout">
+
 
             <section class="panel cave-overview">
 
+
                 <div class="panel-title">
-                    <span>洞</span>
+
+                    <span>
+                        洞
+                    </span>
+
                     Cave Abode
+
                 </div>
 
 
@@ -1760,6 +2490,7 @@
 
 
                 <div class="stat-list">
+
 
                     <div class="stat-row">
 
@@ -1812,43 +2543,66 @@
 
                     </div>
 
+
                 </div>
+
 
             </section>
 
 
+
             <section class="panel">
 
+
                 <div class="panel-title">
-                    <span>陣</span>
+
+                    <span>
+                        陣
+                    </span>
+
                     Cave Facilities
+
                 </div>
+
 
                 <div
                     id="caveBuildingList"
                     class="cave-building-list"
                 ></div>
 
+
             </section>
+
 
 
             <section class="panel">
 
+
                 <div class="panel-title">
-                    <span>產</span>
+
+                    <span>
+                        產
+                    </span>
+
                     Passive Production
+
                 </div>
+
 
                 <div
                     id="caveProductionDisplay"
                     class="benefit-card"
                 ></div>
 
+
             </section>
+
 
         </section>
 
+
     </section>
+
 
 
     <!-- ===================================================== -->
@@ -1860,13 +2614,21 @@
         class="page-section hidden-page"
     >
 
+
         <section class="three-column-grid">
+
 
             <section class="panel sect-profile">
 
+
                 <div class="panel-title">
-                    <span>宗</span>
+
+                    <span>
+                        宗
+                    </span>
+
                     Sect
+
                 </div>
 
 
@@ -1882,18 +2644,22 @@
 
                 <div class="rank-banner">
 
+
                     <span>
                         Current Rank
                     </span>
+
 
                     <strong id="sectRankDisplay">
                         Outer Disciple
                     </strong>
 
+
                 </div>
 
 
                 <div class="stat-list">
+
 
                     <div class="stat-row">
 
@@ -1920,77 +2686,120 @@
 
                     </div>
 
+
                 </div>
+
 
             </section>
 
 
+
             <section class="panel">
 
+
                 <div class="panel-title">
-                    <span>階</span>
+
+                    <span>
+                        階
+                    </span>
+
                     Sect Hierarchy
+
                 </div>
+
 
                 <div
                     id="sectRankList"
                     class="rank-list"
                 ></div>
 
+
             </section>
+
 
 
             <section class="panel">
 
+
                 <div class="panel-title">
-                    <span>庫</span>
+
+                    <span>
+                        庫
+                    </span>
+
                     Sect Treasury
+
                 </div>
+
 
                 <div
                     id="sectTreasuryList"
                     class="shop-list"
                 ></div>
 
+
             </section>
+
 
         </section>
 
 
+
         <section class="bottom-grid">
+
 
             <section class="panel">
 
+
                 <div class="panel-title">
-                    <span>令</span>
+
+                    <span>
+                        令
+                    </span>
+
                     Sect Duties
+
                 </div>
+
 
                 <div
                     id="sectDutyList"
                     class="duty-list"
                 ></div>
 
+
             </section>
+
 
 
             <section class="panel">
 
+
                 <div class="panel-title">
-                    <span>恩</span>
+
+                    <span>
+                        恩
+                    </span>
+
                     Rank Benefits
+
                 </div>
+
 
                 <div
                     id="sectBenefitDisplay"
                     class="benefit-card"
                 ></div>
 
+
             </section>
+
 
         </section>
 
+
     </section>
+
 
 
     <!-- ===================================================== -->
@@ -2002,13 +2811,21 @@
         class="page-section hidden-page"
     >
 
+
         <section class="tournament-layout">
+
 
             <section class="panel">
 
+
                 <div class="panel-title">
-                    <span>擂</span>
+
+                    <span>
+                        擂
+                    </span>
+
                     Sect Tournament
+
                 </div>
 
 
@@ -2036,6 +2853,7 @@
 
 
                 <div class="stat-list">
+
 
                     <div class="stat-row">
 
@@ -2075,43 +2893,66 @@
 
                     </div>
 
+
                 </div>
+
 
             </section>
 
 
+
             <section class="panel">
 
+
                 <div class="panel-title">
-                    <span>敵</span>
+
+                    <span>
+                        敵
+                    </span>
+
                     Arena Opponents
+
                 </div>
+
 
                 <div
                     id="tournamentOpponentList"
                     class="tournament-opponent-list"
                 ></div>
 
+
             </section>
+
 
 
             <section class="panel">
 
+
                 <div class="panel-title">
-                    <span>賞</span>
+
+                    <span>
+                        賞
+                    </span>
+
                     Tournament Rewards
+
                 </div>
+
 
                 <div
                     id="tournamentRewardDisplay"
                     class="benefit-card"
                 ></div>
 
+
             </section>
+
 
         </section>
 
+
     </section>
+
 
 
     <!-- ===================================================== -->
@@ -2123,38 +2964,58 @@
         class="page-section hidden-page"
     >
 
+
         <section class="alchemy-grid">
+
 
             <section class="panel">
 
+
                 <div class="panel-title">
-                    <span>草</span>
+
+                    <span>
+                        草
+                    </span>
+
                     Herb Inventory
+
                 </div>
+
 
                 <div
                     id="herbInventoryList"
                     class="herb-grid"
                 ></div>
 
+
             </section>
+
 
 
             <section class="panel alchemy-center-panel">
 
+
                 <div class="panel-title">
-                    <span>丹</span>
+
+                    <span>
+                        丹
+                    </span>
+
                     Alchemy Cauldron
+
                 </div>
 
 
                 <div class="cauldron">
 
+
                     <div class="cauldron-glow"></div>
+
 
                     <div class="cauldron-symbol">
                         丹
                     </div>
+
 
                 </div>
 
@@ -2162,6 +3023,7 @@
                 <span class="small-label">
                     Alchemy Rank
                 </span>
+
 
                 <h2 id="alchemyLevelDisplay">
                     Novice Alchemist
@@ -2183,30 +3045,43 @@
                     class="helper-text"
                 ></p>
 
+
             </section>
+
 
 
             <section class="panel">
 
+
                 <div class="panel-title">
-                    <span>方</span>
+
+                    <span>
+                        方
+                    </span>
+
                     Pill Recipes
+
                 </div>
+
 
                 <div
                     id="alchemyRecipeList"
                     class="recipe-list"
                 ></div>
 
+
             </section>
 
+
         </section>
+
 
     </section>
 
 
+
     <!-- ===================================================== -->
-    <!-- AUCTION HOUSE                                         -->
+    <!-- AUCTION                                               -->
     <!-- ===================================================== -->
 
     <section
@@ -2214,13 +3089,21 @@
         class="page-section hidden-page"
     >
 
+
         <section class="auction-layout">
+
 
             <section class="panel">
 
+
                 <div class="panel-title">
-                    <span>拍</span>
+
+                    <span>
+                        拍
+                    </span>
+
                     Auction House
+
                 </div>
 
 
@@ -2235,8 +3118,7 @@
 
 
                 <p class="soft-text centered-text">
-                    Cultivators from across the realm gather here
-                    to compete for rare treasures.
+                    Rare treasures from cultivators across the realm.
                 </p>
 
 
@@ -2258,44 +3140,66 @@
                     class="action-button full-button"
                     type="button"
                 >
-                    Refresh Listings
+                    Refresh Listings — 250 Stones
                 </button>
+
 
             </section>
 
 
+
             <section class="panel auction-list-panel">
 
+
                 <div class="panel-title">
-                    <span>寶</span>
+
+                    <span>
+                        寶
+                    </span>
+
                     Current Listings
+
                 </div>
+
 
                 <div
                     id="auctionListingContainer"
                     class="auction-list"
                 ></div>
 
+
             </section>
+
 
 
             <section class="panel">
 
+
                 <div class="panel-title">
-                    <span>錄</span>
+
+                    <span>
+                        錄
+                    </span>
+
                     Auction Record
+
                 </div>
+
 
                 <div
                     id="auctionHistoryDisplay"
                     class="scroll-log"
                 ></div>
 
+
             </section>
+
 
         </section>
 
+
     </section>
+
 
 
     <!-- ===================================================== -->
@@ -2307,17 +3211,28 @@
         class="page-section hidden-page"
     >
 
+
         <section class="worldboss-layout">
+
 
             <section class="panel worldboss-main">
 
+
                 <div class="panel-title">
-                    <span>魔</span>
+
+                    <span>
+                        魔
+                    </span>
+
                     World Boss
+
                 </div>
 
 
-                <div class="worldboss-symbol">
+                <div
+                    id="worldBossSymbol"
+                    class="worldboss-symbol"
+                >
                     魔
                 </div>
 
@@ -2378,18 +3293,27 @@
                     Claim Daily Reward
                 </button>
 
+
             </section>
+
 
 
             <section class="panel">
 
+
                 <div class="panel-title">
-                    <span>績</span>
+
+                    <span>
+                        績
+                    </span>
+
                     Contribution
+
                 </div>
 
 
                 <div class="stat-list">
+
 
                     <div class="stat-row">
 
@@ -2429,28 +3353,182 @@
 
                     </div>
 
+
                 </div>
+
 
             </section>
 
 
+
             <section class="panel">
 
+
                 <div class="panel-title">
-                    <span>賞</span>
+
+                    <span>
+                        賞
+                    </span>
+
                     Daily Rewards
+
                 </div>
+
 
                 <div
                     id="worldBossRewardPreview"
                     class="benefit-card"
                 ></div>
 
+
             </section>
+
 
         </section>
 
+
     </section>
+
+
+
+    <!-- ===================================================== -->
+    <!-- ACHIEVEMENTS                                          -->
+    <!-- ===================================================== -->
+
+    <section
+        id="achievementsPage"
+        class="page-section hidden-page"
+    >
+
+
+        <section class="achievement-layout">
+
+
+            <section class="panel">
+
+
+                <div class="panel-title">
+
+                    <span>
+                        功
+                    </span>
+
+                    Achievement Record
+
+                </div>
+
+
+                <div class="large-symbol">
+                    功
+                </div>
+
+
+                <h2 class="center-heading">
+                    Heavenly Accomplishments
+                </h2>
+
+
+                <div class="stat-list">
+
+
+                    <div class="stat-row">
+
+                        <span>
+                            Completed
+                        </span>
+
+                        <strong id="achievementCompletedDisplay">
+                            0
+                        </strong>
+
+                    </div>
+
+
+                    <div class="stat-row">
+
+                        <span>
+                            Total
+                        </span>
+
+                        <strong id="achievementTotalDisplay">
+                            0
+                        </strong>
+
+                    </div>
+
+
+                    <div class="stat-row">
+
+                        <span>
+                            Achievement Points
+                        </span>
+
+                        <strong id="achievementPointDisplay">
+                            0
+                        </strong>
+
+                    </div>
+
+
+                </div>
+
+
+            </section>
+
+
+
+            <section class="panel achievement-main-panel">
+
+
+                <div class="panel-title">
+
+                    <span>
+                        碑
+                    </span>
+
+                    Achievement List
+
+                </div>
+
+
+                <div
+                    id="achievementList"
+                    class="achievement-list"
+                ></div>
+
+
+            </section>
+
+
+
+            <section class="panel">
+
+
+                <div class="panel-title">
+
+                    <span>
+                        號
+                    </span>
+
+                    Player Titles
+
+                </div>
+
+
+                <div
+                    id="titleList"
+                    class="title-list"
+                ></div>
+
+
+            </section>
+
+
+        </section>
+
+
+    </section>
+
 
 
     <!-- ===================================================== -->
@@ -2462,13 +3540,21 @@
         class="page-section hidden-page"
     >
 
+
         <section class="ascension-layout">
+
 
             <section class="panel ascension-main">
 
+
                 <div class="panel-title">
-                    <span>仙</span>
+
+                    <span>
+                        仙
+                    </span>
+
                     Ascension
+
                 </div>
 
 
@@ -2483,17 +3569,17 @@
 
 
                 <p class="soft-text">
-                    Abandon one cultivation life and carry your
-                    comprehension into the next.
+                    Abandon one life of cultivation and carry your Dao comprehension into the next.
                 </p>
 
 
                 <div class="ascension-preview">
 
+
                     <div>
 
                         <span>
-                            Dao Points
+                            Current Dao Points
                         </span>
 
                         <strong id="daoPointDisplay">
@@ -2506,7 +3592,7 @@
                     <div>
 
                         <span>
-                            Ascension Gain
+                            Dao Points on Ascension
                         </span>
 
                         <strong id="daoPointGainDisplay">
@@ -2514,6 +3600,7 @@
                         </strong>
 
                     </div>
+
 
                 </div>
 
@@ -2532,33 +3619,51 @@
                     class="helper-text"
                 ></p>
 
+
             </section>
+
 
 
             <section class="panel">
 
+
                 <div class="panel-title">
-                    <span>道</span>
+
+                    <span>
+                        道
+                    </span>
+
                     Dao Blessings
+
                 </div>
+
 
                 <div
                     id="daoUpgradeList"
                     class="dao-upgrade-list"
                 ></div>
 
+
             </section>
+
 
 
             <section class="panel">
 
+
                 <div class="panel-title">
-                    <span>輪</span>
+
+                    <span>
+                        輪
+                    </span>
+
                     Reincarnation Record
+
                 </div>
 
 
                 <div class="stat-list">
+
 
                     <div class="stat-row">
 
@@ -2576,7 +3681,7 @@
                     <div class="stat-row">
 
                         <span>
-                            Lifetime Dao
+                            Lifetime Dao Points
                         </span>
 
                         <strong id="lifetimeDaoDisplay">
@@ -2589,7 +3694,7 @@
                     <div class="stat-row">
 
                         <span>
-                            Permanent Qi
+                            Permanent Qi Bonus
                         </span>
 
                         <strong id="daoQiBonusDisplay">
@@ -2602,7 +3707,7 @@
                     <div class="stat-row">
 
                         <span>
-                            Permanent Combat
+                            Permanent Combat Bonus
                         </span>
 
                         <strong id="daoCombatBonusDisplay">
@@ -2611,20 +3716,165 @@
 
                     </div>
 
+
                 </div>
+
 
             </section>
 
+
         </section>
+
 
     </section>
 
 
+
     <footer class="game-footer">
-        Heavenly Immortal • Version 7 • Your Dao continues while you are away.
+
+        Heavenly Immortal • Version 8
+
+        <span>
+            •
+        </span>
+
+        Your cultivation continues even while you are away.
+
     </footer>
 
+
 </main>
+
+
+
+<!-- ========================================================= -->
+<!-- BREAKTHROUGH ANIMATION                                    -->
+<!-- ========================================================= -->
+
+<div
+    id="breakthroughOverlay"
+    class="breakthrough-overlay hidden"
+>
+
+
+    <div class="breakthrough-stars"></div>
+
+
+    <div
+        id="breakthroughLightning"
+        class="breakthrough-lightning"
+    ></div>
+
+
+    <div class="breakthrough-content">
+
+
+        <div
+            id="breakthroughSymbol"
+            class="breakthrough-symbol"
+        >
+            破
+        </div>
+
+
+        <p
+            id="breakthroughLabel"
+            class="breakthrough-label"
+        >
+            BREAKTHROUGH
+        </p>
+
+
+        <h2 id="breakthroughRealmText">
+            Qi Refining
+        </h2>
+
+
+        <p id="breakthroughStageText">
+            Early Stage
+        </p>
+
+
+    </div>
+
+
+</div>
+
+
+
+<!-- ========================================================= -->
+<!-- TRIBULATION MODAL                                         -->
+<!-- ========================================================= -->
+
+<div
+    id="tribulationModal"
+    class="modal hidden"
+>
+
+
+    <div class="modal-card tribulation-modal-card">
+
+
+        <div class="tribulation-icon">
+            ⚡
+        </div>
+
+
+        <p class="system-window-title">
+            HEAVENLY TRIBULATION
+        </p>
+
+
+        <h2 id="tribulationNameDisplay">
+            Three-Fold Thunder Tribulation
+        </h2>
+
+
+        <p class="tribulation-description">
+            Heaven has sensed your defiance. Survive the celestial thunder to complete your realm breakthrough.
+        </p>
+
+
+        <div class="battle-stat">
+
+            <span>
+                Tribulation Strength
+            </span>
+
+            <strong id="tribulationPowerDisplay">
+                0
+            </strong>
+
+        </div>
+
+
+        <div class="battle-stat">
+
+            <span>
+                Survival Chance
+            </span>
+
+            <strong id="tribulationChanceDisplay">
+                50%
+            </strong>
+
+        </div>
+
+
+        <button
+            id="faceTribulationButton"
+            class="action-button tribulation-button full-button"
+            type="button"
+        >
+            Face Heavenly Thunder
+        </button>
+
+
+    </div>
+
+
+</div>
+
 
 
 <!-- ========================================================= -->
@@ -2636,7 +3886,9 @@
     class="modal hidden"
 >
 
+
     <div class="modal-card">
+
 
         <button
             id="closeNpcModalButton"
@@ -2674,6 +3926,7 @@
 
         <div class="relationship-meter">
 
+
             <div class="qi-info">
 
                 <span>
@@ -2681,7 +3934,7 @@
                 </span>
 
                 <strong id="npcAffinityText">
-                    0
+                    0 / 100
                 </strong>
 
             </div>
@@ -2695,6 +3948,7 @@
                 ></div>
 
             </div>
+
 
         </div>
 
@@ -2716,9 +3970,12 @@
             Give 100 Spirit Stones
         </button>
 
+
     </div>
 
+
 </div>
+
 
 
 <!-- ========================================================= -->
@@ -2730,7 +3987,9 @@
     class="modal hidden"
 >
 
+
     <div class="modal-card status-modal-card">
+
 
         <button
             id="closeStatusButton"
@@ -2756,63 +4015,157 @@
         </h2>
 
 
+        <p
+            id="statusTitleDisplay"
+            class="status-player-title"
+        >
+            Wandering Mortal
+        </p>
+
+
         <div class="status-grid">
 
+
             <div class="status-entry">
-                <span>Realm</span>
+
+                <span>
+                    Realm
+                </span>
+
                 <strong id="statusRealmDisplay"></strong>
+
             </div>
 
+
             <div class="status-entry">
-                <span>Combat Power</span>
+
+                <span>
+                    Combat Power
+                </span>
+
                 <strong id="statusCombatDisplay"></strong>
+
             </div>
 
+
             <div class="status-entry">
-                <span>Qi / Second</span>
+
+                <span>
+                    Qi / Second
+                </span>
+
                 <strong id="statusQiDisplay"></strong>
+
             </div>
 
+
             <div class="status-entry">
-                <span>Health</span>
+
+                <span>
+                    Health
+                </span>
+
                 <strong id="statusHealthDisplay"></strong>
+
             </div>
 
+
             <div class="status-entry">
-                <span>Spirit Pet</span>
+
+                <span>
+                    Spirit Pet
+                </span>
+
                 <strong id="statusPetDisplay"></strong>
+
             </div>
 
+
             <div class="status-entry">
-                <span>Artifact</span>
+
+                <span>
+                    Artifact
+                </span>
+
                 <strong id="statusArtifactDisplay"></strong>
+
             </div>
 
+
             <div class="status-entry">
-                <span>Cave Level</span>
+
+                <span>
+                    Cave Level
+                </span>
+
                 <strong id="statusCaveDisplay"></strong>
+
             </div>
 
+
             <div class="status-entry">
-                <span>Dao Points</span>
+
+                <span>
+                    Dao Points
+                </span>
+
                 <strong id="statusDaoDisplay"></strong>
+
             </div>
 
+
             <div class="status-entry">
-                <span>Story Chapter</span>
+
+                <span>
+                    Story Progress
+                </span>
+
                 <strong id="statusStoryDisplay"></strong>
+
             </div>
 
+
             <div class="status-entry">
-                <span>Tournament Rank</span>
+
+                <span>
+                    Tournament Rank
+                </span>
+
                 <strong id="statusTournamentDisplay"></strong>
+
             </div>
+
+
+            <div class="status-entry">
+
+                <span>
+                    Secret Realms Cleared
+                </span>
+
+                <strong id="statusSecretDisplay"></strong>
+
+            </div>
+
+
+            <div class="status-entry">
+
+                <span>
+                    Achievements
+                </span>
+
+                <strong id="statusAchievementDisplay"></strong>
+
+            </div>
+
 
         </div>
 
+
     </div>
 
+
 </div>
+
 
 
 <!-- ========================================================= -->
@@ -2824,7 +4177,9 @@
     class="modal hidden"
 >
 
+
     <div class="modal-card equipment-modal-card">
+
 
         <button
             id="closeEquipmentButton"
@@ -2849,6 +4204,7 @@
             Spirit Weapons
         </h3>
 
+
         <div
             id="weaponInventoryList"
             class="weapon-inventory-list"
@@ -2859,14 +4215,18 @@
             Artifacts
         </h3>
 
+
         <div
             id="artifactInventoryList"
             class="weapon-inventory-list"
         ></div>
 
+
     </div>
 
+
 </div>
+
 
 
 <!-- ========================================================= -->
@@ -2878,7 +4238,9 @@
     class="modal hidden"
 >
 
+
     <div class="modal-card">
+
 
         <button
             id="closePillButton"
@@ -2901,7 +4263,9 @@
 
         <div class="pill-list">
 
+
             <div class="pill-card">
+
 
                 <div>
 
@@ -2910,7 +4274,7 @@
                     </h3>
 
                     <p>
-                        Grants cultivation Qi.
+                        Grants a large amount of cultivation Qi.
                     </p>
 
                     <span id="pillModalCultivationCount">
@@ -2919,6 +4283,7 @@
 
                 </div>
 
+
                 <button
                     id="modalUseCultivationPill"
                     type="button"
@@ -2926,10 +4291,12 @@
                     Use
                 </button>
 
+
             </div>
 
 
             <div class="pill-card">
+
 
                 <div>
 
@@ -2938,7 +4305,7 @@
                     </h3>
 
                     <p>
-                        Restores 45% maximum HP.
+                        Restores 45% maximum health.
                     </p>
 
                     <span id="pillModalHealingCount">
@@ -2947,6 +4314,7 @@
 
                 </div>
 
+
                 <button
                     id="modalUseHealingPill"
                     type="button"
@@ -2954,10 +4322,12 @@
                     Use
                 </button>
 
+
             </div>
 
 
             <div class="pill-card">
+
 
                 <div>
 
@@ -2966,7 +4336,7 @@
                     </h3>
 
                     <p>
-                        +15% breakthrough chance.
+                        +15% breakthrough chance on your next attempt.
                     </p>
 
                     <span id="pillModalBreakthroughCount">
@@ -2975,6 +4345,7 @@
 
                 </div>
 
+
                 <button
                     id="modalUseBreakthroughPill"
                     type="button"
@@ -2982,13 +4353,203 @@
                     Use
                 </button>
 
+
             </div>
+
 
         </div>
 
+
     </div>
 
+
 </div>
+
+
+
+<!-- ========================================================= -->
+<!-- SETTINGS MODAL                                            -->
+<!-- ========================================================= -->
+
+<div
+    id="settingsModal"
+    class="modal hidden"
+>
+
+
+    <div class="modal-card settings-modal-card">
+
+
+        <button
+            id="closeSettingsButton"
+            class="modal-close"
+            type="button"
+        >
+            ×
+        </button>
+
+
+        <div class="modal-symbol">
+            設
+        </div>
+
+
+        <h2>
+            Game Settings
+        </h2>
+
+
+        <div class="settings-list">
+
+
+            <div class="setting-row">
+
+
+                <div>
+
+                    <strong>
+                        Sound Effects
+                    </strong>
+
+                    <small>
+                        UI, battle, breakthrough and reward sounds
+                    </small>
+
+                </div>
+
+
+                <button
+                    id="soundToggleButton"
+                    class="setting-toggle"
+                    type="button"
+                >
+                    ON
+                </button>
+
+
+            </div>
+
+
+            <div class="setting-row">
+
+
+                <div>
+
+                    <strong>
+                        Ambient Audio
+                    </strong>
+
+                    <small>
+                        Soft cultivation ambience
+                    </small>
+
+                </div>
+
+
+                <button
+                    id="musicToggleButton"
+                    class="setting-toggle"
+                    type="button"
+                >
+                    OFF
+                </button>
+
+
+            </div>
+
+
+            <div class="setting-row">
+
+
+                <div>
+
+                    <strong>
+                        Screen Effects
+                    </strong>
+
+                    <small>
+                        Flashes, shake and breakthrough effects
+                    </small>
+
+                </div>
+
+
+                <button
+                    id="effectsToggleButton"
+                    class="setting-toggle"
+                    type="button"
+                >
+                    ON
+                </button>
+
+
+            </div>
+
+
+            <div class="setting-row">
+
+
+                <div>
+
+                    <strong>
+                        Floating Damage
+                    </strong>
+
+                    <small>
+                        Shows damage and healing numbers during combat
+                    </small>
+
+                </div>
+
+
+                <button
+                    id="floatingToggleButton"
+                    class="setting-toggle"
+                    type="button"
+                >
+                    ON
+                </button>
+
+
+            </div>
+
+
+            <div class="setting-row">
+
+
+                <div>
+
+                    <strong>
+                        Compact Mode
+                    </strong>
+
+                    <small>
+                        Reduces spacing for smaller screens
+                    </small>
+
+                </div>
+
+
+                <button
+                    id="compactToggleButton"
+                    class="setting-toggle"
+                    type="button"
+                >
+                    OFF
+                </button>
+
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+</div>
+
 
 
 <!-- ========================================================= -->
@@ -3000,7 +4561,9 @@
     class="modal hidden"
 >
 
+
     <div class="modal-card">
+
 
         <div class="modal-symbol">
             ☯
@@ -3010,6 +4573,11 @@
         <h2>
             Secluded Cultivation Complete
         </h2>
+
+
+        <p class="soft-text offline-description">
+            Jiang Chue continued cultivating while you were away.
+        </p>
 
 
         <div class="offline-reward-box">
@@ -3028,7 +4596,7 @@
         <div class="offline-reward-box">
 
             <span>
-                Qi
+                Cultivation Qi
             </span>
 
             <strong id="offlineQiDisplay">
@@ -3072,10 +4640,28 @@
             Claim Offline Gains
         </button>
 
+
     </div>
+
 
 </div>
 
+
+
+<!-- ========================================================= -->
+<!-- TOOLTIP                                                   -->
+<!-- ========================================================= -->
+
+<div
+    id="tooltip"
+    class="tooltip hidden"
+></div>
+
+
+
+<!-- ========================================================= -->
+<!-- NOTIFICATIONS                                             -->
+<!-- ========================================================= -->
 
 <div
     id="notificationContainer"
@@ -3083,7 +4669,10 @@
 ></div>
 
 
+
 <script src="game.js"></script>
 
+
 </body>
+
 </html>
