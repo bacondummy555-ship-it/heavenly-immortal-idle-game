@@ -61,7 +61,7 @@
             </h1>
 
             <p class="game-subtitle">
-                Cultivate • Battle • Refine • Ascend
+                Cultivate • Battle • Refine • Defy Heaven
             </p>
 
         </div>
@@ -83,6 +83,14 @@
                 type="button"
             >
                 Adventure
+            </button>
+
+            <button
+                class="small-button nav-button"
+                data-page="skillsPage"
+                type="button"
+            >
+                Martial Arts
             </button>
 
             <button
@@ -139,7 +147,7 @@
 
 
     <!-- ===================================================== -->
-    <!-- CULTIVATION                                           -->
+    <!-- CULTIVATION PAGE                                      -->
     <!-- ===================================================== -->
 
     <section
@@ -148,6 +156,8 @@
     >
 
         <section class="main-grid">
+
+            <!-- CHARACTER -->
 
             <aside class="panel character-panel">
 
@@ -213,33 +223,80 @@
                 <div class="stat-list">
 
                     <div class="stat-row">
-                        <span>Combat Power</span>
-                        <strong id="combatPowerDisplay">10</strong>
+
+                        <span>
+                            Combat Power
+                        </span>
+
+                        <strong id="combatPowerDisplay">
+                            10
+                        </strong>
+
                     </div>
 
-                    <div class="stat-row">
-                        <span>Health</span>
-                        <strong id="healthDisplay">100 / 100</strong>
-                    </div>
 
                     <div class="stat-row">
-                        <span>Qi / Second</span>
-                        <strong id="qiPerSecondDisplay">1</strong>
+
+                        <span>
+                            Health
+                        </span>
+
+                        <strong id="healthDisplay">
+                            200 / 200
+                        </strong>
+
                     </div>
 
-                    <div class="stat-row">
-                        <span>Spirit Stones</span>
-                        <strong id="spiritStoneDisplay">0</strong>
-                    </div>
 
                     <div class="stat-row">
-                        <span>Stat Points</span>
-                        <strong id="statPointDisplay">0</strong>
+
+                        <span>
+                            Qi / Second
+                        </span>
+
+                        <strong id="qiPerSecondDisplay">
+                            1
+                        </strong>
+
                     </div>
 
+
                     <div class="stat-row">
-                        <span>Sect Contribution</span>
-                        <strong id="sectContributionMiniDisplay">0</strong>
+
+                        <span>
+                            Spirit Stones
+                        </span>
+
+                        <strong id="spiritStoneDisplay">
+                            0
+                        </strong>
+
+                    </div>
+
+
+                    <div class="stat-row">
+
+                        <span>
+                            Stat Points
+                        </span>
+
+                        <strong id="statPointDisplay">
+                            0
+                        </strong>
+
+                    </div>
+
+
+                    <div class="stat-row">
+
+                        <span>
+                            Sect Contribution
+                        </span>
+
+                        <strong id="sectContributionMiniDisplay">
+                            0
+                        </strong>
+
                     </div>
 
                 </div>
@@ -247,7 +304,7 @@
             </aside>
 
 
-            <!-- CULTIVATION CHAMBER -->
+            <!-- CULTIVATION -->
 
             <section class="panel cultivation-panel">
 
@@ -270,6 +327,7 @@
                         </h2>
 
                     </div>
+
 
                     <div
                         id="breakthroughChanceDisplay"
@@ -294,6 +352,7 @@
                         </span>
 
                     </div>
+
 
                     <div class="progress-bar">
 
@@ -321,6 +380,7 @@
                         Qi Production +0%
                     </small>
 
+
                     <div class="mini-progress">
 
                         <div
@@ -329,6 +389,7 @@
                         ></div>
 
                     </div>
+
 
                     <small id="techniqueMasteryText">
                         Mastery 0%
@@ -349,6 +410,7 @@
                         <div class="orb-ring orb-ring-two"></div>
                         <div class="orb-ring orb-ring-three"></div>
 
+
                         <div class="orb-center">
 
                             <span class="orb-symbol">
@@ -365,8 +427,9 @@
 
 
                     <p>
-                        Spiritual energy continuously enters your meridians.
-                        Manual meditation also improves technique mastery.
+                        Spiritual energy flows naturally through your
+                        meridians. Manual meditation also improves
+                        cultivation technique mastery.
                     </p>
 
                 </div>
@@ -382,6 +445,7 @@
                         Attempt Breakthrough
                     </button>
 
+
                     <button
                         id="signInButton"
                         class="action-button"
@@ -390,12 +454,13 @@
                         Daily Sign-In
                     </button>
 
+
                     <button
-                        id="usePillButton"
+                        id="openPillsButton"
                         class="action-button"
                         type="button"
                     >
-                        Use Cultivation Pill
+                        Pill Inventory
                     </button>
 
                 </div>
@@ -404,11 +469,11 @@
                 <div class="system-message">
 
                     <span class="system-label">
-                        SYSTEM
+                        HEAVENLY DAO SYSTEM
                     </span>
 
                     <p id="systemMessage">
-                        The Heavenly Dao watches your progress.
+                        The path toward immortality has no end.
                     </p>
 
                 </div>
@@ -419,6 +484,8 @@
             <!-- RIGHT -->
 
             <aside class="right-column">
+
+                <!-- ATTRIBUTES -->
 
                 <section class="panel">
 
@@ -433,11 +500,20 @@
                         <div class="attribute-card">
 
                             <div>
-                                <strong>Strength</strong>
-                                <small>Physical damage</small>
+
+                                <strong>
+                                    Strength
+                                </strong>
+
+                                <small>
+                                    Physical damage
+                                </small>
+
                             </div>
 
-                            <span id="strengthDisplay">10</span>
+                            <span id="strengthDisplay">
+                                10
+                            </span>
 
                             <button
                                 class="attribute-upgrade"
@@ -453,11 +529,20 @@
                         <div class="attribute-card">
 
                             <div>
-                                <strong>Constitution</strong>
-                                <small>Health and defense</small>
+
+                                <strong>
+                                    Constitution
+                                </strong>
+
+                                <small>
+                                    HP and defense
+                                </small>
+
                             </div>
 
-                            <span id="constitutionDisplay">10</span>
+                            <span id="constitutionDisplay">
+                                10
+                            </span>
 
                             <button
                                 class="attribute-upgrade"
@@ -473,11 +558,20 @@
                         <div class="attribute-card">
 
                             <div>
-                                <strong>Soul</strong>
-                                <small>Qi and spiritual damage</small>
+
+                                <strong>
+                                    Soul
+                                </strong>
+
+                                <small>
+                                    Qi and spiritual power
+                                </small>
+
                             </div>
 
-                            <span id="soulDisplay">10</span>
+                            <span id="soulDisplay">
+                                10
+                            </span>
 
                             <button
                                 class="attribute-upgrade"
@@ -493,6 +587,8 @@
 
                 </section>
 
+
+                <!-- EQUIPMENT -->
 
                 <section class="panel">
 
@@ -530,11 +626,13 @@
                 </section>
 
 
+                <!-- RESOURCES -->
+
                 <section class="panel">
 
                     <div class="panel-title">
                         <span>寶</span>
-                        Inventory
+                        Resources
                     </div>
 
 
@@ -547,11 +645,20 @@
                             </div>
 
                             <div class="item-info">
-                                <span>Cultivation Pills</span>
-                                <small>Instant Qi</small>
+
+                                <span>
+                                    Cultivation Pills
+                                </span>
+
+                                <small>
+                                    Instant Qi
+                                </small>
+
                             </div>
 
-                            <strong id="pillCountDisplay">0</strong>
+                            <strong id="pillCountDisplay">
+                                0
+                            </strong>
 
                         </div>
 
@@ -563,11 +670,45 @@
                             </div>
 
                             <div class="item-info">
-                                <span>Healing Pills</span>
-                                <small>Restore health</small>
+
+                                <span>
+                                    Healing Pills
+                                </span>
+
+                                <small>
+                                    Restore HP
+                                </small>
+
                             </div>
 
-                            <strong id="healingPillDisplay">0</strong>
+                            <strong id="healingPillDisplay">
+                                0
+                            </strong>
+
+                        </div>
+
+
+                        <div class="inventory-item">
+
+                            <div class="item-icon">
+                                ⚡
+                            </div>
+
+                            <div class="item-info">
+
+                                <span>
+                                    Stabilizing Pills
+                                </span>
+
+                                <small>
+                                    +15% breakthrough
+                                </small>
+
+                            </div>
+
+                            <strong id="breakthroughPillDisplay">
+                                0
+                            </strong>
 
                         </div>
 
@@ -579,27 +720,20 @@
                             </div>
 
                             <div class="item-info">
-                                <span>Herbs</span>
-                                <small>Alchemy materials</small>
+
+                                <span>
+                                    Herbs
+                                </span>
+
+                                <small>
+                                    Alchemy ingredients
+                                </small>
+
                             </div>
 
-                            <strong id="totalHerbDisplay">0</strong>
-
-                        </div>
-
-
-                        <div class="inventory-item">
-
-                            <div class="item-icon">
-                                ⚔️
-                            </div>
-
-                            <div class="item-info">
-                                <span>Weapons</span>
-                                <small>Spirit treasures</small>
-                            </div>
-
-                            <strong id="weaponCountDisplay">0</strong>
+                            <strong id="totalHerbDisplay">
+                                0
+                            </strong>
 
                         </div>
 
@@ -612,7 +746,7 @@
         </section>
 
 
-        <!-- CULTIVATION LOWER -->
+        <!-- LOWER CULTIVATION -->
 
         <section class="bottom-grid">
 
@@ -741,7 +875,7 @@
 
 
     <!-- ===================================================== -->
-    <!-- ADVENTURE                                             -->
+    <!-- ADVENTURE PAGE                                        -->
     <!-- ===================================================== -->
 
     <section
@@ -751,8 +885,7 @@
 
         <section class="adventure-layout">
 
-
-            <!-- PLAYER -->
+            <!-- PLAYER BATTLE -->
 
             <section class="panel battle-player-panel">
 
@@ -771,6 +904,7 @@
                     Jiang Chue
                 </h2>
 
+
                 <p
                     id="battlePlayerRealm"
                     class="soft-text"
@@ -779,10 +913,12 @@
 
                 <div class="battle-stat">
 
-                    <span>Health</span>
+                    <span>
+                        Health
+                    </span>
 
                     <strong id="battlePlayerHealthText">
-                        100 / 100
+                        200 / 200
                     </strong>
 
                 </div>
@@ -800,7 +936,9 @@
 
                 <div class="battle-stat">
 
-                    <span>Combat Power</span>
+                    <span>
+                        Combat Power
+                    </span>
 
                     <strong id="battlePlayerPower">
                         10
@@ -811,7 +949,9 @@
 
                 <div class="battle-stat">
 
-                    <span>Weapon</span>
+                    <span>
+                        Weapon
+                    </span>
 
                     <strong id="battleWeaponDisplay">
                         None
@@ -828,10 +968,35 @@
                     Use Healing Pill
                 </button>
 
+
+                <div class="auto-battle-box">
+
+                    <div>
+
+                        <strong>
+                            Auto-Battle
+                        </strong>
+
+                        <small id="autoBattleStatus">
+                            Disabled
+                        </small>
+
+                    </div>
+
+                    <button
+                        id="autoBattleButton"
+                        class="action-button"
+                        type="button"
+                    >
+                        Enable
+                    </button>
+
+                </div>
+
             </section>
 
 
-            <!-- EXPLORATION / BATTLE -->
+            <!-- ADVENTURE MAIN -->
 
             <section class="panel adventure-main-panel">
 
@@ -876,12 +1041,14 @@
 
 
                     <p class="helper-text">
-                        Exploration can reveal beasts, herbs, treasures,
-                        pills, weapons, or powerful regional bosses.
+                        Auto-Battle repeatedly explores your selected
+                        region and automatically fights encountered enemies.
                     </p>
 
                 </div>
 
+
+                <!-- NORMAL BATTLE -->
 
                 <div
                     id="battleView"
@@ -915,7 +1082,9 @@
 
                     <div class="battle-stat">
 
-                        <span>Enemy Health</span>
+                        <span>
+                            Enemy Health
+                        </span>
 
                         <strong id="enemyHealthText">
                             100 / 100
@@ -951,7 +1120,7 @@
                         <div>
 
                             <small>
-                                Reward Level
+                                Threat
                             </small>
 
                             <strong id="enemyRewardPreview">
@@ -963,6 +1132,12 @@
                     </div>
 
 
+                    <div
+                        id="battleSkillButtons"
+                        class="combat-skill-grid"
+                    ></div>
+
+
                     <div class="battle-actions">
 
                         <button
@@ -970,7 +1145,7 @@
                             class="action-button primary-action"
                             type="button"
                         >
-                            Attack
+                            Basic Attack
                         </button>
 
                         <button
@@ -1017,7 +1192,7 @@
             </section>
 
 
-            <!-- ADVENTURE RIGHT -->
+            <!-- RIGHT -->
 
             <aside class="right-column">
 
@@ -1070,6 +1245,11 @@
                             <strong id="expeditionsDisplay">0</strong>
                         </div>
 
+                        <div class="stat-row">
+                            <span>Auto Victories</span>
+                            <strong id="autoVictoryDisplay">0</strong>
+                        </div>
+
                     </div>
 
                 </section>
@@ -1116,7 +1296,170 @@
 
 
     <!-- ===================================================== -->
-    <!-- SECT                                                  -->
+    <!-- MARTIAL ARTS PAGE                                     -->
+    <!-- ===================================================== -->
+
+    <section
+        id="skillsPage"
+        class="page-section hidden-page"
+    >
+
+        <section class="skills-layout">
+
+            <section class="panel">
+
+                <div class="panel-title">
+                    <span>武</span>
+                    Martial Path
+                </div>
+
+
+                <div class="large-symbol">
+                    武
+                </div>
+
+
+                <h2 class="center-heading">
+                    Combat Techniques
+                </h2>
+
+
+                <p class="soft-text centered-text">
+                    Martial techniques can be used during battle.
+                    Stronger techniques unlock as your cultivation realm rises.
+                </p>
+
+
+                <div class="stat-list">
+
+                    <div class="stat-row">
+
+                        <span>
+                            Known Skills
+                        </span>
+
+                        <strong id="knownSkillCountDisplay">
+                            1
+                        </strong>
+
+                    </div>
+
+
+                    <div class="stat-row">
+
+                        <span>
+                            Total Skill Uses
+                        </span>
+
+                        <strong id="skillUsesDisplay">
+                            0
+                        </strong>
+
+                    </div>
+
+
+                    <div class="stat-row">
+
+                        <span>
+                            Highest Mastery
+                        </span>
+
+                        <strong id="highestSkillMasteryDisplay">
+                            0%
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <section class="panel skill-library-panel">
+
+                <div class="panel-title">
+                    <span>技</span>
+                    Skill Library
+                </div>
+
+                <div
+                    id="martialSkillList"
+                    class="martial-skill-list"
+                ></div>
+
+            </section>
+
+
+            <section class="panel">
+
+                <div class="panel-title">
+                    <span>訣</span>
+                    Battle Principles
+                </div>
+
+
+                <div class="info-card">
+
+                    <h3>
+                        Strength Skills
+                    </h3>
+
+                    <p>
+                        Scale primarily with Strength and benefit heavily
+                        from physical weapons.
+                    </p>
+
+                </div>
+
+
+                <div class="info-card">
+
+                    <h3>
+                        Soul Skills
+                    </h3>
+
+                    <p>
+                        Scale with Soul and deal powerful spiritual damage.
+                    </p>
+
+                </div>
+
+
+                <div class="info-card">
+
+                    <h3>
+                        Sword Skills
+                    </h3>
+
+                    <p>
+                        Receive extra bonuses while a spirit weapon is equipped.
+                    </p>
+
+                </div>
+
+
+                <div class="info-card">
+
+                    <h3>
+                        Mastery
+                    </h3>
+
+                    <p>
+                        Every successful use increases skill mastery and
+                        gradually strengthens that technique.
+                    </p>
+
+                </div>
+
+            </section>
+
+        </section>
+
+    </section>
+
+
+    <!-- ===================================================== -->
+    <!-- SECT PAGE                                             -->
     <!-- ===================================================== -->
 
     <section
@@ -1125,8 +1468,6 @@
     >
 
         <section class="three-column-grid">
-
-            <!-- SECT IDENTITY -->
 
             <section class="panel sect-profile">
 
@@ -1147,7 +1488,7 @@
 
 
                 <p class="soft-text">
-                    An ancient righteous sect devoted to seeking the Great Dao.
+                    An ancient righteous sect devoted to pursuing the Great Dao.
                 </p>
 
 
@@ -1169,7 +1510,7 @@
                     <div class="stat-row">
 
                         <span>
-                            Contribution Points
+                            Contribution
                         </span>
 
                         <strong id="sectContributionDisplay">
@@ -1209,15 +1550,12 @@
             </section>
 
 
-            <!-- RANKS -->
-
             <section class="panel">
 
                 <div class="panel-title">
                     <span>階</span>
                     Sect Hierarchy
                 </div>
-
 
                 <div
                     id="sectRankList"
@@ -1227,20 +1565,12 @@
             </section>
 
 
-            <!-- TREASURY -->
-
             <section class="panel">
 
                 <div class="panel-title">
                     <span>庫</span>
                     Sect Treasury
                 </div>
-
-
-                <p class="soft-text treasury-description">
-                    Exchange Contribution Points for cultivation resources.
-                </p>
-
 
                 <div
                     id="sectTreasuryList"
@@ -1261,7 +1591,6 @@
                     Sect Duties
                 </div>
 
-
                 <div
                     id="sectDutyList"
                     class="duty-list"
@@ -1277,7 +1606,6 @@
                     Rank Benefits
                 </div>
 
-
                 <div
                     id="sectBenefitDisplay"
                     class="benefit-card"
@@ -1291,7 +1619,7 @@
 
 
     <!-- ===================================================== -->
-    <!-- ALCHEMY                                               -->
+    <!-- ALCHEMY PAGE                                          -->
     <!-- ===================================================== -->
 
     <section
@@ -1301,15 +1629,12 @@
 
         <section class="alchemy-grid">
 
-            <!-- HERBS -->
-
             <section class="panel">
 
                 <div class="panel-title">
                     <span>草</span>
                     Herb Inventory
                 </div>
-
 
                 <div
                     id="herbInventoryList"
@@ -1318,8 +1643,6 @@
 
             </section>
 
-
-            <!-- CAULDRON -->
 
             <section class="panel alchemy-center-panel">
 
@@ -1370,13 +1693,28 @@
                 <div class="alchemy-stats">
 
                     <div>
-                        <span>Successful Refinements</span>
-                        <strong id="alchemySuccessDisplay">0</strong>
+
+                        <span>
+                            Successful Refinements
+                        </span>
+
+                        <strong id="alchemySuccessDisplay">
+                            0
+                        </strong>
+
                     </div>
 
+
                     <div>
-                        <span>Failed Refinements</span>
-                        <strong id="alchemyFailDisplay">0</strong>
+
+                        <span>
+                            Failed Refinements
+                        </span>
+
+                        <strong id="alchemyFailDisplay">
+                            0
+                        </strong>
+
                     </div>
 
                 </div>
@@ -1384,15 +1722,12 @@
             </section>
 
 
-            <!-- RECIPES -->
-
             <section class="panel">
 
                 <div class="panel-title">
                     <span>方</span>
                     Pill Recipes
                 </div>
-
 
                 <div
                     id="alchemyRecipeList"
@@ -1407,7 +1742,7 @@
 
 
     <!-- ===================================================== -->
-    <!-- MARKET                                                -->
+    <!-- MARKET PAGE                                           -->
     <!-- ===================================================== -->
 
     <section
@@ -1416,8 +1751,6 @@
     >
 
         <section class="market-grid">
-
-            <!-- MARKET INFO -->
 
             <section class="panel market-profile">
 
@@ -1457,15 +1790,12 @@
             </section>
 
 
-            <!-- SHOP -->
-
             <section class="panel">
 
                 <div class="panel-title">
                     <span>買</span>
                     General Store
                 </div>
-
 
                 <div
                     id="marketShopList"
@@ -1475,15 +1805,12 @@
             </section>
 
 
-            <!-- SELL WEAPONS -->
-
             <section class="panel">
 
                 <div class="panel-title">
                     <span>售</span>
                     Sell Weapons
                 </div>
-
 
                 <div
                     id="marketWeaponList"
@@ -1503,7 +1830,7 @@
 
         <span>•</span>
 
-        Progress automatically saves every 10 seconds.
+        Progress saves automatically.
 
     </footer>
 
@@ -1605,6 +1932,16 @@
                 <strong id="statusAlchemyRankDisplay"></strong>
             </div>
 
+            <div class="status-entry">
+                <span>Tribulations Survived</span>
+                <strong id="statusTribulationDisplay"></strong>
+            </div>
+
+            <div class="status-entry">
+                <span>Auto-Battle Victories</span>
+                <strong id="statusAutoBattleDisplay"></strong>
+            </div>
+
         </div>
 
     </div>
@@ -1641,7 +1978,7 @@
         </h2>
 
         <p>
-            Equip the most suitable treasure for your cultivation path.
+            Equip the treasure best suited to your cultivation path.
         </p>
 
 
@@ -1649,6 +1986,281 @@
             id="weaponInventoryList"
             class="weapon-inventory-list"
         ></div>
+
+    </div>
+
+</div>
+
+
+<!-- ========================================================= -->
+<!-- PILL INVENTORY                                            -->
+<!-- ========================================================= -->
+
+<div
+    id="pillModal"
+    class="modal hidden"
+>
+
+    <div class="modal-card">
+
+        <button
+            id="closePillButton"
+            class="modal-close"
+            type="button"
+        >
+            ×
+        </button>
+
+
+        <div class="modal-symbol">
+            丹
+        </div>
+
+        <h2>
+            Pill Inventory
+        </h2>
+
+        <p>
+            Refined medicinal pills can greatly accelerate your cultivation.
+        </p>
+
+
+        <div class="pill-list">
+
+            <div class="pill-card">
+
+                <div>
+
+                    <h3>
+                        Cultivation Pill
+                    </h3>
+
+                    <p>
+                        Immediately grants 35% of your current
+                        breakthrough requirement as Qi.
+                    </p>
+
+                    <span id="pillModalCultivationCount">
+                        ×0
+                    </span>
+
+                </div>
+
+                <button
+                    id="modalUseCultivationPill"
+                    type="button"
+                >
+                    Use
+                </button>
+
+            </div>
+
+
+            <div class="pill-card">
+
+                <div>
+
+                    <h3>
+                        Healing Pill
+                    </h3>
+
+                    <p>
+                        Restores 45% of maximum health.
+                    </p>
+
+                    <span id="pillModalHealingCount">
+                        ×0
+                    </span>
+
+                </div>
+
+                <button
+                    id="modalUseHealingPill"
+                    type="button"
+                >
+                    Use
+                </button>
+
+            </div>
+
+
+            <div class="pill-card breakthrough-pill-card">
+
+                <div>
+
+                    <h3>
+                        Foundation Stabilizing Pill
+                    </h3>
+
+                    <p>
+                        Adds +15% success chance to your next
+                        breakthrough attempt.
+                    </p>
+
+                    <span id="pillModalBreakthroughCount">
+                        ×0
+                    </span>
+
+                </div>
+
+                <button
+                    id="modalUseBreakthroughPill"
+                    type="button"
+                >
+                    Use
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- ========================================================= -->
+<!-- TRIBULATION MODAL                                         -->
+<!-- ========================================================= -->
+
+<div
+    id="tribulationModal"
+    class="modal hidden tribulation-modal"
+>
+
+    <div class="modal-card tribulation-card">
+
+        <div class="tribulation-lightning">
+            ⚡
+        </div>
+
+
+        <p class="system-window-title">
+            HEAVENLY TRIBULATION
+        </p>
+
+
+        <h2 id="tribulationTitle">
+            Heaven's Judgment
+        </h2>
+
+
+        <p id="tribulationDescription">
+            The heavens have sensed your attempt to transcend mortality.
+        </p>
+
+
+        <div class="tribulation-realm">
+
+            <span>
+                Ascending Toward
+            </span>
+
+            <strong id="tribulationTargetRealm">
+                Body Tempering
+            </strong>
+
+        </div>
+
+
+        <div class="battle-stat">
+
+            <span>
+                Jiang Chue
+            </span>
+
+            <strong id="tribulationPlayerHealth">
+                200 / 200
+            </strong>
+
+        </div>
+
+
+        <div class="health-bar">
+
+            <div
+                id="tribulationPlayerBar"
+                class="health-fill player-health"
+            ></div>
+
+        </div>
+
+
+        <div class="battle-stat">
+
+            <span>
+                Heavenly Lightning
+            </span>
+
+            <strong id="tribulationHealthText">
+                500 / 500
+            </strong>
+
+        </div>
+
+
+        <div class="health-bar">
+
+            <div
+                id="tribulationHealthBar"
+                class="health-fill tribulation-health"
+            ></div>
+
+        </div>
+
+
+        <div class="tribulation-wave-box">
+
+            <span>
+                Lightning Wave
+            </span>
+
+            <strong id="tribulationWaveDisplay">
+                1 / 3
+            </strong>
+
+        </div>
+
+
+        <div
+            id="tribulationSkillButtons"
+            class="combat-skill-grid"
+        ></div>
+
+
+        <div class="battle-actions">
+
+            <button
+                id="tribulationAttackButton"
+                class="action-button primary-action"
+                type="button"
+            >
+                Resist Heaven
+            </button>
+
+
+            <button
+                id="tribulationHealButton"
+                class="action-button"
+                type="button"
+            >
+                Healing Pill
+            </button>
+
+        </div>
+
+
+        <div class="system-message">
+
+            <span class="system-label">
+                HEAVENLY DAO
+            </span>
+
+            <p id="tribulationMessage">
+                Survive the lightning tribulation to ascend.
+            </p>
+
+        </div>
 
     </div>
 
