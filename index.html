@@ -61,7 +61,7 @@
             </h1>
 
             <p class="game-subtitle">
-                Cultivate. Explore. Battle. Ascend.
+                Cultivate • Battle • Refine • Ascend
             </p>
 
         </div>
@@ -70,19 +70,43 @@
         <div class="header-actions">
 
             <button
-                id="cultivationTabButton"
-                class="small-button active-tab"
+                class="small-button nav-button active-tab"
+                data-page="cultivationPage"
                 type="button"
             >
                 Cultivation
             </button>
 
             <button
-                id="adventureTabButton"
-                class="small-button"
+                class="small-button nav-button"
+                data-page="adventurePage"
                 type="button"
             >
                 Adventure
+            </button>
+
+            <button
+                class="small-button nav-button"
+                data-page="sectPage"
+                type="button"
+            >
+                Sect
+            </button>
+
+            <button
+                class="small-button nav-button"
+                data-page="alchemyPage"
+                type="button"
+            >
+                Alchemy
+            </button>
+
+            <button
+                class="small-button nav-button"
+                data-page="marketPage"
+                type="button"
+            >
+                Market
             </button>
 
             <button
@@ -115,7 +139,7 @@
 
 
     <!-- ===================================================== -->
-    <!-- CULTIVATION PAGE                                      -->
+    <!-- CULTIVATION                                           -->
     <!-- ===================================================== -->
 
     <section
@@ -124,8 +148,6 @@
     >
 
         <section class="main-grid">
-
-            <!-- CHARACTER -->
 
             <aside class="panel character-panel">
 
@@ -191,80 +213,33 @@
                 <div class="stat-list">
 
                     <div class="stat-row">
-
-                        <span>
-                            Combat Power
-                        </span>
-
-                        <strong id="combatPowerDisplay">
-                            10
-                        </strong>
-
+                        <span>Combat Power</span>
+                        <strong id="combatPowerDisplay">10</strong>
                     </div>
 
-
                     <div class="stat-row">
-
-                        <span>
-                            Health
-                        </span>
-
-                        <strong id="healthDisplay">
-                            100 / 100
-                        </strong>
-
+                        <span>Health</span>
+                        <strong id="healthDisplay">100 / 100</strong>
                     </div>
 
-
                     <div class="stat-row">
-
-                        <span>
-                            Qi / Second
-                        </span>
-
-                        <strong id="qiPerSecondDisplay">
-                            1
-                        </strong>
-
+                        <span>Qi / Second</span>
+                        <strong id="qiPerSecondDisplay">1</strong>
                     </div>
 
-
                     <div class="stat-row">
-
-                        <span>
-                            Spirit Stones
-                        </span>
-
-                        <strong id="spiritStoneDisplay">
-                            0
-                        </strong>
-
+                        <span>Spirit Stones</span>
+                        <strong id="spiritStoneDisplay">0</strong>
                     </div>
 
-
                     <div class="stat-row">
-
-                        <span>
-                            Stat Points
-                        </span>
-
-                        <strong id="statPointDisplay">
-                            0
-                        </strong>
-
+                        <span>Stat Points</span>
+                        <strong id="statPointDisplay">0</strong>
                     </div>
 
-
                     <div class="stat-row">
-
-                        <span>
-                            Victories
-                        </span>
-
-                        <strong id="victoryDisplay">
-                            0
-                        </strong>
-
+                        <span>Sect Contribution</span>
+                        <strong id="sectContributionMiniDisplay">0</strong>
                     </div>
 
                 </div>
@@ -296,7 +271,6 @@
 
                     </div>
 
-
                     <div
                         id="breakthroughChanceDisplay"
                         class="chance-badge"
@@ -320,7 +294,6 @@
                         </span>
 
                     </div>
-
 
                     <div class="progress-bar">
 
@@ -348,7 +321,6 @@
                         Qi Production +0%
                     </small>
 
-
                     <div class="mini-progress">
 
                         <div
@@ -357,7 +329,6 @@
                         ></div>
 
                     </div>
-
 
                     <small id="techniqueMasteryText">
                         Mastery 0%
@@ -378,7 +349,6 @@
                         <div class="orb-ring orb-ring-two"></div>
                         <div class="orb-ring orb-ring-three"></div>
 
-
                         <div class="orb-center">
 
                             <span class="orb-symbol">
@@ -395,8 +365,8 @@
 
 
                     <p>
-                        Meditation automatically gathers Qi.
-                        Manual cultivation also improves technique mastery.
+                        Spiritual energy continuously enters your meridians.
+                        Manual meditation also improves technique mastery.
                     </p>
 
                 </div>
@@ -412,7 +382,6 @@
                         Attempt Breakthrough
                     </button>
 
-
                     <button
                         id="signInButton"
                         class="action-button"
@@ -420,7 +389,6 @@
                     >
                         Daily Sign-In
                     </button>
-
 
                     <button
                         id="usePillButton"
@@ -440,7 +408,7 @@
                     </span>
 
                     <p id="systemMessage">
-                        Your path toward immortality begins.
+                        The Heavenly Dao watches your progress.
                     </p>
 
                 </div>
@@ -448,11 +416,9 @@
             </section>
 
 
-            <!-- RIGHT COLUMN -->
+            <!-- RIGHT -->
 
             <aside class="right-column">
-
-                <!-- ATTRIBUTES -->
 
                 <section class="panel">
 
@@ -467,20 +433,11 @@
                         <div class="attribute-card">
 
                             <div>
-
-                                <strong>
-                                    Strength
-                                </strong>
-
-                                <small>
-                                    Damage and combat power
-                                </small>
-
+                                <strong>Strength</strong>
+                                <small>Physical damage</small>
                             </div>
 
-                            <span id="strengthDisplay">
-                                10
-                            </span>
+                            <span id="strengthDisplay">10</span>
 
                             <button
                                 class="attribute-upgrade"
@@ -496,20 +453,11 @@
                         <div class="attribute-card">
 
                             <div>
-
-                                <strong>
-                                    Constitution
-                                </strong>
-
-                                <small>
-                                    Health and breakthrough stability
-                                </small>
-
+                                <strong>Constitution</strong>
+                                <small>Health and defense</small>
                             </div>
 
-                            <span id="constitutionDisplay">
-                                10
-                            </span>
+                            <span id="constitutionDisplay">10</span>
 
                             <button
                                 class="attribute-upgrade"
@@ -525,20 +473,11 @@
                         <div class="attribute-card">
 
                             <div>
-
-                                <strong>
-                                    Soul
-                                </strong>
-
-                                <small>
-                                    Qi production and spiritual attacks
-                                </small>
-
+                                <strong>Soul</strong>
+                                <small>Qi and spiritual damage</small>
                             </div>
 
-                            <span id="soulDisplay">
-                                10
-                            </span>
+                            <span id="soulDisplay">10</span>
 
                             <button
                                 class="attribute-upgrade"
@@ -554,8 +493,6 @@
 
                 </section>
 
-
-                <!-- EQUIPMENT -->
 
                 <section class="panel">
 
@@ -593,8 +530,6 @@
                 </section>
 
 
-                <!-- ITEMS -->
-
                 <section class="panel">
 
                     <div class="panel-title">
@@ -612,20 +547,11 @@
                             </div>
 
                             <div class="item-info">
-
-                                <span>
-                                    Cultivation Pills
-                                </span>
-
-                                <small>
-                                    Grants cultivation Qi
-                                </small>
-
+                                <span>Cultivation Pills</span>
+                                <small>Instant Qi</small>
                             </div>
 
-                            <strong id="pillCountDisplay">
-                                0
-                            </strong>
+                            <strong id="pillCountDisplay">0</strong>
 
                         </div>
 
@@ -637,20 +563,11 @@
                             </div>
 
                             <div class="item-info">
-
-                                <span>
-                                    Healing Pills
-                                </span>
-
-                                <small>
-                                    Restores health
-                                </small>
-
+                                <span>Healing Pills</span>
+                                <small>Restore health</small>
                             </div>
 
-                            <strong id="healingPillDisplay">
-                                0
-                            </strong>
+                            <strong id="healingPillDisplay">0</strong>
 
                         </div>
 
@@ -658,24 +575,15 @@
                         <div class="inventory-item">
 
                             <div class="item-icon">
-                                💎
+                                🌿
                             </div>
 
                             <div class="item-info">
-
-                                <span>
-                                    Spirit Stones
-                                </span>
-
-                                <small>
-                                    Cultivation currency
-                                </small>
-
+                                <span>Herbs</span>
+                                <small>Alchemy materials</small>
                             </div>
 
-                            <strong id="inventoryStoneDisplay">
-                                0
-                            </strong>
+                            <strong id="totalHerbDisplay">0</strong>
 
                         </div>
 
@@ -687,20 +595,11 @@
                             </div>
 
                             <div class="item-info">
-
-                                <span>
-                                    Spirit Weapons
-                                </span>
-
-                                <small>
-                                    Collected equipment
-                                </small>
-
+                                <span>Weapons</span>
+                                <small>Spirit treasures</small>
                             </div>
 
-                            <strong id="weaponCountDisplay">
-                                0
-                            </strong>
+                            <strong id="weaponCountDisplay">0</strong>
 
                         </div>
 
@@ -713,7 +612,7 @@
         </section>
 
 
-        <!-- TECHNIQUES + DAILY -->
+        <!-- CULTIVATION LOWER -->
 
         <section class="bottom-grid">
 
@@ -767,12 +666,12 @@
 
                     <div class="reward-slot">
                         <small>Day 3</small>
-                        <span>❤️ ×2</span>
+                        <span>🌿 Herbs</span>
                     </div>
 
                     <div class="reward-slot">
                         <small>Day 4</small>
-                        <span>💊 ×2</span>
+                        <span>❤️ ×2</span>
                     </div>
 
                     <div class="reward-slot">
@@ -787,7 +686,7 @@
 
                     <div class="reward-slot legendary-reward">
                         <small>Day 7</small>
-                        <span>⚔️ Mystery Weapon</span>
+                        <span>⚔️ Treasure</span>
                     </div>
 
                 </div>
@@ -797,15 +696,13 @@
                     id="dailyStatus"
                     class="daily-status"
                 >
-                    Sign-in reward available.
+                    Reward available.
                 </p>
 
             </section>
 
         </section>
 
-
-        <!-- LOG + REALMS -->
 
         <section class="bottom-grid">
 
@@ -818,7 +715,7 @@
 
                 <div
                     id="cultivationLog"
-                    class="cultivation-log"
+                    class="scroll-log"
                 ></div>
 
             </section>
@@ -844,7 +741,7 @@
 
 
     <!-- ===================================================== -->
-    <!-- ADVENTURE PAGE                                        -->
+    <!-- ADVENTURE                                             -->
     <!-- ===================================================== -->
 
     <section
@@ -854,7 +751,8 @@
 
         <section class="adventure-layout">
 
-            <!-- PLAYER BATTLE PANEL -->
+
+            <!-- PLAYER -->
 
             <section class="panel battle-player-panel">
 
@@ -864,28 +762,24 @@
                 </div>
 
 
-                <div class="battle-character">
-
-                    <div class="battle-symbol player-symbol">
-                        修
-                    </div>
-
-                    <h2>
-                        Jiang Chue
-                    </h2>
-
-                    <p id="battlePlayerRealm">
-                        Mortal · Early Stage
-                    </p>
-
+                <div class="battle-symbol player-symbol">
+                    修
                 </div>
+
+
+                <h2 class="battle-title">
+                    Jiang Chue
+                </h2>
+
+                <p
+                    id="battlePlayerRealm"
+                    class="soft-text"
+                ></p>
 
 
                 <div class="battle-stat">
 
-                    <span>
-                        Health
-                    </span>
+                    <span>Health</span>
 
                     <strong id="battlePlayerHealthText">
                         100 / 100
@@ -906,9 +800,7 @@
 
                 <div class="battle-stat">
 
-                    <span>
-                        Combat Power
-                    </span>
+                    <span>Combat Power</span>
 
                     <strong id="battlePlayerPower">
                         10
@@ -919,22 +811,12 @@
 
                 <div class="battle-stat">
 
-                    <span>
-                        Weapon
-                    </span>
+                    <span>Weapon</span>
 
                     <strong id="battleWeaponDisplay">
                         None
                     </strong>
 
-                </div>
-
-
-                <div
-                    id="injuryWarning"
-                    class="injury-warning hidden"
-                >
-                    ⚠ Injured
                 </div>
 
 
@@ -949,35 +831,33 @@
             </section>
 
 
-            <!-- CENTER ADVENTURE -->
+            <!-- EXPLORATION / BATTLE -->
 
             <section class="panel adventure-main-panel">
 
                 <div class="panel-title">
                     <span>戰</span>
-                    Adventure
+                    Exploration
                 </div>
 
 
-                <!-- NO BATTLE -->
-
                 <div id="explorationView">
 
-                    <div class="adventure-heading">
+                    <span class="small-label">
+                        Current Region
+                    </span>
 
-                        <span class="small-label">
-                            Current Region
-                        </span>
+                    <h2
+                        id="selectedZoneName"
+                        class="section-heading"
+                    >
+                        Misty Forest
+                    </h2>
 
-                        <h2 id="selectedZoneName">
-                            Misty Forest
-                        </h2>
-
-                        <p id="selectedZoneDescription">
-                            A forest filled with weak spirit beasts.
-                        </p>
-
-                    </div>
+                    <p
+                        id="selectedZoneDescription"
+                        class="soft-text section-description"
+                    ></p>
 
 
                     <div
@@ -995,15 +875,13 @@
                     </button>
 
 
-                    <p class="exploration-help">
-                        Exploration may reveal enemies, treasures,
-                        Spirit Stones, pills, or rare encounters.
+                    <p class="helper-text">
+                        Exploration can reveal beasts, herbs, treasures,
+                        pills, weapons, or powerful regional bosses.
                     </p>
 
                 </div>
 
-
-                <!-- BATTLE -->
 
                 <div
                     id="battleView"
@@ -1019,29 +897,25 @@
                             妖
                         </div>
 
-                        <p
+                        <span
                             id="enemyTypeDisplay"
                             class="enemy-type"
                         >
                             Spirit Beast
-                        </p>
+                        </span>
 
                         <h2 id="enemyNameDisplay">
-                            Forest Wolf
+                            Fang Wolf
                         </h2>
 
-                        <p id="enemyRealmDisplay">
-                            Mortal Beast
-                        </p>
+                        <p id="enemyRealmDisplay"></p>
 
                     </div>
 
 
                     <div class="battle-stat">
 
-                        <span>
-                            Enemy Health
-                        </span>
+                        <span>Enemy Health</span>
 
                         <strong id="enemyHealthText">
                             100 / 100
@@ -1063,6 +937,7 @@
                     <div class="enemy-stats-grid">
 
                         <div>
+
                             <small>
                                 Combat Power
                             </small>
@@ -1070,16 +945,19 @@
                             <strong id="enemyPowerDisplay">
                                 10
                             </strong>
+
                         </div>
 
                         <div>
+
                             <small>
-                                Reward
+                                Reward Level
                             </small>
 
                             <strong id="enemyRewardPreview">
-                                ???
+                                Normal
                             </strong>
+
                         </div>
 
                     </div>
@@ -1095,7 +973,6 @@
                             Attack
                         </button>
 
-
                         <button
                             id="spiritualAttackButton"
                             class="action-button"
@@ -1104,7 +981,6 @@
                             Spiritual Strike
                         </button>
 
-
                         <button
                             id="battleHealButton"
                             class="action-button"
@@ -1112,7 +988,6 @@
                         >
                             Healing Pill
                         </button>
-
 
                         <button
                             id="fleeButton"
@@ -1127,14 +1002,14 @@
                 </div>
 
 
-                <div class="system-message adventure-system-message">
+                <div class="system-message">
 
                     <span class="system-label">
                         ADVENTURE SYSTEM
                     </span>
 
                     <p id="adventureMessage">
-                        Choose a region and begin exploring.
+                        Select a region and begin exploring.
                     </p>
 
                 </div>
@@ -1142,15 +1017,15 @@
             </section>
 
 
-            <!-- MISSIONS -->
+            <!-- ADVENTURE RIGHT -->
 
             <aside class="right-column">
 
                 <section class="panel">
 
                     <div class="panel-title">
-                        <span>宗</span>
-                        Sect Missions
+                        <span>任</span>
+                        Missions
                     </div>
 
                     <div
@@ -1168,71 +1043,31 @@
                         Battle Record
                     </div>
 
-
                     <div class="stat-list">
 
                         <div class="stat-row">
-
-                            <span>
-                                Victories
-                            </span>
-
-                            <strong id="adventureVictoryDisplay">
-                                0
-                            </strong>
-
+                            <span>Victories</span>
+                            <strong id="adventureVictoryDisplay">0</strong>
                         </div>
 
-
                         <div class="stat-row">
-
-                            <span>
-                                Defeats
-                            </span>
-
-                            <strong id="defeatDisplay">
-                                0
-                            </strong>
-
+                            <span>Defeats</span>
+                            <strong id="defeatDisplay">0</strong>
                         </div>
 
-
                         <div class="stat-row">
-
-                            <span>
-                                Enemies Slain
-                            </span>
-
-                            <strong id="enemiesSlainDisplay">
-                                0
-                            </strong>
-
+                            <span>Enemies Slain</span>
+                            <strong id="enemiesSlainDisplay">0</strong>
                         </div>
 
-
                         <div class="stat-row">
-
-                            <span>
-                                Bosses Slain
-                            </span>
-
-                            <strong id="bossesSlainDisplay">
-                                0
-                            </strong>
-
+                            <span>Bosses Slain</span>
+                            <strong id="bossesSlainDisplay">0</strong>
                         </div>
 
-
                         <div class="stat-row">
-
-                            <span>
-                                Expeditions
-                            </span>
-
-                            <strong id="expeditionsDisplay">
-                                0
-                            </strong>
-
+                            <span>Expeditions</span>
+                            <strong id="expeditionsDisplay">0</strong>
                         </div>
 
                     </div>
@@ -1255,7 +1090,7 @@
 
                 <div
                     id="battleLog"
-                    class="cultivation-log"
+                    class="scroll-log"
                 ></div>
 
             </section>
@@ -1265,7 +1100,7 @@
 
                 <div class="panel-title">
                     <span>域</span>
-                    Exploration Progress
+                    Region Progress
                 </div>
 
                 <div
@@ -1280,19 +1115,395 @@
     </section>
 
 
+    <!-- ===================================================== -->
+    <!-- SECT                                                  -->
+    <!-- ===================================================== -->
+
+    <section
+        id="sectPage"
+        class="page-section hidden-page"
+    >
+
+        <section class="three-column-grid">
+
+            <!-- SECT IDENTITY -->
+
+            <section class="panel sect-profile">
+
+                <div class="panel-title">
+                    <span>宗</span>
+                    Sect
+                </div>
+
+
+                <div class="large-symbol">
+                    宗
+                </div>
+
+
+                <h2 id="sectNameDisplay">
+                    Azure Cloud Sect
+                </h2>
+
+
+                <p class="soft-text">
+                    An ancient righteous sect devoted to seeking the Great Dao.
+                </p>
+
+
+                <div class="rank-banner">
+
+                    <span>
+                        Current Rank
+                    </span>
+
+                    <strong id="sectRankDisplay">
+                        Outer Disciple
+                    </strong>
+
+                </div>
+
+
+                <div class="stat-list">
+
+                    <div class="stat-row">
+
+                        <span>
+                            Contribution Points
+                        </span>
+
+                        <strong id="sectContributionDisplay">
+                            0
+                        </strong>
+
+                    </div>
+
+
+                    <div class="stat-row">
+
+                        <span>
+                            Total Contribution
+                        </span>
+
+                        <strong id="totalContributionDisplay">
+                            0
+                        </strong>
+
+                    </div>
+
+
+                    <div class="stat-row">
+
+                        <span>
+                            Completed Duties
+                        </span>
+
+                        <strong id="sectDutyCountDisplay">
+                            0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- RANKS -->
+
+            <section class="panel">
+
+                <div class="panel-title">
+                    <span>階</span>
+                    Sect Hierarchy
+                </div>
+
+
+                <div
+                    id="sectRankList"
+                    class="rank-list"
+                ></div>
+
+            </section>
+
+
+            <!-- TREASURY -->
+
+            <section class="panel">
+
+                <div class="panel-title">
+                    <span>庫</span>
+                    Sect Treasury
+                </div>
+
+
+                <p class="soft-text treasury-description">
+                    Exchange Contribution Points for cultivation resources.
+                </p>
+
+
+                <div
+                    id="sectTreasuryList"
+                    class="shop-list"
+                ></div>
+
+            </section>
+
+        </section>
+
+
+        <section class="bottom-grid">
+
+            <section class="panel">
+
+                <div class="panel-title">
+                    <span>令</span>
+                    Sect Duties
+                </div>
+
+
+                <div
+                    id="sectDutyList"
+                    class="duty-list"
+                ></div>
+
+            </section>
+
+
+            <section class="panel">
+
+                <div class="panel-title">
+                    <span>恩</span>
+                    Rank Benefits
+                </div>
+
+
+                <div
+                    id="sectBenefitDisplay"
+                    class="benefit-card"
+                ></div>
+
+            </section>
+
+        </section>
+
+    </section>
+
+
+    <!-- ===================================================== -->
+    <!-- ALCHEMY                                               -->
+    <!-- ===================================================== -->
+
+    <section
+        id="alchemyPage"
+        class="page-section hidden-page"
+    >
+
+        <section class="alchemy-grid">
+
+            <!-- HERBS -->
+
+            <section class="panel">
+
+                <div class="panel-title">
+                    <span>草</span>
+                    Herb Inventory
+                </div>
+
+
+                <div
+                    id="herbInventoryList"
+                    class="herb-grid"
+                ></div>
+
+            </section>
+
+
+            <!-- CAULDRON -->
+
+            <section class="panel alchemy-center-panel">
+
+                <div class="panel-title">
+                    <span>丹</span>
+                    Alchemy Cauldron
+                </div>
+
+
+                <div class="cauldron">
+
+                    <div class="cauldron-glow"></div>
+
+                    <div class="cauldron-symbol">
+                        丹
+                    </div>
+
+                </div>
+
+
+                <span class="small-label">
+                    Alchemy Mastery
+                </span>
+
+                <h2 id="alchemyLevelDisplay">
+                    Novice Alchemist
+                </h2>
+
+
+                <div class="progress-bar">
+
+                    <div
+                        id="alchemyExpBar"
+                        class="progress-fill"
+                    ></div>
+
+                </div>
+
+
+                <p
+                    id="alchemyExpText"
+                    class="helper-text"
+                >
+                    0 / 100 Mastery
+                </p>
+
+
+                <div class="alchemy-stats">
+
+                    <div>
+                        <span>Successful Refinements</span>
+                        <strong id="alchemySuccessDisplay">0</strong>
+                    </div>
+
+                    <div>
+                        <span>Failed Refinements</span>
+                        <strong id="alchemyFailDisplay">0</strong>
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- RECIPES -->
+
+            <section class="panel">
+
+                <div class="panel-title">
+                    <span>方</span>
+                    Pill Recipes
+                </div>
+
+
+                <div
+                    id="alchemyRecipeList"
+                    class="recipe-list"
+                ></div>
+
+            </section>
+
+        </section>
+
+    </section>
+
+
+    <!-- ===================================================== -->
+    <!-- MARKET                                                -->
+    <!-- ===================================================== -->
+
+    <section
+        id="marketPage"
+        class="page-section hidden-page"
+    >
+
+        <section class="market-grid">
+
+            <!-- MARKET INFO -->
+
+            <section class="panel market-profile">
+
+                <div class="panel-title">
+                    <span>市</span>
+                    Cultivator Market
+                </div>
+
+
+                <div class="large-symbol">
+                    商
+                </div>
+
+
+                <h2>
+                    Thousand Treasure Pavilion
+                </h2>
+
+
+                <p class="soft-text">
+                    Buy resources and sell unwanted spirit treasures.
+                </p>
+
+
+                <div class="rank-banner">
+
+                    <span>
+                        Spirit Stones
+                    </span>
+
+                    <strong id="marketStoneDisplay">
+                        0
+                    </strong>
+
+                </div>
+
+            </section>
+
+
+            <!-- SHOP -->
+
+            <section class="panel">
+
+                <div class="panel-title">
+                    <span>買</span>
+                    General Store
+                </div>
+
+
+                <div
+                    id="marketShopList"
+                    class="shop-list"
+                ></div>
+
+            </section>
+
+
+            <!-- SELL WEAPONS -->
+
+            <section class="panel">
+
+                <div class="panel-title">
+                    <span>售</span>
+                    Sell Weapons
+                </div>
+
+
+                <div
+                    id="marketWeaponList"
+                    class="shop-list"
+                ></div>
+
+            </section>
+
+        </section>
+
+    </section>
+
+
     <footer class="game-footer">
 
-        <span>
-            Idle Cultivation
-        </span>
+        Idle Cultivation
 
-        <span>
-            •
-        </span>
+        <span>•</span>
 
-        <span>
-            Progress saves automatically.
-        </span>
+        Progress automatically saves every 10 seconds.
 
     </footer>
 
@@ -1323,11 +1534,9 @@
             系
         </div>
 
-
         <p class="system-window-title">
             HEAVENLY DAO SYSTEM
         </p>
-
 
         <h2 id="statusNameDisplay">
             Jiang Chue
@@ -1337,134 +1546,63 @@
         <div class="status-grid">
 
             <div class="status-entry">
-
-                <span>
-                    Realm
-                </span>
-
+                <span>Realm</span>
                 <strong id="statusRealmDisplay"></strong>
-
             </div>
 
-
             <div class="status-entry">
-
-                <span>
-                    Spiritual Root
-                </span>
-
+                <span>Spiritual Root</span>
                 <strong id="statusRootDisplay"></strong>
-
             </div>
 
-
             <div class="status-entry">
-
-                <span>
-                    Strength
-                </span>
-
+                <span>Strength</span>
                 <strong id="statusStrengthDisplay"></strong>
-
             </div>
 
-
             <div class="status-entry">
-
-                <span>
-                    Constitution
-                </span>
-
+                <span>Constitution</span>
                 <strong id="statusConstitutionDisplay"></strong>
-
             </div>
 
-
             <div class="status-entry">
-
-                <span>
-                    Soul
-                </span>
-
+                <span>Soul</span>
                 <strong id="statusSoulDisplay"></strong>
-
             </div>
 
-
             <div class="status-entry">
-
-                <span>
-                    Health
-                </span>
-
+                <span>Health</span>
                 <strong id="statusHealthDisplay"></strong>
-
             </div>
 
-
             <div class="status-entry">
-
-                <span>
-                    Combat Power
-                </span>
-
+                <span>Combat Power</span>
                 <strong id="statusCombatDisplay"></strong>
-
             </div>
 
-
             <div class="status-entry">
-
-                <span>
-                    Qi Generation
-                </span>
-
+                <span>Qi Generation</span>
                 <strong id="statusQiGenerationDisplay"></strong>
-
             </div>
 
-
             <div class="status-entry">
-
-                <span>
-                    Technique
-                </span>
-
+                <span>Technique</span>
                 <strong id="statusTechniqueDisplay"></strong>
-
             </div>
 
-
             <div class="status-entry">
-
-                <span>
-                    Weapon
-                </span>
-
+                <span>Weapon</span>
                 <strong id="statusWeaponDisplay"></strong>
-
             </div>
 
-
             <div class="status-entry">
-
-                <span>
-                    Victories
-                </span>
-
-                <strong id="statusVictoriesDisplay"></strong>
-
+                <span>Sect Rank</span>
+                <strong id="statusSectRankDisplay"></strong>
             </div>
 
-
             <div class="status-entry">
-
-                <span>
-                    Bosses Slain
-                </span>
-
-                <strong id="statusBossesDisplay"></strong>
-
+                <span>Alchemy Rank</span>
+                <strong id="statusAlchemyRankDisplay"></strong>
             </div>
 
         </div>
@@ -1498,14 +1636,12 @@
             劍
         </div>
 
-
         <h2>
             Spirit Weapon Inventory
         </h2>
 
-
         <p>
-            Equip the strongest treasure you possess.
+            Equip the most suitable treasure for your cultivation path.
         </p>
 
 
@@ -1534,11 +1670,9 @@
             ☯
         </div>
 
-
         <h2>
             Welcome Back, Cultivator
         </h2>
-
 
         <p>
             Your cultivation continued while you were away.
