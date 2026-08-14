@@ -2,23 +2,32 @@
 
 
 /* ========================================================= */
-/* SAVE CONFIG                                               */
+/* SAVE                                                      */
 /* ========================================================= */
 
 const SAVE_KEY =
-    "idleCultivationSaveV4";
+    "idleCultivationSaveV5";
+
 
 const OLD_SAVE_KEYS = [
+    "idleCultivationSaveV4",
     "idleCultivationSaveV3",
     "idleCultivationSaveV2",
     "idleCultivationSaveV1"
 ];
 
+
 const TICK_RATE =
     1000;
 
+
 const AUTO_SAVE_INTERVAL =
     10000;
+
+
+const AUTO_BATTLE_INTERVAL =
+    1600;
+
 
 const MAX_OFFLINE_SECONDS =
     60 * 60 * 12;
@@ -125,8 +134,27 @@ const STAGES = [
 ];
 
 
+/*
+    Realm changes listed here require
+    a Heavenly Tribulation.
+
+    The number is the new realm index.
+*/
+
+const TRIBULATION_REALMS = [
+    2,
+    3,
+    4,
+    5,
+    6,
+    8,
+    10,
+    11
+];
+
+
 /* ========================================================= */
-/* ROOTS                                                     */
+/* SPIRITUAL ROOTS                                           */
 /* ========================================================= */
 
 const SPIRITUAL_ROOTS = [
@@ -171,73 +199,149 @@ const SPIRITUAL_ROOTS = [
 
 
 /* ========================================================= */
-/* TECHNIQUES                                                */
+/* CULTIVATION TECHNIQUES                                    */
 /* ========================================================= */
 
 const TECHNIQUES = [
 
     {
         id: "mortal-breathing",
-        name: "Mortal Breathing Art",
-        rank: "Mortal",
-        qiBonus: 0,
-        soulBonus: 0,
-        unlockRealm: 0,
+
+        name:
+            "Mortal Breathing Art",
+
+        rank:
+            "Mortal",
+
+        qiBonus:
+            0,
+
+        soulBonus:
+            0,
+
+        unlockRealm:
+            0,
+
         description:
-            "A basic breathing art used by beginning cultivators."
+            "A simple breathing method used by beginning cultivators."
     },
 
-    {
-        id: "jade-cloud",
-        name: "Jade Cloud Scripture",
-        rank: "Yellow",
-        qiBonus: 0.20,
-        soulBonus: 0.05,
-        unlockRealm: 1,
-        description:
-            "Circulates spiritual energy through the meridians."
-    },
 
     {
-        id: "azure-heaven",
-        name: "Azure Heaven Art",
-        rank: "Profound",
-        qiBonus: 0.45,
-        soulBonus: 0.10,
-        unlockRealm: 2,
+        id:
+            "jade-cloud",
+
+        name:
+            "Jade Cloud Scripture",
+
+        rank:
+            "Yellow",
+
+        qiBonus:
+            0.20,
+
+        soulBonus:
+            0.05,
+
+        unlockRealm:
+            1,
+
         description:
-            "Draws pure spiritual energy from heaven."
+            "Circulates spiritual energy smoothly through the meridians."
     },
 
+
     {
-        id: "nine-suns",
-        name: "Nine Suns Immortal Scripture",
-        rank: "Earth",
-        qiBonus: 0.80,
-        soulBonus: 0.15,
-        unlockRealm: 4,
+        id:
+            "azure-heaven",
+
+        name:
+            "Azure Heaven Art",
+
+        rank:
+            "Profound",
+
+        qiBonus:
+            0.45,
+
+        soulBonus:
+            0.10,
+
+        unlockRealm:
+            2,
+
+        description:
+            "Draws pure spiritual Qi from heaven."
+    },
+
+
+    {
+        id:
+            "nine-suns",
+
+        name:
+            "Nine Suns Immortal Scripture",
+
+        rank:
+            "Earth",
+
+        qiBonus:
+            0.80,
+
+        soulBonus:
+            0.15,
+
+        unlockRealm:
+            4,
+
         description:
             "Refines blazing solar essence."
     },
 
+
     {
-        id: "chaos-devouring",
-        name: "Chaos Devouring Art",
-        rank: "Heaven",
-        qiBonus: 1.30,
-        soulBonus: 0.25,
-        unlockRealm: 6,
+        id:
+            "chaos-devouring",
+
+        name:
+            "Chaos Devouring Art",
+
+        rank:
+            "Heaven",
+
+        qiBonus:
+            1.30,
+
+        soulBonus:
+            0.25,
+
+        unlockRealm:
+            6,
+
         description:
             "Devours spiritual essence from heaven and earth."
     },
 
+
     {
-        id: "primordial-dao",
-        name: "Primordial Dao Scripture",
-        rank: "Immortal",
-        qiBonus: 2,
-        soulBonus: 0.50,
-        unlockRealm: 9,
+        id:
+            "primordial-dao",
+
+        name:
+            "Primordial Dao Scripture",
+
+        rank:
+            "Immortal",
+
+        qiBonus:
+            2,
+
+        soulBonus:
+            0.50,
+
+        unlockRealm:
+            9,
+
         description:
             "A supreme scripture born before heaven and earth."
     }
@@ -246,7 +350,207 @@ const TECHNIQUES = [
 
 
 /* ========================================================= */
-/* EQUIPMENT                                                 */
+/* MARTIAL SKILLS                                            */
+/* ========================================================= */
+
+const MARTIAL_SKILLS = [
+
+    {
+        id:
+            "heavy-palm",
+
+        name:
+            "Mountain Crushing Palm",
+
+        type:
+            "Strength",
+
+        unlockRealm:
+            0,
+
+        damageMultiplier:
+            1.35,
+
+        cooldown:
+            2,
+
+        description:
+            "A powerful palm strike that channels physical strength."
+    },
+
+
+    {
+        id:
+            "spirit-blade",
+
+        name:
+            "Spirit Blade Slash",
+
+        type:
+            "Sword",
+
+        unlockRealm:
+            1,
+
+        damageMultiplier:
+            1.65,
+
+        cooldown:
+            3,
+
+        description:
+            "Channels Qi through a weapon and releases a cutting blade."
+    },
+
+
+    {
+        id:
+            "soul-pierce",
+
+        name:
+            "Soul Piercing Finger",
+
+        type:
+            "Soul",
+
+        unlockRealm:
+            2,
+
+        damageMultiplier:
+            1.95,
+
+        cooldown:
+            4,
+
+        description:
+            "A spiritual finger attack that directly assaults the enemy's essence."
+    },
+
+
+    {
+        id:
+            "azure-sword",
+
+        name:
+            "Azure Heaven Sword Art",
+
+        type:
+            "Sword",
+
+        unlockRealm:
+            3,
+
+        damageMultiplier:
+            2.4,
+
+        cooldown:
+            5,
+
+        description:
+            "Calls upon azure sword intent and rains cutting Qi upon the enemy."
+    },
+
+
+    {
+        id:
+            "dragon-fist",
+
+        name:
+            "True Dragon Fist",
+
+        type:
+            "Strength",
+
+        unlockRealm:
+            4,
+
+        damageMultiplier:
+            3,
+
+        cooldown:
+            6,
+
+        description:
+            "A domineering fist carrying traces of true dragon might."
+    },
+
+
+    {
+        id:
+            "nine-sun-burst",
+
+        name:
+            "Nine Suns Heavenly Burst",
+
+        type:
+            "Soul",
+
+        unlockRealm:
+            5,
+
+        damageMultiplier:
+            3.8,
+
+        cooldown:
+            7,
+
+        description:
+            "Condenses solar spiritual power into an explosive strike."
+    },
+
+
+    {
+        id:
+            "void-severing",
+
+        name:
+            "Void Severing Sword",
+
+        type:
+            "Sword",
+
+        unlockRealm:
+            6,
+
+        damageMultiplier:
+            5,
+
+        cooldown:
+            8,
+
+        description:
+            "A sword strike capable of disturbing the surrounding space."
+    },
+
+
+    {
+        id:
+            "chaos-palm",
+
+        name:
+            "Primordial Chaos Palm",
+
+        type:
+            "Soul",
+
+        unlockRealm:
+            8,
+
+        damageMultiplier:
+            7,
+
+        cooldown:
+            10,
+
+        description:
+            "A forbidden palm art carrying the destructive aura of primordial chaos."
+    }
+
+];
+
+
+/* ========================================================= */
+/* RARITIES / WEAPONS                                        */
 /* ========================================================= */
 
 const RARITIES = [
@@ -383,16 +687,22 @@ const HERBS = [
 
 
 /* ========================================================= */
-/* ALCHEMY RECIPES                                           */
+/* ALCHEMY                                                  */
 /* ========================================================= */
 
 const ALCHEMY_RECIPES = [
 
     {
         id: "qi-pill",
-        name: "Qi Gathering Pill",
-        unlockLevel: 0,
-        baseChance: 90,
+
+        name:
+            "Qi Gathering Pill",
+
+        unlockLevel:
+            0,
+
+        baseChance:
+            90,
 
         materials: {
             "spirit-grass": 3,
@@ -404,15 +714,22 @@ const ALCHEMY_RECIPES = [
         },
 
         description:
-            "A simple pill that accelerates cultivation."
+            "Accelerates cultivation by providing concentrated spiritual Qi."
     },
 
 
     {
-        id: "healing-pill",
-        name: "Healing Pill",
-        unlockLevel: 0,
-        baseChance: 88,
+        id:
+            "healing-pill",
+
+        name:
+            "Healing Pill",
+
+        unlockLevel:
+            0,
+
+        baseChance:
+            88,
 
         materials: {
             "spirit-grass": 2,
@@ -424,15 +741,22 @@ const ALCHEMY_RECIPES = [
         },
 
         description:
-            "Restores wounds and damaged meridians."
+            "Repairs wounds and damaged meridians."
     },
 
 
     {
-        id: "meridian-pill",
-        name: "Meridian Tempering Pill",
-        unlockLevel: 1,
-        baseChance: 75,
+        id:
+            "meridian-pill",
+
+        name:
+            "Meridian Tempering Pill",
+
+        unlockLevel:
+            1,
+
+        baseChance:
+            75,
 
         materials: {
             "blood-ginseng": 3,
@@ -445,15 +769,22 @@ const ALCHEMY_RECIPES = [
         },
 
         description:
-            "Tempers the body and grants an Attribute Point."
+            "Strengthens the body and grants one Attribute Point."
     },
 
 
     {
-        id: "soul-pill",
-        name: "Soul Nourishing Pill",
-        unlockLevel: 2,
-        baseChance: 62,
+        id:
+            "soul-pill",
+
+        name:
+            "Soul Nourishing Pill",
+
+        unlockLevel:
+            2,
+
+        baseChance:
+            62,
 
         materials: {
             "moon-flower": 3,
@@ -466,15 +797,22 @@ const ALCHEMY_RECIPES = [
         },
 
         description:
-            "Nourishes the soul and permanently increases Soul."
+            "Permanently increases Soul by one."
     },
 
 
     {
-        id: "foundation-pill",
-        name: "Foundation Stabilizing Pill",
-        unlockLevel: 3,
-        baseChance: 50,
+        id:
+            "foundation-pill",
+
+        name:
+            "Foundation Stabilizing Pill",
+
+        unlockLevel:
+            3,
+
+        baseChance:
+            50,
 
         materials: {
             "fire-root": 4,
@@ -487,15 +825,11 @@ const ALCHEMY_RECIPES = [
         },
 
         description:
-            "Temporarily improves breakthrough success."
+            "Improves the success chance of your next breakthrough."
     }
 
 ];
 
-
-/* ========================================================= */
-/* ALCHEMY LEVELS                                            */
-/* ========================================================= */
 
 const ALCHEMY_LEVELS = [
 
@@ -533,7 +867,7 @@ const ALCHEMY_LEVELS = [
 
 
 /* ========================================================= */
-/* SECT RANKS                                                */
+/* SECT                                                      */
 /* ========================================================= */
 
 const SECT_RANKS = [
@@ -543,6 +877,7 @@ const SECT_RANKS = [
         contributionRequired: 0,
         qiBonus: 0,
         treasuryDiscount: 0,
+
         description:
             "A newly accepted disciple of the Azure Cloud Sect."
     },
@@ -552,6 +887,7 @@ const SECT_RANKS = [
         contributionRequired: 500,
         qiBonus: 0.05,
         treasuryDiscount: 0.05,
+
         description:
             "A disciple recognized for talent and loyalty."
     },
@@ -561,8 +897,9 @@ const SECT_RANKS = [
         contributionRequired: 2000,
         qiBonus: 0.12,
         treasuryDiscount: 0.10,
+
         description:
-            "One of the sect's most promising young cultivators."
+            "One of the sect's most promising cultivators."
     },
 
     {
@@ -570,8 +907,9 @@ const SECT_RANKS = [
         contributionRequired: 6000,
         qiBonus: 0.20,
         treasuryDiscount: 0.15,
+
         description:
-            "A chosen disciple personally guided by a sect elder."
+            "A chosen disciple personally guided by an elder."
     },
 
     {
@@ -579,6 +917,7 @@ const SECT_RANKS = [
         contributionRequired: 15000,
         qiBonus: 0.35,
         treasuryDiscount: 0.20,
+
         description:
             "A respected elder entrusted with sect authority."
     },
@@ -588,6 +927,7 @@ const SECT_RANKS = [
         contributionRequired: 40000,
         qiBonus: 0.55,
         treasuryDiscount: 0.25,
+
         description:
             "One of the supreme pillars of the Azure Cloud Sect."
     }
@@ -595,124 +935,163 @@ const SECT_RANKS = [
 ];
 
 
-/* ========================================================= */
-/* SECT TREASURY                                             */
-/* ========================================================= */
-
 const SECT_TREASURY = [
 
     {
         id: "cultivation-pill",
         name: "Cultivation Pill",
         cost: 60,
+
         description:
-            "Gain one Cultivation Pill."
+            "Receive one Cultivation Pill."
     },
 
     {
         id: "healing-pill",
         name: "Healing Pill",
         cost: 45,
+
         description:
-            "Gain one Healing Pill."
+            "Receive one Healing Pill."
     },
 
     {
         id: "herb-pack",
         name: "Spirit Herb Pack",
         cost: 80,
+
         description:
-            "Receive several random alchemy herbs."
+            "Receive six random medicinal herbs."
     },
 
     {
         id: "attribute-point",
         name: "Body Tempering Essence",
         cost: 300,
+
         description:
-            "Gain one Attribute Point."
+            "Receive one Attribute Point."
     },
 
     {
         id: "sect-weapon",
         name: "Sect Treasure Weapon",
         cost: 900,
+
         description:
-            "Receive an Uncommon or better weapon."
+            "Receive an Uncommon or better spirit weapon."
     }
 
 ];
 
-
-/* ========================================================= */
-/* SECT DUTIES                                               */
-/* ========================================================= */
 
 const SECT_DUTIES = [
 
     {
         id: "daily-patrol",
-        name: "Mountain Patrol",
+
+        name:
+            "Mountain Patrol",
+
         description:
             "Complete 3 expeditions.",
-        type: "expeditions",
-        target: 3,
-        contribution: 60
+
+        type:
+            "expeditions",
+
+        target:
+            3,
+
+        contribution:
+            60
     },
 
     {
         id: "beast-extermination",
-        name: "Beast Extermination",
+
+        name:
+            "Beast Extermination",
+
         description:
             "Defeat 5 enemies.",
-        type: "kills",
-        target: 5,
-        contribution: 120
+
+        type:
+            "kills",
+
+        target:
+            5,
+
+        contribution:
+            120
     },
 
     {
         id: "herb-gathering",
-        name: "Medicinal Herb Gathering",
+
+        name:
+            "Medicinal Herb Gathering",
+
         description:
             "Gather 8 herbs.",
-        type: "herbs",
-        target: 8,
-        contribution: 150
+
+        type:
+            "herbs",
+
+        target:
+            8,
+
+        contribution:
+            150
     },
 
     {
         id: "regional-threat",
-        name: "Eliminate Regional Threat",
+
+        name:
+            "Eliminate Regional Threat",
+
         description:
-            "Defeat 1 regional boss.",
-        type: "bosses",
-        target: 1,
-        contribution: 300
+            "Defeat one region boss.",
+
+        type:
+            "bosses",
+
+        target:
+            1,
+
+        contribution:
+            300
     }
 
 ];
 
 
 /* ========================================================= */
-/* ADVENTURE ZONES                                           */
+/* ZONES                                                     */
 /* ========================================================= */
 
 const ZONES = [
 
     {
         id: "misty-forest",
-        name: "Misty Forest",
+
+        name:
+            "Misty Forest",
 
         description:
-            "A forest inhabited by weak spirit beasts and common herbs.",
+            "A forest containing weak spirit beasts and common herbs.",
 
-        requiredRealm: 0,
+        requiredRealm:
+            0,
 
-        powerMultiplier: 0.65,
+        powerMultiplier:
+            0.65,
 
-        stoneMultiplier: 1,
+        stoneMultiplier:
+            1,
 
-        herbTier: 1,
+        herbTier:
+            1,
 
         enemies: [
             "Fang Wolf",
@@ -728,19 +1107,26 @@ const ZONES = [
 
 
     {
-        id: "spirit-mountain",
-        name: "Spirit Mountain",
+        id:
+            "spirit-mountain",
+
+        name:
+            "Spirit Mountain",
 
         description:
             "A mountain overflowing with dense spiritual energy.",
 
-        requiredRealm: 1,
+        requiredRealm:
+            1,
 
-        powerMultiplier: 1.25,
+        powerMultiplier:
+            1.25,
 
-        stoneMultiplier: 2,
+        stoneMultiplier:
+            2,
 
-        herbTier: 2,
+        herbTier:
+            2,
 
         enemies: [
             "Rockback Ape",
@@ -756,19 +1142,26 @@ const ZONES = [
 
 
     {
-        id: "blood-valley",
-        name: "Blood Moon Valley",
+        id:
+            "blood-valley",
+
+        name:
+            "Blood Moon Valley",
 
         description:
             "An ancient battlefield saturated with killing intent.",
 
-        requiredRealm: 2,
+        requiredRealm:
+            2,
 
-        powerMultiplier: 2,
+        powerMultiplier:
+            2,
 
-        stoneMultiplier: 4,
+        stoneMultiplier:
+            4,
 
-        herbTier: 3,
+        herbTier:
+            3,
 
         enemies: [
             "Blood Demon",
@@ -784,19 +1177,26 @@ const ZONES = [
 
 
     {
-        id: "ancient-ruins",
-        name: "Ancient Sect Ruins",
+        id:
+            "ancient-ruins",
+
+        name:
+            "Ancient Sect Ruins",
 
         description:
-            "Ruins concealing forgotten treasures and rare medicinal herbs.",
+            "Ruins filled with forgotten treasures and ancient guardians.",
 
-        requiredRealm: 3,
+        requiredRealm:
+            3,
 
-        powerMultiplier: 3.6,
+        powerMultiplier:
+            3.6,
 
-        stoneMultiplier: 7,
+        stoneMultiplier:
+            7,
 
-        herbTier: 4,
+        herbTier:
+            4,
 
         enemies: [
             "Ancient Guardian",
@@ -812,19 +1212,26 @@ const ZONES = [
 
 
     {
-        id: "dragon-abyss",
-        name: "Dragon Abyss",
+        id:
+            "dragon-abyss",
+
+        name:
+            "Dragon Abyss",
 
         description:
             "An abyss containing traces of true dragon blood.",
 
-        requiredRealm: 4,
+        requiredRealm:
+            4,
 
-        powerMultiplier: 6,
+        powerMultiplier:
+            6,
 
-        stoneMultiplier: 12,
+        stoneMultiplier:
+            12,
 
-        herbTier: 5,
+        herbTier:
+            5,
 
         enemies: [
             "Abyss Drake",
@@ -840,19 +1247,26 @@ const ZONES = [
 
 
     {
-        id: "void-rift",
-        name: "Void Rift",
+        id:
+            "void-rift",
+
+        name:
+            "Void Rift",
 
         description:
-            "A dimensional tear containing terrifying creatures.",
+            "A dimensional tear populated by horrifying void creatures.",
 
-        requiredRealm: 6,
+        requiredRealm:
+            6,
 
-        powerMultiplier: 15,
+        powerMultiplier:
+            15,
 
-        stoneMultiplier: 30,
+        stoneMultiplier:
+            30,
 
-        herbTier: 6,
+        herbTier:
+            6,
 
         enemies: [
             "Void Devourer",
@@ -870,17 +1284,25 @@ const ZONES = [
 
 
 /* ========================================================= */
-/* ADVENTURE MISSIONS                                       */
+/* MISSIONS                                                  */
 /* ========================================================= */
 
 const MISSIONS = [
 
     {
         id: "first-blood",
-        name: "Outer Sect Trial",
-        description: "Defeat 5 enemies.",
-        type: "kills",
-        target: 5,
+
+        name:
+            "Outer Sect Trial",
+
+        description:
+            "Defeat 5 enemies.",
+
+        type:
+            "kills",
+
+        target:
+            5,
 
         reward: {
             stones: 250,
@@ -889,12 +1311,21 @@ const MISSIONS = [
         }
     },
 
+
     {
         id: "beast-hunter",
-        name: "Spirit Beast Hunter",
-        description: "Defeat 15 enemies.",
-        type: "kills",
-        target: 15,
+
+        name:
+            "Spirit Beast Hunter",
+
+        description:
+            "Defeat 15 enemies.",
+
+        type:
+            "kills",
+
+        target:
+            15,
 
         reward: {
             stones: 700,
@@ -903,12 +1334,21 @@ const MISSIONS = [
         }
     },
 
+
     {
         id: "boss-slayer",
-        name: "Slay a Region Lord",
-        description: "Defeat 1 boss.",
-        type: "bosses",
-        target: 1,
+
+        name:
+            "Slay a Region Lord",
+
+        description:
+            "Defeat one boss.",
+
+        type:
+            "bosses",
+
+        target:
+            1,
 
         reward: {
             stones: 1200,
@@ -917,12 +1357,21 @@ const MISSIONS = [
         }
     },
 
+
     {
         id: "veteran",
-        name: "Seasoned Disciple",
-        description: "Win 30 battles.",
-        type: "victories",
-        target: 30,
+
+        name:
+            "Seasoned Disciple",
+
+        description:
+            "Win 30 battles.",
+
+        type:
+            "victories",
+
+        target:
+            30,
 
         reward: {
             stones: 2500,
@@ -942,41 +1391,61 @@ const MARKET_ITEMS = [
 
     {
         id: "cultivation-pill",
-        name: "Cultivation Pill",
-        price: 180,
+
+        name:
+            "Cultivation Pill",
+
+        price:
+            180,
+
         description:
-            "A common cultivation pill."
+            "A common pill containing concentrated spiritual Qi."
     },
 
     {
         id: "healing-pill",
-        name: "Healing Pill",
-        price: 130,
+
+        name:
+            "Healing Pill",
+
+        price:
+            130,
+
         description:
-            "Restores 45% of maximum health."
+            "Restores forty-five percent of maximum health."
     },
 
     {
         id: "common-herbs",
-        name: "Common Herb Bundle",
-        price: 220,
+
+        name:
+            "Common Herb Bundle",
+
+        price:
+            220,
+
         description:
-            "Contains several random medicinal herbs."
+            "Contains several random alchemy herbs."
     },
 
     {
         id: "mystery-weapon",
-        name: "Mystery Weapon Chest",
-        price: 1500,
+
+        name:
+            "Mystery Weapon Chest",
+
+        price:
+            1500,
+
         description:
-            "Contains a random spirit weapon."
+            "Contains one random spirit weapon."
     }
 
 ];
 
 
 /* ========================================================= */
-/* DAILY REWARDS                                             */
+/* DAILY                                                     */
 /* ========================================================= */
 
 const DAILY_REWARDS = [
@@ -1014,7 +1483,7 @@ const DAILY_REWARDS = [
 
 
 /* ========================================================= */
-/* DEFAULT STATE                                             */
+/* DEFAULT SAVE                                              */
 /* ========================================================= */
 
 function createDefaultState() {
@@ -1089,6 +1558,18 @@ function createDefaultState() {
 
         },
 
+        skillMastery: {
+
+            "heavy-palm":
+                0
+
+        },
+
+        skillCooldowns: {},
+
+        totalSkillUses:
+            0,
+
         weapons:
             [],
 
@@ -1138,10 +1619,8 @@ function createDefaultState() {
         totalSectContribution:
             0,
 
-        sectDutyClaims:
+        sectDutyBaseline:
             {},
-
-        sectDutyBaseline: {},
 
         sectDutyCount:
             0,
@@ -1173,6 +1652,12 @@ function createDefaultState() {
         expeditions:
             0,
 
+        autoBattle:
+            false,
+
+        autoBattleVictories:
+            0,
+
         missionClaims:
             {},
 
@@ -1181,6 +1666,14 @@ function createDefaultState() {
 
         battleLog:
             [],
+
+        tribulation: null,
+
+        tribulationsSurvived:
+            0,
+
+        pendingRealmAscension:
+            null,
 
         log: [
 
@@ -1215,8 +1708,13 @@ function createDefaultState() {
 let game =
     createDefaultState();
 
+
 let pendingOfflineQi =
     0;
+
+
+let autoBattleTimer =
+    null;
 
 
 /* ========================================================= */
@@ -1230,56 +1728,16 @@ function byId(id) {
 }
 
 
-function getCurrentTime() {
-
-    return new Date()
-        .toLocaleTimeString(
-            [],
-            {
-                hour:
-                    "2-digit",
-
-                minute:
-                    "2-digit"
-            }
-        );
-
-}
-
-
-function getDateString(date) {
-
-    const year =
-        date.getFullYear();
-
-    const month =
-        String(
-            date.getMonth() + 1
-        ).padStart(
-            2,
-            "0"
-        );
-
-    const day =
-        String(
-            date.getDate()
-        ).padStart(
-            2,
-            "0"
-        );
-
-    return `${year}-${month}-${day}`;
-
-}
-
-
 function formatNumber(number) {
 
     if (
         !Number.isFinite(number)
     ) {
+
         return "0";
+
     }
+
 
     if (
         number <
@@ -1291,6 +1749,7 @@ function formatNumber(number) {
         ).toLocaleString();
 
     }
+
 
     const units = [
 
@@ -1321,6 +1780,7 @@ function formatNumber(number) {
 
     ];
 
+
     for (
         const unit
         of units
@@ -1334,6 +1794,7 @@ function formatNumber(number) {
             const value =
                 number /
                 unit.value;
+
 
             return (
                 value.toFixed(
@@ -1352,11 +1813,59 @@ function formatNumber(number) {
 
     }
 
+
     return String(
         Math.floor(
             number
         )
     );
+
+}
+
+
+function getCurrentTime() {
+
+    return new Date()
+        .toLocaleTimeString(
+            [],
+            {
+                hour:
+                    "2-digit",
+
+                minute:
+                    "2-digit"
+            }
+        );
+
+}
+
+
+function getDateString(date) {
+
+    const year =
+        date.getFullYear();
+
+
+    const month =
+        String(
+            date.getMonth() +
+            1
+        ).padStart(
+            2,
+            "0"
+        );
+
+
+    const day =
+        String(
+            date.getDate()
+        ).padStart(
+            2,
+            "0"
+        );
+
+
+    return `${year}-${month}-${day}`;
 
 }
 
@@ -1371,25 +1880,56 @@ function generateSpiritualRoot() {
         Math.random() *
         100;
 
-    if (roll < 1) {
+
+    if (
+        roll <
+        1
+    ) {
+
         return "Dao Origin Root";
+
     }
 
-    if (roll < 5) {
+
+    if (
+        roll <
+        5
+    ) {
+
         return "Primordial Chaos Root";
+
     }
 
-    if (roll < 15) {
+
+    if (
+        roll <
+        15
+    ) {
+
         return "Sword Spiritual Root";
+
     }
 
-    if (roll < 35) {
+
+    if (
+        roll <
+        35
+    ) {
+
         return "Heavenly Spiritual Root";
+
     }
 
-    if (roll < 65) {
+
+    if (
+        roll <
+        65
+    ) {
+
         return "Dual Spiritual Root";
+
     }
+
 
     return "Five Element Root";
 
@@ -1397,7 +1937,7 @@ function generateSpiritualRoot() {
 
 
 /* ========================================================= */
-/* CURRENT OBJECTS                                           */
+/* CURRENT DATA                                              */
 /* ========================================================= */
 
 function getCurrentRealm() {
@@ -1413,8 +1953,8 @@ function getCurrentRoot() {
 
     return (
         SPIRITUAL_ROOTS.find(
-            item =>
-                item.name ===
+            root =>
+                root.name ===
                 game.spiritualRoot
         ) ||
         SPIRITUAL_ROOTS[0]
@@ -1427,8 +1967,8 @@ function getCurrentTechnique() {
 
     return (
         TECHNIQUES.find(
-            item =>
-                item.id ===
+            technique =>
+                technique.id ===
                 game.activeTechnique
         ) ||
         TECHNIQUES[0]
@@ -1441,8 +1981,8 @@ function getSelectedZone() {
 
     return (
         ZONES.find(
-            item =>
-                item.id ===
+            zone =>
+                zone.id ===
                 game.selectedZone
         ) ||
         ZONES[0]
@@ -1455,8 +1995,8 @@ function getEquippedWeapon() {
 
     return (
         game.weapons.find(
-            item =>
-                item.id ===
+            weapon =>
+                weapon.id ===
                 game.equippedWeaponId
         ) ||
         null
@@ -1474,25 +2014,26 @@ function getSectRankIndex() {
     let index =
         0;
 
-    for (
-        let i = 0;
-        i <
-        SECT_RANKS.length;
-        i++
-    ) {
 
-        if (
-            game.totalSectContribution >=
-            SECT_RANKS[i]
-                .contributionRequired
-        ) {
+    SECT_RANKS.forEach(
+        (
+            rank,
+            i
+        ) => {
 
-            index =
-                i;
+            if (
+                game.totalSectContribution >=
+                rank.contributionRequired
+            ) {
+
+                index =
+                    i;
+
+            }
 
         }
+    );
 
-    }
 
     return index;
 
@@ -1508,22 +2049,6 @@ function getSectRank() {
 }
 
 
-function getSectDiscount() {
-
-    return getSectRank()
-        .treasuryDiscount;
-
-}
-
-
-function getSectQiBonus() {
-
-    return getSectRank()
-        .qiBonus;
-
-}
-
-
 /* ========================================================= */
 /* ALCHEMY                                                  */
 /* ========================================================= */
@@ -1533,25 +2058,26 @@ function getAlchemyLevelIndex() {
     let index =
         0;
 
-    for (
-        let i = 0;
-        i <
-        ALCHEMY_LEVELS.length;
-        i++
-    ) {
 
-        if (
-            game.alchemyExp >=
-            ALCHEMY_LEVELS[i]
-                .required
-        ) {
+    ALCHEMY_LEVELS.forEach(
+        (
+            level,
+            i
+        ) => {
 
-            index =
-                i;
+            if (
+                game.alchemyExp >=
+                level.required
+            ) {
+
+                index =
+                    i;
+
+            }
 
         }
+    );
 
-    }
 
     return index;
 
@@ -1567,20 +2093,8 @@ function getAlchemyLevel() {
 }
 
 
-function getAlchemySuccessBonus() {
-
-    return (
-        getAlchemyLevelIndex() *
-        4 +
-        game.attributes.soul *
-        0.1
-    );
-
-}
-
-
 /* ========================================================= */
-/* STATS                                                     */
+/* PLAYER CALCULATIONS                                      */
 /* ========================================================= */
 
 function getMaxHealth() {
@@ -1633,23 +2147,26 @@ function getQiPerSecond() {
     const realm =
         getCurrentRealm();
 
+
     const root =
         getCurrentRoot();
 
+
     const technique =
         getCurrentTechnique();
+
 
     const mastery =
         getTechniqueMastery();
 
 
-    const stageBonus =
+    const stage =
         1 +
         game.stageIndex *
         0.25;
 
 
-    const soulBonus =
+    const soul =
         1 +
         Math.max(
             0,
@@ -1659,29 +2176,30 @@ function getQiPerSecond() {
         0.012;
 
 
-    const manualBonus =
+    const manual =
         1 +
         game.manuals *
         0.12;
 
 
-    const breakthroughBonus =
+    const breakthroughs =
         1 +
         game.breakthroughCount *
         0.02;
 
 
-    const sectBonus =
+    const sect =
         1 +
-        getSectQiBonus();
+        getSectRank()
+            .qiBonus;
 
 
     return (
         realm.qiMultiplier *
-        stageBonus *
-        soulBonus *
-        manualBonus *
-        breakthroughBonus *
+        stage *
+        soul *
+        manual *
+        breakthroughs *
         (
             1 +
             root.qiBonus
@@ -1695,7 +2213,7 @@ function getQiPerSecond() {
             mastery *
             0.002
         ) *
-        sectBonus
+        sect
     );
 
 }
@@ -1706,8 +2224,10 @@ function getCombatPower() {
     const realm =
         getCurrentRealm();
 
+
     const technique =
         getCurrentTechnique();
+
 
     const weapon =
         getEquippedWeapon();
@@ -1808,11 +2328,15 @@ function addQi(amount) {
         amount <=
         0
     ) {
+
         return;
+
     }
+
 
     game.qi +=
         amount;
+
 
     game.totalQi +=
         amount;
@@ -1840,7 +2364,7 @@ function increaseTechniqueMastery(amount) {
 
 
 /* ========================================================= */
-/* CULTIVATION ACTIONS                                       */
+/* CULTIVATION                                              */
 /* ========================================================= */
 
 function manuallyCultivate(event) {
@@ -1849,36 +2373,46 @@ function manuallyCultivate(event) {
         getQiPerSecond() *
         2.5;
 
+
     addQi(
         amount
     );
 
+
     increaseTechniqueMastery(
         0.12
     );
+
 
     createFloatingQi(
         event,
         amount
     );
 
+
     setSystemMessage(
         `You circulated ${getCurrentTechnique().name} and absorbed ${formatNumber(amount)} Qi.`
     );
 
-    render();
+
+    renderCore();
 
 }
 
 
+/* ========================================================= */
+/* BREAKTHROUGH                                             */
+/* ========================================================= */
+
 function attemptBreakthrough() {
 
     if (
-        game.currentEnemy
+        game.currentEnemy ||
+        game.tribulation
     ) {
 
         notify(
-            "You cannot breakthrough while fighting.",
+            "You cannot breakthrough during battle.",
             "error"
         );
 
@@ -1910,90 +2444,11 @@ function attemptBreakthrough() {
         getBreakthroughChance();
 
 
-    if (successful) {
+    if (
+        !successful
+    ) {
 
-        game.qi -=
-            requirement;
-
-        game.breakthroughCount +=
-            1;
-
-        game.statPoints +=
-            3;
-
-        game.attributes.strength +=
-            1;
-
-        game.attributes.constitution +=
-            1;
-
-        game.attributes.soul +=
-            1;
-
-
-        if (
-            game.stageIndex <
-            STAGES.length -
-            1
-        ) {
-
-            game.stageIndex +=
-                1;
-
-
-            addLog(
-                `You reached ${getCurrentRealm().name} ${STAGES[game.stageIndex]}.`,
-                true
-            );
-
-        } else if (
-            game.realmIndex <
-            REALMS.length -
-            1
-        ) {
-
-            game.realmIndex +=
-                1;
-
-            game.stageIndex =
-                0;
-
-            game.statPoints +=
-                7;
-
-            game.attributes.strength +=
-                3;
-
-            game.attributes.constitution +=
-                3;
-
-            game.attributes.soul +=
-                3;
-
-
-            grantRealmReward();
-
-
-            addLog(
-                `Heaven and earth trembled as Jiang Chue entered ${getCurrentRealm().name}.`,
-                true
-            );
-
-        }
-
-
-        notify(
-            `Breakthrough successful — ${getCurrentRealm().name} ${STAGES[game.stageIndex]}!`,
-            "success"
-        );
-
-
-        game.health =
-            getMaxHealth();
-
-    } else {
-
-        const lost =
+        const loss =
             requirement *
             0.12;
 
@@ -2002,7 +2457,7 @@ function attemptBreakthrough() {
             Math.max(
                 0,
                 game.qi -
-                lost
+                loss
             );
 
 
@@ -2015,16 +2470,226 @@ function attemptBreakthrough() {
             );
 
 
+        game.breakthroughBuff =
+            0;
+
+
         notify(
             "Breakthrough failed. Your meridians were injured.",
             "error"
         );
 
+
+        saveGame();
+
+        render();
+
+        return;
+
     }
+
+
+    /*
+        Normal stage advancement.
+    */
+
+    if (
+        game.stageIndex <
+        STAGES.length -
+        1
+    ) {
+
+        game.qi -=
+            requirement;
+
+
+        game.stageIndex +=
+            1;
+
+
+        grantBreakthroughStatGrowth();
+
+
+        game.breakthroughBuff =
+            0;
+
+
+        game.health =
+            getMaxHealth();
+
+
+        addLog(
+            `Breakthrough successful. You reached ${getCurrentRealm().name} ${STAGES[game.stageIndex]}.`,
+            true
+        );
+
+
+        notify(
+            `Breakthrough successful — ${getCurrentRealm().name} ${STAGES[game.stageIndex]}!`,
+            "success"
+        );
+
+
+        saveGame();
+
+        render();
+
+        return;
+
+    }
+
+
+    /*
+        Realm advancement.
+    */
+
+    const nextRealmIndex =
+        game.realmIndex +
+        1;
+
+
+    if (
+        nextRealmIndex >=
+        REALMS.length
+    ) {
+
+        notify(
+            "You have already reached the current pinnacle.",
+            "success"
+        );
+
+        return;
+
+    }
+
+
+    game.qi -=
+        requirement;
 
 
     game.breakthroughBuff =
         0;
+
+
+    /*
+        Some realms trigger tribulation.
+    */
+
+    if (
+        TRIBULATION_REALMS.includes(
+            nextRealmIndex
+        )
+    ) {
+
+        game.pendingRealmAscension =
+            nextRealmIndex;
+
+
+        startTribulation(
+            nextRealmIndex
+        );
+
+
+        saveGame();
+
+        render();
+
+        return;
+
+    }
+
+
+    completeRealmAscension(
+        nextRealmIndex
+    );
+
+}
+
+
+/* ========================================================= */
+/* BREAKTHROUGH GROWTH                                       */
+/* ========================================================= */
+
+function grantBreakthroughStatGrowth() {
+
+    game.breakthroughCount +=
+        1;
+
+
+    game.statPoints +=
+        3;
+
+
+    game.attributes.strength +=
+        1;
+
+
+    game.attributes.constitution +=
+        1;
+
+
+    game.attributes.soul +=
+        1;
+
+}
+
+
+/* ========================================================= */
+/* ASCENSION                                                */
+/* ========================================================= */
+
+function completeRealmAscension(
+    nextRealmIndex
+) {
+
+    game.realmIndex =
+        nextRealmIndex;
+
+
+    game.stageIndex =
+        0;
+
+
+    grantBreakthroughStatGrowth();
+
+
+    game.statPoints +=
+        7;
+
+
+    game.attributes.strength +=
+        3;
+
+
+    game.attributes.constitution +=
+        3;
+
+
+    game.attributes.soul +=
+        3;
+
+
+    game.health =
+        getMaxHealth();
+
+
+    grantRealmReward();
+
+
+    game.pendingRealmAscension =
+        null;
+
+
+    addLog(
+        `Heaven and earth trembled as Jiang Chue entered the ${getCurrentRealm().name} Realm.`,
+        true
+    );
+
+
+    notify(
+        `境界突破 — ${getCurrentRealm().name}!`,
+        "success"
+    );
 
 
     saveGame();
@@ -2034,18 +2699,18 @@ function attemptBreakthrough() {
 }
 
 
+/* ========================================================= */
+/* REALM REWARDS                                             */
+/* ========================================================= */
+
 function grantRealmReward() {
 
-    const stones =
+    game.spiritStones +=
         150 *
         Math.pow(
             2,
             game.realmIndex
         );
-
-
-    game.spiritStones +=
-        stones;
 
 
     game.pills +=
@@ -2073,6 +2738,507 @@ function grantRealmReward() {
 
 
 /* ========================================================= */
+/* TRIBULATION                                              */
+/* ========================================================= */
+
+function startTribulation(
+    targetRealmIndex
+) {
+
+    game.autoBattle =
+        false;
+
+
+    stopAutoBattle();
+
+
+    const realmPower =
+        Math.max(
+            1,
+            getCombatPower()
+        );
+
+
+    const waves =
+        Math.min(
+            9,
+            3 +
+            Math.floor(
+                targetRealmIndex /
+                2
+            )
+        );
+
+
+    const totalHealth =
+        Math.floor(
+            realmPower *
+            (
+                5 +
+                targetRealmIndex *
+                0.9
+            )
+        );
+
+
+    game.health =
+        getMaxHealth();
+
+
+    game.tribulation = {
+
+        targetRealmIndex,
+
+        wave:
+            1,
+
+        maxWaves:
+            waves,
+
+        health:
+            totalHealth,
+
+        maxHealth:
+            totalHealth,
+
+        power:
+            Math.floor(
+                realmPower *
+                (
+                    0.55 +
+                    targetRealmIndex *
+                    0.07
+                )
+            )
+
+    };
+
+
+    resetSkillCooldowns();
+
+
+    byId(
+        "tribulationModal"
+    ).classList.remove(
+        "hidden"
+    );
+
+
+    byId(
+        "tribulationMessage"
+    ).textContent =
+        "The heavens have descended to test your Dao. Survive.";
+
+
+    renderTribulation();
+
+}
+
+
+/* ========================================================= */
+/* TRIBULATION BASIC ATTACK                                  */
+/* ========================================================= */
+
+function tribulationAttack() {
+
+    if (
+        !game.tribulation
+    ) {
+        return;
+    }
+
+
+    let damage =
+        getCombatPower() *
+        (
+            0.75 +
+            Math.random() *
+            0.25
+        );
+
+
+    damage =
+        Math.floor(
+            damage
+        );
+
+
+    game.tribulation.health =
+        Math.max(
+            0,
+            game.tribulation.health -
+            damage
+        );
+
+
+    byId(
+        "tribulationMessage"
+    ).textContent =
+        `You resisted the Heavenly Lightning and dispersed ${formatNumber(damage)} tribulation energy.`;
+
+
+    if (
+        game.tribulation.health <=
+        0
+    ) {
+
+        nextTribulationWave();
+
+        return;
+
+    }
+
+
+    tribulationEnemyTurn();
+
+
+    renderTribulation();
+
+}
+
+
+/* ========================================================= */
+/* TRIBULATION DAMAGE                                        */
+/* ========================================================= */
+
+function tribulationEnemyTurn() {
+
+    if (
+        !game.tribulation
+    ) {
+        return;
+    }
+
+
+    const tribulation =
+        game.tribulation;
+
+
+    let damage =
+        tribulation.power *
+        (
+            0.55 +
+            Math.random() *
+            0.35
+        );
+
+
+    damage *=
+        1 +
+        (
+            tribulation.wave -
+            1
+        ) *
+        0.14;
+
+
+    damage /=
+        1 +
+        game.attributes.constitution *
+        0.016;
+
+
+    damage =
+        Math.max(
+            1,
+            Math.floor(
+                damage
+            )
+        );
+
+
+    game.health =
+        Math.max(
+            0,
+            game.health -
+            damage
+        );
+
+
+    reduceSkillCooldowns();
+
+
+    byId(
+        "tribulationMessage"
+    ).textContent +=
+        ` Heavenly Lightning struck you for ${formatNumber(damage)} damage.`;
+
+
+    if (
+        game.health <=
+        0
+    ) {
+
+        failTribulation();
+
+    }
+
+}
+
+
+/* ========================================================= */
+/* TRIBULATION WAVE                                          */
+/* ========================================================= */
+
+function nextTribulationWave() {
+
+    if (
+        !game.tribulation
+    ) {
+        return;
+    }
+
+
+    if (
+        game.tribulation.wave >=
+        game.tribulation.maxWaves
+    ) {
+
+        completeTribulation();
+
+        return;
+
+    }
+
+
+    game.tribulation.wave +=
+        1;
+
+
+    game.tribulation.maxHealth =
+        Math.floor(
+            game.tribulation.maxHealth *
+            1.22
+        );
+
+
+    game.tribulation.health =
+        game.tribulation.maxHealth;
+
+
+    game.tribulation.power =
+        Math.floor(
+            game.tribulation.power *
+            1.12
+        );
+
+
+    byId(
+        "tribulationMessage"
+    ).textContent =
+        `Lightning Wave ${game.tribulation.wave} descends from the heavens!`;
+
+
+    renderTribulation();
+
+}
+
+
+/* ========================================================= */
+/* TRIBULATION SUCCESS                                       */
+/* ========================================================= */
+
+function completeTribulation() {
+
+    if (
+        !game.tribulation
+    ) {
+        return;
+    }
+
+
+    const target =
+        game.tribulation.targetRealmIndex;
+
+
+    game.tribulationsSurvived +=
+        1;
+
+
+    game.tribulation =
+        null;
+
+
+    byId(
+        "tribulationModal"
+    ).classList.add(
+        "hidden"
+    );
+
+
+    const tribulationReward =
+        Math.floor(
+            500 *
+            Math.pow(
+                2,
+                target
+            )
+        );
+
+
+    game.spiritStones +=
+        tribulationReward;
+
+
+    game.statPoints +=
+        5 +
+        target;
+
+
+    notify(
+        `Heavenly Tribulation survived! +${formatNumber(tribulationReward)} Spirit Stones.`,
+        "success"
+    );
+
+
+    addLog(
+        "The Heavenly Tribulation dispersed. Your Dao foundation became immeasurably stronger.",
+        true
+    );
+
+
+    completeRealmAscension(
+        target
+    );
+
+}
+
+
+/* ========================================================= */
+/* TRIBULATION FAILURE                                       */
+/* ========================================================= */
+
+function failTribulation() {
+
+    game.tribulation =
+        null;
+
+
+    game.pendingRealmAscension =
+        null;
+
+
+    game.health =
+        Math.max(
+            1,
+            Math.floor(
+                getMaxHealth() *
+                0.15
+            )
+        );
+
+
+    game.qi =
+        Math.max(
+            0,
+            game.qi -
+            getQiRequirement() *
+            0.2
+        );
+
+
+    byId(
+        "tribulationModal"
+    ).classList.add(
+        "hidden"
+    );
+
+
+    notify(
+        "The Heavenly Tribulation overwhelmed you. Your ascension failed.",
+        "error"
+    );
+
+
+    addLog(
+        "Your attempt to defy Heaven failed. Your meridians suffered grievous injuries.",
+        true
+    );
+
+
+    saveGame();
+
+    render();
+
+}
+
+
+/* ========================================================= */
+/* TRIBULATION RENDER                                        */
+/* ========================================================= */
+
+function renderTribulation() {
+
+    if (
+        !game.tribulation
+    ) {
+
+        return;
+
+    }
+
+
+    const tribulation =
+        game.tribulation;
+
+
+    byId(
+        "tribulationTargetRealm"
+    ).textContent =
+        REALMS[
+            tribulation.targetRealmIndex
+        ].name;
+
+
+    byId(
+        "tribulationPlayerHealth"
+    ).textContent =
+        `${formatNumber(game.health)} / ${formatNumber(getMaxHealth())}`;
+
+
+    byId(
+        "tribulationPlayerBar"
+    ).style.width =
+        `${Math.max(
+            0,
+            game.health /
+            getMaxHealth() *
+            100
+        )}%`;
+
+
+    byId(
+        "tribulationHealthText"
+    ).textContent =
+        `${formatNumber(tribulation.health)} / ${formatNumber(tribulation.maxHealth)}`;
+
+
+    byId(
+        "tribulationHealthBar"
+    ).style.width =
+        `${Math.max(
+            0,
+            tribulation.health /
+            tribulation.maxHealth *
+            100
+        )}%`;
+
+
+    byId(
+        "tribulationWaveDisplay"
+    ).textContent =
+        `${tribulation.wave} / ${tribulation.maxWaves}`;
+
+
+    renderCombatSkillButtons(
+        "tribulationSkillButtons",
+        true
+    );
+
+}
+
+
+/* ========================================================= */
 /* ATTRIBUTES                                                */
 /* ========================================================= */
 
@@ -2089,6 +3255,7 @@ function upgradeAttribute(stat) {
         );
 
         return;
+
     }
 
 
@@ -2153,7 +3320,8 @@ function useCultivationPill() {
             "error"
         );
 
-        return;
+        return false;
+
     }
 
 
@@ -2180,7 +3348,7 @@ function useCultivationPill() {
 
 
     notify(
-        `+${formatNumber(reward)} Qi`,
+        `Cultivation Pill refined: +${formatNumber(reward)} Qi.`,
         "success"
     );
 
@@ -2188,6 +3356,8 @@ function useCultivationPill() {
     saveGame();
 
     render();
+
+    return true;
 
 }
 
@@ -2205,6 +3375,7 @@ function useHealingPill() {
         );
 
         return false;
+
     }
 
 
@@ -2219,6 +3390,7 @@ function useHealingPill() {
         );
 
         return false;
+
     }
 
 
@@ -2260,7 +3432,29 @@ function useBreakthroughPill() {
         game.breakthroughPills <=
         0
     ) {
-        return;
+
+        notify(
+            "You do not possess a Foundation Stabilizing Pill.",
+            "error"
+        );
+
+        return false;
+
+    }
+
+
+    if (
+        game.breakthroughBuff >
+        0
+    ) {
+
+        notify(
+            "A Foundation Stabilizing Pill is already active.",
+            "error"
+        );
+
+        return false;
+
     }
 
 
@@ -2273,7 +3467,7 @@ function useBreakthroughPill() {
 
 
     notify(
-        "Foundation Stabilizing Pill used. +15% breakthrough chance for your next attempt.",
+        "Foundation stabilized. +15% breakthrough success for your next attempt.",
         "success"
     );
 
@@ -2281,6 +3475,8 @@ function useBreakthroughPill() {
     saveGame();
 
     render();
+
+    return true;
 
 }
 
@@ -2311,17 +3507,13 @@ function equipTechnique(id) {
         technique.unlockRealm
     ) {
 
-        notify(
-            `Reach ${REALMS[technique.unlockRealm].name} first.`,
-            "error"
-        );
-
         return;
+
     }
 
 
     game.activeTechnique =
-        technique.id;
+        id;
 
 
     if (
@@ -2353,7 +3545,327 @@ function equipTechnique(id) {
 
 
 /* ========================================================= */
-/* WEAPON                                                    */
+/* MARTIAL SKILLS                                            */
+/* ========================================================= */
+
+function isSkillUnlocked(skill) {
+
+    return (
+        game.realmIndex >=
+        skill.unlockRealm
+    );
+
+}
+
+
+function getSkillMastery(id) {
+
+    return (
+        game.skillMastery[
+            id
+        ] ||
+        0
+    );
+
+}
+
+
+function getSkillCooldown(id) {
+
+    return (
+        game.skillCooldowns[
+            id
+        ] ||
+        0
+    );
+
+}
+
+
+function resetSkillCooldowns() {
+
+    game.skillCooldowns =
+        {};
+
+}
+
+
+function reduceSkillCooldowns() {
+
+    for (
+        const id
+        of Object.keys(
+            game.skillCooldowns
+        )
+    ) {
+
+        game.skillCooldowns[
+            id
+        ] =
+            Math.max(
+                0,
+                game.skillCooldowns[
+                    id
+                ] -
+                1
+            );
+
+    }
+
+}
+
+
+function calculateSkillDamage(skill) {
+
+    const mastery =
+        getSkillMastery(
+            skill.id
+        );
+
+
+    let multiplier =
+        skill.damageMultiplier *
+        (
+            1 +
+            mastery *
+            0.004
+        );
+
+
+    /*
+        Attribute scaling.
+    */
+
+    if (
+        skill.type ===
+        "Strength"
+    ) {
+
+        multiplier *=
+            1 +
+            game.attributes.strength *
+            0.015;
+
+    }
+
+
+    if (
+        skill.type ===
+        "Soul"
+    ) {
+
+        multiplier *=
+            1 +
+            game.attributes.soul *
+            0.018;
+
+    }
+
+
+    if (
+        skill.type ===
+        "Sword"
+    ) {
+
+        multiplier *=
+            1 +
+            game.attributes.strength *
+            0.008 +
+            game.attributes.soul *
+            0.008;
+
+
+        if (
+            getEquippedWeapon()
+        ) {
+
+            multiplier *=
+                1.2;
+
+        }
+
+    }
+
+
+    return Math.floor(
+        getCombatPower() *
+        multiplier *
+        (
+            0.90 +
+            Math.random() *
+            0.20
+        )
+    );
+
+}
+
+
+/* ========================================================= */
+/* USE MARTIAL SKILL                                         */
+/* ========================================================= */
+
+function useMartialSkill(
+    skillId,
+    againstTribulation =
+        false
+) {
+
+    const skill =
+        MARTIAL_SKILLS.find(
+            item =>
+                item.id ===
+                skillId
+        );
+
+
+    if (
+        !skill ||
+        !isSkillUnlocked(
+            skill
+        )
+    ) {
+
+        return;
+
+    }
+
+
+    if (
+        getSkillCooldown(
+            skill.id
+        ) >
+        0
+    ) {
+
+        return;
+
+    }
+
+
+    if (
+        againstTribulation
+    ) {
+
+        if (
+            !game.tribulation
+        ) {
+            return;
+        }
+
+    } else {
+
+        if (
+            !game.currentEnemy
+        ) {
+            return;
+        }
+
+    }
+
+
+    const damage =
+        calculateSkillDamage(
+            skill
+        );
+
+
+    game.totalSkillUses +=
+        1;
+
+
+    game.skillMastery[
+        skill.id
+    ] =
+        Math.min(
+            100,
+            getSkillMastery(
+                skill.id
+            ) +
+            0.35
+        );
+
+
+    game.skillCooldowns[
+        skill.id
+    ] =
+        skill.cooldown;
+
+
+    if (
+        againstTribulation
+    ) {
+
+        game.tribulation.health =
+            Math.max(
+                0,
+                game.tribulation.health -
+                damage
+            );
+
+
+        byId(
+            "tribulationMessage"
+        ).textContent =
+            `${skill.name} dispersed ${formatNumber(damage)} Heavenly Tribulation energy!`;
+
+
+        if (
+            game.tribulation.health <=
+            0
+        ) {
+
+            nextTribulationWave();
+
+            render();
+
+            return;
+
+        }
+
+
+        tribulationEnemyTurn();
+
+    } else {
+
+        game.currentEnemy.health =
+            Math.max(
+                0,
+                game.currentEnemy.health -
+                damage
+            );
+
+
+        addBattleLog(
+            `${skill.name} dealt ${formatNumber(damage)} damage.`
+        );
+
+
+        if (
+            game.currentEnemy.health <=
+            0
+        ) {
+
+            winBattle();
+
+            return;
+
+        }
+
+
+        enemyTurn();
+
+    }
+
+
+    saveGame();
+
+    render();
+
+}
+
+
+/* ========================================================= */
+/* WEAPON GENERATION                                         */
 /* ========================================================= */
 
 function chooseRarity(
@@ -2396,10 +3908,10 @@ function chooseRarity(
         available.reduce(
             (
                 sum,
-                item
+                rarity
             ) =>
                 sum +
-                item.weight,
+                rarity.weight,
             0
         );
 
@@ -2470,7 +3982,7 @@ function generateWeapon(
         ];
 
 
-    const realmScaling =
+    const scaling =
         Math.max(
             1,
             Math.pow(
@@ -2495,7 +4007,7 @@ function generateWeapon(
             Math.floor(
                 25 *
                 safeRarity.multiplier *
-                realmScaling *
+                scaling *
                 (
                     0.85 +
                     Math.random() *
@@ -2521,7 +4033,9 @@ function equipWeapon(id) {
     if (
         !weapon
     ) {
+
         return;
+
     }
 
 
@@ -2543,15 +4057,18 @@ function equipWeapon(id) {
 
 
 /* ========================================================= */
-/* EXPLORATION                                              */
+/* ADVENTURE                                                */
 /* ========================================================= */
 
 function selectZone(id) {
 
     if (
-        game.currentEnemy
+        game.currentEnemy ||
+        game.autoBattle
     ) {
+
         return;
+
     }
 
 
@@ -2564,23 +4081,13 @@ function selectZone(id) {
 
 
     if (
-        !zone
-    ) {
-        return;
-    }
-
-
-    if (
+        !zone ||
         game.realmIndex <
         zone.requiredRealm
     ) {
 
-        notify(
-            `Reach ${REALMS[zone.requiredRealm].name} first.`,
-            "error"
-        );
-
         return;
+
     }
 
 
@@ -2593,12 +4100,22 @@ function selectZone(id) {
 }
 
 
-function exploreZone() {
+/* ========================================================= */
+/* EXPLORE                                                   */
+/* ========================================================= */
+
+function exploreZone(
+    fromAuto =
+        false
+) {
 
     if (
-        game.currentEnemy
+        game.currentEnemy ||
+        game.tribulation
     ) {
+
         return;
+
     }
 
 
@@ -2624,6 +4141,7 @@ function exploreZone() {
         );
 
         return;
+
     }
 
 
@@ -2702,10 +4220,16 @@ function exploreZone() {
         );
 
 
-        notify(
-            `${weapon.rarity} ${weapon.name} obtained!`,
-            "success"
-        );
+        if (
+            !fromAuto
+        ) {
+
+            notify(
+                `${weapon.rarity} ${weapon.name} obtained!`,
+                "success"
+            );
+
+        }
 
     }
 
@@ -2718,12 +4242,12 @@ function exploreZone() {
 
 
 /* ========================================================= */
-/* HERB GATHERING                                            */
+/* HERBS                                                     */
 /* ========================================================= */
 
 function gatherHerbs(zone) {
 
-    const availableHerbs =
+    const available =
         HERBS.slice(
             0,
             Math.min(
@@ -2748,7 +4272,8 @@ function gatherHerbs(zone) {
         );
 
 
-    const gathered = {};
+    const names =
+        [];
 
 
     for (
@@ -2759,10 +4284,10 @@ function gatherHerbs(zone) {
     ) {
 
         const herb =
-            availableHerbs[
+            available[
                 Math.floor(
                     Math.random() *
-                    availableHerbs.length
+                    available.length
                 )
             ];
 
@@ -2773,68 +4298,26 @@ function gatherHerbs(zone) {
             1;
 
 
-        gathered[
-            herb.id
-        ] =
-            (
-                gathered[
-                    herb.id
-                ] ||
-                0
-            ) +
-            1;
-
-
         game.herbsGathered +=
             1;
+
+
+        names.push(
+            herb.name
+        );
 
     }
 
 
-    const text =
-        Object.entries(
-            gathered
-        )
-            .map(
-                (
-                    [
-                        id,
-                        amount
-                    ]
-                ) => {
-
-                    const herb =
-                        HERBS.find(
-                            item =>
-                                item.id ===
-                                id
-                        );
-
-
-                    return `${herb.name} ×${amount}`;
-
-                }
-            )
-            .join(
-                ", "
-            );
-
-
     setAdventureMessage(
-        `You gathered medicinal herbs: ${text}.`
-    );
-
-
-    notify(
-        `Herbs gathered: ${text}`,
-        "success"
+        `You gathered medicinal herbs: ${names.join(", ")}.`
     );
 
 }
 
 
 /* ========================================================= */
-/* BATTLE                                                    */
+/* START ENEMY BATTLE                                        */
 /* ========================================================= */
 
 function startBattle(zone) {
@@ -2846,16 +4329,14 @@ function startBattle(zone) {
         0;
 
 
-    const bossChance =
-        threat >=
-        5
-            ? 0.30
-            : 0.04;
-
-
     const boss =
         Math.random() <
-        bossChance;
+        (
+            threat >=
+            5
+                ? 0.30
+                : 0.04
+        );
 
 
     let power =
@@ -2931,6 +4412,9 @@ function startBattle(zone) {
     };
 
 
+    resetSkillCooldowns();
+
+
     addBattleLog(
         `${game.currentEnemy.name} appeared!`
     );
@@ -2938,7 +4422,7 @@ function startBattle(zone) {
 
     setAdventureMessage(
         boss
-            ? `A terrifying aura descends. ${game.currentEnemy.name} has appeared!`
+            ? `${game.currentEnemy.name}, ruler of the region, has appeared!`
             : `${game.currentEnemy.name} blocks your path.`
     );
 
@@ -2948,6 +4432,10 @@ function startBattle(zone) {
 }
 
 
+/* ========================================================= */
+/* BASIC ATTACK                                              */
+/* ========================================================= */
+
 function playerAttack(
     spiritual =
         false
@@ -2956,7 +4444,9 @@ function playerAttack(
     if (
         !game.currentEnemy
     ) {
+
         return;
+
     }
 
 
@@ -3033,22 +4523,30 @@ function playerAttack(
         winBattle();
 
         return;
+
     }
 
 
     enemyTurn();
+
 
     render();
 
 }
 
 
+/* ========================================================= */
+/* ENEMY TURN                                                */
+/* ========================================================= */
+
 function enemyTurn() {
 
     if (
         !game.currentEnemy
     ) {
+
         return;
+
     }
 
 
@@ -3094,6 +4592,9 @@ function enemyTurn() {
         );
 
 
+    reduceSkillCooldowns();
+
+
     addBattleLog(
         `${game.currentEnemy.name} dealt ${formatNumber(damage)} damage.`
     );
@@ -3111,6 +4612,10 @@ function enemyTurn() {
 }
 
 
+/* ========================================================= */
+/* WIN BATTLE                                                */
+/* ========================================================= */
+
 function winBattle() {
 
     const enemy =
@@ -3120,7 +4625,9 @@ function winBattle() {
     if (
         !enemy
     ) {
+
         return;
+
     }
 
 
@@ -3135,8 +4642,19 @@ function winBattle() {
     game.victories +=
         1;
 
+
     game.enemiesSlain +=
         1;
+
+
+    if (
+        game.autoBattle
+    ) {
+
+        game.autoBattleVictories +=
+            1;
+
+    }
 
 
     if (
@@ -3145,6 +4663,7 @@ function winBattle() {
 
         game.bossesSlain +=
             1;
+
 
         game.zoneBossProgress[
             zone.id
@@ -3198,6 +4717,7 @@ function winBattle() {
         game.pills +=
             1;
 
+
         rewardText +=
             ", Cultivation Pill";
 
@@ -3215,6 +4735,7 @@ function winBattle() {
 
         game.healingPills +=
             1;
+
 
         rewardText +=
             ", Healing Pill";
@@ -3277,10 +4798,16 @@ function winBattle() {
     );
 
 
-    notify(
-        `Victory! ${rewardText}`,
-        "success"
-    );
+    if (
+        !game.autoBattle
+    ) {
+
+        notify(
+            `Victory! ${rewardText}`,
+            "success"
+        );
+
+    }
 
 
     setAdventureMessage(
@@ -3292,12 +4819,19 @@ function winBattle() {
         null;
 
 
+    resetSkillCooldowns();
+
+
     saveGame();
 
     render();
 
 }
 
+
+/* ========================================================= */
+/* LOSE BATTLE                                               */
+/* ========================================================= */
 
 function loseBattle() {
 
@@ -3326,8 +4860,12 @@ function loseBattle() {
         );
 
 
-    game.spiritStones -=
-        lost;
+    game.spiritStones =
+        Math.max(
+            0,
+            game.spiritStones -
+            lost
+        );
 
 
     addBattleLog(
@@ -3335,14 +4873,21 @@ function loseBattle() {
     );
 
 
-    notify(
-        "Defeated. Recover before returning.",
-        "error"
-    );
-
-
     game.currentEnemy =
         null;
+
+
+    game.autoBattle =
+        false;
+
+
+    stopAutoBattle();
+
+
+    notify(
+        "Auto-Battle stopped because Jiang Chue was defeated.",
+        "error"
+    );
 
 
     saveGame();
@@ -3352,27 +4897,35 @@ function loseBattle() {
 }
 
 
+/* ========================================================= */
+/* FLEE                                                      */
+/* ========================================================= */
+
 function fleeBattle() {
 
     if (
         !game.currentEnemy
     ) {
+
         return;
+
     }
 
 
-    const chance =
-        0.65 +
-        Math.min(
-            0.2,
-            game.attributes.soul *
-            0.002
+    const success =
+        Math.random() <
+        (
+            0.65 +
+            Math.min(
+                0.2,
+                game.attributes.soul *
+                0.002
+            )
         );
 
 
     if (
-        Math.random() <
-        chance
+        success
     ) {
 
         addBattleLog(
@@ -3384,16 +4937,14 @@ function fleeBattle() {
             null;
 
 
+        resetSkillCooldowns();
+
+
         setAdventureMessage(
             "You successfully escaped."
         );
 
     } else {
-
-        addBattleLog(
-            "Escape failed!"
-        );
-
 
         enemyTurn();
 
@@ -3408,7 +4959,201 @@ function fleeBattle() {
 
 
 /* ========================================================= */
-/* ADVENTURE MISSIONS                                       */
+/* AUTO BATTLE                                               */
+/* ========================================================= */
+
+function toggleAutoBattle() {
+
+    if (
+        game.tribulation
+    ) {
+
+        return;
+
+    }
+
+
+    game.autoBattle =
+        !game.autoBattle;
+
+
+    if (
+        game.autoBattle
+    ) {
+
+        startAutoBattle();
+
+    } else {
+
+        stopAutoBattle();
+
+    }
+
+
+    saveGame();
+
+    renderAdventure();
+
+}
+
+
+function startAutoBattle() {
+
+    stopAutoBattle();
+
+
+    autoBattleTimer =
+        setInterval(
+            runAutoBattleStep,
+            AUTO_BATTLE_INTERVAL
+        );
+
+}
+
+
+function stopAutoBattle() {
+
+    if (
+        autoBattleTimer
+    ) {
+
+        clearInterval(
+            autoBattleTimer
+        );
+
+
+        autoBattleTimer =
+            null;
+
+    }
+
+}
+
+
+/* ========================================================= */
+/* AUTO BATTLE STEP                                         */
+/* ========================================================= */
+
+function runAutoBattleStep() {
+
+    if (
+        !game.autoBattle ||
+        game.tribulation
+    ) {
+
+        return;
+
+    }
+
+
+    /*
+        Heal automatically under 35%.
+    */
+
+    if (
+        game.health <
+        getMaxHealth() *
+        0.35
+    ) {
+
+        if (
+            game.healingPills >
+            0
+        ) {
+
+            useHealingPill();
+
+        } else {
+
+            game.autoBattle =
+                false;
+
+
+            stopAutoBattle();
+
+
+            notify(
+                "Auto-Battle stopped: low health and no Healing Pills.",
+                "error"
+            );
+
+
+            render();
+
+            return;
+
+        }
+
+    }
+
+
+    /*
+        Explore if no enemy.
+    */
+
+    if (
+        !game.currentEnemy
+    ) {
+
+        exploreZone(
+            true
+        );
+
+
+        return;
+
+    }
+
+
+    /*
+        Use best available combat skill.
+    */
+
+    const availableSkills =
+        MARTIAL_SKILLS
+            .filter(
+                skill =>
+                    isSkillUnlocked(
+                        skill
+                    ) &&
+                    getSkillCooldown(
+                        skill.id
+                    ) <=
+                    0
+            )
+            .sort(
+                (
+                    a,
+                    b
+                ) =>
+                    b.damageMultiplier -
+                    a.damageMultiplier
+            );
+
+
+    if (
+        availableSkills.length >
+        0
+    ) {
+
+        useMartialSkill(
+            availableSkills[0]
+                .id
+        );
+
+    } else {
+
+        playerAttack(
+            false
+        );
+
+    }
+
+}
+
+
+/* ========================================================= */
+/* MISSIONS                                                  */
 /* ========================================================= */
 
 function getMissionProgress(
@@ -3533,9 +5278,7 @@ function claimMission(id) {
 /* SECT DUTIES                                               */
 /* ========================================================= */
 
-function getDutyCurrentValue(
-    duty
-) {
+function getDutyValue(duty) {
 
     switch (
         duty.type
@@ -3561,23 +5304,19 @@ function getDutyCurrentValue(
 }
 
 
-function getDutyProgress(
-    duty
-) {
-
-    const baseline =
-        game.sectDutyBaseline[
-            duty.id
-        ] ||
-        0;
-
+function getDutyProgress(duty) {
 
     return Math.max(
         0,
-        getDutyCurrentValue(
+        getDutyValue(
             duty
         ) -
-        baseline
+        (
+            game.sectDutyBaseline[
+                duty.id
+            ] ||
+            0
+        )
     );
 
 }
@@ -3594,25 +5333,15 @@ function claimSectDuty(id) {
 
 
     if (
-        !duty
-    ) {
-        return;
-    }
-
-
-    if (
+        !duty ||
         getDutyProgress(
             duty
         ) <
         duty.target
     ) {
 
-        notify(
-            "Sect duty is not complete.",
-            "error"
-        );
-
         return;
+
     }
 
 
@@ -3631,7 +5360,7 @@ function claimSectDuty(id) {
     game.sectDutyBaseline[
         duty.id
     ] =
-        getDutyCurrentValue(
+        getDutyValue(
             duty
         );
 
@@ -3642,37 +5371,15 @@ function claimSectDuty(id) {
     );
 
 
-    const oldRank =
-        getSectRankIndex();
-
+    saveGame();
 
     render();
-
-
-    const newRank =
-        getSectRankIndex();
-
-
-    if (
-        newRank >
-        oldRank
-    ) {
-
-        notify(
-            `Sect promotion: ${getSectRank().name}!`,
-            "success"
-        );
-
-    }
-
-
-    saveGame();
 
 }
 
 
 /* ========================================================= */
-/* SECT TREASURY                                            */
+/* SECT TREASURY                                             */
 /* ========================================================= */
 
 function buySectItem(id) {
@@ -3688,7 +5395,9 @@ function buySectItem(id) {
     if (
         !item
     ) {
+
         return;
+
     }
 
 
@@ -3697,7 +5406,8 @@ function buySectItem(id) {
             item.cost *
             (
                 1 -
-                getSectDiscount()
+                getSectRank()
+                    .treasuryDiscount
             )
         );
 
@@ -3707,12 +5417,8 @@ function buySectItem(id) {
         cost
     ) {
 
-        notify(
-            "Not enough Sect Contribution.",
-            "error"
-        );
-
         return;
+
     }
 
 
@@ -3721,7 +5427,7 @@ function buySectItem(id) {
 
 
     switch (
-        item.id
+        id
     ) {
 
         case "cultivation-pill":
@@ -3771,7 +5477,7 @@ function buySectItem(id) {
 
 
     notify(
-        `${item.name} obtained from Sect Treasury.`,
+        `${item.name} obtained from the Sect Treasury.`,
         "success"
     );
 
@@ -3823,62 +5529,60 @@ function grantRandomHerbs(amount) {
 /* ALCHEMY                                                  */
 /* ========================================================= */
 
-function hasRecipeMaterials(
-    recipe
-) {
+function getAlchemySuccessBonus() {
 
-    for (
-        const [
-            id,
-            amount
-        ]
-        of Object.entries(
-            recipe.materials
-        )
-    ) {
+    return (
+        getAlchemyLevelIndex() *
+        4 +
+        game.attributes.soul *
+        0.1
+    );
 
-        if (
+}
+
+
+function hasRecipeMaterials(recipe) {
+
+    return Object.entries(
+        recipe.materials
+    ).every(
+        (
+            [
+                id,
+                amount
+            ]
+        ) =>
             (
                 game.herbs[
                     id
                 ] ||
                 0
-            ) <
+            ) >=
             amount
-        ) {
-
-            return false;
-
-        }
-
-    }
-
-
-    return true;
+    );
 
 }
 
 
-function consumeRecipeMaterials(
-    recipe
-) {
+function consumeRecipeMaterials(recipe) {
 
-    for (
-        const [
-            id,
-            amount
-        ]
-        of Object.entries(
-            recipe.materials
-        )
-    ) {
+    Object.entries(
+        recipe.materials
+    ).forEach(
+        (
+            [
+                id,
+                amount
+            ]
+        ) => {
 
-        game.herbs[
-            id
-        ] -=
-            amount;
+            game.herbs[
+                id
+            ] -=
+                amount;
 
-    }
+        }
+    );
 
 }
 
@@ -3894,38 +5598,16 @@ function refinePill(id) {
 
 
     if (
-        !recipe
-    ) {
-        return;
-    }
-
-
-    if (
+        !recipe ||
         getAlchemyLevelIndex() <
-        recipe.unlockLevel
-    ) {
-
-        notify(
-            "Your alchemy mastery is too low.",
-            "error"
-        );
-
-        return;
-    }
-
-
-    if (
+        recipe.unlockLevel ||
         !hasRecipeMaterials(
             recipe
         )
     ) {
 
-        notify(
-            "You do not have the required herbs.",
-            "error"
-        );
-
         return;
+
     }
 
 
@@ -3942,14 +5624,10 @@ function refinePill(id) {
         );
 
 
-    const success =
+    if (
         Math.random() *
         100 <=
-        chance;
-
-
-    if (
-        success
+        chance
     ) {
 
         game.alchemySuccess +=
@@ -3983,7 +5661,7 @@ function refinePill(id) {
 
 
         notify(
-            `${recipe.name} refinement failed. The medicinal essence dispersed.`,
+            `${recipe.name} refinement failed.`,
             "error"
         );
 
@@ -3997,9 +5675,7 @@ function refinePill(id) {
 }
 
 
-function grantAlchemyResult(
-    result
-) {
+function grantAlchemyResult(result) {
 
     game.pills +=
         result.pills ||
@@ -4048,23 +5724,13 @@ function buyMarketItem(id) {
 
 
     if (
-        !item
-    ) {
-        return;
-    }
-
-
-    if (
+        !item ||
         game.spiritStones <
         item.price
     ) {
 
-        notify(
-            "Not enough Spirit Stones.",
-            "error"
-        );
-
         return;
+
     }
 
 
@@ -4125,9 +5791,7 @@ function buyMarketItem(id) {
 }
 
 
-function getWeaponSellPrice(
-    weapon
-) {
+function getWeaponSellPrice(weapon) {
 
     const rarity =
         RARITIES.find(
@@ -4164,7 +5828,9 @@ function sellWeapon(id) {
         index <
         0
     ) {
+
         return;
+
     }
 
 
@@ -4185,6 +5851,7 @@ function sellWeapon(id) {
         );
 
         return;
+
     }
 
 
@@ -4218,7 +5885,7 @@ function sellWeapon(id) {
 
 
 /* ========================================================= */
-/* DAILY                                                     */
+/* DAILY SIGN-IN                                             */
 /* ========================================================= */
 
 function canSignInToday() {
@@ -4355,79 +6022,47 @@ function claimDailyReward() {
 
 
 /* ========================================================= */
-/* LOGGING                                                   */
+/* GAME TICK                                                 */
 /* ========================================================= */
 
-function addLog(
-    message,
-    important =
-        false
-) {
+function gameTick() {
 
-    game.log.unshift({
-
-        time:
-            getCurrentTime(),
-
-        message,
-
-        important
-
-    });
+    addQi(
+        getQiPerSecond()
+    );
 
 
-    game.log =
-        game.log.slice(
-            0,
-            60
-        );
-
-}
+    increaseTechniqueMastery(
+        0.003
+    );
 
 
-function addBattleLog(
-    message
-) {
-
-    game.battleLog.unshift({
-
-        time:
-            getCurrentTime(),
-
-        message
-
-    });
+    rollRandomCultivationEvent();
 
 
-    game.battleLog =
-        game.battleLog.slice(
-            0,
-            70
-        );
+    /*
+        Passive health regeneration.
+    */
 
-}
+    if (
+        !game.currentEnemy &&
+        !game.tribulation &&
+        game.health <
+        getMaxHealth()
+    ) {
+
+        game.health =
+            Math.min(
+                getMaxHealth(),
+                game.health +
+                getMaxHealth() *
+                0.001
+            );
+
+    }
 
 
-function setSystemMessage(
-    message
-) {
-
-    byId(
-        "systemMessage"
-    ).textContent =
-        message;
-
-}
-
-
-function setAdventureMessage(
-    message
-) {
-
-    byId(
-        "adventureMessage"
-    ).textContent =
-        message;
+    renderCore();
 
 }
 
@@ -4442,7 +6077,9 @@ function rollRandomCultivationEvent() {
         Math.random() >
         0.02
     ) {
+
         return;
+
     }
 
 
@@ -4490,48 +6127,79 @@ function rollRandomCultivationEvent() {
 
 
 /* ========================================================= */
-/* GAME TICK                                                 */
+/* LOGGING                                                   */
 /* ========================================================= */
 
-function gameTick() {
+function addLog(
+    message,
+    important =
+        false
+) {
 
-    addQi(
-        getQiPerSecond()
-    );
+    game.log.unshift({
 
+        time:
+            getCurrentTime(),
 
-    increaseTechniqueMastery(
-        0.003
-    );
+        message,
 
+        important
 
-    rollRandomCultivationEvent();
-
-
-    if (
-        !game.currentEnemy &&
-        game.health <
-        getMaxHealth()
-    ) {
-
-        game.health =
-            Math.min(
-                getMaxHealth(),
-                game.health +
-                getMaxHealth() *
-                0.001
-            );
-
-    }
+    });
 
 
-    renderCore();
+    game.log =
+        game.log.slice(
+            0,
+            60
+        );
+
+}
+
+
+function addBattleLog(message) {
+
+    game.battleLog.unshift({
+
+        time:
+            getCurrentTime(),
+
+        message
+
+    });
+
+
+    game.battleLog =
+        game.battleLog.slice(
+            0,
+            70
+        );
+
+}
+
+
+function setSystemMessage(message) {
+
+    byId(
+        "systemMessage"
+    ).textContent =
+        message;
+
+}
+
+
+function setAdventureMessage(message) {
+
+    byId(
+        "adventureMessage"
+    ).textContent =
+        message;
 
 }
 
 
 /* ========================================================= */
-/* PAGE NAVIGATION                                           */
+/* NAVIGATION                                                */
 /* ========================================================= */
 
 function openPage(pageId) {
@@ -4590,17 +6258,22 @@ function renderCore() {
     const realm =
         getCurrentRealm();
 
+
     const root =
         getCurrentRoot();
+
 
     const technique =
         getCurrentTechnique();
 
+
     const weapon =
         getEquippedWeapon();
 
+
     const requirement =
         getQiRequirement();
+
 
     const mastery =
         getTechniqueMastery();
@@ -4766,6 +6439,12 @@ function renderCore() {
 
 
     byId(
+        "breakthroughPillDisplay"
+    ).textContent =
+        game.breakthroughPills;
+
+
+    byId(
         "totalHerbDisplay"
     ).textContent =
         Object.values(
@@ -4773,19 +6452,13 @@ function renderCore() {
         )
             .reduce(
                 (
-                    sum,
+                    total,
                     amount
                 ) =>
-                    sum +
+                    total +
                     amount,
                 0
             );
-
-
-    byId(
-        "weaponCountDisplay"
-    ).textContent =
-        game.weapons.length;
 
 
     if (
@@ -4831,6 +6504,32 @@ function renderCore() {
     }
 
 
+    const canSign =
+        canSignInToday();
+
+
+    byId(
+        "signInButton"
+    ).disabled =
+        !canSign;
+
+
+    byId(
+        "signInButton"
+    ).textContent =
+        canSign
+            ? "Daily Sign-In"
+            : "Already Signed In";
+
+
+    byId(
+        "dailyStatus"
+    ).textContent =
+        canSign
+            ? "Sign-in reward available."
+            : "Today's reward has already been claimed.";
+
+
     byId(
         "streakDisplay"
     ).textContent =
@@ -4838,50 +6537,33 @@ function renderCore() {
 
 
     byId(
-        "dailyStatus"
-    ).textContent =
-        canSignInToday()
-            ? "Sign-in reward available."
-            : "Today's reward has already been claimed.";
-
-
-    byId(
-        "signInButton"
-    ).disabled =
-        !canSignInToday();
-
-
-    byId(
-        "signInButton"
-    ).textContent =
-        canSignInToday()
-            ? "Daily Sign-In"
-            : "Already Signed In";
-
-
-    byId(
-        "usePillButton"
-    ).disabled =
-        game.pills <=
-        0;
-
-
-    byId(
         "breakthroughButton"
     ).textContent =
         game.qi >=
         requirement
-            ? game.breakthroughBuff >
+            ? (
+                game.breakthroughBuff >
                 0
-                ? "Attempt Breakthrough (+15%)"
-                : "Attempt Breakthrough"
+                    ? "Attempt Breakthrough (+15%)"
+                    : (
+                        game.stageIndex ===
+                            STAGES.length -
+                            1 &&
+                        TRIBULATION_REALMS.includes(
+                            game.realmIndex +
+                            1
+                        )
+                            ? "Challenge Heavenly Tribulation"
+                            : "Attempt Breakthrough"
+                    )
+            )
             : `Need ${formatNumber(requirement)} Qi`;
 
 }
 
 
 /* ========================================================= */
-/* RENDER TECHNIQUES                                         */
+/* TECHNIQUE RENDER                                          */
 /* ========================================================= */
 
 function renderTechniques() {
@@ -4954,11 +6636,19 @@ function renderTechniques() {
                 </div>
 
                 <div class="technique-description">
+
                     ${technique.description}
+
+                    <br><br>
+
+                    Qi Production:
+                    +${Math.round(technique.qiBonus * 100)}%
+
                     <br>
-                    Qi +${Math.round(technique.qiBonus * 100)}%
-                    <br>
-                    Mastery ${getTechniqueMastery(technique.id).toFixed(1)}%
+
+                    Mastery:
+                    ${getTechniqueMastery(technique.id).toFixed(1)}%
+
                 </div>
 
                 <button
@@ -4998,6 +6688,257 @@ function renderTechniques() {
 
             }
         );
+
+}
+
+
+/* ========================================================= */
+/* MARTIAL ARTS RENDER                                       */
+/* ========================================================= */
+
+function renderMartialSkills() {
+
+    const container =
+        byId(
+            "martialSkillList"
+        );
+
+
+    container.innerHTML =
+        "";
+
+
+    for (
+        const skill
+        of MARTIAL_SKILLS
+    ) {
+
+        const unlocked =
+            isSkillUnlocked(
+                skill
+            );
+
+
+        const mastery =
+            getSkillMastery(
+                skill.id
+            );
+
+
+        const card =
+            document.createElement(
+                "div"
+            );
+
+
+        card.className =
+            "martial-skill-card";
+
+
+        if (
+            !unlocked
+        ) {
+
+            card.classList.add(
+                "locked"
+            );
+
+        }
+
+
+        card.innerHTML =
+            `
+                <h3>
+                    ${skill.name}
+                </h3>
+
+                <div class="martial-skill-type">
+                    ${skill.type} Technique
+                </div>
+
+                <p>
+                    ${skill.description}
+                </p>
+
+                <div class="skill-data-grid">
+
+                    <div>
+                        <span>Damage</span>
+                        <strong>
+                            ×${skill.damageMultiplier.toFixed(2)}
+                        </strong>
+                    </div>
+
+                    <div>
+                        <span>Cooldown</span>
+                        <strong>
+                            ${skill.cooldown} turns
+                        </strong>
+                    </div>
+
+                    <div>
+                        <span>Mastery</span>
+                        <strong>
+                            ${mastery.toFixed(1)}%
+                        </strong>
+                    </div>
+
+                    <div>
+                        <span>Requirement</span>
+                        <strong>
+                            ${
+                                unlocked
+                                    ? "Learned"
+                                    : REALMS[skill.unlockRealm].name
+                            }
+                        </strong>
+                    </div>
+
+                </div>
+
+                <div class="skill-mastery-bar">
+
+                    <div
+                        class="skill-mastery-fill"
+                        style="width:${mastery}%"
+                    ></div>
+
+                </div>
+            `;
+
+
+        container.appendChild(
+            card
+        );
+
+    }
+
+
+    const known =
+        MARTIAL_SKILLS.filter(
+            isSkillUnlocked
+        );
+
+
+    byId(
+        "knownSkillCountDisplay"
+    ).textContent =
+        known.length;
+
+
+    byId(
+        "skillUsesDisplay"
+    ).textContent =
+        formatNumber(
+            game.totalSkillUses
+        );
+
+
+    const highest =
+        Math.max(
+            0,
+            ...Object.values(
+                game.skillMastery
+            )
+        );
+
+
+    byId(
+        "highestSkillMasteryDisplay"
+    ).textContent =
+        `${highest.toFixed(1)}%`;
+
+}
+
+
+/* ========================================================= */
+/* COMBAT SKILL BUTTONS                                      */
+/* ========================================================= */
+
+function renderCombatSkillButtons(
+    containerId,
+    againstTribulation =
+        false
+) {
+
+    const container =
+        byId(
+            containerId
+        );
+
+
+    container.innerHTML =
+        "";
+
+
+    const unlocked =
+        MARTIAL_SKILLS.filter(
+            isSkillUnlocked
+        );
+
+
+    for (
+        const skill
+        of unlocked
+    ) {
+
+        const cooldown =
+            getSkillCooldown(
+                skill.id
+            );
+
+
+        const button =
+            document.createElement(
+                "button"
+            );
+
+
+        button.className =
+            "combat-skill-button";
+
+
+        button.disabled =
+            cooldown >
+            0;
+
+
+        button.innerHTML =
+            `
+                <span class="combat-skill-name">
+                    ${skill.name}
+                </span>
+
+                <span class="combat-skill-meta">
+                    ${skill.type} • ×${skill.damageMultiplier.toFixed(2)}
+                </span>
+
+                ${
+                    cooldown >
+                    0
+                        ? `
+                            <span class="skill-cooldown">
+                                ${cooldown}
+                            </span>
+                        `
+                        : ""
+                }
+            `;
+
+
+        button.onclick =
+            () =>
+                useMartialSkill(
+                    skill.id,
+                    againstTribulation
+                );
+
+
+        container.appendChild(
+            button
+        );
+
+    }
 
 }
 
@@ -5086,8 +7027,24 @@ function renderRealmPath() {
                 "realm-path-item";
 
 
-            element.textContent =
+            let name =
                 realm.name;
+
+
+            if (
+                TRIBULATION_REALMS.includes(
+                    index
+                )
+            ) {
+
+                name =
+                    `⚡ ${name}`;
+
+            }
+
+
+            element.textContent =
+                name;
 
 
             if (
@@ -5132,6 +7089,7 @@ function renderAdventure() {
 
     const zone =
         getSelectedZone();
+
 
     const weapon =
         getEquippedWeapon();
@@ -5216,6 +7174,28 @@ function renderAdventure() {
         "expeditionsDisplay"
     ).textContent =
         game.expeditions;
+
+
+    byId(
+        "autoVictoryDisplay"
+    ).textContent =
+        game.autoBattleVictories;
+
+
+    byId(
+        "autoBattleStatus"
+    ).textContent =
+        game.autoBattle
+            ? "Active"
+            : "Disabled";
+
+
+    byId(
+        "autoBattleButton"
+    ).textContent =
+        game.autoBattle
+            ? "Disable"
+            : "Enable";
 
 
     renderZones();
@@ -5317,6 +7297,11 @@ function renderAdventure() {
                 ? "王"
                 : "妖";
 
+
+        renderCombatSkillButtons(
+            "battleSkillButtons"
+        );
+
     }
 
 }
@@ -5402,7 +7387,8 @@ function renderZones() {
 
 
         if (
-            unlocked
+            unlocked &&
+            !game.autoBattle
         ) {
 
             card.onclick =
@@ -5567,6 +7553,7 @@ function renderBattleLog() {
                 </div>
             `;
 
+
         return;
 
     }
@@ -5609,7 +7596,7 @@ function renderBattleLog() {
 
 
 /* ========================================================= */
-/* ZONE PROGRESS                                             */
+/* ZONE PROGRESS                                            */
 /* ========================================================= */
 
 function renderZoneProgress() {
@@ -5747,7 +7734,7 @@ function renderSect() {
             </p>
 
             <p>
-                Sect Treasury Discount:
+                Treasury Discount:
                 ${Math.round(rank.treasuryDiscount * 100)}%
             </p>
         `;
@@ -5767,7 +7754,7 @@ function renderSectRanks() {
         "";
 
 
-    const currentIndex =
+    const current =
         getSectRankIndex();
 
 
@@ -5789,7 +7776,7 @@ function renderSectRanks() {
 
             if (
                 index ===
-                currentIndex
+                current
             ) {
 
                 card.classList.add(
@@ -5819,7 +7806,7 @@ function renderSectRanks() {
 
                     <p>
                         Requires ${formatNumber(rank.contributionRequired)}
-                        total Contribution
+                        total Contribution.
                     </p>
 
                     <p>
@@ -5860,7 +7847,8 @@ function renderSectTreasury() {
                 item.cost *
                 (
                     1 -
-                    getSectDiscount()
+                    getSectRank()
+                        .treasuryDiscount
                 )
             );
 
@@ -6027,19 +8015,19 @@ function renderAlchemy() {
     renderRecipes();
 
 
-    const levelIndex =
+    const index =
         getAlchemyLevelIndex();
 
 
     const level =
         ALCHEMY_LEVELS[
-            levelIndex
+            index
         ];
 
 
     const next =
         ALCHEMY_LEVELS[
-            levelIndex +
+            index +
             1
         ];
 
@@ -6050,19 +8038,11 @@ function renderAlchemy() {
         level.name;
 
 
-    let progress =
-        100;
-
-
-    let text =
-        `${formatNumber(game.alchemyExp)} Mastery`;
-
-
     if (
         next
     ) {
 
-        progress =
+        const progress =
             (
                 game.alchemyExp -
                 level.required
@@ -6074,28 +8054,37 @@ function renderAlchemy() {
             100;
 
 
-        text =
+        byId(
+            "alchemyExpBar"
+        ).style.width =
+            `${Math.max(
+                0,
+                Math.min(
+                    100,
+                    progress
+                )
+            )}%`;
+
+
+        byId(
+            "alchemyExpText"
+        ).textContent =
             `${formatNumber(game.alchemyExp)} / ${formatNumber(next.required)} Mastery`;
 
+    } else {
+
+        byId(
+            "alchemyExpBar"
+        ).style.width =
+            "100%";
+
+
+        byId(
+            "alchemyExpText"
+        ).textContent =
+            `${formatNumber(game.alchemyExp)} Mastery`;
+
     }
-
-
-    byId(
-        "alchemyExpBar"
-    ).style.width =
-        `${Math.max(
-            0,
-            Math.min(
-                100,
-                progress
-            )
-        )}%`;
-
-
-    byId(
-        "alchemyExpText"
-    ).textContent =
-        text;
 
 
     byId(
@@ -6405,14 +8394,22 @@ function renderMarketWeapons() {
         container.innerHTML =
             `
                 <div class="shop-item">
+
                     <div>
-                        <h3>No weapons to sell</h3>
+
+                        <h3>
+                            No weapons to sell
+                        </h3>
+
                         <p>
-                            Defeat enemies or explore to obtain spirit weapons.
+                            Explore or defeat enemies to obtain spirit weapons.
                         </p>
+
                     </div>
+
                 </div>
             `;
+
 
         return;
 
@@ -6511,7 +8508,7 @@ function renderMarketWeapons() {
 
 
 /* ========================================================= */
-/* WEAPON INVENTORY                                         */
+/* EQUIPMENT RENDER                                          */
 /* ========================================================= */
 
 function renderWeaponInventory() {
@@ -6534,14 +8531,22 @@ function renderWeaponInventory() {
         container.innerHTML =
             `
                 <div class="weapon-card">
+
                     <div>
-                        <h3>No Spirit Weapons</h3>
+
+                        <h3>
+                            No Spirit Weapons
+                        </h3>
+
                         <p>
                             Explore the world to obtain treasures.
                         </p>
+
                     </div>
+
                 </div>
             `;
+
 
         return;
 
@@ -6647,7 +8652,58 @@ function renderWeaponInventory() {
 
 
 /* ========================================================= */
-/* STATUS                                                   */
+/* PILL RENDER                                               */
+/* ========================================================= */
+
+function renderPills() {
+
+    byId(
+        "pillModalCultivationCount"
+    ).textContent =
+        `×${game.pills}`;
+
+
+    byId(
+        "pillModalHealingCount"
+    ).textContent =
+        `×${game.healingPills}`;
+
+
+    byId(
+        "pillModalBreakthroughCount"
+    ).textContent =
+        `×${game.breakthroughPills}`;
+
+
+    byId(
+        "modalUseCultivationPill"
+    ).disabled =
+        game.pills <=
+        0;
+
+
+    byId(
+        "modalUseHealingPill"
+    ).disabled =
+        game.healingPills <=
+        0 ||
+        game.health >=
+        getMaxHealth();
+
+
+    byId(
+        "modalUseBreakthroughPill"
+    ).disabled =
+        game.breakthroughPills <=
+        0 ||
+        game.breakthroughBuff >
+        0;
+
+}
+
+
+/* ========================================================= */
+/* STATUS RENDER                                             */
 /* ========================================================= */
 
 function renderStatus() {
@@ -6740,6 +8796,18 @@ function renderStatus() {
         getAlchemyLevel()
             .name;
 
+
+    byId(
+        "statusTribulationDisplay"
+    ).textContent =
+        game.tribulationsSurvived;
+
+
+    byId(
+        "statusAutoBattleDisplay"
+    ).textContent =
+        game.autoBattleVictories;
+
 }
 
 
@@ -6752,6 +8820,8 @@ function render() {
     renderCore();
 
     renderTechniques();
+
+    renderMartialSkills();
 
     renderCultivationLog();
 
@@ -6766,6 +8836,10 @@ function render() {
     renderMarket();
 
     renderStatus();
+
+    renderPills();
+
+    renderTribulation();
 
 
     document
@@ -6817,11 +8891,8 @@ function notify(
 
 
     setTimeout(
-        () => {
-
-            element.remove();
-
-        },
+        () =>
+            element.remove(),
         3800
     );
 
@@ -6858,11 +8929,21 @@ function createFloatingQi(
 
 
     element.style.left =
-        `${event?.clientX || rect.left + rect.width / 2}px`;
+        `${
+            event?.clientX ||
+            rect.left +
+            rect.width /
+            2
+        }px`;
 
 
     element.style.top =
-        `${event?.clientY || rect.top + rect.height / 2}px`;
+        `${
+            event?.clientY ||
+            rect.top +
+            rect.height /
+            2
+        }px`;
 
 
     document.body.appendChild(
@@ -6871,11 +8952,8 @@ function createFloatingQi(
 
 
     setTimeout(
-        () => {
-
-            element.remove();
-
-        },
+        () =>
+            element.remove(),
         1000
     );
 
@@ -6891,7 +8969,9 @@ function calculateOfflineProgress() {
     if (
         !game.lastPlayed
     ) {
+
         return;
+
     }
 
 
@@ -6912,7 +8992,9 @@ function calculateOfflineProgress() {
         seconds <
         10
     ) {
+
         return;
+
     }
 
 
@@ -6947,6 +9029,16 @@ function calculateOfflineProgress() {
 
 function claimOfflineProgress() {
 
+    if (
+        pendingOfflineQi <=
+        0
+    ) {
+
+        return;
+
+    }
+
+
     addQi(
         pendingOfflineQi
     );
@@ -6976,9 +9068,7 @@ function claimOfflineProgress() {
 }
 
 
-function formatDuration(
-    seconds
-) {
+function formatDuration(seconds) {
 
     if (
         seconds <
@@ -7067,20 +9157,22 @@ function loadGame() {
     ) {
 
         for (
-            const oldKey
+            const key
             of OLD_SAVE_KEYS
         ) {
 
             saved =
                 localStorage.getItem(
-                    oldKey
+                    key
                 );
 
 
             if (
                 saved
             ) {
+
                 break;
+
             }
 
         }
@@ -7098,6 +9190,7 @@ function loadGame() {
 
         game.health =
             getMaxHealth();
+
 
         return;
 
@@ -7155,6 +9248,19 @@ function loadGame() {
 
             },
 
+            skillMastery: {
+
+                ...defaults.skillMastery,
+
+                ...(
+                    parsed.skillMastery ||
+                    {}
+                )
+
+            },
+
+            skillCooldowns: {},
+
             missionClaims: {
 
                 ...defaults.missionClaims,
@@ -7172,17 +9278,6 @@ function loadGame() {
 
                 ...(
                     parsed.zoneBossProgress ||
-                    {}
-                )
-
-            },
-
-            sectDutyClaims: {
-
-                ...defaults.sectDutyClaims,
-
-                ...(
-                    parsed.sectDutyClaims ||
                     {}
                 )
 
@@ -7239,11 +9334,24 @@ function loadGame() {
 
 
         /*
-            Combat does not persist after reload.
+            Do not restore active battles,
+            tribulations or auto-battle.
         */
 
         game.currentEnemy =
             null;
+
+
+        game.tribulation =
+            null;
+
+
+        game.pendingRealmAscension =
+            null;
+
+
+        game.autoBattle =
+            false;
 
 
         game.health =
@@ -7261,6 +9369,7 @@ function loadGame() {
     ) {
 
         console.error(
+            "Save load error:",
             error
         );
 
@@ -7292,8 +9401,13 @@ function resetGame() {
     if (
         !confirmed
     ) {
+
         return;
+
     }
+
+
+    stopAutoBattle();
 
 
     localStorage.removeItem(
@@ -7411,13 +9525,10 @@ document
 
             button.addEventListener(
                 "click",
-                () => {
-
+                () =>
                     openPage(
                         button.dataset.page
-                    );
-
-                }
+                    )
             );
 
         }
@@ -7449,47 +9560,13 @@ byId(
 
 
 byId(
-    "usePillButton"
-).addEventListener(
-    "click",
-    useCultivationPill
-);
-
-
-byId(
-    "healButton"
-).addEventListener(
-    "click",
-    useHealingPill
-);
-
-
-byId(
-    "battleHealButton"
-).addEventListener(
-    "click",
-    () => {
-
-        if (
-            useHealingPill() &&
-            game.currentEnemy
-        ) {
-
-            enemyTurn();
-
-            render();
-
-        }
-
-    }
-);
-
-
-byId(
     "exploreButton"
 ).addEventListener(
     "click",
-    exploreZone
+    () =>
+        exploreZone(
+            false
+        )
 );
 
 
@@ -7523,6 +9600,47 @@ byId(
 );
 
 
+byId(
+    "healButton"
+).addEventListener(
+    "click",
+    useHealingPill
+);
+
+
+byId(
+    "battleHealButton"
+).addEventListener(
+    "click",
+    () => {
+
+        if (
+            useHealingPill() &&
+            game.currentEnemy
+        ) {
+
+            enemyTurn();
+
+            render();
+
+        }
+
+    }
+);
+
+
+byId(
+    "autoBattleButton"
+).addEventListener(
+    "click",
+    toggleAutoBattle
+);
+
+
+/* ========================================================= */
+/* ATTRIBUTES                                                */
+/* ========================================================= */
+
 document
     .querySelectorAll(
         ".attribute-upgrade"
@@ -7532,20 +9650,19 @@ document
 
             button.addEventListener(
                 "click",
-                () => {
-
+                () =>
                     upgradeAttribute(
                         button.dataset.stat
-                    );
-
-                }
+                    )
             );
 
         }
     );
 
 
-/* STATUS */
+/* ========================================================= */
+/* STATUS                                                    */
+/* ========================================================= */
 
 byId(
     "statusButton"
@@ -7570,19 +9687,18 @@ byId(
     "closeStatusButton"
 ).addEventListener(
     "click",
-    () => {
-
+    () =>
         byId(
             "statusModal"
         ).classList.add(
             "hidden"
-        );
-
-    }
+        )
 );
 
 
-/* EQUIPMENT */
+/* ========================================================= */
+/* EQUIPMENT                                                */
+/* ========================================================= */
 
 byId(
     "openInventoryButton"
@@ -7607,11 +9723,31 @@ byId(
     "closeEquipmentButton"
 ).addEventListener(
     "click",
-    () => {
-
+    () =>
         byId(
             "equipmentModal"
         ).classList.add(
+            "hidden"
+        )
+);
+
+
+/* ========================================================= */
+/* PILL INVENTORY                                            */
+/* ========================================================= */
+
+byId(
+    "openPillsButton"
+).addEventListener(
+    "click",
+    () => {
+
+        renderPills();
+
+
+        byId(
+            "pillModal"
+        ).classList.remove(
             "hidden"
         );
 
@@ -7619,17 +9755,97 @@ byId(
 );
 
 
-/* OFFLINE */
-
 byId(
-    "claimOfflineButton"
+    "closePillButton"
 ).addEventListener(
     "click",
-    claimOfflineProgress
+    () =>
+        byId(
+            "pillModal"
+        ).classList.add(
+            "hidden"
+        )
 );
 
 
-/* SAVE */
+byId(
+    "modalUseCultivationPill"
+).addEventListener(
+    "click",
+    () => {
+
+        useCultivationPill();
+
+        renderPills();
+
+    }
+);
+
+
+byId(
+    "modalUseHealingPill"
+).addEventListener(
+    "click",
+    () => {
+
+        useHealingPill();
+
+        renderPills();
+
+    }
+);
+
+
+byId(
+    "modalUseBreakthroughPill"
+).addEventListener(
+    "click",
+    () => {
+
+        useBreakthroughPill();
+
+        renderPills();
+
+    }
+);
+
+
+/* ========================================================= */
+/* TRIBULATION                                              */
+/* ========================================================= */
+
+byId(
+    "tribulationAttackButton"
+).addEventListener(
+    "click",
+    tribulationAttack
+);
+
+
+byId(
+    "tribulationHealButton"
+).addEventListener(
+    "click",
+    () => {
+
+        if (
+            useHealingPill() &&
+            game.tribulation
+        ) {
+
+            tribulationEnemyTurn();
+
+            render();
+
+        }
+
+    }
+);
+
+
+/* ========================================================= */
+/* SAVE / RESET                                              */
+/* ========================================================= */
 
 byId(
     "saveButton"
@@ -7650,67 +9866,62 @@ byId(
 );
 
 
-/* MODAL OUTSIDE CLICK */
-
 byId(
-    "statusModal"
+    "claimOfflineButton"
 ).addEventListener(
     "click",
-    event => {
-
-        if (
-            event.target ===
-            byId(
-                "statusModal"
-            )
-        ) {
-
-            byId(
-                "statusModal"
-            ).classList.add(
-                "hidden"
-            );
-
-        }
-
-    }
+    claimOfflineProgress
 );
 
 
-byId(
-    "equipmentModal"
-).addEventListener(
-    "click",
-    event => {
+/* ========================================================= */
+/* CLOSE MODALS OUTSIDE                                      */
+/* ========================================================= */
 
-        if (
-            event.target ===
-            byId(
-                "equipmentModal"
-            )
-        ) {
+[
+    "statusModal",
+    "equipmentModal",
+    "pillModal"
+]
+    .forEach(
+        id => {
 
             byId(
-                "equipmentModal"
-            ).classList.add(
-                "hidden"
+                id
+            ).addEventListener(
+                "click",
+                event => {
+
+                    if (
+                        event.target ===
+                        byId(
+                            id
+                        )
+                    ) {
+
+                        byId(
+                            id
+                        ).classList.add(
+                            "hidden"
+                        );
+
+                    }
+
+                }
             );
 
         }
-
-    }
-);
+    );
 
 
-/* AUTO SAVE WHEN LEAVING */
+/* ========================================================= */
+/* SAVE WHEN LEAVING                                         */
+/* ========================================================= */
 
 window.addEventListener(
     "beforeunload",
-    () => {
-
-        saveGame();
-
-    }
+    () =>
+        saveGame()
 );
 
 
@@ -7732,7 +9943,7 @@ document.addEventListener(
 
 
 /* ========================================================= */
-/* INITIALIZE                                                */
+/* INITIALIZATION                                            */
 /* ========================================================= */
 
 function initializeGame() {
@@ -7756,11 +9967,8 @@ function initializeGame() {
 
 
     setInterval(
-        () => {
-
-            saveGame();
-
-        },
+        () =>
+            saveGame(),
         AUTO_SAVE_INTERVAL
     );
 
