@@ -2,14 +2,16 @@
 
 
 /* ========================================================= */
-/* SAVE                                                      */
+/* SAVE CONFIG                                               */
 /* ========================================================= */
 
 const SAVE_KEY =
-    "idleCultivationSaveV7";
+    "idleCultivationSaveV8";
 
 
 const OLD_SAVE_KEYS = [
+
+    "idleCultivationSaveV7",
 
     "idleCultivationSaveV6",
 
@@ -46,6 +48,7 @@ const MAX_OFFLINE_SECONDS =
     12 * 60 * 60;
 
 
+
 /* ========================================================= */
 /* REALMS                                                    */
 /* ========================================================= */
@@ -54,86 +57,86 @@ const REALMS = [
 
     {
         name: "Mortal",
-        qi: 100,
+        qi: 120,
         qiMultiplier: 1,
         combat: 1
     },
 
     {
         name: "Body Tempering",
-        qi: 300,
-        qiMultiplier: 1.5,
+        qi: 450,
+        qiMultiplier: 1.55,
         combat: 2
     },
 
     {
         name: "Qi Refining",
-        qi: 900,
-        qiMultiplier: 2.5,
-        combat: 4
+        qi: 1500,
+        qiMultiplier: 2.6,
+        combat: 4.2
     },
 
     {
         name: "Foundation Establishment",
-        qi: 2500,
-        qiMultiplier: 4,
-        combat: 8
+        qi: 5000,
+        qiMultiplier: 4.5,
+        combat: 8.5
     },
 
     {
         name: "Golden Core",
-        qi: 7000,
-        qiMultiplier: 7,
-        combat: 15
+        qi: 16000,
+        qiMultiplier: 8,
+        combat: 17
     },
 
     {
         name: "Nascent Soul",
-        qi: 20000,
-        qiMultiplier: 12,
-        combat: 30
+        qi: 52000,
+        qiMultiplier: 14,
+        combat: 35
     },
 
     {
         name: "Soul Transformation",
-        qi: 60000,
-        qiMultiplier: 20,
-        combat: 60
+        qi: 175000,
+        qiMultiplier: 25,
+        combat: 72
     },
 
     {
         name: "Void Refining",
-        qi: 180000,
-        qiMultiplier: 35,
-        combat: 120
+        qi: 600000,
+        qiMultiplier: 44,
+        combat: 150
     },
 
     {
         name: "Integration",
-        qi: 550000,
-        qiMultiplier: 60,
-        combat: 250
+        qi: 2100000,
+        qiMultiplier: 78,
+        combat: 320
     },
 
     {
         name: "Mahayana",
-        qi: 1700000,
-        qiMultiplier: 100,
-        combat: 500
+        qi: 7500000,
+        qiMultiplier: 140,
+        combat: 700
     },
 
     {
         name: "Tribulation Transcendence",
-        qi: 5000000,
-        qiMultiplier: 175,
-        combat: 1000
+        qi: 26000000,
+        qiMultiplier: 250,
+        combat: 1500
     },
 
     {
         name: "Immortal",
-        qi: 15000000,
-        qiMultiplier: 300,
-        combat: 2500
+        qi: 90000000,
+        qiMultiplier: 450,
+        combat: 3500
     }
 
 ];
@@ -173,8 +176,9 @@ const TRIBULATION_REALMS = [
 ];
 
 
+
 /* ========================================================= */
-/* ROOTS                                                     */
+/* SPIRITUAL ROOTS                                           */
 /* ========================================================= */
 
 const SPIRITUAL_ROOTS = [
@@ -246,6 +250,7 @@ const SPIRITUAL_ROOTS = [
     }
 
 ];
+
 
 
 /* ========================================================= */
@@ -357,6 +362,7 @@ const TECHNIQUES = [
     }
 
 ];
+
 
 
 /* ========================================================= */
@@ -528,8 +534,9 @@ const MARTIAL_SKILLS = [
 ];
 
 
+
 /* ========================================================= */
-/* RARITY                                                    */
+/* RARITIES                                                  */
 /* ========================================================= */
 
 const RARITIES = [
@@ -728,6 +735,7 @@ const ARTIFACT_EFFECTS = [
 ];
 
 
+
 /* ========================================================= */
 /* PETS                                                      */
 /* ========================================================= */
@@ -877,6 +885,7 @@ const PET_TEMPLATES = [
 ];
 
 
+
 /* ========================================================= */
 /* CAVE                                                      */
 /* ========================================================= */
@@ -905,7 +914,7 @@ const CAVE_BUILDINGS = [
             "Alchemy Chamber",
 
         description:
-            "Improves herb gathering and alchemy.",
+            "Improves herb gathering and alchemy success.",
 
         cost:
             300
@@ -940,6 +949,7 @@ const CAVE_BUILDINGS = [
     }
 
 ];
+
 
 
 /* ========================================================= */
@@ -1005,6 +1015,7 @@ const DAO_UPGRADES = [
     }
 
 ];
+
 
 
 /* ========================================================= */
@@ -1080,6 +1091,7 @@ const HERBS = [
     }
 
 ];
+
 
 
 /* ========================================================= */
@@ -1256,6 +1268,7 @@ const ALCHEMY_RECIPES = [
     }
 
 ];
+
 
 
 /* ========================================================= */
@@ -1495,6 +1508,7 @@ const SECT_DUTIES = [
 ];
 
 
+
 /* ========================================================= */
 /* ZONES                                                     */
 /* ========================================================= */
@@ -1722,6 +1736,7 @@ const ZONES = [
 ];
 
 
+
 /* ========================================================= */
 /* MISSIONS                                                  */
 /* ========================================================= */
@@ -1815,6 +1830,7 @@ const MISSIONS = [
 ];
 
 
+
 /* ========================================================= */
 /* STORY                                                     */
 /* ========================================================= */
@@ -1906,7 +1922,7 @@ const STORY_CHAPTERS = [
             "Chapter IV — Blood Moon Conspiracy",
 
         text:
-            "Demonic cultivators begin appearing near Blood Moon Valley. Elder Yun suspects an ancient demonic sect has returned.",
+            "Demonic cultivators appear near Blood Moon Valley. Elder Yun suspects an ancient demonic sect has returned.",
 
         requirement:
             "Defeat 2 region bosses.",
@@ -1933,7 +1949,7 @@ const STORY_CHAPTERS = [
             "Chapter V — Golden Core Genius",
 
         text:
-            "Your rise becomes impossible to ignore. Inner disciples challenge you, elders debate your origin and a powerful rival named Zhao Feng enters the sect tournament.",
+            "Your rise becomes impossible to ignore. Inner disciples challenge you, elders debate your origin and Zhao Feng begins watching your every move.",
 
         requirement:
             "Reach Golden Core Realm.",
@@ -1961,7 +1977,7 @@ const STORY_CHAPTERS = [
             "Chapter VI — Heaven's Chosen",
 
         text:
-            "The Heavenly Dao itself begins reacting to your cultivation. Ancient inheritances stir, world calamities awaken and the path toward immortality is no longer hidden.",
+            "The Heavenly Dao itself begins reacting to your cultivation. Ancient inheritances stir and world calamities awaken.",
 
         requirement:
             "Reach Nascent Soul Realm.",
@@ -1993,7 +2009,7 @@ const STORY_CHAPTERS = [
             "Chapter VII — Beyond Mortal Heaven",
 
         text:
-            "Jiang Chue gazes beyond the mortal realm. The final secrets of the Heavenly Dao System remain concealed somewhere above the Immortal Realm.",
+            "Jiang Chue gazes beyond the mortal realm. The final secrets of the Heavenly Dao System remain hidden beyond immortality.",
 
         requirement:
             "Reach Immortal Realm.",
@@ -2017,6 +2033,7 @@ const STORY_CHAPTERS = [
     }
 
 ];
+
 
 
 /* ========================================================= */
@@ -2184,6 +2201,7 @@ const NPCS = [
 ];
 
 
+
 /* ========================================================= */
 /* SECRET REALMS                                             */
 /* ========================================================= */
@@ -2308,6 +2326,7 @@ const SECRET_REALMS = [
 ];
 
 
+
 /* ========================================================= */
 /* TOURNAMENT                                                */
 /* ========================================================= */
@@ -2398,8 +2417,9 @@ const TOURNAMENT_NAMES = [
 ];
 
 
+
 /* ========================================================= */
-/* WORLD BOSS                                                */
+/* WORLD BOSSES                                              */
 /* ========================================================= */
 
 const WORLD_BOSSES = [
@@ -2437,6 +2457,7 @@ const WORLD_BOSSES = [
     }
 
 ];
+
 
 
 /* ========================================================= */
@@ -2483,8 +2504,456 @@ const DAILY_REWARDS = [
 ];
 
 
+
 /* ========================================================= */
-/* DEFAULT STATE                                             */
+/* ACHIEVEMENTS                                              */
+/* ========================================================= */
+
+const ACHIEVEMENTS = [
+
+    {
+        id:
+            "first-step",
+
+        name:
+            "First Step on the Dao",
+
+        description:
+            "Reach Body Tempering Realm.",
+
+        points:
+            5,
+
+        rewardStones:
+            250,
+
+        progress:
+            () =>
+                Math.min(
+                    game.realmIndex,
+                    1
+                ),
+
+        target:
+            1
+    },
+
+    {
+        id:
+            "qi-refiner",
+
+        name:
+            "True Cultivator",
+
+        description:
+            "Reach Qi Refining Realm.",
+
+        points:
+            10,
+
+        rewardStones:
+            500,
+
+        progress:
+            () =>
+                Math.min(
+                    game.realmIndex,
+                    2
+                ),
+
+        target:
+            2
+    },
+
+    {
+        id:
+            "golden-core",
+
+        name:
+            "Golden Core Genius",
+
+        description:
+            "Reach Golden Core Realm.",
+
+        points:
+            20,
+
+        rewardStones:
+            2000,
+
+        progress:
+            () =>
+                Math.min(
+                    game.realmIndex,
+                    4
+                ),
+
+        target:
+            4
+    },
+
+    {
+        id:
+            "hunter",
+
+        name:
+            "Spirit Beast Hunter",
+
+        description:
+            "Defeat 25 enemies.",
+
+        points:
+            10,
+
+        rewardStones:
+            1000,
+
+        progress:
+            () =>
+                game.enemiesSlain,
+
+        target:
+            25
+    },
+
+    {
+        id:
+            "boss-slayer",
+
+        name:
+            "Region Lord Slayer",
+
+        description:
+            "Defeat 5 region bosses.",
+
+        points:
+            20,
+
+        rewardStones:
+            2500,
+
+        progress:
+            () =>
+                game.bossesSlain,
+
+        target:
+            5
+    },
+
+    {
+        id:
+            "secret-seeker",
+
+        name:
+            "Seeker of Hidden Realms",
+
+        description:
+            "Clear 5 Secret Realms.",
+
+        points:
+            15,
+
+        rewardStones:
+            2200,
+
+        progress:
+            () =>
+                game.secretClears,
+
+        target:
+            5
+    },
+
+    {
+        id:
+            "arena-master",
+
+        name:
+            "Arena Master",
+
+        description:
+            "Win 20 Sect Tournament battles.",
+
+        points:
+            20,
+
+        rewardStones:
+            3000,
+
+        progress:
+            () =>
+                game.tournamentWins,
+
+        target:
+            20
+    },
+
+    {
+        id:
+            "alchemist",
+
+        name:
+            "Flame of Alchemy",
+
+        description:
+            "Successfully refine 25 pills.",
+
+        points:
+            15,
+
+        rewardStones:
+            1800,
+
+        progress:
+            () =>
+                game.alchemySuccess,
+
+        target:
+            25
+    },
+
+    {
+        id:
+            "pet-master",
+
+        name:
+            "Spirit Beast Master",
+
+        description:
+            "Contract 5 Spirit Pets.",
+
+        points:
+            15,
+
+        rewardStones:
+            1800,
+
+        progress:
+            () =>
+                game.pets.length,
+
+        target:
+            5
+    },
+
+    {
+        id:
+            "wealth",
+
+        name:
+            "Wealth of a Cultivator",
+
+        description:
+            "Possess 100,000 Spirit Stones.",
+
+        points:
+            20,
+
+        rewardStones:
+            5000,
+
+        progress:
+            () =>
+                game.spiritStones,
+
+        target:
+            100000
+    },
+
+    {
+        id:
+            "heaven-defier",
+
+        name:
+            "Defier of Heaven",
+
+        description:
+            "Survive 5 Heavenly Tribulations.",
+
+        points:
+            30,
+
+        rewardStones:
+            10000,
+
+        progress:
+            () =>
+                game.tribulationsSurvived,
+
+        target:
+            5
+    },
+
+    {
+        id:
+            "immortal",
+
+        name:
+            "Immortal Ascendant",
+
+        description:
+            "Reach the Immortal Realm.",
+
+        points:
+            50,
+
+        rewardStones:
+            25000,
+
+        progress:
+            () =>
+                Math.min(
+                    game.realmIndex,
+                    11
+                ),
+
+        target:
+            11
+    },
+
+    {
+        id:
+            "reincarnation",
+
+        name:
+            "Cycle of Reincarnation",
+
+        description:
+            "Reincarnate for the first time.",
+
+        points:
+            50,
+
+        rewardStones:
+            5000,
+
+        progress:
+            () =>
+                game.reincarnations,
+
+        target:
+            1
+    }
+
+];
+
+
+
+/* ========================================================= */
+/* TITLES                                                    */
+/* ========================================================= */
+
+const PLAYER_TITLES = [
+
+    {
+        id:
+            "wandering-mortal",
+
+        name:
+            "Wandering Mortal",
+
+        unlock:
+            () =>
+                true
+    },
+
+    {
+        id:
+            "spirit-hunter",
+
+        name:
+            "Spirit Beast Hunter",
+
+        unlock:
+            () =>
+                game.enemiesSlain >=
+                25
+    },
+
+    {
+        id:
+            "golden-core-genius",
+
+        name:
+            "Golden Core Genius",
+
+        unlock:
+            () =>
+                game.realmIndex >=
+                4
+    },
+
+    {
+        id:
+            "secret-realm-seeker",
+
+        name:
+            "Secret Realm Seeker",
+
+        unlock:
+            () =>
+                game.secretClears >=
+                5
+    },
+
+    {
+        id:
+            "azure-cloud-champion",
+
+        name:
+            "Azure Cloud Champion",
+
+        unlock:
+            () =>
+                game.tournamentPoints >=
+                1500
+    },
+
+    {
+        id:
+            "heaven-defier",
+
+        name:
+            "Heaven Defier",
+
+        unlock:
+            () =>
+                game.tribulationsSurvived >=
+                5
+    },
+
+    {
+        id:
+            "dao-reincarnator",
+
+        name:
+            "Dao Reincarnator",
+
+        unlock:
+            () =>
+                game.reincarnations >=
+                1
+    },
+
+    {
+        id:
+            "immortal-sovereign",
+
+        name:
+            "Immortal Sovereign",
+
+        unlock:
+            () =>
+                game.realmIndex >=
+                11
+    }
+
+];
+
+
+
+/* ========================================================= */
+/* DEFAULT GAME STATE                                        */
 /* ========================================================= */
 
 function createDefaultState() {
@@ -2493,6 +2962,9 @@ function createDefaultState() {
 
         playerName:
             "Jiang Chue",
+
+        activeTitle:
+            "wandering-mortal",
 
         realmIndex:
             0,
@@ -2564,6 +3036,9 @@ function createDefaultState() {
             {},
 
         totalSkillUses:
+            0,
+
+        criticalHits:
             0,
 
         weapons:
@@ -2764,6 +3239,9 @@ function createDefaultState() {
         worldBossKills:
             0,
 
+        pendingTribulationRealm:
+            null,
+
         tribulationsSurvived:
             0,
 
@@ -2789,6 +3267,28 @@ function createDefaultState() {
 
             "dao-vitality":
                 0
+
+        },
+
+        achievementsClaimed:
+            {},
+
+        settings: {
+
+            sound:
+                true,
+
+            music:
+                false,
+
+            effects:
+                true,
+
+            floatingNumbers:
+                true,
+
+            compact:
+                false
 
         },
 
@@ -2818,6 +3318,7 @@ function createDefaultState() {
 }
 
 
+
 /* ========================================================= */
 /* STATE                                                     */
 /* ========================================================= */
@@ -2834,6 +3335,18 @@ let selectedNpcId =
     null;
 
 
+let audioContext =
+    null;
+
+
+let ambientOscillator =
+    null;
+
+
+let ambientGain =
+    null;
+
+
 let pendingOffline = {
 
     qi:
@@ -2846,6 +3359,7 @@ let pendingOffline = {
         0
 
 };
+
 
 
 /* ========================================================= */
@@ -2885,7 +3399,9 @@ function getDateKey() {
 
 
     return [
+
         date.getFullYear(),
+
         String(
             date.getMonth() +
             1
@@ -2893,14 +3409,33 @@ function getDateKey() {
             2,
             "0"
         ),
+
         String(
             date.getDate()
         ).padStart(
             2,
             "0"
         )
+
     ].join(
         "-"
+    );
+
+}
+
+
+function clamp(
+    value,
+    min,
+    max
+) {
+
+    return Math.max(
+        min,
+        Math.min(
+            max,
+            value
+        )
     );
 
 }
@@ -2932,6 +3467,8 @@ function formatNumber(number) {
 
 
     const units = [
+
+        [1e18, "Qi"],
 
         [1e15, "Qa"],
 
@@ -2980,22 +3517,6 @@ function formatNumber(number) {
 
 }
 
-
-function clamp(
-    value,
-    min,
-    max
-) {
-
-    return Math.max(
-        min,
-        Math.min(
-            max,
-            value
-        )
-    );
-
-}
 
 
 /* ========================================================= */
@@ -3062,6 +3583,7 @@ function generateSpiritualRoot() {
     return "Five Element Root";
 
 }
+
 
 
 /* ========================================================= */
@@ -3176,6 +3698,32 @@ function getZone() {
 }
 
 
+function getActiveTitle() {
+
+    const title =
+        PLAYER_TITLES.find(
+            item =>
+                item.id ===
+                game.activeTitle
+        );
+
+
+    if (
+        title &&
+        title.unlock()
+    ) {
+
+        return title;
+
+    }
+
+
+    return PLAYER_TITLES[0];
+
+}
+
+
+
 /* ========================================================= */
 /* DAO                                                       */
 /* ========================================================= */
@@ -3238,6 +3786,7 @@ function getDaoVitalityBonus() {
     );
 
 }
+
 
 
 /* ========================================================= */
@@ -3335,8 +3884,9 @@ function getCavePetMultiplier() {
 }
 
 
+
 /* ========================================================= */
-/* PET                                                       */
+/* PET BONUSES                                               */
 /* ========================================================= */
 
 function getPetBonus(type) {
@@ -3375,8 +3925,9 @@ function getPetBonus(type) {
 }
 
 
+
 /* ========================================================= */
-/* ARTIFACT                                                  */
+/* ARTIFACT BONUS                                            */
 /* ========================================================= */
 
 function getArtifactBonus(effect) {
@@ -3399,6 +3950,7 @@ function getArtifactBonus(effect) {
     return artifact.value;
 
 }
+
 
 
 /* ========================================================= */
@@ -3443,6 +3995,7 @@ function getSectRank() {
     ];
 
 }
+
 
 
 /* ========================================================= */
@@ -3507,7 +4060,7 @@ function getQiRequirement() {
         (
             1 +
             game.stageIndex *
-            0.65
+            0.70
         )
     );
 
@@ -3724,6 +4277,54 @@ function getCombatPower() {
 }
 
 
+function getCriticalChance() {
+
+    let chance =
+        0.05;
+
+
+    chance +=
+        game.attributes.soul *
+        0.0008;
+
+
+    chance +=
+        getDaoFortuneBonus() *
+        0.15;
+
+
+    if (
+        game.inheritances[
+            "Ancient Sword Intent"
+        ]
+    ) {
+
+        chance +=
+            0.03;
+
+    }
+
+
+    return clamp(
+        chance,
+        0.05,
+        0.35
+    );
+
+}
+
+
+function getCriticalMultiplier() {
+
+    return (
+        1.75 +
+        game.attributes.strength *
+        0.002
+    );
+
+}
+
+
 function getBreakthroughChance() {
 
     let chance =
@@ -3761,6 +4362,471 @@ function getBreakthroughChance() {
 }
 
 
+
+/* ========================================================= */
+/* SOUND                                                     */
+/* ========================================================= */
+
+function ensureAudioContext() {
+
+    if (
+        !audioContext
+    ) {
+
+        audioContext =
+            new (
+                window.AudioContext ||
+                window.webkitAudioContext
+            )();
+
+    }
+
+
+    if (
+        audioContext.state ===
+        "suspended"
+    ) {
+
+        audioContext.resume();
+
+    }
+
+}
+
+
+function playTone(
+    frequency,
+    duration =
+        0.08,
+    volume =
+        0.03,
+    type =
+        "sine"
+) {
+
+    if (
+        !game.settings.sound
+    ) {
+
+        return;
+
+    }
+
+
+    try {
+
+        ensureAudioContext();
+
+
+        const oscillator =
+            audioContext.createOscillator();
+
+
+        const gain =
+            audioContext.createGain();
+
+
+        oscillator.type =
+            type;
+
+
+        oscillator.frequency.value =
+            frequency;
+
+
+        gain.gain.setValueAtTime(
+            volume,
+            audioContext.currentTime
+        );
+
+
+        gain.gain.exponentialRampToValueAtTime(
+            0.0001,
+            audioContext.currentTime +
+            duration
+        );
+
+
+        oscillator.connect(
+            gain
+        );
+
+
+        gain.connect(
+            audioContext.destination
+        );
+
+
+        oscillator.start();
+
+
+        oscillator.stop(
+            audioContext.currentTime +
+            duration
+        );
+
+    } catch (
+        error
+    ) {
+
+        console.warn(
+            "Sound unavailable:",
+            error
+        );
+
+    }
+
+}
+
+
+function playClickSound() {
+
+    playTone(
+        420,
+        0.04,
+        0.015
+    );
+
+}
+
+
+function playAttackSound() {
+
+    playTone(
+        180,
+        0.06,
+        0.035,
+        "square"
+    );
+
+}
+
+
+function playCritSound() {
+
+    playTone(
+        820,
+        0.12,
+        0.045,
+        "triangle"
+    );
+
+}
+
+
+function playRewardSound() {
+
+    playTone(
+        640,
+        0.08,
+        0.03
+    );
+
+
+    setTimeout(
+        () =>
+            playTone(
+                850,
+                0.1,
+                0.028
+            ),
+        90
+    );
+
+}
+
+
+function playBreakthroughSound() {
+
+    playTone(
+        260,
+        0.22,
+        0.04
+    );
+
+
+    setTimeout(
+        () =>
+            playTone(
+                520,
+                0.25,
+                0.04
+            ),
+        180
+    );
+
+
+    setTimeout(
+        () =>
+            playTone(
+                780,
+                0.35,
+                0.045
+            ),
+        360
+    );
+
+}
+
+
+function startAmbientAudio() {
+
+    if (
+        !game.settings.music ||
+        ambientOscillator
+    ) {
+
+        return;
+
+    }
+
+
+    try {
+
+        ensureAudioContext();
+
+
+        ambientOscillator =
+            audioContext.createOscillator();
+
+
+        ambientGain =
+            audioContext.createGain();
+
+
+        ambientOscillator.type =
+            "sine";
+
+
+        ambientOscillator.frequency.value =
+            84;
+
+
+        ambientGain.gain.value =
+            0.007;
+
+
+        ambientOscillator.connect(
+            ambientGain
+        );
+
+
+        ambientGain.connect(
+            audioContext.destination
+        );
+
+
+        ambientOscillator.start();
+
+    } catch (
+        error
+    ) {
+
+        console.warn(
+            error
+        );
+
+    }
+
+}
+
+
+function stopAmbientAudio() {
+
+    if (
+        ambientOscillator
+    ) {
+
+        try {
+
+            ambientOscillator.stop();
+
+        } catch (
+            error
+        ) {
+
+            console.warn(
+                error
+            );
+
+        }
+
+
+        ambientOscillator =
+            null;
+
+
+        ambientGain =
+            null;
+
+    }
+
+}
+
+
+
+/* ========================================================= */
+/* EFFECTS                                                   */
+/* ========================================================= */
+
+function flashScreen(type) {
+
+    if (
+        !game.settings.effects
+    ) {
+
+        return;
+
+    }
+
+
+    const element =
+        byId(
+            "screenFlash"
+        );
+
+
+    element.className =
+        "screen-flash";
+
+
+    void element.offsetWidth;
+
+
+    element.classList.add(
+        type
+    );
+
+}
+
+
+function shakeScreen() {
+
+    if (
+        !game.settings.effects
+    ) {
+
+        return;
+
+    }
+
+
+    document.body.classList.remove(
+        "screen-shake"
+    );
+
+
+    void document.body.offsetWidth;
+
+
+    document.body.classList.add(
+        "screen-shake"
+    );
+
+
+    setTimeout(
+        () =>
+            document.body.classList.remove(
+                "screen-shake"
+            ),
+        400
+    );
+
+}
+
+
+function showFloatingNumber(
+    text,
+    type =
+        "normal",
+    x =
+        window.innerWidth /
+        2,
+    y =
+        window.innerHeight /
+        2
+) {
+
+    if (
+        !game.settings.floatingNumbers
+    ) {
+
+        return;
+
+    }
+
+
+    const element =
+        document.createElement(
+            "div"
+        );
+
+
+    element.className =
+        `floating-damage ${type}`;
+
+
+    element.textContent =
+        text;
+
+
+    element.style.left =
+        `${x}px`;
+
+
+    element.style.top =
+        `${y}px`;
+
+
+    byId(
+        "damageLayer"
+    ).appendChild(
+        element
+    );
+
+
+    setTimeout(
+        () =>
+            element.remove(),
+        1050
+    );
+
+}
+
+
+function showEnemyHitEffect() {
+
+    const element =
+        byId(
+            "enemySymbol"
+        );
+
+
+    if (
+        !element
+    ) {
+
+        return;
+
+    }
+
+
+    element.classList.remove(
+        "hit"
+    );
+
+
+    void element.offsetWidth;
+
+
+    element.classList.add(
+        "hit"
+    );
+
+}
+
+
+
 /* ========================================================= */
 /* QI                                                        */
 /* ========================================================= */
@@ -3787,8 +4853,9 @@ function addQi(amount) {
 }
 
 
+
 /* ========================================================= */
-/* CULTIVATE                                                 */
+/* MANUAL CULTIVATION                                        */
 /* ========================================================= */
 
 function manuallyCultivate(event) {
@@ -3814,9 +4881,22 @@ function manuallyCultivate(event) {
         );
 
 
-    floatingText(
-        event,
-        `+${formatNumber(amount)} Qi`
+    showFloatingNumber(
+        `+${formatNumber(amount)} Qi`,
+        "qi",
+        event?.clientX ||
+        window.innerWidth /
+        2,
+        event?.clientY ||
+        window.innerHeight /
+        2
+    );
+
+
+    playTone(
+        380,
+        0.06,
+        0.02
     );
 
 
@@ -3829,6 +4909,7 @@ function manuallyCultivate(event) {
     render();
 
 }
+
 
 
 /* ========================================================= */
@@ -3845,6 +4926,7 @@ function attemptBreakthrough() {
             "You cannot breakthrough during combat.",
             "error"
         );
+
 
         return;
 
@@ -3865,15 +4947,20 @@ function attemptBreakthrough() {
             "error"
         );
 
+
         return;
 
     }
 
 
-    if (
+    const success =
         Math.random() *
-        100 >
-        getBreakthroughChance()
+        100 <=
+        getBreakthroughChance();
+
+
+    if (
+        !success
     ) {
 
         game.qi =
@@ -3898,6 +4985,22 @@ function attemptBreakthrough() {
             0;
 
 
+        flashScreen(
+            "red"
+        );
+
+
+        shakeScreen();
+
+
+        playTone(
+            110,
+            0.18,
+            0.04,
+            "sawtooth"
+        );
+
+
         notify(
             "Breakthrough failed. Your meridians were injured.",
             "error"
@@ -3906,7 +5009,9 @@ function attemptBreakthrough() {
 
         saveGame();
 
+
         render();
+
 
         return;
 
@@ -3950,93 +5055,511 @@ function attemptBreakthrough() {
             getMaxHealth();
 
 
+        showBreakthroughAnimation(
+            getRealm().name,
+            STAGES[
+                game.stageIndex
+            ],
+            false
+        );
+
+
         notify(
             `Breakthrough successful — ${STAGES[game.stageIndex]}.`
         );
 
-    } else if (
-        game.realmIndex <
+
+        saveGame();
+
+
+        render();
+
+
+        return;
+
+    }
+
+
+    if (
+        game.realmIndex >=
         REALMS.length -
         1
     ) {
 
-        const next =
-            game.realmIndex +
+        return;
+
+    }
+
+
+    const nextRealm =
+        game.realmIndex +
+        1;
+
+
+    if (
+        TRIBULATION_REALMS.includes(
+            nextRealm
+        )
+    ) {
+
+        game.pendingTribulationRealm =
+            nextRealm;
+
+
+        openTribulationModal();
+
+
+        saveGame();
+
+
+        render();
+
+
+        return;
+
+    }
+
+
+    completeRealmBreakthrough(
+        nextRealm
+    );
+
+}
+
+
+function completeRealmBreakthrough(
+    nextRealm
+) {
+
+    game.realmIndex =
+        nextRealm;
+
+
+    game.stageIndex =
+        0;
+
+
+    game.statPoints +=
+        8;
+
+
+    game.attributes.strength +=
+        3;
+
+
+    game.attributes.constitution +=
+        3;
+
+
+    game.attributes.soul +=
+        3;
+
+
+    game.health =
+        getMaxHealth();
+
+
+    game.spiritStones +=
+        150 *
+        Math.pow(
+            2,
+            game.realmIndex
+        );
+
+
+    addLog(
+        `Jiang Chue entered the ${getRealm().name} Realm.`,
+        true
+    );
+
+
+    showBreakthroughAnimation(
+        getRealm().name,
+        STAGES[
+            game.stageIndex
+        ],
+        false
+    );
+
+
+    notify(
+        `Realm breakthrough — ${getRealm().name}!`
+    );
+
+
+    playBreakthroughSound();
+
+
+    saveGame();
+
+
+    render();
+
+}
+
+
+
+/* ========================================================= */
+/* TRIBULATION                                               */
+/* ========================================================= */
+
+function getTribulationPower() {
+
+    if (
+        game.pendingTribulationRealm ===
+        null
+    ) {
+
+        return 0;
+
+    }
+
+
+    const realm =
+        REALMS[
+            game.pendingTribulationRealm
+        ];
+
+
+    return Math.floor(
+        100 *
+        realm.combat *
+        (
+            1 +
+            game.pendingTribulationRealm *
+            0.18
+        )
+    );
+
+}
+
+
+function getTribulationChance() {
+
+    if (
+        game.pendingTribulationRealm ===
+        null
+    ) {
+
+        return 0;
+
+    }
+
+
+    const power =
+        getCombatPower();
+
+
+    const tribulation =
+        getTribulationPower();
+
+
+    let chance =
+        45 +
+        (
+            power /
+            Math.max(
+                1,
+                tribulation
+            )
+        ) *
+        30;
+
+
+    chance +=
+        game.attributes.constitution *
+        0.12;
+
+
+    if (
+        game.breakthroughPills >
+        0
+    ) {
+
+        chance +=
+            2;
+
+    }
+
+
+    return clamp(
+        chance,
+        20,
+        95
+    );
+
+}
+
+
+function openTribulationModal() {
+
+    const target =
+        game.pendingTribulationRealm;
+
+
+    if (
+        target ===
+        null
+    ) {
+
+        return;
+
+    }
+
+
+    byId(
+        "tribulationNameDisplay"
+    ).textContent =
+        `${REALMS[target].name} Heavenly Thunder`;
+
+
+    byId(
+        "tribulationPowerDisplay"
+    ).textContent =
+        formatNumber(
+            getTribulationPower()
+        );
+
+
+    byId(
+        "tribulationChanceDisplay"
+    ).textContent =
+        `${getTribulationChance().toFixed(1)}%`;
+
+
+    byId(
+        "tribulationModal"
+    ).classList.remove(
+        "hidden"
+    );
+
+}
+
+
+function faceTribulation() {
+
+    if (
+        game.pendingTribulationRealm ===
+        null
+    ) {
+
+        return;
+
+    }
+
+
+    const chance =
+        getTribulationChance();
+
+
+    byId(
+        "tribulationModal"
+    ).classList.add(
+        "hidden"
+    );
+
+
+    flashScreen(
+        "purple"
+    );
+
+
+    shakeScreen();
+
+
+    playTone(
+        95,
+        0.32,
+        0.055,
+        "sawtooth"
+    );
+
+
+    const survived =
+        Math.random() *
+        100 <=
+        chance;
+
+
+    if (
+        survived
+    ) {
+
+        const realm =
+            game.pendingTribulationRealm;
+
+
+        game.pendingTribulationRealm =
+            null;
+
+
+        game.tribulationsSurvived +=
             1;
 
 
-        game.realmIndex =
-            next;
+        completeRealmBreakthrough(
+            realm
+        );
 
 
-        game.stageIndex =
-            0;
-
-
-        game.statPoints +=
-            8;
-
-
-        game.attributes.strength +=
-            3;
-
-
-        game.attributes.constitution +=
-            3;
-
-
-        game.attributes.soul +=
-            3;
-
-
-        game.health =
-            getMaxHealth();
-
-
-        game.spiritStones +=
-            150 *
-            Math.pow(
-                2,
-                game.realmIndex
-            );
-
-
-        if (
-            TRIBULATION_REALMS.includes(
-                game.realmIndex
-            )
-        ) {
-
-            game.tribulationsSurvived +=
-                1;
-
-
-            notify(
-                `⚡ Heavenly Tribulation survived — ${getRealm().name}!`
-            );
-
-        } else {
-
-            notify(
-                `Realm breakthrough — ${getRealm().name}!`
-            );
-
-        }
-
-
-        addLog(
-            `Jiang Chue entered the ${getRealm().name} Realm.`,
+        showBreakthroughAnimation(
+            getRealm().name,
+            "Tribulation Survived",
             true
+        );
+
+
+        notify(
+            `⚡ Heavenly Tribulation survived — ${getRealm().name}!`
+        );
+
+
+        checkAchievements();
+
+
+        return;
+
+    }
+
+
+    game.health =
+        Math.max(
+            1,
+            getMaxHealth() *
+            0.15
+        );
+
+
+    game.pendingTribulationRealm =
+        null;
+
+
+    game.stageIndex =
+        3;
+
+
+    game.qi =
+        getQiRequirement() *
+        0.20;
+
+
+    flashScreen(
+        "red"
+    );
+
+
+    shakeScreen();
+
+
+    notify(
+        "The Heavenly Tribulation shattered your breakthrough. You survived, but failed to advance.",
+        "error"
+    );
+
+
+    addLog(
+        "Heavenly thunder descended. Jiang Chue survived but failed the tribulation.",
+        true
+    );
+
+
+    saveGame();
+
+
+    render();
+
+}
+
+
+function showBreakthroughAnimation(
+    realm,
+    stage,
+    lightning =
+        false
+) {
+
+    const overlay =
+        byId(
+            "breakthroughOverlay"
+        );
+
+
+    byId(
+        "breakthroughRealmText"
+    ).textContent =
+        realm;
+
+
+    byId(
+        "breakthroughStageText"
+    ).textContent =
+        stage;
+
+
+    byId(
+        "breakthroughLabel"
+    ).textContent =
+        lightning
+            ? "HEAVEN DEFIED"
+            : "BREAKTHROUGH";
+
+
+    byId(
+        "breakthroughSymbol"
+    ).textContent =
+        lightning
+            ? "天"
+            : "破";
+
+
+    overlay.classList.remove(
+        "hidden"
+    );
+
+
+    if (
+        lightning
+    ) {
+
+        byId(
+            "breakthroughLightning"
+        ).classList.add(
+            "active"
         );
 
     }
 
 
-    saveGame();
+    flashScreen(
+        lightning
+            ? "purple"
+            : "gold"
+    );
 
-    render();
+
+    playBreakthroughSound();
+
+
+    setTimeout(
+        () => {
+
+            overlay.classList.add(
+                "hidden"
+            );
+
+
+            byId(
+                "breakthroughLightning"
+            ).classList.remove(
+                "active"
+            );
+
+        },
+        2300
+    );
 
 }
+
 
 
 /* ========================================================= */
@@ -4065,11 +5588,16 @@ function upgradeAttribute(stat) {
         1;
 
 
+    playClickSound();
+
+
     saveGame();
+
 
     render();
 
 }
+
 
 
 /* ========================================================= */
@@ -4092,16 +5620,30 @@ function useCultivationPill() {
         1;
 
 
-    addQi(
+    const gain =
         Math.max(
             100,
             getQiRequirement() *
             0.35
-        )
+        );
+
+
+    addQi(
+        gain
     );
 
 
+    showFloatingNumber(
+        `+${formatNumber(gain)} Qi`,
+        "qi"
+    );
+
+
+    playRewardSound();
+
+
     saveGame();
+
 
     render();
 
@@ -4112,15 +5654,7 @@ function useHealingPill() {
 
     if (
         game.healingPills <=
-        0
-    ) {
-
-        return false;
-
-    }
-
-
-    if (
+        0 ||
         game.health >=
         getMaxHealth()
     ) {
@@ -4134,6 +5668,10 @@ function useHealingPill() {
         1;
 
 
+    const before =
+        game.health;
+
+
     game.health =
         Math.min(
             getMaxHealth(),
@@ -4143,9 +5681,29 @@ function useHealingPill() {
         );
 
 
+    const healed =
+        game.health -
+        before;
+
+
+    showFloatingNumber(
+        `+${formatNumber(healed)} HP`,
+        "heal"
+    );
+
+
+    playTone(
+        560,
+        0.1,
+        0.025
+    );
+
+
     saveGame();
 
+
     render();
+
 
     return true;
 
@@ -4179,11 +5737,16 @@ function useBreakthroughPill() {
     );
 
 
+    playRewardSound();
+
+
     saveGame();
+
 
     render();
 
 }
+
 
 
 /* ========================================================= */
@@ -4224,11 +5787,16 @@ function equipTechnique(id) {
         0;
 
 
+    playClickSound();
+
+
     saveGame();
+
 
     render();
 
 }
+
 
 
 /* ========================================================= */
@@ -4330,6 +5898,7 @@ function chooseRarity(
 }
 
 
+
 /* ========================================================= */
 /* WEAPONS                                                   */
 /* ========================================================= */
@@ -4351,7 +5920,7 @@ function generateWeapon(
         ];
 
 
-    return {
+    const weapon = {
 
         id:
             `${Date.now()}-${Math.random()}`,
@@ -4380,6 +5949,14 @@ function generateWeapon(
 
     };
 
+
+    announceRareDrop(
+        weapon
+    );
+
+
+    return weapon;
+
 }
 
 
@@ -4397,7 +5974,11 @@ function equipWeapon(id) {
             id;
 
 
+        playClickSound();
+
+
         saveGame();
+
 
         render();
 
@@ -4406,8 +5987,9 @@ function equipWeapon(id) {
 }
 
 
+
 /* ========================================================= */
-/* ARTIFACT                                                  */
+/* ARTIFACTS                                                 */
 /* ========================================================= */
 
 function generateArtifact(
@@ -4436,7 +6018,7 @@ function generateArtifact(
         ];
 
 
-    return {
+    const artifact = {
 
         id:
             `${Date.now()}-${Math.random()}`,
@@ -4463,6 +6045,14 @@ function generateArtifact(
 
     };
 
+
+    announceRareDrop(
+        artifact
+    );
+
+
+    return artifact;
+
 }
 
 
@@ -4480,7 +6070,11 @@ function equipArtifact(id) {
             id;
 
 
+        playClickSound();
+
+
         saveGame();
+
 
         render();
 
@@ -4489,8 +6083,55 @@ function equipArtifact(id) {
 }
 
 
+function announceRareDrop(item) {
+
+    if (
+        item.rarity ===
+        "Legendary"
+    ) {
+
+        notify(
+            `LEGENDARY TREASURE: ${item.name}`,
+            "legendary"
+        );
+
+
+        playRewardSound();
+
+
+        flashScreen(
+            "gold"
+        );
+
+    }
+
+
+    if (
+        item.rarity ===
+        "Mythic"
+    ) {
+
+        notify(
+            `MYTHIC TREASURE: ${item.name}`,
+            "mythic"
+        );
+
+
+        playBreakthroughSound();
+
+
+        flashScreen(
+            "red"
+        );
+
+    }
+
+}
+
+
+
 /* ========================================================= */
-/* PET                                                       */
+/* PETS                                                      */
 /* ========================================================= */
 
 function hatchSpiritEgg() {
@@ -4504,6 +6145,7 @@ function hatchSpiritEgg() {
             "You do not possess a Spirit Beast Egg.",
             "error"
         );
+
 
         return;
 
@@ -4603,11 +6245,25 @@ function hatchSpiritEgg() {
 
 
     notify(
-        `${template.rarity} Spirit Pet hatched: ${template.name}!`
+        `${template.rarity} Spirit Pet hatched: ${template.name}!`,
+        template.rarity ===
+        "Mythic"
+            ? "mythic"
+            : template.rarity ===
+                "Legendary"
+                ? "legendary"
+                : "success"
     );
 
 
+    playRewardSound();
+
+
+    checkAchievements();
+
+
     saveGame();
+
 
     render();
 
@@ -4620,7 +6276,11 @@ function summonPet(id) {
         id;
 
 
+    playClickSound();
+
+
     saveGame();
+
 
     render();
 
@@ -4670,11 +6330,16 @@ function trainPet(id) {
         1;
 
 
+    playRewardSound();
+
+
     saveGame();
+
 
     render();
 
 }
+
 
 
 /* ========================================================= */
@@ -4718,6 +6383,7 @@ function upgradeCaveBuilding(id) {
             "error"
         );
 
+
         return;
 
     }
@@ -4733,11 +6399,21 @@ function upgradeCaveBuilding(id) {
         1;
 
 
+    playRewardSound();
+
+
+    notify(
+        `${building.name} upgraded to Level ${game.caveBuildings[id]}.`
+    );
+
+
     saveGame();
+
 
     render();
 
 }
+
 
 
 /* ========================================================= */
@@ -4777,6 +6453,9 @@ function selectZone(id) {
 
     game.selectedZone =
         id;
+
+
+    playClickSound();
 
 
     render();
@@ -4870,6 +6549,11 @@ function exploreZone() {
         game.pills +=
             1;
 
+
+        notify(
+            "You discovered a Cultivation Pill."
+        );
+
     } else if (
         roll <
         0.93
@@ -4877,6 +6561,11 @@ function exploreZone() {
 
         game.healingPills +=
             1;
+
+
+        notify(
+            "You discovered a Healing Pill."
+        );
 
     } else if (
         roll <
@@ -4922,7 +6611,11 @@ function exploreZone() {
     }
 
 
+    checkAchievements();
+
+
     saveGame();
+
 
     render();
 
@@ -4994,6 +6687,7 @@ function gatherHerbs(zone) {
     }
 
 }
+
 
 
 /* ========================================================= */
@@ -5096,12 +6790,79 @@ function startBattle(zone) {
         {};
 
 
+    if (
+        boss
+    ) {
+
+        flashScreen(
+            "red"
+        );
+
+
+        shakeScreen();
+
+
+        notify(
+            `⚠ REGION BOSS: ${game.currentEnemy.name}`
+        );
+
+    }
+
+
     addBattleLog(
         `${game.currentEnemy.name} appeared!`
     );
 
 
     render();
+
+}
+
+
+function calculatePlayerDamage(
+    baseMultiplier =
+        1
+) {
+
+    let damage =
+        getCombatPower() *
+        baseMultiplier *
+        (
+            0.85 +
+            Math.random() *
+            0.25
+        );
+
+
+    const critical =
+        Math.random() <
+        getCriticalChance();
+
+
+    if (
+        critical
+    ) {
+
+        damage *=
+            getCriticalMultiplier();
+
+
+        game.criticalHits +=
+            1;
+
+    }
+
+
+    return {
+
+        damage:
+            Math.floor(
+                damage
+            ),
+
+        critical
+
+    };
 
 }
 
@@ -5120,39 +6881,66 @@ function basicAttack(
     }
 
 
-    let damage =
-        getCombatPower() *
-        (
-            0.65 +
-            Math.random() *
-            0.30
-        );
-
-
-    if (
+    let multiplier =
         spiritual
-    ) {
-
-        damage *=
-            1 +
-            game.attributes.soul *
-            0.015;
-
-    }
+            ? (
+                1 +
+                game.attributes.soul *
+                0.015
+            )
+            : 1;
 
 
-    damage =
-        Math.floor(
-            damage
+    const result =
+        calculatePlayerDamage(
+            multiplier
         );
 
 
     game.currentEnemy.health -=
-        damage;
+        result.damage;
+
+
+    playAttackSound();
+
+
+    showEnemyHitEffect();
+
+
+    if (
+        result.critical
+    ) {
+
+        playCritSound();
+
+
+        flashScreen(
+            "gold"
+        );
+
+    }
+
+
+    const enemyRect =
+        byId(
+            "enemySymbol"
+        ).getBoundingClientRect();
+
+
+    showFloatingNumber(
+        `${result.critical ? "CRIT " : ""}-${formatNumber(result.damage)}`,
+        result.critical
+            ? "critical"
+            : "normal",
+        enemyRect.left +
+        enemyRect.width /
+        2,
+        enemyRect.top
+    );
 
 
     addBattleLog(
-        `Jiang Chue dealt ${formatNumber(damage)} damage.`
+        `Jiang Chue dealt ${formatNumber(result.damage)} damage${result.critical ? " CRITICAL!" : "."}`
     );
 
 
@@ -5217,6 +7005,27 @@ function enemyTurn() {
 
 
     reduceSkillCooldowns();
+
+
+    const playerRect =
+        byId(
+            "battlePlayerSymbol"
+        ).getBoundingClientRect();
+
+
+    showFloatingNumber(
+        `-${formatNumber(damage)}`,
+        "enemy",
+        playerRect.left +
+        playerRect.width /
+        2,
+        playerRect.top
+    );
+
+
+    flashScreen(
+        "red"
+    );
 
 
     addBattleLog(
@@ -5353,11 +7162,23 @@ function winBattle() {
     );
 
 
+    notify(
+        `${enemy.name} defeated! +${formatNumber(reward)} Spirit Stones.`
+    );
+
+
+    playRewardSound();
+
+
     game.currentEnemy =
         null;
 
 
+    checkAchievements();
+
+
     saveGame();
+
 
     render();
 
@@ -5389,6 +7210,14 @@ function loseBattle() {
     stopAutoBattle();
 
 
+    flashScreen(
+        "red"
+    );
+
+
+    shakeScreen();
+
+
     notify(
         "You were defeated. Auto-Battle stopped.",
         "error"
@@ -5396,6 +7225,7 @@ function loseBattle() {
 
 
     saveGame();
+
 
     render();
 
@@ -5408,9 +7238,15 @@ function fleeBattle() {
         null;
 
 
+    addBattleLog(
+        "Jiang Chue withdrew from battle."
+    );
+
+
     render();
 
 }
+
 
 
 /* ========================================================= */
@@ -5554,15 +7390,14 @@ function useMartialSkill(id) {
         0.004;
 
 
-    const damage =
-        Math.floor(
-            getCombatPower() *
+    const result =
+        calculatePlayerDamage(
             multiplier
         );
 
 
     game.currentEnemy.health -=
-        damage;
+        result.damage;
 
 
     game.skillMastery[
@@ -5586,8 +7421,46 @@ function useMartialSkill(id) {
         1;
 
 
+    playAttackSound();
+
+
+    showEnemyHitEffect();
+
+
+    if (
+        result.critical
+    ) {
+
+        playCritSound();
+
+
+        flashScreen(
+            "gold"
+        );
+
+    }
+
+
+    const rect =
+        byId(
+            "enemySymbol"
+        ).getBoundingClientRect();
+
+
+    showFloatingNumber(
+        `${result.critical ? "CRIT " : ""}-${formatNumber(result.damage)}`,
+        result.critical
+            ? "critical"
+            : "normal",
+        rect.left +
+        rect.width /
+        2,
+        rect.top
+    );
+
+
     addBattleLog(
-        `${skill.name} dealt ${formatNumber(damage)} damage.`
+        `${skill.name} dealt ${formatNumber(result.damage)} damage${result.critical ? " CRITICAL!" : "."}`
     );
 
 
@@ -5610,6 +7483,7 @@ function useMartialSkill(id) {
     render();
 
 }
+
 
 
 /* ========================================================= */
@@ -5635,7 +7509,11 @@ function toggleAutoBattle() {
     }
 
 
+    playClickSound();
+
+
     saveGame();
+
 
     render();
 
@@ -5772,22 +7650,10 @@ function autoBattleStep() {
 }
 
 
+
 /* ========================================================= */
 /* STORY                                                     */
 /* ========================================================= */
-
-function getCurrentStoryChapter() {
-
-    return STORY_CHAPTERS[
-        Math.min(
-            game.storyChapter,
-            STORY_CHAPTERS.length -
-            1
-        )
-    ];
-
-}
-
 
 function advanceStory() {
 
@@ -5834,20 +7700,28 @@ function advanceStory() {
     );
 
 
+    playRewardSound();
+
+
     addWorldRumor(
         `${chapter.title} was completed by Jiang Chue.`
     );
 
 
+    checkAchievements();
+
+
     saveGame();
+
 
     render();
 
 }
 
 
+
 /* ========================================================= */
-/* NPC                                                       */
+/* NPCS                                                      */
 /* ========================================================= */
 
 function openNpc(id) {
@@ -6035,9 +7909,14 @@ function talkNpc() {
     );
 
 
+    playClickSound();
+
+
     updateNpcModal();
 
+
     saveGame();
+
 
     renderWorld();
 
@@ -6090,9 +7969,14 @@ function giftNpc() {
     );
 
 
+    playRewardSound();
+
+
     updateNpcModal();
 
+
     saveGame();
+
 
     render();
 
@@ -6127,9 +8011,13 @@ function checkNpcReward(npc) {
             `${npc.name} gave you a special reward.`
         );
 
+
+        playRewardSound();
+
     }
 
 }
+
 
 
 /* ========================================================= */
@@ -6205,14 +8093,12 @@ function enterSecretRealm(id) {
         );
 
 
-    const ratio =
-        playerPower /
-        requiredPower;
-
-
     let chance =
         35 +
-        ratio *
+        (
+            playerPower /
+            requiredPower
+        ) *
         40;
 
 
@@ -6222,6 +8108,11 @@ function enterSecretRealm(id) {
             15,
             95
         );
+
+
+    flashScreen(
+        "purple"
+    );
 
 
     if (
@@ -6288,14 +8179,21 @@ function enterSecretRealm(id) {
 
 
             notify(
-                `Ancient Inheritance obtained: ${realm.inheritance}!`
+                `Ancient Inheritance obtained: ${realm.inheritance}!`,
+                "achievement"
             );
+
+
+            playBreakthroughSound();
 
         } else {
 
             notify(
                 `${realm.name} cleared! +${formatNumber(stones)} Spirit Stones.`
             );
+
+
+            playRewardSound();
 
         }
 
@@ -6313,6 +8211,9 @@ function enterSecretRealm(id) {
             );
 
 
+        shakeScreen();
+
+
         notify(
             `${realm.name} expedition failed.`,
             "error"
@@ -6321,11 +8222,16 @@ function enterSecretRealm(id) {
     }
 
 
+    checkAchievements();
+
+
     saveGame();
+
 
     render();
 
 }
+
 
 
 /* ========================================================= */
@@ -6375,12 +8281,7 @@ function generateTournamentOpponents() {
 
         {
             name:
-                TOURNAMENT_NAMES[
-                    Math.floor(
-                        Math.random() *
-                        TOURNAMENT_NAMES.length
-                    )
-                ],
+                randomTournamentName(),
 
             power:
                 Math.floor(
@@ -6398,12 +8299,7 @@ function generateTournamentOpponents() {
 
         {
             name:
-                TOURNAMENT_NAMES[
-                    Math.floor(
-                        Math.random() *
-                        TOURNAMENT_NAMES.length
-                    )
-                ],
+                randomTournamentName(),
 
             power:
                 Math.floor(
@@ -6421,12 +8317,7 @@ function generateTournamentOpponents() {
 
         {
             name:
-                TOURNAMENT_NAMES[
-                    Math.floor(
-                        Math.random() *
-                        TOURNAMENT_NAMES.length
-                    )
-                ],
+                randomTournamentName(),
 
             power:
                 Math.floor(
@@ -6442,6 +8333,18 @@ function generateTournamentOpponents() {
                 140
         }
 
+    ];
+
+}
+
+
+function randomTournamentName() {
+
+    return TOURNAMENT_NAMES[
+        Math.floor(
+            Math.random() *
+            TOURNAMENT_NAMES.length
+        )
     ];
 
 }
@@ -6497,6 +8400,14 @@ function fightTournamentOpponent(
             5;
 
 
+        flashScreen(
+            "gold"
+        );
+
+
+        playRewardSound();
+
+
         notify(
             `You defeated ${name}! +${reward} Ranking Points.`
         );
@@ -6518,6 +8429,11 @@ function fightTournamentOpponent(
             );
 
 
+        flashScreen(
+            "red"
+        );
+
+
         notify(
             `${name} defeated you in the arena.`,
             "error"
@@ -6526,11 +8442,16 @@ function fightTournamentOpponent(
     }
 
 
+    checkAchievements();
+
+
     saveGame();
+
 
     render();
 
 }
+
 
 
 /* ========================================================= */
@@ -6544,9 +8465,9 @@ function initializeAuction() {
             game.auctionListings
         ) ||
         game.auctionListings.length ===
-        0 ||
+            0 ||
         Date.now() >=
-        game.auctionRefreshAt
+            game.auctionRefreshAt
     ) {
 
         refreshAuctionListings(
@@ -6577,7 +8498,7 @@ function refreshAuctionListings(
         ) {
 
             notify(
-                "You need 250 Spirit Stones to manually refresh the auction.",
+                "You need 250 Spirit Stones to refresh the auction.",
                 "error"
             );
 
@@ -6704,6 +8625,7 @@ function refreshAuctionListings(
 
     saveGame();
 
+
     render();
 
 }
@@ -6804,11 +8726,16 @@ function buyAuctionListing(id) {
     );
 
 
+    playRewardSound();
+
+
     saveGame();
+
 
     render();
 
 }
+
 
 
 /* ========================================================= */
@@ -6823,9 +8750,9 @@ function initializeWorldBoss() {
 
     if (
         game.worldBossDate ===
-        date &&
+            date &&
         game.worldBossMaxHealth >
-        0
+            0
     ) {
 
         return;
@@ -6913,19 +8840,16 @@ function attackWorldBoss() {
     }
 
 
-    let damage =
-        getCombatPower() *
-        (
+    const result =
+        calculatePlayerDamage(
             2 +
             Math.random() *
             1.5
         );
 
 
-    damage =
-        Math.floor(
-            damage
-        );
+    const damage =
+        result.damage;
 
 
     game.worldBossDamage +=
@@ -6944,6 +8868,42 @@ function attackWorldBoss() {
         );
 
 
+    const rect =
+        byId(
+            "worldBossSymbol"
+        ).getBoundingClientRect();
+
+
+    showFloatingNumber(
+        `${result.critical ? "CRIT " : ""}-${formatNumber(damage)}`,
+        result.critical
+            ? "critical"
+            : "normal",
+        rect.left +
+        rect.width /
+        2,
+        rect.top
+    );
+
+
+    if (
+        result.critical
+    ) {
+
+        playCritSound();
+
+    } else {
+
+        playAttackSound();
+
+    }
+
+
+    flashScreen(
+        "purple"
+    );
+
+
     if (
         game.worldBossHealth <=
         0
@@ -6958,24 +8918,26 @@ function attackWorldBoss() {
 
 
         notify(
-            "The World Boss has fallen!"
+            "The World Boss has fallen!",
+            "achievement"
         );
+
+
+        playBreakthroughSound();
 
 
         addWorldRumor(
             `Jiang Chue helped defeat ${WORLD_BOSSES[game.worldBossIndex].name}.`
         );
 
-    } else {
-
-        notify(
-            `You dealt ${formatNumber(damage)} damage to the World Boss.`
-        );
-
     }
 
 
+    checkAchievements();
+
+
     saveGame();
+
 
     render();
 
@@ -7051,6 +9013,9 @@ function claimWorldBossReward() {
         true;
 
 
+    playRewardSound();
+
+
     notify(
         `World Boss reward claimed: ${formatNumber(stones)} Spirit Stones.`
     );
@@ -7058,9 +9023,11 @@ function claimWorldBossReward() {
 
     saveGame();
 
+
     render();
 
 }
+
 
 
 /* ========================================================= */
@@ -7192,11 +9159,15 @@ function refineRecipe(id) {
         0.1;
 
 
-    if (
+    const success =
         Math.random() *
         100 <=
         recipe.chance +
-        bonus
+        bonus;
+
+
+    if (
+        success
     ) {
 
         game.alchemySuccess +=
@@ -7251,6 +9222,14 @@ function refineRecipe(id) {
         }
 
 
+        flashScreen(
+            "gold"
+        );
+
+
+        playRewardSound();
+
+
         notify(
             `${recipe.name} refinement succeeded.`
         );
@@ -7265,6 +9244,18 @@ function refineRecipe(id) {
             5;
 
 
+        flashScreen(
+            "red"
+        );
+
+
+        playTone(
+            120,
+            0.12,
+            0.025
+        );
+
+
         notify(
             `${recipe.name} refinement failed.`,
             "error"
@@ -7273,15 +9264,20 @@ function refineRecipe(id) {
     }
 
 
+    checkAchievements();
+
+
     saveGame();
+
 
     render();
 
 }
 
 
+
 /* ========================================================= */
-/* RANDOM HERBS                                              */
+/* HERBS                                                     */
 /* ========================================================= */
 
 function grantRandomHerbs(amount) {
@@ -7314,6 +9310,7 @@ function grantRandomHerbs(amount) {
     }
 
 }
+
 
 
 /* ========================================================= */
@@ -7424,11 +9421,16 @@ function claimSectDuty(id) {
         );
 
 
+    playRewardSound();
+
+
     saveGame();
+
 
     render();
 
 }
+
 
 
 /* ========================================================= */
@@ -7443,6 +9445,15 @@ function buySectItem(id) {
                 entry.id ===
                 id
         );
+
+
+    if (
+        !item
+    ) {
+
+        return;
+
+    }
 
 
     const cost =
@@ -7537,11 +9548,16 @@ function buySectItem(id) {
     }
 
 
+    playRewardSound();
+
+
     saveGame();
+
 
     render();
 
 }
+
 
 
 /* ========================================================= */
@@ -7634,11 +9650,21 @@ function claimMission(id) {
         true;
 
 
+    playRewardSound();
+
+
+    notify(
+        `${mission.name} reward claimed.`
+    );
+
+
     saveGame();
+
 
     render();
 
 }
+
 
 
 /* ========================================================= */
@@ -7731,6 +9757,14 @@ function claimDailyReward() {
     }
 
 
+    flashScreen(
+        "gold"
+    );
+
+
+    playRewardSound();
+
+
     notify(
         `Day ${game.dailyStreak} reward claimed.`
     );
@@ -7738,9 +9772,193 @@ function claimDailyReward() {
 
     saveGame();
 
+
     render();
 
 }
+
+
+
+/* ========================================================= */
+/* ACHIEVEMENTS                                              */
+/* ========================================================= */
+
+function isAchievementComplete(achievement) {
+
+    return (
+        achievement.progress() >=
+        achievement.target
+    );
+
+}
+
+
+function isAchievementClaimed(id) {
+
+    return Boolean(
+        game.achievementsClaimed[
+            id
+        ]
+    );
+
+}
+
+
+function getUnclaimedAchievementCount() {
+
+    return ACHIEVEMENTS.filter(
+        achievement =>
+            isAchievementComplete(
+                achievement
+            ) &&
+            !isAchievementClaimed(
+                achievement.id
+            )
+    ).length;
+
+}
+
+
+function getAchievementPoints() {
+
+    return ACHIEVEMENTS
+        .filter(
+            achievement =>
+                isAchievementClaimed(
+                    achievement.id
+                )
+        )
+        .reduce(
+            (
+                total,
+                achievement
+            ) =>
+                total +
+                achievement.points,
+            0
+        );
+
+}
+
+
+function claimAchievement(id) {
+
+    const achievement =
+        ACHIEVEMENTS.find(
+            item =>
+                item.id ===
+                id
+        );
+
+
+    if (
+        !achievement ||
+        !isAchievementComplete(
+            achievement
+        ) ||
+        isAchievementClaimed(
+            id
+        )
+    ) {
+
+        return;
+
+    }
+
+
+    game.achievementsClaimed[
+        id
+    ] =
+        true;
+
+
+    game.spiritStones +=
+        achievement.rewardStones;
+
+
+    flashScreen(
+        "gold"
+    );
+
+
+    playRewardSound();
+
+
+    notify(
+        `Achievement completed: ${achievement.name}`,
+        "achievement"
+    );
+
+
+    saveGame();
+
+
+    render();
+
+}
+
+
+function checkAchievements() {
+
+    const count =
+        getUnclaimedAchievementCount();
+
+
+    if (
+        count >
+        0
+    ) {
+
+        byId(
+            "achievementBadge"
+        ).classList.remove(
+            "hidden"
+        );
+
+    }
+
+}
+
+
+
+/* ========================================================= */
+/* TITLES                                                    */
+/* ========================================================= */
+
+function equipTitle(id) {
+
+    const title =
+        PLAYER_TITLES.find(
+            item =>
+                item.id ===
+                id
+        );
+
+
+    if (
+        !title ||
+        !title.unlock()
+    ) {
+
+        return;
+
+    }
+
+
+    game.activeTitle =
+        id;
+
+
+    playClickSound();
+
+
+    saveGame();
+
+
+    render();
+
+}
+
 
 
 /* ========================================================= */
@@ -7801,10 +10019,14 @@ function ascend() {
     }
 
 
+    const confirmed =
+        window.confirm(
+            `Reincarnate for ${gain} Dao Points?\n\nMost cultivation progress will reset. Dao upgrades and reincarnation history remain permanent.`
+        );
+
+
     if (
-        !window.confirm(
-            `Reincarnate for ${gain} Dao Points?\n\nNormal cultivation progress will reset. Dao upgrades remain permanent.`
-        )
+        !confirmed
     ) {
 
         return;
@@ -7828,6 +10050,14 @@ function ascend() {
 
         daoUpgrades: {
             ...game.daoUpgrades
+        },
+
+        achievementsClaimed: {
+            ...game.achievementsClaimed
+        },
+
+        settings: {
+            ...game.settings
         }
 
     };
@@ -7853,8 +10083,37 @@ function ascend() {
         permanent.daoUpgrades;
 
 
+    game.achievementsClaimed =
+        permanent.achievementsClaimed;
+
+
+    game.settings =
+        permanent.settings;
+
+
     game.health =
         getMaxHealth();
+
+
+    flashScreen(
+        "purple"
+    );
+
+
+    showBreakthroughAnimation(
+        "REINCARNATION",
+        `Life ${game.reincarnations + 1}`,
+        true
+    );
+
+
+    notify(
+        `Reincarnation complete. +${gain} Dao Points.`,
+        "achievement"
+    );
+
+
+    checkAchievements();
 
 
     saveGame();
@@ -7862,11 +10121,6 @@ function ascend() {
 
     openPage(
         "cultivationPage"
-    );
-
-
-    notify(
-        `Reincarnation complete. +${gain} Dao Points.`
     );
 
 }
@@ -7918,11 +10172,16 @@ function upgradeDao(id) {
         1;
 
 
+    playRewardSound();
+
+
     saveGame();
+
 
     render();
 
 }
+
 
 
 /* ========================================================= */
@@ -7977,9 +10236,11 @@ function gameTick() {
 
     renderCore();
 
+
     renderAuctionTimer();
 
 }
+
 
 
 /* ========================================================= */
@@ -8112,7 +10373,14 @@ function claimOfflineProgress() {
     );
 
 
+    playRewardSound();
+
+
+    checkAchievements();
+
+
     saveGame();
+
 
     render();
 
@@ -8141,6 +10409,7 @@ function formatDuration(seconds) {
     return `${Math.floor(minutes / 60)}h ${minutes % 60}m`;
 
 }
+
 
 
 /* ========================================================= */
@@ -8213,6 +10482,7 @@ function addWorldRumor(message) {
 }
 
 
+
 /* ========================================================= */
 /* NAVIGATION                                                */
 /* ========================================================= */
@@ -8255,9 +10525,13 @@ function openPage(pageId) {
         );
 
 
+    playClickSound();
+
+
     render();
 
 }
+
 
 
 /* ========================================================= */
@@ -8290,6 +10564,32 @@ function renderCore() {
                     value,
                 0
             );
+
+
+    byId(
+        "topTitleDisplay"
+    ).textContent =
+        getActiveTitle().name;
+
+
+    byId(
+        "topRealmDisplay"
+    ).textContent =
+        `${getRealm().name} · ${STAGES[game.stageIndex]}`;
+
+
+    byId(
+        "topCombatDisplay"
+    ).textContent =
+        formatNumber(
+            getCombatPower()
+        );
+
+
+    byId(
+        "topQiDisplay"
+    ).textContent =
+        `${formatNumber(getQiPerSecond())}/s`;
 
 
     byId(
@@ -8344,6 +10644,12 @@ function renderCore() {
         "playerNameDisplay"
     ).textContent =
         game.playerName;
+
+
+    byId(
+        "playerTitleDisplay"
+    ).textContent =
+        getActiveTitle().name;
 
 
     byId(
@@ -8410,6 +10716,12 @@ function renderCore() {
         "attributePointDisplay"
     ).textContent =
         game.statPoints;
+
+
+    byId(
+        "critChanceDisplay"
+    ).textContent =
+        `${(getCriticalChance() * 100).toFixed(1)}%`;
 
 
     byId(
@@ -8491,6 +10803,14 @@ function renderCore() {
 
 
     byId(
+        "equippedWeaponName"
+    ).className =
+        weapon
+            ? `rarity-${weapon.rarity.toLowerCase()}`
+            : "";
+
+
+    byId(
         "equippedWeaponStats"
     ).textContent =
         weapon
@@ -8508,6 +10828,14 @@ function renderCore() {
         artifact
             ? `${artifact.rarity} ${artifact.name}`
             : "None";
+
+
+    byId(
+        "equippedArtifactName"
+    ).className =
+        artifact
+            ? `rarity-${artifact.rarity.toLowerCase()}`
+            : "";
 
 
     byId(
@@ -8531,7 +10859,7 @@ function renderCore() {
 
 
     byId(
-        "nextRealmWarning"
+        "tribulationWarning"
     ).classList.toggle(
         "hidden",
         !tribulationNext
@@ -8557,6 +10885,25 @@ function renderCore() {
     );
 
 
+    const achievementCount =
+        getUnclaimedAchievementCount();
+
+
+    byId(
+        "achievementBadge"
+    ).textContent =
+        achievementCount;
+
+
+    byId(
+        "achievementBadge"
+    ).classList.toggle(
+        "hidden",
+        achievementCount <=
+        0
+    );
+
+
     byId(
         "signInButton"
     ).disabled =
@@ -8577,6 +10924,7 @@ function renderCore() {
         game.dailyStreak;
 
 }
+
 
 
 /* ========================================================= */
@@ -8628,7 +10976,7 @@ function renderActivePet() {
                     ${pet.name}
                 </h3>
 
-                <div class="pet-rarity">
+                <div class="pet-rarity rarity-${pet.rarity.toLowerCase()}">
                     ${pet.rarity} • Level ${pet.level}
                 </div>
 
@@ -8644,6 +10992,7 @@ function renderActivePet() {
         `;
 
 }
+
 
 
 /* ========================================================= */
@@ -8749,8 +11098,9 @@ function renderTechniques() {
 }
 
 
+
 /* ========================================================= */
-/* MARTIAL SKILLS                                            */
+/* MARTIAL SKILL RENDER                                      */
 /* ========================================================= */
 
 function renderMartialSkills() {
@@ -8845,8 +11195,9 @@ function renderMartialSkills() {
 }
 
 
+
 /* ========================================================= */
-/* COMBAT SKILL BUTTONS                                      */
+/* COMBAT SKILLS                                             */
 /* ========================================================= */
 
 function renderCombatSkills() {
@@ -8929,6 +11280,7 @@ function renderCombatSkills() {
 }
 
 
+
 /* ========================================================= */
 /* ADVENTURE RENDER                                          */
 /* ========================================================= */
@@ -8969,6 +11321,12 @@ function renderAdventure() {
         formatNumber(
             getCombatPower()
         );
+
+
+    byId(
+        "battleCritChance"
+    ).textContent =
+        `${(getCriticalChance() * 100).toFixed(1)}%`;
 
 
     byId(
@@ -9029,11 +11387,20 @@ function renderAdventure() {
         game.expeditions;
 
 
+    byId(
+        "criticalHitsDisplay"
+    ).textContent =
+        game.criticalHits;
+
+
     renderZones();
+
 
     renderMissions();
 
+
     renderBattleLog();
+
 
     renderZoneProgress();
 
@@ -9135,6 +11502,7 @@ function renderAdventure() {
 }
 
 
+
 /* ========================================================= */
 /* ZONES                                                     */
 /* ========================================================= */
@@ -9221,6 +11589,7 @@ function renderZones() {
 }
 
 
+
 /* ========================================================= */
 /* MISSIONS                                                  */
 /* ========================================================= */
@@ -9299,6 +11668,7 @@ function renderMissions() {
 }
 
 
+
 /* ========================================================= */
 /* BATTLE LOG                                                */
 /* ========================================================= */
@@ -9336,6 +11706,7 @@ function renderBattleLog() {
             `;
 
 }
+
 
 
 /* ========================================================= */
@@ -9379,8 +11750,9 @@ function renderZoneProgress() {
 }
 
 
+
 /* ========================================================= */
-/* WORLD / STORY                                             */
+/* WORLD                                                     */
 /* ========================================================= */
 
 function renderWorld() {
@@ -9399,7 +11771,7 @@ function renderWorld() {
         byId(
             "storyChapterText"
         ).textContent =
-            "The known chapters of Jiang Chue's mortal journey have been completed. Greater mysteries await beyond the Immortal Realm.";
+            "The known chapters of Jiang Chue's mortal journey are complete. Greater mysteries await beyond the Immortal Realm.";
 
 
         byId(
@@ -9449,7 +11821,9 @@ function renderWorld() {
 
     renderNpcList();
 
+
     renderRelationships();
+
 
     renderWorldRumors();
 
@@ -9480,12 +11854,18 @@ function renderWorld() {
             </p>
 
             <p>
-                World Bosses Defeated:
-                ${game.worldBossKills}
+                Heavenly Tribulations Survived:
+                ${game.tribulationsSurvived}
+            </p>
+
+            <p>
+                Achievement Points:
+                ${getAchievementPoints()}
             </p>
         `;
 
 }
+
 
 
 /* ========================================================= */
@@ -9575,8 +11955,9 @@ function renderNpcList() {
 }
 
 
+
 /* ========================================================= */
-/* RELATIONSHIPS                                             */
+/* RELATIONSHIP RENDER                                       */
 /* ========================================================= */
 
 function renderRelationships() {
@@ -9670,8 +12051,9 @@ function renderRelationships() {
 }
 
 
+
 /* ========================================================= */
-/* RUMORS                                                    */
+/* WORLD RUMORS                                              */
 /* ========================================================= */
 
 function renderWorldRumors() {
@@ -9719,6 +12101,7 @@ function renderWorldRumors() {
             `;
 
 }
+
 
 
 /* ========================================================= */
@@ -9867,6 +12250,7 @@ function renderSecretRealms() {
 }
 
 
+
 /* ========================================================= */
 /* PET RENDER                                                */
 /* ========================================================= */
@@ -9941,7 +12325,7 @@ function renderPets() {
                             ${pet.name}
                         </h3>
 
-                        <div class="pet-rarity">
+                        <div class="pet-rarity rarity-${pet.rarity.toLowerCase()}">
                             ${pet.rarity}
                             • Level ${pet.level}
                         </div>
@@ -10044,6 +12428,7 @@ function renderPets() {
             `;
 
 }
+
 
 
 /* ========================================================= */
@@ -10179,11 +12564,12 @@ function renderCave() {
             </p>
 
             <p>
-                Higher Alchemy Chamber levels generate more herbs while offline.
+                Higher Alchemy Chamber levels generate additional herbs.
             </p>
         `;
 
 }
+
 
 
 /* ========================================================= */
@@ -10260,6 +12646,7 @@ function renderSect() {
 
     renderSectTreasury();
 
+
     renderSectDuties();
 
 
@@ -10284,10 +12671,6 @@ function renderSect() {
 
 }
 
-
-/* ========================================================= */
-/* SECT TREASURY RENDER                                      */
-/* ========================================================= */
 
 function renderSectTreasury() {
 
@@ -10360,10 +12743,6 @@ function renderSectTreasury() {
 }
 
 
-/* ========================================================= */
-/* DUTY RENDER                                               */
-/* ========================================================= */
-
 function renderSectDuties() {
 
     const container =
@@ -10430,6 +12809,7 @@ function renderSectDuties() {
         );
 
 }
+
 
 
 /* ========================================================= */
@@ -10551,12 +12931,7 @@ function renderTournament() {
             </h3>
 
             <p>
-                Tournament victories grant Ranking Points,
-                Sect Contribution and Spirit Stones.
-            </p>
-
-            <p>
-                Higher ranks increase your prestige within the Azure Cloud Sect.
+                Victories grant Ranking Points, Sect Contribution and Spirit Stones.
             </p>
 
             <p>
@@ -10566,6 +12941,7 @@ function renderTournament() {
         `;
 
 }
+
 
 
 /* ========================================================= */
@@ -10758,6 +13134,7 @@ function renderAlchemy() {
 }
 
 
+
 /* ========================================================= */
 /* AUCTION RENDER                                            */
 /* ========================================================= */
@@ -10881,10 +13258,6 @@ function renderAuction() {
 }
 
 
-/* ========================================================= */
-/* AUCTION TIMER                                             */
-/* ========================================================= */
-
 function renderAuctionTimer() {
 
     if (
@@ -10926,6 +13299,7 @@ function renderAuctionTimer() {
         `${String(minutes).padStart(2, "0")}:${String(seconds % 60).padStart(2, "0")}`;
 
 }
+
 
 
 /* ========================================================= */
@@ -11030,12 +13404,12 @@ function renderWorldBoss() {
             </p>
 
             <p>
-                10% boss contribution:
+                10% contribution:
                 Guaranteed Rare Artifact
             </p>
 
             <p>
-                25% boss contribution:
+                25% contribution:
                 +1 Secret Realm Token
             </p>
 
@@ -11046,6 +13420,226 @@ function renderWorldBoss() {
         `;
 
 }
+
+
+
+/* ========================================================= */
+/* ACHIEVEMENT RENDER                                        */
+/* ========================================================= */
+
+function renderAchievements() {
+
+    const completed =
+        ACHIEVEMENTS.filter(
+            achievement =>
+                isAchievementClaimed(
+                    achievement.id
+                )
+        ).length;
+
+
+    byId(
+        "achievementCompletedDisplay"
+    ).textContent =
+        completed;
+
+
+    byId(
+        "achievementTotalDisplay"
+    ).textContent =
+        ACHIEVEMENTS.length;
+
+
+    byId(
+        "achievementPointDisplay"
+    ).textContent =
+        getAchievementPoints();
+
+
+    const container =
+        byId(
+            "achievementList"
+        );
+
+
+    container.innerHTML =
+        "";
+
+
+    ACHIEVEMENTS.forEach(
+        achievement => {
+
+            const progress =
+                achievement.progress();
+
+
+            const complete =
+                isAchievementComplete(
+                    achievement
+                );
+
+
+            const claimed =
+                isAchievementClaimed(
+                    achievement.id
+                );
+
+
+            const card =
+                document.createElement(
+                    "div"
+                );
+
+
+            card.className =
+                `achievement-card ${
+                    claimed
+                        ? "claimed"
+                        : complete
+                            ? "unlocked"
+                            : "locked"
+                }`;
+
+
+            card.innerHTML =
+                `
+                    <div>
+
+                        <h3>
+                            ${achievement.name}
+                        </h3>
+
+                        <p>
+                            ${achievement.description}
+                        </p>
+
+                        <div class="achievement-progress">
+                            ${formatNumber(Math.min(progress, achievement.target))}
+                            /
+                            ${formatNumber(achievement.target)}
+                            • ${achievement.points} AP
+                            • Reward ${formatNumber(achievement.rewardStones)} Stones
+                        </div>
+
+                    </div>
+
+                    <button
+                        ${!complete || claimed ? "disabled" : ""}
+                    >
+                        ${
+                            claimed
+                                ? "Claimed"
+                                : complete
+                                    ? "Claim"
+                                    : "Locked"
+                        }
+                    </button>
+                `;
+
+
+            card
+                .querySelector(
+                    "button"
+                )
+                .onclick =
+                    () =>
+                        claimAchievement(
+                            achievement.id
+                        );
+
+
+            container.appendChild(
+                card
+            );
+
+        }
+    );
+
+
+    const titleContainer =
+        byId(
+            "titleList"
+        );
+
+
+    titleContainer.innerHTML =
+        "";
+
+
+    PLAYER_TITLES.forEach(
+        title => {
+
+            const unlocked =
+                title.unlock();
+
+
+            const active =
+                game.activeTitle ===
+                title.id;
+
+
+            const card =
+                document.createElement(
+                    "div"
+                );
+
+
+            card.className =
+                `title-card ${
+                    active
+                        ? "active-title"
+                        : ""
+                } ${
+                    !unlocked
+                        ? "locked"
+                        : ""
+                }`;
+
+
+            card.innerHTML =
+                `
+                    <h3>
+                        ${title.name}
+                    </h3>
+
+                    <p>
+                        ${
+                            active
+                                ? "Currently equipped."
+                                : unlocked
+                                    ? "Unlocked."
+                                    : "Locked."
+                        }
+                    </p>
+
+                    <button
+                        ${!unlocked || active ? "disabled" : ""}
+                    >
+                        ${active ? "Equipped" : unlocked ? "Equip" : "Locked"}
+                    </button>
+                `;
+
+
+            card
+                .querySelector(
+                    "button"
+                )
+                .onclick =
+                    () =>
+                        equipTitle(
+                            title.id
+                        );
+
+
+            titleContainer.appendChild(
+                card
+            );
+
+        }
+    );
+
+}
+
 
 
 /* ========================================================= */
@@ -11189,8 +13783,9 @@ function renderAscension() {
 }
 
 
+
 /* ========================================================= */
-/* EQUIPMENT                                                 */
+/* EQUIPMENT RENDER                                          */
 /* ========================================================= */
 
 function renderEquipment() {
@@ -11380,6 +13975,7 @@ function renderEquipment() {
 }
 
 
+
 /* ========================================================= */
 /* STATUS                                                    */
 /* ========================================================= */
@@ -11390,6 +13986,12 @@ function renderStatus() {
         "statusNameDisplay"
     ).textContent =
         game.playerName;
+
+
+    byId(
+        "statusTitleDisplay"
+    ).textContent =
+        getActiveTitle().name;
 
 
     byId(
@@ -11449,7 +14051,7 @@ function renderStatus() {
     byId(
         "statusStoryDisplay"
     ).textContent =
-        `${Math.min(game.storyChapter + 1, STORY_CHAPTERS.length)} / ${STORY_CHAPTERS.length}`;
+        `${Math.min(game.storyChapter, STORY_CHAPTERS.length)} / ${STORY_CHAPTERS.length}`;
 
 
     byId(
@@ -11457,7 +14059,25 @@ function renderStatus() {
     ).textContent =
         getTournamentRank().name;
 
+
+    byId(
+        "statusSecretDisplay"
+    ).textContent =
+        game.secretClears;
+
+
+    byId(
+        "statusAchievementDisplay"
+    ).textContent =
+        `${Object.keys(game.achievementsClaimed).filter(
+            id =>
+                game.achievementsClaimed[
+                    id
+                ]
+        ).length} / ${ACHIEVEMENTS.length}`;
+
 }
+
 
 
 /* ========================================================= */
@@ -11484,6 +14104,89 @@ function renderPills() {
         `×${game.breakthroughPills}`;
 
 }
+
+
+
+/* ========================================================= */
+/* SETTINGS RENDER                                           */
+/* ========================================================= */
+
+function renderSettings() {
+
+    const mappings = [
+
+        [
+            "soundToggleButton",
+            "sound"
+        ],
+
+        [
+            "musicToggleButton",
+            "music"
+        ],
+
+        [
+            "effectsToggleButton",
+            "effects"
+        ],
+
+        [
+            "floatingToggleButton",
+            "floatingNumbers"
+        ],
+
+        [
+            "compactToggleButton",
+            "compact"
+        ]
+
+    ];
+
+
+    mappings.forEach(
+        (
+            [
+                id,
+                key
+            ]
+        ) => {
+
+            const button =
+                byId(
+                    id
+                );
+
+
+            const enabled =
+                Boolean(
+                    game.settings[
+                        key
+                    ]
+                );
+
+
+            button.textContent =
+                enabled
+                    ? "ON"
+                    : "OFF";
+
+
+            button.classList.toggle(
+                "off",
+                !enabled
+            );
+
+        }
+    );
+
+
+    document.body.classList.toggle(
+        "compact-mode",
+        game.settings.compact
+    );
+
+}
+
 
 
 /* ========================================================= */
@@ -11523,6 +14226,7 @@ function renderCultivationLog() {
             );
 
 }
+
 
 
 /* ========================================================= */
@@ -11567,6 +14271,7 @@ function renderRealmPath() {
 }
 
 
+
 /* ========================================================= */
 /* FULL RENDER                                               */
 /* ========================================================= */
@@ -11575,39 +14280,62 @@ function render() {
 
     renderCore();
 
+
     renderTechniques();
+
 
     renderMartialSkills();
 
+
     renderAdventure();
+
 
     renderWorld();
 
+
     renderSecretRealms();
+
 
     renderPets();
 
+
     renderCave();
+
 
     renderSect();
 
+
     renderTournament();
+
 
     renderAlchemy();
 
+
     renderAuction();
+
 
     renderWorldBoss();
 
+
+    renderAchievements();
+
+
     renderAscension();
+
 
     renderCultivationLog();
 
+
     renderRealmPath();
+
 
     renderStatus();
 
+
     renderPills();
+
+
+    renderSettings();
 
 
     document
@@ -11625,6 +14353,7 @@ function render() {
         );
 
 }
+
 
 
 /* ========================================================= */
@@ -11659,6 +14388,7 @@ function saveGame(
     }
 
 }
+
 
 
 /* ========================================================= */
@@ -11866,6 +14596,28 @@ function loadGame() {
                     {}
                 )
 
+            },
+
+            achievementsClaimed: {
+
+                ...defaults.achievementsClaimed,
+
+                ...(
+                    parsed.achievementsClaimed ||
+                    {}
+                )
+
+            },
+
+            settings: {
+
+                ...defaults.settings,
+
+                ...(
+                    parsed.settings ||
+                    {}
+                )
+
             }
 
         };
@@ -11939,6 +14691,10 @@ function loadGame() {
             {};
 
 
+        game.pendingTribulationRealm =
+            null;
+
+
         game.health =
             clamp(
                 game.health ||
@@ -11969,6 +14725,7 @@ function loadGame() {
 }
 
 
+
 /* ========================================================= */
 /* RESET                                                     */
 /* ========================================================= */
@@ -11993,6 +14750,9 @@ function resetGame() {
     stopAutoBattle();
 
 
+    stopAmbientAudio();
+
+
     [
         SAVE_KEY,
         ...OLD_SAVE_KEYS
@@ -12009,8 +14769,9 @@ function resetGame() {
 }
 
 
+
 /* ========================================================= */
-/* NOTIFICATION                                              */
+/* NOTIFICATIONS                                             */
 /* ========================================================= */
 
 function notify(
@@ -12049,58 +14810,6 @@ function notify(
 }
 
 
-/* ========================================================= */
-/* FLOATING TEXT                                             */
-/* ========================================================= */
-
-function floatingText(
-    event,
-    text
-) {
-
-    const element =
-        document.createElement(
-            "div"
-        );
-
-
-    element.className =
-        "notification";
-
-
-    element.style.position =
-        "fixed";
-
-
-    element.style.left =
-        `${event?.clientX || 500}px`;
-
-
-    element.style.top =
-        `${event?.clientY || 300}px`;
-
-
-    element.style.pointerEvents =
-        "none";
-
-
-    element.textContent =
-        text;
-
-
-    document.body.appendChild(
-        element
-    );
-
-
-    setTimeout(
-        () =>
-            element.remove(),
-        750
-    );
-
-}
-
 
 /* ========================================================= */
 /* PARTICLES                                                 */
@@ -12112,6 +14821,10 @@ function createParticles() {
         byId(
             "particles"
         );
+
+
+    container.innerHTML =
+        "";
 
 
     for (
@@ -12164,6 +14877,149 @@ function createParticles() {
     }
 
 }
+
+
+
+/* ========================================================= */
+/* TOOLTIPS                                                  */
+/* ========================================================= */
+
+function initializeTooltips() {
+
+    const tooltip =
+        byId(
+            "tooltip"
+        );
+
+
+    document.addEventListener(
+        "mouseover",
+        event => {
+
+            const target =
+                event.target.closest(
+                    "[data-tooltip]"
+                );
+
+
+            if (
+                !target
+            ) {
+
+                return;
+
+            }
+
+
+            tooltip.textContent =
+                target.dataset.tooltip;
+
+
+            tooltip.classList.remove(
+                "hidden"
+            );
+
+        }
+    );
+
+
+    document.addEventListener(
+        "mousemove",
+        event => {
+
+            if (
+                tooltip.classList.contains(
+                    "hidden"
+                )
+            ) {
+
+                return;
+
+            }
+
+
+            tooltip.style.left =
+                `${event.clientX + 14}px`;
+
+
+            tooltip.style.top =
+                `${event.clientY + 14}px`;
+
+        }
+    );
+
+
+    document.addEventListener(
+        "mouseout",
+        event => {
+
+            const target =
+                event.target.closest(
+                    "[data-tooltip]"
+                );
+
+
+            if (
+                !target
+            ) {
+
+                return;
+
+            }
+
+
+            tooltip.classList.add(
+                "hidden"
+            );
+
+        }
+    );
+
+}
+
+
+
+/* ========================================================= */
+/* SETTINGS                                                  */
+/* ========================================================= */
+
+function toggleSetting(key) {
+
+    game.settings[
+        key
+    ] =
+        !game.settings[
+            key
+        ];
+
+
+    if (
+        key ===
+        "music"
+    ) {
+
+        if (
+            game.settings.music
+        ) {
+
+            startAmbientAudio();
+
+        } else {
+
+            stopAmbientAudio();
+
+        }
+
+    }
+
+
+    saveGame();
+
+
+    renderSettings();
+
+}
+
 
 
 /* ========================================================= */
@@ -12345,7 +15201,7 @@ byId(
         );
 
 
-/* PETS */
+/* PET */
 
 byId(
     "hatchPetButton"
@@ -12384,6 +15240,14 @@ byId(
     "ascendButton"
 ).onclick =
     ascend;
+
+
+/* TRIBULATION */
+
+byId(
+    "faceTribulationButton"
+).onclick =
+    faceTribulation;
 
 
 /* EQUIPMENT */
@@ -12446,6 +15310,81 @@ byId(
         );
 
 
+/* SETTINGS */
+
+byId(
+    "settingsButton"
+).onclick =
+    () => {
+
+        renderSettings();
+
+
+        byId(
+            "settingsModal"
+        ).classList.remove(
+            "hidden"
+        );
+
+    };
+
+
+byId(
+    "closeSettingsButton"
+).onclick =
+    () =>
+        byId(
+            "settingsModal"
+        ).classList.add(
+            "hidden"
+        );
+
+
+byId(
+    "soundToggleButton"
+).onclick =
+    () =>
+        toggleSetting(
+            "sound"
+        );
+
+
+byId(
+    "musicToggleButton"
+).onclick =
+    () =>
+        toggleSetting(
+            "music"
+        );
+
+
+byId(
+    "effectsToggleButton"
+).onclick =
+    () =>
+        toggleSetting(
+            "effects"
+        );
+
+
+byId(
+    "floatingToggleButton"
+).onclick =
+    () =>
+        toggleSetting(
+            "floatingNumbers"
+        );
+
+
+byId(
+    "compactToggleButton"
+).onclick =
+    () =>
+        toggleSetting(
+            "compact"
+        );
+
+
 /* SAVE */
 
 byId(
@@ -12469,15 +15408,22 @@ byId(
     claimOfflineProgress;
 
 
+
 /* ========================================================= */
-/* PAGE CLOSE                                                */
+/* MODAL BACKGROUND CLOSE                                    */
 /* ========================================================= */
 
 [
     "statusModal",
+
     "equipmentModal",
+
     "pillModal",
-    "npcModal"
+
+    "npcModal",
+
+    "settingsModal"
+
 ].forEach(
     id => {
 
@@ -12509,6 +15455,31 @@ byId(
 );
 
 
+
+/* ========================================================= */
+/* GLOBAL CLICK SOUND                                        */
+/* ========================================================= */
+
+document.addEventListener(
+    "click",
+    event => {
+
+        if (
+            event.target.closest(
+                "button"
+            ) &&
+            !event.target.disabled
+        ) {
+
+            ensureAudioContext();
+
+        }
+
+    }
+);
+
+
+
 /* ========================================================= */
 /* UNLOAD                                                    */
 /* ========================================================= */
@@ -12517,6 +15488,7 @@ window.addEventListener(
     "beforeunload",
     saveGame
 );
+
 
 
 /* ========================================================= */
@@ -12540,7 +15512,32 @@ function initialize() {
     createParticles();
 
 
+    initializeTooltips();
+
+
     render();
+
+
+    if (
+        game.settings.music
+    ) {
+
+        document.addEventListener(
+            "click",
+            function startMusicOnce() {
+
+                startAmbientAudio();
+
+
+                document.removeEventListener(
+                    "click",
+                    startMusicOnce
+                );
+
+            }
+        );
+
+    }
 
 
     setInterval(
