@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Idle Cultivation - A browser cultivation RPG."
+    >
+
+    <title>Idle Cultivation</title>
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Noto+Serif+SC:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+</head>
+
+<body>
+
+    <!-- ========================================================= -->
+    <!-- BACKGROUND                                                -->
+    <!-- ========================================================= -->
+
+    <div class="background-overlay"></div>
+
+    <div
+        id="particles"
+        class="particles"
+        aria-hidden="true"
+    ></div>
+
+
+    <!-- ========================================================= -->
+    <!-- GAME                                                      -->
+    <!-- ========================================================= -->
+
+    <main class="game-container">
+
+        <!-- ===================================================== -->
+        <!-- HEADER                                                -->
+        <!-- ===================================================== -->
+
+        <header class="game-header">
+
+            <div class="game-title-area">
+
+                <p class="game-eyebrow">
+                    天 道 修 仙
+                </p>
+
+                <h1>
+                    IDLE CULTIVATION
+                </h1>
+
+                <p class="game-subtitle">
+                    Walk the path from mortal to immortality.
+                </p>
+
+            </div>
+
+            <div class="header-actions">
+
+                <button
+                    id="saveButton"
+                    class="small-button"
+                    type="button"
+                >
+                    Save
+                </button>
+
+                <button
+                    id="resetButton"
+                    class="small-button danger-button"
+                    type="button"
+                >
+                    Reset
+                </button>
+
+            </div>
+
+        </header>
+
+
+        <!-- ===================================================== -->
+        <!-- MAIN GRID                                             -->
+        <!-- ===================================================== -->
+
+        <section class="main-grid">
+
+            <!-- ================================================= -->
+            <!-- LEFT PANEL                                        -->
+            <!-- ================================================= -->
+
+            <aside class="panel character-panel">
+
+                <div class="panel-title">
+                    <span>道</span>
+                    Cultivator
+                </div>
+
+                <div class="character-avatar">
+
+                    <div class="cultivation-circle circle-one"></div>
+
+                    <div class="cultivation-circle circle-two"></div>
+
+                    <div class="avatar-core">
+                        <span>修</span>
+                    </div>
+
+                </div>
+
+                <div class="character-name">
+                    Jiang Chue
+                </div>
+
+                <div
+                    id="realmDisplay"
+                    class="character-realm"
+                >
+                    Mortal
+                </div>
+
+                <div
+                    id="stageDisplay"
+                    class="character-stage"
+                >
+                    Early Stage
+                </div>
+
+
+                <!-- ============================================= -->
+                <!-- CHARACTER STATS                               -->
+                <!-- ============================================= -->
+
+                <div class="stat-list">
+
+                    <div class="stat-row">
+
+                        <span>
+                            Combat Power
+                        </span>
+
+                        <strong id="combatPowerDisplay">
+                            10
+                        </strong>
+
+                    </div>
+
+                    <div class="stat-row">
+
+                        <span>
+                            Qi / Second
+                        </span>
+
+                        <strong id="qiPerSecondDisplay">
+                            1
+                        </strong>
+
+                    </div>
+
+                    <div class="stat-row">
+
+                        <span>
+                            Spirit Stones
+                        </span>
+
+                        <strong id="spiritStoneDisplay">
+                            0
+                        </strong>
+
+                    </div>
+
+                    <div class="stat-row">
+
+                        <span>
+                            Breakthroughs
+                        </span>
+
+                        <strong id="breakthroughCountDisplay">
+                            0
+                        </strong>
+
+                    </div>
+
+                    <div class="stat-row">
+
+                        <span>
+                            Total Qi
+                        </span>
+
+                        <strong id="totalQiDisplay">
+                            0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </aside>
+
+
+            <!-- ================================================= -->
+            <!-- CENTER PANEL                                      -->
+            <!-- ================================================= -->
+
+            <section class="panel cultivation-panel">
+
+                <div class="panel-title">
+                    <span>氣</span>
+                    Cultivation Chamber
+                </div>
+
+
+                <!-- ============================================= -->
+                <!-- REALM                                        -->
+                <!-- ============================================= -->
+
+                <div class="realm-heading">
+
+                    <div>
+
+                        <span class="small-label">
+                            Current Realm
+                        </span>
+
+                        <h2 id="mainRealmDisplay">
+                            Mortal · Early Stage
+                        </h2>
+
+                    </div>
+
+                    <div
+                        id="breakthroughChanceDisplay"
+                        class="chance-badge"
+                    >
+                        Breakthrough: 100%
+                    </div>
+
+                </div>
+
+
+                <!-- ============================================= -->
+                <!-- QI BAR                                       -->
+                <!-- ============================================= -->
+
+                <div class="qi-section">
+
+                    <div class="qi-info">
+
+                        <span>
+                            Cultivation Progress
+                        </span>
+
+                        <span id="qiProgressText">
+                            0 / 100 Qi
+                        </span>
+
+                    </div>
+
+                    <div class="progress-bar">
+
+                        <div
+                            id="qiProgressBar"
+                            class="progress-fill"
+                        ></div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ============================================= -->
+                <!-- CULTIVATION ORB                               -->
+                <!-- ============================================= -->
+
+                <div class="cultivation-orb-area">
+
+                    <button
+                        id="cultivateButton"
+                        class="cultivation-orb"
+                        type="button"
+                        aria-label="Cultivate"
+                    >
+
+                        <div class="orb-ring orb-ring-one"></div>
+
+                        <div class="orb-ring orb-ring-two"></div>
+
+                        <div class="orb-ring orb-ring-three"></div>
+
+                        <div class="orb-center">
+
+                            <span class="orb-symbol">
+                                氣
+                            </span>
+
+                            <small>
+                                CULTIVATE
+                            </small>
+
+                        </div>
+
+                    </button>
+
+                    <p>
+                        Meditation automatically gathers Qi.
+                        Click the core to gather additional Qi.
+                    </p>
+
+                </div>
+
+
+                <!-- ============================================= -->
+                <!-- MAIN ACTIONS                                  -->
+                <!-- ============================================= -->
+
+                <div class="main-actions">
+
+                    <button
+                        id="breakthroughButton"
+                        class="action-button primary-action"
+                        type="button"
+                    >
+                        Attempt Breakthrough
+                    </button>
+
+                    <button
+                        id="signInButton"
+                        class="action-button"
+                        type="button"
+                    >
+                        Daily Sign-In
+                    </button>
+
+                    <button
+                        id="usePillButton"
+                        class="action-button"
+                        type="button"
+                    >
+                        Use Cultivation Pill
+                    </button>
+
+                </div>
+
+
+                <!-- ============================================= -->
+                <!-- SYSTEM MESSAGE                                -->
+                <!-- ============================================= -->
+
+                <div class="system-message">
+
+                    <span class="system-label">
+                        SYSTEM
+                    </span>
+
+                    <p id="systemMessage">
+                        Your path toward immortality begins.
+                    </p>
+
+                </div>
+
+            </section>
+
+
+            <!-- ================================================= -->
+            <!-- RIGHT PANEL                                       -->
+            <!-- ================================================= -->
+
+            <aside class="right-column">
+
+                <!-- ============================================= -->
+                <!-- INVENTORY                                     -->
+                <!-- ============================================= -->
+
+                <section class="panel inventory-panel">
+
+                    <div class="panel-title">
+                        <span>寶</span>
+                        Inventory
+                    </div>
+
+                    <div class="inventory-grid">
+
+                        <div class="inventory-item">
+
+                            <div class="item-icon">
+                                💊
+                            </div>
+
+                            <div class="item-info">
+
+                                <span>
+                                    Cultivation Pill
+                                </span>
+
+                                <small>
+                                    Grants Qi instantly
+                                </small>
+
+                            </div>
+
+                            <strong id="pillCountDisplay">
+                                0
+                            </strong>
+
+                        </div>
+
+                        <div class="inventory-item">
+
+                            <div class="item-icon">
+                                💎
+                            </div>
+
+                            <div class="item-info">
+
+                                <span>
+                                    Spirit Stone
+                                </span>
+
+                                <small>
+                                    Cultivation currency
+                                </small>
+
+                            </div>
+
+                            <strong id="inventoryStoneDisplay">
+                                0
+                            </strong>
+
+                        </div>
+
+                        <div class="inventory-item">
+
+                            <div class="item-icon">
+                                📜
+                            </div>
+
+                            <div class="item-info">
+
+                                <span>
+                                    Ancient Manual
+                                </span>
+
+                                <small>
+                                    Permanent Qi bonus
+                                </small>
+
+                            </div>
+
+                            <strong id="manualCountDisplay">
+                                0
+                            </strong>
+
+                        </div>
+
+                        <div class="inventory-item">
+
+                            <div class="item-icon">
+                                ⚔️
+                            </div>
+
+                            <div class="item-info">
+
+                                <span>
+                                    Spirit Weapon
+                                </span>
+
+                                <small>
+                                    Combat power bonus
+                                </small>
+
+                            </div>
+
+                            <strong id="weaponCountDisplay">
+                                0
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- ============================================= -->
+                <!-- DAILY SIGN IN                                 -->
+                <!-- ============================================= -->
+
+                <section class="panel daily-panel">
+
+                    <div class="panel-title">
+                        <span>日</span>
+                        Daily Sign-In
+                    </div>
+
+                    <div class="daily-streak">
+
+                        <span>
+                            Consecutive Days
+                        </span>
+
+                        <strong id="streakDisplay">
+                            0
+                        </strong>
+
+                    </div>
+
+                    <div class="daily-rewards">
+
+                        <div class="reward-slot">
+                            <small>Day 1</small>
+                            <span>💎 100</span>
+                        </div>
+
+                        <div class="reward-slot">
+                            <small>Day 2</small>
+                            <span>💊 ×1</span>
+                        </div>
+
+                        <div class="reward-slot">
+                            <small>Day 3</small>
+                            <span>💎 250</span>
+                        </div>
+
+                        <div class="reward-slot">
+                            <small>Day 4</small>
+                            <span>💊 ×2</span>
+                        </div>
+
+                        <div class="reward-slot">
+                            <small>Day 5</small>
+                            <span>📜 ×1</span>
+                        </div>
+
+                        <div class="reward-slot">
+                            <small>Day 6</small>
+                            <span>💎 500</span>
+                        </div>
+
+                        <div class="reward-slot legendary-reward">
+                            <small>Day 7</small>
+                            <span>⚔️ ×1</span>
+                        </div>
+
+                    </div>
+
+                    <p
+                        id="dailyStatus"
+                        class="daily-status"
+                    >
+                        Sign-in reward available.
+                    </p>
+
+                </section>
+
+            </aside>
+
+        </section>
+
+
+        <!-- ===================================================== -->
+        <!-- BOTTOM SECTION                                        -->
+        <!-- ===================================================== -->
+
+        <section class="bottom-grid">
+
+            <!-- ================================================= -->
+            <!-- CULTIVATION LOG                                   -->
+            <!-- ================================================= -->
+
+            <section class="panel">
+
+                <div class="panel-title">
+                    <span>錄</span>
+                    Cultivation Log
+                </div>
+
+                <div
+                    id="cultivationLog"
+                    class="cultivation-log"
+                >
+                </div>
+
+            </section>
+
+
+            <!-- ================================================= -->
+            <!-- PATH                                              -->
+            <!-- ================================================= -->
+
+            <section class="panel">
+
+                <div class="panel-title">
+                    <span>境</span>
+                    Path of Ascension
+                </div>
+
+                <div
+                    id="realmPath"
+                    class="realm-path"
+                >
+                </div>
+
+            </section>
+
+        </section>
+
+
+        <!-- ===================================================== -->
+        <!-- FOOTER                                                -->
+        <!-- ===================================================== -->
+
+        <footer class="game-footer">
+
+            <span>
+                Idle Cultivation
+            </span>
+
+            <span>
+                •
+            </span>
+
+            <span>
+                Your journey is automatically saved.
+            </span>
+
+        </footer>
+
+    </main>
+
+
+    <!-- ========================================================= -->
+    <!-- NOTIFICATION                                              -->
+    <!-- ========================================================= -->
+
+    <div
+        id="notificationContainer"
+        class="notification-container"
+    ></div>
+
+
+    <!-- ========================================================= -->
+    <!-- OFFLINE MODAL                                             -->
+    <!-- ========================================================= -->
+
+    <div
+        id="offlineModal"
+        class="modal hidden"
+    >
+
+        <div class="modal-card">
+
+            <div class="modal-symbol">
+                ☯
+            </div>
+
+            <h2>
+                Welcome Back, Cultivator
+            </h2>
+
+            <p>
+                While you were away, your body continued
+                absorbing the spiritual energy of heaven and earth.
+            </p>
+
+            <div class="offline-reward-box">
+
+                <span>
+                    Offline Time
+                </span>
+
+                <strong id="offlineTimeDisplay">
+                    0 minutes
+                </strong>
+
+            </div>
+
+            <div class="offline-reward-box">
+
+                <span>
+                    Qi Cultivated
+                </span>
+
+                <strong id="offlineQiDisplay">
+                    +0 Qi
+                </strong>
+
+            </div>
+
+            <button
+                id="claimOfflineButton"
+                class="action-button primary-action modal-button"
+                type="button"
+            >
+                Claim Cultivation
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- ========================================================= -->
+    <!-- SCRIPT                                                    -->
+    <!-- ========================================================= -->
+
+    <script src="game.js"></script>
+
+</body>
+</html>
